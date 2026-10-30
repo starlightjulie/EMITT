@@ -1,0 +1,436 @@
+widget_label|EMITT コード
+widget_description|保存したコードをホーム画面に表示します
+tile_label|EMITT コード
+channel_updates|アプリの更新
+channel_emulation|スマホを NFC タグにする
+emulation_description|EMITT NFC タグ
+kind_text|テキスト
+kind_url|リンク
+kind_contact|連絡先
+kind_email|メール
+kind_phone|電話
+kind_geo|位置情報
+kind_app|アプリ
+wifi_open|なし
+need_text|テキストを入力してください
+need_link|リンクを入力してください
+need_ssid|ネットワーク名を入力してください
+need_password|パスワードを入力してください
+need_contact|名前、電話番号、メールのいずれかを入力してください
+need_email|メールアドレスを入力してください
+need_number|電話番号を入力してください
+need_geo|緯度と経度を入力してください
+need_package|com.example.app のようなパッケージ名を入力してください
+shape_square|四角
+shape_rounded|角丸
+shape_dots|ドット
+shape_fluid|流線
+shape_bars|バー
+shape_diamond|ひし形
+shape_circle|円
+shape_leaf|リーフ
+grad_flat|単色
+grad_linear|線形
+grad_radial|放射状
+badge_image|画像
+ec_low|低
+ec_medium|中
+ec_quartile|やや高
+ec_high|高
+pat_off|オフ
+pat_tick|チック
+pat_double|ダブルタップ
+pat_triple|トリプル
+pat_heartbeat|ハートビート
+pat_buzz|ロングバズ
+pat_rising|上昇
+pat_falling|下降
+pat_purr|ゴロゴロ
+hev_write|タグの書き込み・読み取り
+hev_write_hint|EMITT がタグを書き込み、読み取り、消去、ロックしたとき
+hev_emulated|スマホがタグとして読まれた
+hev_emulated_hint|別の端末がタグモードのこのスマホを読み取ったとき
+hev_fail|失敗したとき
+hev_fail_hint|書き込みや読み取りがうまくいかなかったとき
+slot_accent|アクセント
+slot_accent_hint|ボタン、ハイライト、選択中のタブ
+slot_signal|シグナル
+slot_signal_hint|第 2 アクセント: ステータス、リンク、アニメーション
+slot_bg|背景
+slot_bg_hint|すべての奥
+slot_panels|パネル
+slot_panels_hint|カードやシート
+slot_text_hint|メインの文字色
+bg_synth|シンセグリッド
+bg_rain|コードの雨
+bg_scope|オシロスコープ
+bg_radar|レーダー
+bg_dots|ドットマトリクス
+bg_circuit|回路
+bg_warp|ワープ
+bg_spectrum|スペクトラム
+bg_static|砂嵐
+bg_random|ランダム
+bgc_duo|両方のアクセント
+bgc_cycle|色相サイクル
+bgc_ink|文字色
+corner_cut|面取り
+corner_sharp|角あり
+corner_soft|やわらか
+font_mixed|ラベルは等幅
+font_mono|すべて等幅
+tag_read_failed|タグを読み取れませんでした。動かさずにもう一度試してください。
+tag_readonly|このタグは読み取り専用です。
+tag_too_big|大きすぎます: %1$d バイトですが、タグの容量は %2$d です。
+tag_no_ndef|このタグは NDEF に対応していません。
+tag_lost_write|書き込み中にタグが離れました。動かさずにもう一度試してください。
+tag_write_failed|書き込みに失敗しました。
+tag_nothing_to_lock|このタグにはロックする NDEF データがありません。
+tag_cant_lock|このタグはロックできません。
+tag_lock_refused|タグがロックを拒否しました。
+tag_lost|タグが離れました。動かさずにもう一度試してください。
+fl_bt_off|Bluetooth がオフです
+fl_step_looking|検索中
+fl_not_in_range|そのペア設定は範囲外です。電波強度が表示されている Flipper を選んでください。
+fl_cant_see|Flipper が見つかりません。Flipper で Settings → Bluetooth が ON か、Flipper アプリが接続していないか確認してください。
+fl_step_pairing|ペア設定: Flipper に表示された PIN を入力してください
+fl_step_connecting|接続中
+fl_step_setup|準備中
+fl_not_flipper|Flipper ではないようです（シリアルサービスがありません）。
+fl_step_info|デバイス情報を読み取り中
+fl_other_app|Flipper は別のアプリ（公式 Flipper アプリなど）に接続されています。そちらで切断してから再試行してください。
+fl_timeout|タイムアウトしました。Flipper の設定で Bluetooth はオンですか？
+fl_failed|接続に失敗しました
+fl_disconnected|切断されました
+fl_pair_start|ペア設定を開始できませんでした
+fl_pair_failed|ペア設定がキャンセルされたか、PIN が一致しませんでした
+fl_not_connected|未接続
+fl_refused|Bluetooth のリクエストが拒否されました
+fl_dropped|Flipper が切断されました
+fl_subscribe|Flipper が接続を拒否しました（%1$d）。もう一度ペア設定してください。
+fl_write|Bluetooth の書き込みに失敗しました（%1$d）
+fl_error|Flipper エラー %1$d
+fl_stalled|Flipper がデータを受け付けなくなりました
+fs_unknown|不明なエラー
+fs_decode|デコードできません
+fs_unsupported|非対応
+fs_busy|Flipper は処理中です
+fs_sd|SD カードの準備ができていません
+fs_exists|すでに存在します
+fs_missing|存在しません
+fs_param|無効なパラメータ
+fs_denied|アクセスが拒否されました
+fs_name|無効な名前
+fs_internal|内部エラー
+fs_open|すでに開いています
+fs_interrupted|中断されました
+fs_params|無効なパラメータ
+upd_none|公開リリースはまだありません
+upd_http|GitHub の応答: %1$d
+upd_notag|リリースにバージョンタグがありません
+upd_offline|GitHub に接続できません
+emu_notif_title|スマホが NFC タグになっています
+emu_notif_text|%1$s を発信中。EMITT を開くと、ほかのスマホがタッチして読み取れます。
+stop|停止
+upd_notif_title|EMITT %1$s が公開されました
+open_release|リリースを開く
+tile_pin|ライブラリで 1 つ固定してください
+tile_show|コードを表示
+widget_pick|タップしてコードを選択
+widget_empty|ライブラリが空です。先に EMITT でコードを保存してから、ウィジェットを追加し直してください。
+widget_pick_title|コードを選択
+tab_create|作成
+tab_scan|スキャン
+tab_tags|タグ
+tab_library|ライブラリ
+out_qr|QR コード
+out_nfc|NFC タグ
+prompt_write|タグをスマホにかざして書き込み: %1$s
+prompt_erase|タグをスマホにかざして消去
+prompt_lock|タグをスマホにかざしてロック。元に戻せません。
+prompt_copy_from|コピー元のタグをかざしてください
+prompt_copy_to|次にコピー先のタグをかざしてください
+lib_updated|ライブラリで更新しました
+lib_saved|ライブラリに保存しました
+emu_unsupported|このスマホは NFC タグとして動作できません
+nfc_turn_on_first|先に NFC をオンにしてください
+copy_empty|そのタグにはコピーするものがありません。
+fl_too_big|NTAG216（872 バイト）には大きすぎます
+fl_too_big_chip|%1$s には大きすぎます。大きいチップを選んでください。
+fl_connect_first|先に Flipper を接続してください
+fl_sent|Flipper に送信しました: %1$s
+fl_send_failed|送信できませんでした: %1$s
+upd_checking|確認中…
+upd_available|バージョン %1$s が利用できます
+upd_latest|最新バージョンです
+qr_selftest_ok|自己テストスキャン合格（バージョン %1$d、%2$d×%2$d）
+qr_selftest_fail|自己テストで読み取れません。コントラストを上げるか、四角のモジュールや小さめのバッジにしてください。
+qr_contrast_low|コントラスト %1$.1f:1 は低すぎます。4:1 以上を目指してください。
+qr_contrast_mid|コントラスト %1$.1f:1 は暗い場所ではぎりぎりです。
+qr_contrast_ok|コントラスト %1$.1f:1
+qr_inverted|暗い背景に明るいコード（反転）は、古い読み取り機では読めないことがあります。
+qr_transparent|透明な背景: 後ろが明るく無地になるようにしてください。
+qr_border|余白が 2 モジュール未満です。印刷時はスペースを空けてください。
+qr_ec_raised|バッジのため、誤り訂正を %1$s に上げました。
+qr_big_badge|バッジが大きいです。誤り訂正を「高」にしてください。
+qr_dense|密度の高いコードです（バージョン %1$d）。内容を短くすると、速く遠くから読み取れます。
+qr_nothing|まだエンコードする内容がありません
+qr_too_much|QR コードにはデータが多すぎます
+tap_to_close|タップして閉じる
+pick_colour|色を選択
+use|使用
+cancel|キャンセル
+edit_title|編集 · %1$s
+payload|内容
+output|出力
+save|保存
+name|名前
+name_hint|ライブラリ、ウィジェット、ファイル名に表示されます
+update|更新
+save_to_library|ライブラリに保存
+new_draft|新規
+ssid|ネットワーク名（SSID）
+password|パスワード
+hidden_network|非公開ネットワーク
+organisation|組織
+website|ウェブサイト
+to|宛先
+subject|件名
+message|メッセージ
+number|番号
+latitude|緯度
+longitude|経度
+label_optional|ラベル（任意）
+package_name|パッケージ名
+package_hint|NFC はアプリを直接開き、QR はストアのページにリンクします
+export_size|書き出しサイズ
+full|全画面
+share|共有
+saved_gallery|Pictures/EMITT に保存しました
+save_image_failed|画像を保存できませんでした
+style|スタイル
+preset_classic|クラシック
+preset_theme|テーマ
+preset_synth|シンセ
+preset_terminal|ターミナル
+preset_inverted|反転
+image_load_failed|その画像を読み込めませんでした
+presets|プリセット
+colours|色
+modules|モジュール
+gradient_end|グラデーションの終点
+transparent_bg|透明な背景
+custom_eyes|目の色をカスタマイズ
+eye_frame|目の枠
+eye_centre|目の中心
+swap|入れ替え
+reset|リセット
+shape|形
+module_size|モジュールのサイズ
+eyes|目
+centre_badge|中央のバッジ
+badge_text|バッジの文字（6 文字まで）
+choose_image|画像を選択
+badge_size|バッジのサイズ
+visibility|読み取りやすさ
+ec_hint|誤り訂正: 高いほど傷・反射・バッジに強くなりますが、コードの密度が上がります。
+quiet_zone|余白（クワイエットゾーン）
+n_modules|%1$d モジュール
+max_brightness|全画面で最大の明るさ
+max_brightness_hint|ほかのスマホが遠くから読み取りやすくなります
+ndef_too_big|%1$d バイト · NTAG216 より大きいタグが必要です
+ndef_fits|%1$d バイト · %2$s に収まります
+extras|追加
+also_open_app|アプリも開く（パッケージ）
+also_open_app_hint|任意の Android Application Record。不要なら空欄のままにしてください。
+write_to_tag|タグに書き込む
+be_the_tag|タグになる
+nfc_modes_hint|「タグに書き込む」はシールやカードに保存します。「タグになる」はこのスマホをタグにします。EMITT を開いている間、ほかのスマホがタッチして読み取れます。
+with_flipper|Flipper で使う
+flipper_write_tip|Flipper に書き込むには: Flipper で NFC → Add Manually → NTAG215 → Emulate を選び、ここで「タグに書き込む」をタップします。
+flipper_read_tip|このスマホを読み取るには: NFC → Extra Actions → Read Specific Card Type → Type 4 Tag を使います。通常の Read は決済カードも探すため、ウォレットアプリが起動します。
+ntag_tip|ヒント: NTAG213 はリンク約 130 文字分、NTAG215 と NTAG216 はさらに多く保存できます。
+waiting_for_tag|タグを待っています…
+saved_file|%1$s を保存しました
+save_file_failed|ファイルを保存できませんでした
+flipper_file_hint|Flipper でエミュレートできる NTAG ファイルを作ります: NFC → Saved → Emulate。
+chip|チップ
+auto|自動
+uid_7|7 バイトの UID
+file_summary|%1$s · %2$d バイト · %3$d ページ
+hide_file|ファイルを隠す
+show_file|ファイルを表示
+send_to_flipper|Flipper に送信
+connect_flipper|Flipper を接続
+save_file|ファイルを保存
+cant_build_file|ファイルを作成できません
+no_code_in_image|その画像にはコードが見つかりません
+scanner|スキャナー
+camera_why|EMITT はコードのスキャンにカメラを使います。録画やアップロードはしません。
+allow_camera|カメラを許可
+light_off|ライトをオフ
+light|ライト
+from_image|画像から
+decoded|デコード済み · %1$s
+type|種類
+security|セキュリティ
+content|内容
+open|開く
+copy|コピー
+copied|コピーしました
+re_emit|再利用
+edit|編集
+to_tag|タグへ
+scan_again|もう一度スキャン
+scan_hint|QR コードやバーコードに向けてください。スマホ内でデコードし、外部には送りません。
+not_flipper_file|Flipper の NFC ファイルではありません
+no_nfc|このスマホには NFC がありません。QR コードと Flipper ファイルは作成できます。
+nfc_off|NFC がオフです。
+turn_on_nfc|NFC をオンにする
+nfc_ready|準備完了。スマホの背面にタグをかざすと内容を確認できます。
+wrote_of|%2$d バイト中 %1$d バイトを書き込みました
+wrote|%1$d バイトを書き込みました
+tag_erased|タグを消去しました
+tag_locked|タグをロックしました。今後は読み取り専用です。
+tools|ツール
+read|読み取り
+tap_to_read|タグをかざして読み取ってください
+erase|消去
+lock|ロック
+import_nfc|.nfc を読み込む
+lock_q|タグをロックしますか？
+erase_q|タグを消去しますか？
+lock_warn|ロックするとタグは永久に読み取り専用になります。あなたも含め、誰も変更できなくなります。
+erase_warn|タグの内容を消去します。タグは引き続き書き込めます。
+lock_forever|永久にロック
+tag_title|タグ · %1$s
+uid_copied|UID をコピーしました
+memory|容量
+writable|書き込み
+yes|可
+no_readonly|不可（読み取り専用）
+lockable|ロック
+no|不可
+records|レコード
+no_ndef_data|NDEF データなし
+uid_only|このチップの種類では UID、ATQA、SAK のみ保存できます。
+send|送信
+cant_convert|Flipper 用に保存できるのは NFC-A タグだけです
+n_pages|%1$d ページ
+file_title|ファイル · %1$s
+device|デバイス
+pages|ページ
+no_ndef_in_file|このファイルには NDEF メッセージがありません。
+file_data|ファイルのデータ
+uid_not_copied|スマホはタグの UID をコピーできません。書き込まれるのはデータだけです。
+link|接続
+connected_to|%1$s に接続しました
+bt_why|EMITT は Flipper を見つけて通信するために Bluetooth を使います。
+allow_bt|Bluetooth を許可
+reconnect|再接続
+scanning|スキャン中…
+nearby|近くのデバイス
+looking_flippers|Flipper を探しています…
+tap_scan|「スキャン」をタップ。Flipper で: Settings → Bluetooth → ON。
+paired|ペア設定済み
+not_in_range|範囲外
+first_time|初めてですか？
+pair_hint|上で Flipper を選びます。Android が PIN を求めるので、Flipper の画面に表示された 6 桁を入力してください。
+list_failed|Flipper のファイル一覧を取得できませんでした
+firmware|ファームウェア
+built|ビルド日
+model|モデル
+region|地域
+sd_card|SD カード
+gb_free|空き %1$.1f / %2$.1f GB
+all_device_info|すべてのデバイス情報
+beep|ビープ
+disconnect|切断
+refresh|更新
+reading|読み取り中…
+no_nfc_files|NFC ファイルはまだありません。作成 → Flipper で作ってください。
+files_land_here|EMITT から送ったファイルはここに入ります。Flipper の NFC → Saved で開けます。
+library_count|ライブラリ · %1$d
+search|検索
+starred|スター付き
+all|すべて
+lib_empty|まだ何も保存していません。作成で何か作って「ライブラリに保存」をタップしてください。
+no_matches|一致するものはありません。
+tile|タイル
+star|スター
+show|表示
+unpin_tile|タイルから外す
+pin_tile|タイルに固定
+tile_removed|クイック設定タイルから外しました
+tile_now_shows|クイック設定タイルに %1$s を表示します
+rename|名前を変更
+delete|削除
+delete_q|削除しますか？
+delete_confirm|「%1$s」をライブラリから削除しますか？表示中のウィジェットは空になります。
+back|戻る
+appearance|外観
+settings|設定
+made_by|作者
+phone_is_tag|スマホがタグになっています
+waiting_reader|読み取りを待っています
+reads|読み取り回数: %1$d
+tagmode_hold|もう一方のスマホの背面を、このスマホの背面中央に当ててください。
+tagmode_keep_open|この画面は開いたままにしてください。EMITT がバックグラウンドになると、スマホ内蔵のタグやウォレットが代わりに応答することがあります。
+tagmode_flipper|Flipper: NFC → Extra Actions → Read Specific Card Type → Type 4 Tag。
+minimise|最小化
+awaiting_tag|タグを待機中
+bar_hold|別のスマホを当ててください。タップでタグモードを開きます。
+scans|読み取り可
+check|要確認
+update_available|アップデートがあります
+colourway|カラーテーマ
+custom_colours|カスタムカラー
+use_my_colours|自分の色を使う
+use_my_colours_hint|現在のカラーテーマから始めます
+motion|動き
+speed|速さ
+density|密度
+intensity|強さ
+colour|色
+scanlines|走査線
+scanline_strength|走査線の強さ
+vignette|周辺減光
+vignette_hint|画面の端を暗くします
+flicker|ちらつき
+flicker_hint|ブラウン管のかすかなちらつき
+interface_|インターフェース
+panel_opacity|パネルの不透明度
+panel_outlines|パネルの枠線
+glow|グロー
+glow_hint|タイトルにネオンの光（暗いテーマ）
+blinking_cursor|点滅カーソル
+corners|角
+font|フォント
+text_size|文字サイズ
+reset_look|外観をリセット
+app_icon|アプリアイコン
+icon_changed|アイコンを変更しました。ランチャーへの反映に少し時間がかかることがあります。
+language|言語
+language_system|スマホの言語
+language_hint|プロトコル名やチップ名など、一部の言葉は英語のままです。
+vibration|バイブレーション
+vibration_hint|タグを書き込んだときやスマホが読まれたときの振動
+strength|強さ
+tap_pattern|パターンをタップすると振動を確認できます。
+updates|アップデート
+check_releases|新しいリリースを確認
+check_releases_hint|GitHub の公開 API に問い合わせます。あなたに関する情報は送信されません。
+check_every|確認間隔
+notifications_off|通知がオフのため、アップデートはアプリ内でのみ表示されます。
+allow_notifications|通知を許可
+check_now|今すぐ確認
+get_it|入手
+about|このアプリについて
+tagline|QR コード、NFC タグ、Flipper Zero ファイルを 1 つのアプリで。
+version|バージョン
+official_build|公式ビルド
+unofficial_build|非公式ビルド: StarlightJulie の署名がありません
+made_by_line|StarlightJulie 作。GPLv3 の無料オープンソースです。
+source|ソースコード
+license|ライセンス
+flipper_trademark|Flipper Zero は Flipper Devices Inc. の商標です。EMITT は同社とは無関係で、承認も受けていません。

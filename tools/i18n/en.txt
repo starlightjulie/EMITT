@@ -1,0 +1,439 @@
+kind_text|Text
+kind_url|Link
+kind_wifi|Wi-Fi
+kind_contact|Contact
+kind_email|Email
+kind_sms|SMS
+kind_phone|Phone
+kind_geo|Location
+kind_app|App
+wifi_wpa|WPA/WPA2/WPA3
+wifi_wep|WEP
+wifi_open|None
+need_text|Enter some text
+need_link|Enter a link
+need_ssid|Enter the network name
+need_password|Enter the password
+need_contact|Enter a name, phone or email
+need_email|Enter an email address
+need_number|Enter a phone number
+need_geo|Enter latitude and longitude
+need_package|Enter a package name like com.example.app
+shape_square|Square
+shape_rounded|Rounded
+shape_dots|Dots
+shape_fluid|Fluid
+shape_bars|Bars
+shape_diamond|Diamond
+shape_circle|Circle
+shape_leaf|Leaf
+grad_flat|Flat
+grad_linear|Linear
+grad_radial|Radial
+badge_image|Image
+ec_low|Low
+ec_medium|Medium
+ec_quartile|Quartile
+ec_high|High
+pat_off|Off
+pat_tick|Tick
+pat_double|Double tap
+pat_triple|Triple
+pat_heartbeat|Heartbeat
+pat_buzz|Long buzz
+pat_rising|Rising
+pat_falling|Falling
+pat_purr|Purr
+pat_sos|SOS
+hev_write|Tag written or read
+hev_write_hint|When EMITT writes, reads, erases or locks a tag
+hev_emulated|Phone read as a tag
+hev_emulated_hint|When another device reads this phone in tag mode
+hev_fail|Something failed
+hev_fail_hint|A write or read that didn't work
+slot_accent|Accent
+slot_accent_hint|Buttons, highlights, active tab
+slot_signal|Signal
+slot_signal_hint|Second accent: status, links, animation
+slot_bg|Background
+slot_bg_hint|Behind everything
+slot_panels|Panels
+slot_panels_hint|Cards and sheets
+slot_text_hint|Main text colour
+bg_synth|Synth grid
+bg_rain|Code rain
+bg_scope|Oscilloscope
+bg_radar|Radar
+bg_dots|Dot matrix
+bg_circuit|Circuit
+bg_warp|Warp
+bg_spectrum|Spectrum
+bg_static|Static
+bg_random|Random
+bgc_duo|Both accents
+bgc_cycle|Hue cycle
+bgc_ink|Text colour
+corner_cut|Chamfered
+corner_sharp|Sharp
+corner_soft|Soft
+font_mixed|Mono labels
+font_mono|All mono
+tag_read_failed|Couldn't read the tag. Hold it still and try again.
+tag_readonly|This tag is read-only.
+tag_too_big|Too big: %1$d bytes, but the tag holds %2$d.
+tag_no_ndef|This tag doesn't support NDEF.
+tag_lost_write|Lost the tag mid-write. Hold it still and try again.
+tag_write_failed|Write failed.
+tag_nothing_to_lock|This tag has no NDEF data to lock.
+tag_cant_lock|This tag can't be locked.
+tag_lock_refused|The tag refused to lock.
+tag_lost|Lost the tag. Hold it still and try again.
+fl_bt_off|Bluetooth is off
+fl_step_looking|Looking for it
+fl_not_in_range|That pairing isn't in range. Pick the Flipper that shows a signal strength.
+fl_cant_see|Can't see your Flipper. On it, check Settings → Bluetooth is ON, and that the Flipper app isn't connected to it.
+fl_step_pairing|Pairing: enter the PIN shown on your Flipper
+fl_step_connecting|Connecting
+fl_step_setup|Setting up
+fl_not_flipper|This doesn't look like a Flipper (no serial service).
+fl_step_info|Reading device info
+fl_other_app|The Flipper is connected to another app (like the official Flipper app). Disconnect it there, then try again.
+fl_timeout|Timed out. Is Bluetooth on in the Flipper's settings?
+fl_failed|Connection failed
+fl_disconnected|Disconnected
+fl_pair_start|Couldn't start pairing
+fl_pair_failed|Pairing was cancelled or the PIN didn't match
+fl_not_connected|Not connected
+fl_refused|Bluetooth request was refused
+fl_dropped|Flipper disconnected
+fl_subscribe|The Flipper refused the connection (%1$d). Try pairing again.
+fl_write|Bluetooth write failed (%1$d)
+fl_error|Flipper error %1$d
+fl_stalled|The Flipper stopped accepting data
+fs_unknown|Unknown error
+fs_decode|Couldn't decode
+fs_unsupported|Not supported
+fs_busy|The Flipper is busy
+fs_sd|SD card not ready
+fs_exists|Already exists
+fs_missing|Doesn't exist
+fs_param|Invalid parameter
+fs_denied|Access denied
+fs_name|Invalid name
+fs_internal|Internal error
+fs_open|Already open
+fs_interrupted|Interrupted
+fs_params|Invalid parameters
+upd_none|No public releases yet
+upd_http|GitHub replied %1$d
+upd_notag|The release has no version tag
+upd_offline|Couldn't reach GitHub
+emu_notif_title|Your phone is an NFC tag
+emu_notif_text|Emitting %1$s. Open EMITT and other phones can tap to read it.
+stop|Stop
+upd_notif_title|EMITT %1$s is out
+open_release|Open release
+tile_pin|Pin one in Library
+tile_show|Show code
+widget_pick|Tap to pick a code
+widget_empty|Your library is empty. Save a code in EMITT first, then add the widget again.
+widget_pick_title|Pick a code
+tab_create|Create
+tab_scan|Scan
+tab_tags|Tags
+tab_flipper|Flipper
+tab_library|Library
+out_qr|QR code
+out_nfc|NFC tag
+prompt_write|Hold a tag to the phone to write: %1$s
+prompt_erase|Hold the tag to the phone to erase it
+prompt_lock|Hold the tag to the phone to lock it. This can't be undone.
+prompt_copy_from|Hold the tag you want to copy from
+prompt_copy_to|Now hold the tag to copy onto
+lib_updated|Updated in library
+lib_saved|Saved to library
+emu_unsupported|This phone can't act as an NFC tag
+nfc_turn_on_first|Turn NFC on first
+copy_empty|That tag has nothing to copy.
+fl_too_big|Too big for an NTAG216 (872 bytes)
+fl_too_big_chip|Too big for %1$s. Pick a bigger chip.
+fl_connect_first|Connect your Flipper first
+fl_sent|Sent to Flipper: %1$s
+fl_send_failed|Couldn't send: %1$s
+upd_checking|Checking…
+upd_available|Version %1$s is available
+upd_latest|You're on the latest version
+qr_selftest_ok|Self-test scan passed (version %1$d, %2$d×%2$d)
+qr_selftest_fail|Self-test couldn't read it. Raise the contrast, use square modules or a smaller badge.
+qr_contrast_low|Contrast %1$.1f:1 is too low. Aim for 4:1 or more.
+qr_contrast_mid|Contrast %1$.1f:1 is borderline in poor light.
+qr_contrast_ok|Contrast %1$.1f:1
+qr_inverted|Light-on-dark (inverted) codes don't scan on some older readers.
+qr_transparent|Transparent background: make sure what's behind it is light and plain.
+qr_border|Border under 2 modules: give it space when printing.
+qr_ec_raised|Error correction raised to %1$s to make room for the badge.
+qr_big_badge|Large badge: switch error correction to High.
+qr_dense|Dense code (version %1$d). Shorter content scans faster and from further away.
+qr_nothing|Nothing to encode yet
+qr_too_much|Too much data for a QR code
+tap_to_close|Tap to close
+pick_colour|Pick colour
+hex|Hex
+use|Use
+cancel|Cancel
+edit_title|Edit · %1$s
+payload|Payload
+output|Output
+save|Save
+name|Name
+name_hint|Shown in your library, widget and file names
+update|Update
+save_to_library|Save to library
+new_draft|New
+ssid|Network name (SSID)
+password|Password
+hidden_network|Hidden network
+organisation|Organisation
+website|Website
+to|To
+subject|Subject
+message|Message
+number|Number
+latitude|Latitude
+longitude|Longitude
+label_optional|Label (optional)
+package_name|Package name
+package_hint|NFC opens the app directly; QR links to its store page
+export_size|Export size
+full|Full
+share|Share
+saved_gallery|Saved to Pictures/EMITT
+save_image_failed|Couldn't save the image
+style|Style
+preset_classic|Classic
+preset_theme|Theme
+preset_synth|Synth
+preset_terminal|Terminal
+preset_inverted|Inverted
+image_load_failed|Couldn't load that image
+presets|Presets
+colours|Colours
+modules|Modules
+gradient_end|Gradient end
+transparent_bg|Transparent background
+custom_eyes|Custom eye colours
+eye_frame|Eye frame
+eye_centre|Eye centre
+swap|Swap
+reset|Reset
+shape|Shape
+module_size|Module size
+eyes|Eyes
+centre_badge|Centre badge
+badge_text|Badge text (up to 6)
+choose_image|Choose image
+badge_size|Badge size
+visibility|Visibility
+ec_hint|Error correction: higher survives scratches, glare and badges, but makes a denser code.
+quiet_zone|Border (quiet zone)
+n_modules|%1$d modules
+max_brightness|Max brightness in full screen
+max_brightness_hint|Helps other phones read it from further away
+ndef_too_big|%1$d bytes · needs a tag bigger than NTAG216
+ndef_fits|%1$d bytes · fits %2$s
+extras|Extras
+also_open_app|Also open app (package)
+also_open_app_hint|Optional Android Application Record. Leave empty for none.
+write_to_tag|Write to tag
+be_the_tag|Be the tag
+nfc_modes_hint|Write to tag puts it on a sticker or card. Be the tag makes this phone act as one: other phones tap your phone to read it while EMITT is open.
+with_flipper|With a Flipper
+flipper_write_tip|Write to it: on the Flipper pick NFC → Add Manually → NTAG215 → Emulate, then tap Write to tag here.
+flipper_read_tip|Read this phone: use NFC → Extra Actions → Read Specific Card Type → Type 4 Tag. Plain Read also checks for payment cards and wakes your wallet app.
+ntag_tip|Tip: NTAG213 holds about 130 characters of link; NTAG215 and NTAG216 hold much more.
+waiting_for_tag|waiting for tag…
+saved_file|Saved %1$s
+save_file_failed|Couldn't save the file
+flipper_file_hint|Makes an NTAG file the Flipper can emulate: NFC → Saved → Emulate.
+chip|Chip
+auto|Auto
+uid_7|7-byte UID
+file_summary|%1$s · %2$d bytes · %3$d pages
+hide_file|Hide file
+show_file|Show file
+send_to_flipper|Send to Flipper
+connect_flipper|Connect Flipper
+save_file|Save file
+cant_build_file|Can't build the file
+no_code_in_image|No code found in that image
+scanner|Scanner
+camera_why|EMITT needs the camera to scan codes. Nothing is recorded or uploaded.
+allow_camera|Allow camera
+light_off|Light off
+light|Light
+from_image|From image
+decoded|Decoded · %1$s
+type|Type
+security|Security
+content|Content
+open|Open
+copy|Copy
+copied|Copied
+re_emit|Re-emit
+edit|Edit
+to_tag|To tag
+scan_again|Scan again
+scan_hint|Point at a QR code or barcode. It decodes on the phone; nothing leaves it.
+not_flipper_file|That isn't a Flipper NFC file
+no_nfc|This phone doesn't have NFC. You can still make QR codes and Flipper files.
+nfc_off|NFC is off.
+turn_on_nfc|Turn on NFC
+nfc_ready|Ready. Tap any tag on the back of the phone to inspect it.
+wrote_of|Wrote %1$d of %2$d bytes
+wrote|Wrote %1$d bytes
+tag_erased|Tag erased
+tag_locked|Tag locked. It's read-only now.
+tools|Tools
+read|Read
+tap_to_read|Tap a tag to read it
+erase|Erase
+lock|Lock
+import_nfc|Import .nfc
+lock_q|Lock tag?
+erase_q|Erase tag?
+lock_warn|Locking makes the tag permanently read-only. Nobody, including you, can change it afterwards.
+erase_warn|This clears the tag's content. The tag stays writable.
+lock_forever|Lock forever
+tag_title|Tag · %1$s
+uid_copied|UID copied
+memory|Memory
+writable|Writable
+yes|Yes
+no_readonly|No (read-only)
+lockable|Lockable
+no|No
+records|Records
+no_ndef_data|No NDEF data
+uid_only|Only UID, ATQA and SAK can be saved for this chip type.
+send|Send
+cant_convert|Only NFC-A tags can be saved for the Flipper
+n_pages|%1$d pages
+file_title|File · %1$s
+device|Device
+pages|Pages
+no_ndef_in_file|No NDEF message found in this file.
+file_data|the file's data
+uid_not_copied|Phones can't copy a tag's UID; writing copies the data only.
+link|Link
+connected_to|Connected to %1$s
+bt_why|EMITT needs Bluetooth access to find and talk to your Flipper.
+allow_bt|Allow Bluetooth
+reconnect|Reconnect
+scanning|Scanning…
+nearby|Nearby
+looking_flippers|Looking for Flippers…
+tap_scan|Tap Scan. On the Flipper: Settings → Bluetooth → ON.
+paired|paired
+not_in_range|not in range
+first_time|First time?
+pair_hint|Pick your Flipper above. Android will ask for a PIN: type the 6 digits shown on the Flipper's screen.
+list_failed|Couldn't list the Flipper's files
+firmware|Firmware
+built|Built
+model|Model
+region|Region
+sd_card|SD card
+gb_free|%1$.1f / %2$.1f GB free
+all_device_info|All device info
+beep|Beep
+disconnect|Disconnect
+refresh|Refresh
+reading|Reading…
+no_nfc_files|No NFC files yet. Make one in Create → Flipper.
+files_land_here|Files sent from EMITT land here. Open them on the Flipper under NFC → Saved.
+library_count|Library · %1$d
+search|Search
+starred|Starred
+all|All
+lib_empty|Nothing saved yet. Make something in Create and tap Save to library.
+no_matches|No matches.
+tile|Tile
+star|Star
+show|Show
+unpin_tile|Unpin tile
+pin_tile|Pin to tile
+tile_removed|Removed from the Quick Settings tile
+tile_now_shows|The Quick Settings tile now shows %1$s
+rename|Rename
+delete|Delete
+delete_q|Delete?
+delete_confirm|Remove “%1$s” from your library? Widgets showing it will go blank.
+back|Back
+appearance|Appearance
+settings|Settings
+made_by|made by
+phone_is_tag|Phone is a tag
+waiting_reader|Waiting for a reader
+reads|Reads: %1$d
+tagmode_hold|Hold the other phone's back to the middle of this phone's back.
+tagmode_keep_open|Keep this screen open. If EMITT goes to the background, your phone's own tag or wallet can answer instead.
+tagmode_flipper|Flipper: NFC → Extra Actions → Read Specific Card Type → Type 4 Tag.
+minimise|Minimise
+awaiting_tag|Awaiting tag
+bar_hold|Hold another phone's back to yours. Tap here for tag mode.
+scans|Scans
+check|Check
+update_available|Update available
+colourway|Colourway
+custom_colours|Custom colours
+use_my_colours|Use my own colours
+use_my_colours_hint|Starts from the current colourway
+motion|Motion
+speed|Speed
+density|Density
+intensity|Intensity
+colour|Colour
+scanlines|Scanlines
+scanline_strength|Scanline strength
+vignette|Vignette
+vignette_hint|Darkens the screen edges
+flicker|Flicker
+flicker_hint|Faint CRT shimmer
+interface_|Interface
+panel_opacity|Panel opacity
+panel_outlines|Panel outlines
+glow|Glow
+glow_hint|Neon glow on titles (dark colourways)
+blinking_cursor|Blinking cursor
+corners|Corners
+font|Font
+text_size|Text size
+reset_look|Reset look
+app_icon|App icon
+icon_changed|Icon changed. Your launcher may take a moment to update.
+language|Language
+language_system|Phone's language
+language_hint|Some words, like protocol and chip names, stay in English.
+vibration|Vibration
+vibration_hint|Feedback when tags are written or your phone is read
+strength|Strength
+tap_pattern|Tap a pattern to feel it.
+updates|Updates
+check_releases|Check for new releases
+check_releases_hint|Asks GitHub's public API. Nothing about you is sent.
+check_every|Check every
+n_hours|%1$dh
+n_days|%1$dd
+notifications_off|Notifications are off, so you'll only see updates inside the app.
+allow_notifications|Allow notifications
+check_now|Check now
+get_it|Get it
+about|About
+tagline|QR codes, NFC tags and Flipper Zero files from one app.
+version|Version
+official_build|Official build
+unofficial_build|Unofficial build: not signed by StarlightJulie
+made_by_line|Made by StarlightJulie. Free and open source under GPLv3.
+source|Source
+license|License
+flipper_trademark|Flipper Zero is a trademark of Flipper Devices Inc. EMITT isn't affiliated with or endorsed by them.

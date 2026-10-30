@@ -1,0 +1,436 @@
+widget_label|Kode EMITT
+widget_description|Menampilkan salah satu kode tersimpan di layar utama
+tile_label|Kode EMITT
+channel_updates|Pembaruan aplikasi
+channel_emulation|Ponsel sebagai tag NFC
+emulation_description|Tag NFC EMITT
+kind_text|Teks
+kind_url|Tautan
+kind_contact|Kontak
+kind_email|Email
+kind_phone|Telepon
+kind_geo|Lokasi
+kind_app|Aplikasi
+wifi_open|Tidak ada
+need_text|Masukkan teks
+need_link|Masukkan tautan
+need_ssid|Masukkan nama jaringan
+need_password|Masukkan kata sandi
+need_contact|Masukkan nama, telepon, atau email
+need_email|Masukkan alamat email
+need_number|Masukkan nomor telepon
+need_geo|Masukkan lintang dan bujur
+need_package|Masukkan nama paket seperti com.example.app
+shape_square|Persegi
+shape_rounded|Membulat
+shape_dots|Titik
+shape_fluid|Cair
+shape_bars|Batang
+shape_diamond|Wajik
+shape_circle|Lingkaran
+shape_leaf|Daun
+grad_flat|Polos
+grad_linear|Linear
+grad_radial|Radial
+badge_image|Gambar
+ec_low|Rendah
+ec_medium|Sedang
+ec_quartile|Kuartil
+ec_high|Tinggi
+pat_off|Mati
+pat_tick|Tik
+pat_double|Ketuk dua kali
+pat_triple|Tiga kali
+pat_heartbeat|Detak jantung
+pat_buzz|Dengung panjang
+pat_rising|Naik
+pat_falling|Turun
+pat_purr|Dengkur
+hev_write|Tag ditulis atau dibaca
+hev_write_hint|Saat EMITT menulis, membaca, menghapus, atau mengunci tag
+hev_emulated|Ponsel dibaca sebagai tag
+hev_emulated_hint|Saat perangkat lain membaca ponsel ini dalam mode tag
+hev_fail|Ada yang gagal
+hev_fail_hint|Penulisan atau pembacaan yang tidak berhasil
+slot_accent|Aksen
+slot_accent_hint|Tombol, sorotan, tab aktif
+slot_signal|Sinyal
+slot_signal_hint|Aksen kedua: status, tautan, animasi
+slot_bg|Latar
+slot_bg_hint|Di belakang semuanya
+slot_panels|Panel
+slot_panels_hint|Kartu dan lembar
+slot_text_hint|Warna teks utama
+bg_synth|Kisi synth
+bg_rain|Hujan kode
+bg_scope|Osiloskop
+bg_radar|Radar
+bg_dots|Matriks titik
+bg_circuit|Sirkuit
+bg_warp|Warp
+bg_spectrum|Spektrum
+bg_static|Statis
+bg_random|Acak
+bgc_duo|Kedua aksen
+bgc_cycle|Siklus warna
+bgc_ink|Warna teks
+corner_cut|Dipotong
+corner_sharp|Tajam
+corner_soft|Lembut
+font_mixed|Label mono
+font_mono|Semua mono
+tag_read_failed|Tag tidak bisa dibaca. Tahan diam lalu coba lagi.
+tag_readonly|Tag ini hanya-baca.
+tag_too_big|Terlalu besar: %1$d byte, tetapi tag hanya memuat %2$d.
+tag_no_ndef|Tag ini tidak mendukung NDEF.
+tag_lost_write|Tag terlepas saat menulis. Tahan diam lalu coba lagi.
+tag_write_failed|Gagal menulis.
+tag_nothing_to_lock|Tag ini tidak punya data NDEF untuk dikunci.
+tag_cant_lock|Tag ini tidak bisa dikunci.
+tag_lock_refused|Tag menolak dikunci.
+tag_lost|Tag terlepas. Tahan diam lalu coba lagi.
+fl_bt_off|Bluetooth mati
+fl_step_looking|Mencari
+fl_not_in_range|Pasangan itu di luar jangkauan. Pilih Flipper yang menunjukkan kekuatan sinyal.
+fl_cant_see|Flipper tidak terlihat. Di Flipper, pastikan Settings → Bluetooth ON dan aplikasi Flipper tidak terhubung.
+fl_step_pairing|Memasangkan: masukkan PIN yang tampil di Flipper
+fl_step_connecting|Menghubungkan
+fl_step_setup|Menyiapkan
+fl_not_flipper|Ini tidak tampak seperti Flipper (tidak ada layanan serial).
+fl_step_info|Membaca info perangkat
+fl_other_app|Flipper terhubung ke aplikasi lain (seperti aplikasi resmi Flipper). Putuskan di sana, lalu coba lagi.
+fl_timeout|Waktu habis. Apakah Bluetooth aktif di pengaturan Flipper?
+fl_failed|Koneksi gagal
+fl_disconnected|Terputus
+fl_pair_start|Tidak bisa memulai pemasangan
+fl_pair_failed|Pemasangan dibatalkan atau PIN tidak cocok
+fl_not_connected|Tidak terhubung
+fl_refused|Permintaan Bluetooth ditolak
+fl_dropped|Flipper terputus
+fl_subscribe|Flipper menolak koneksi (%1$d). Coba pasangkan lagi.
+fl_write|Penulisan Bluetooth gagal (%1$d)
+fl_error|Galat Flipper %1$d
+fl_stalled|Flipper berhenti menerima data
+fs_unknown|Galat tidak diketahui
+fs_decode|Tidak bisa didekode
+fs_unsupported|Tidak didukung
+fs_busy|Flipper sedang sibuk
+fs_sd|Kartu SD belum siap
+fs_exists|Sudah ada
+fs_missing|Tidak ada
+fs_param|Parameter tidak valid
+fs_denied|Akses ditolak
+fs_name|Nama tidak valid
+fs_internal|Galat internal
+fs_open|Sudah terbuka
+fs_interrupted|Terputus di tengah jalan
+fs_params|Parameter tidak valid
+upd_none|Belum ada rilis publik
+upd_http|GitHub membalas %1$d
+upd_notag|Rilis tidak punya tag versi
+upd_offline|Tidak bisa menghubungi GitHub
+emu_notif_title|Ponsel Anda adalah tag NFC
+emu_notif_text|Memancarkan %1$s. Buka EMITT dan ponsel lain bisa membacanya dengan menempelkan.
+stop|Hentikan
+upd_notif_title|EMITT %1$s telah rilis
+open_release|Buka rilis
+tile_pin|Sematkan satu di Pustaka
+tile_show|Tampilkan kode
+widget_pick|Ketuk untuk memilih kode
+widget_empty|Pustaka Anda kosong. Simpan kode di EMITT dulu, lalu tambahkan widget lagi.
+widget_pick_title|Pilih kode
+tab_create|Buat
+tab_scan|Pindai
+tab_tags|Tag
+tab_library|Pustaka
+out_qr|Kode QR
+out_nfc|Tag NFC
+prompt_write|Tempelkan tag ke ponsel untuk menulis: %1$s
+prompt_erase|Tempelkan tag ke ponsel untuk menghapusnya
+prompt_lock|Tempelkan tag ke ponsel untuk menguncinya. Ini tidak bisa dibatalkan.
+prompt_copy_from|Tempelkan tag yang ingin disalin
+prompt_copy_to|Sekarang tempelkan tag tujuan
+lib_updated|Diperbarui di pustaka
+lib_saved|Disimpan ke pustaka
+emu_unsupported|Ponsel ini tidak bisa berfungsi sebagai tag NFC
+nfc_turn_on_first|Nyalakan NFC dulu
+copy_empty|Tag itu tidak punya apa pun untuk disalin.
+fl_too_big|Terlalu besar untuk NTAG216 (872 byte)
+fl_too_big_chip|Terlalu besar untuk %1$s. Pilih chip yang lebih besar.
+fl_connect_first|Hubungkan Flipper Anda dulu
+fl_sent|Dikirim ke Flipper: %1$s
+fl_send_failed|Tidak bisa mengirim: %1$s
+upd_checking|Memeriksa…
+upd_available|Versi %1$s tersedia
+upd_latest|Anda sudah memakai versi terbaru
+qr_selftest_ok|Uji pindai lolos (versi %1$d, %2$d×%2$d)
+qr_selftest_fail|Uji tidak bisa membacanya. Naikkan kontras, pakai modul persegi, atau logo lebih kecil.
+qr_contrast_low|Kontras %1$.1f:1 terlalu rendah. Usahakan 4:1 atau lebih.
+qr_contrast_mid|Kontras %1$.1f:1 pas-pasan di cahaya redup.
+qr_contrast_ok|Kontras %1$.1f:1
+qr_inverted|Kode terang di atas gelap (terbalik) tidak terbaca oleh beberapa pembaca lama.
+qr_transparent|Latar transparan: pastikan yang di belakangnya terang dan polos.
+qr_border|Tepi di bawah 2 modul: beri ruang saat mencetak.
+qr_ec_raised|Koreksi galat dinaikkan ke %1$s agar muat logo.
+qr_big_badge|Logo besar: ubah koreksi galat ke Tinggi.
+qr_dense|Kode padat (versi %1$d). Isi yang lebih pendek lebih cepat terbaca dan dari jarak lebih jauh.
+qr_nothing|Belum ada yang dikodekan
+qr_too_much|Data terlalu banyak untuk kode QR
+tap_to_close|Ketuk untuk menutup
+pick_colour|Pilih warna
+use|Pakai
+cancel|Batal
+edit_title|Edit · %1$s
+payload|Isi
+output|Keluaran
+save|Simpan
+name|Nama
+name_hint|Tampil di pustaka, widget, dan nama file
+update|Perbarui
+save_to_library|Simpan ke pustaka
+new_draft|Baru
+ssid|Nama jaringan (SSID)
+password|Kata sandi
+hidden_network|Jaringan tersembunyi
+organisation|Organisasi
+website|Situs web
+to|Kepada
+subject|Subjek
+message|Pesan
+number|Nomor
+latitude|Lintang
+longitude|Bujur
+label_optional|Label (opsional)
+package_name|Nama paket
+package_hint|NFC langsung membuka aplikasinya; QR menautkan ke halaman tokonya
+export_size|Ukuran ekspor
+full|Layar penuh
+share|Bagikan
+saved_gallery|Disimpan ke Pictures/EMITT
+save_image_failed|Tidak bisa menyimpan gambar
+style|Gaya
+preset_classic|Klasik
+preset_theme|Tema
+preset_synth|Synth
+preset_terminal|Terminal
+preset_inverted|Terbalik
+image_load_failed|Tidak bisa memuat gambar itu
+presets|Preset
+colours|Warna
+modules|Modul
+gradient_end|Ujung gradien
+transparent_bg|Latar transparan
+custom_eyes|Warna mata kustom
+eye_frame|Bingkai mata
+eye_centre|Tengah mata
+swap|Tukar
+reset|Atur ulang
+shape|Bentuk
+module_size|Ukuran modul
+eyes|Mata
+centre_badge|Logo tengah
+badge_text|Teks logo (maks. 6)
+choose_image|Pilih gambar
+badge_size|Ukuran logo
+visibility|Keterbacaan
+ec_hint|Koreksi galat: lebih tinggi tahan goresan, silau, dan logo, tetapi kodenya lebih padat.
+quiet_zone|Tepi (zona tenang)
+n_modules|%1$d modul
+max_brightness|Kecerahan maksimal saat layar penuh
+max_brightness_hint|Membantu ponsel lain membacanya dari jarak lebih jauh
+ndef_too_big|%1$d byte · butuh tag lebih besar dari NTAG216
+ndef_fits|%1$d byte · muat di %2$s
+extras|Tambahan
+also_open_app|Juga buka aplikasi (paket)
+also_open_app_hint|Android Application Record opsional. Kosongkan jika tidak perlu.
+write_to_tag|Tulis ke tag
+be_the_tag|Jadi tag
+nfc_modes_hint|Tulis ke tag menyimpannya di stiker atau kartu. Jadi tag mengubah ponsel ini menjadi tag: ponsel lain membacanya dengan menempelkan saat EMITT terbuka.
+with_flipper|Dengan Flipper
+flipper_write_tip|Untuk menulis ke Flipper: pilih NFC → Add Manually → NTAG215 → Emulate di Flipper, lalu ketuk Tulis ke tag di sini.
+flipper_read_tip|Untuk membaca ponsel ini: pakai NFC → Extra Actions → Read Specific Card Type → Type 4 Tag. Read biasa juga mencari kartu pembayaran dan membangunkan aplikasi dompet Anda.
+ntag_tip|Tips: NTAG213 memuat sekitar 130 karakter tautan; NTAG215 dan NTAG216 jauh lebih banyak.
+waiting_for_tag|menunggu tag…
+saved_file|%1$s disimpan
+save_file_failed|Tidak bisa menyimpan file
+flipper_file_hint|Membuat file NTAG yang bisa diemulasi Flipper: NFC → Saved → Emulate.
+chip|Chip
+auto|Otomatis
+uid_7|UID 7-byte
+file_summary|%1$s · %2$d byte · %3$d halaman
+hide_file|Sembunyikan file
+show_file|Tampilkan file
+send_to_flipper|Kirim ke Flipper
+connect_flipper|Hubungkan Flipper
+save_file|Simpan file
+cant_build_file|Tidak bisa membuat file
+no_code_in_image|Tidak ada kode di gambar itu
+scanner|Pemindai
+camera_why|EMITT butuh kamera untuk memindai kode. Tidak ada yang direkam atau diunggah.
+allow_camera|Izinkan kamera
+light_off|Matikan lampu
+light|Lampu
+from_image|Dari gambar
+decoded|Terdekode · %1$s
+type|Jenis
+security|Keamanan
+content|Isi
+open|Buka
+copy|Salin
+copied|Disalin
+re_emit|Pakai ulang
+edit|Edit
+to_tag|Ke tag
+scan_again|Pindai lagi
+scan_hint|Arahkan ke kode QR atau barcode. Didekode di ponsel; tidak ada yang keluar.
+not_flipper_file|Itu bukan file NFC Flipper
+no_nfc|Ponsel ini tidak punya NFC. Anda tetap bisa membuat kode QR dan file Flipper.
+nfc_off|NFC mati.
+turn_on_nfc|Nyalakan NFC
+nfc_ready|Siap. Tempelkan tag apa pun ke bagian belakang ponsel untuk memeriksanya.
+wrote_of|Menulis %1$d dari %2$d byte
+wrote|Menulis %1$d byte
+tag_erased|Tag dihapus
+tag_locked|Tag dikunci. Sekarang hanya-baca.
+tools|Alat
+read|Baca
+tap_to_read|Tempelkan tag untuk membacanya
+erase|Hapus
+lock|Kunci
+import_nfc|Impor .nfc
+lock_q|Kunci tag?
+erase_q|Hapus tag?
+lock_warn|Mengunci membuat tag hanya-baca selamanya. Tidak ada yang bisa mengubahnya lagi, termasuk Anda.
+erase_warn|Ini menghapus isi tag. Tag tetap bisa ditulis.
+lock_forever|Kunci selamanya
+tag_title|Tag · %1$s
+uid_copied|UID disalin
+memory|Memori
+writable|Bisa ditulis
+yes|Ya
+no_readonly|Tidak (hanya-baca)
+lockable|Bisa dikunci
+no|Tidak
+records|Rekaman
+no_ndef_data|Tidak ada data NDEF
+uid_only|Untuk jenis chip ini hanya UID, ATQA, dan SAK yang bisa disimpan.
+send|Kirim
+cant_convert|Hanya tag NFC-A yang bisa disimpan untuk Flipper
+n_pages|%1$d halaman
+file_title|File · %1$s
+device|Perangkat
+pages|Halaman
+no_ndef_in_file|Tidak ada pesan NDEF di file ini.
+file_data|data file
+uid_not_copied|Ponsel tidak bisa menyalin UID tag; hanya datanya yang ditulis.
+link|Koneksi
+connected_to|Terhubung ke %1$s
+bt_why|EMITT butuh akses Bluetooth untuk menemukan Flipper Anda dan berkomunikasi dengannya.
+allow_bt|Izinkan Bluetooth
+reconnect|Hubungkan ulang
+scanning|Memindai…
+nearby|Di sekitar
+looking_flippers|Mencari Flipper…
+tap_scan|Ketuk Pindai. Di Flipper: Settings → Bluetooth → ON.
+paired|terpasang
+not_in_range|di luar jangkauan
+first_time|Pertama kali?
+pair_hint|Pilih Flipper Anda di atas. Android akan meminta PIN: ketik 6 angka yang tampil di layar Flipper.
+list_failed|Tidak bisa menampilkan file Flipper
+firmware|Firmware
+built|Dibuat
+model|Model
+region|Wilayah
+sd_card|Kartu SD
+gb_free|%1$.1f / %2$.1f GB kosong
+all_device_info|Semua info perangkat
+beep|Bunyikan
+disconnect|Putuskan
+refresh|Muat ulang
+reading|Membaca…
+no_nfc_files|Belum ada file NFC. Buat di Buat → Flipper.
+files_land_here|File yang dikirim dari EMITT masuk ke sini. Buka di Flipper lewat NFC → Saved.
+library_count|Pustaka · %1$d
+search|Cari
+starred|Berbintang
+all|Semua
+lib_empty|Belum ada yang disimpan. Buat sesuatu di Buat lalu ketuk Simpan ke pustaka.
+no_matches|Tidak ada yang cocok.
+tile|Ubin
+star|Bintangi
+show|Tampilkan
+unpin_tile|Lepas dari ubin
+pin_tile|Sematkan ke ubin
+tile_removed|Dihapus dari ubin Setelan Cepat
+tile_now_shows|Ubin Setelan Cepat sekarang menampilkan %1$s
+rename|Ganti nama
+delete|Hapus
+delete_q|Hapus?
+delete_confirm|Hapus “%1$s” dari pustaka? Widget yang menampilkannya akan kosong.
+back|Kembali
+appearance|Tampilan
+settings|Setelan
+made_by|dibuat oleh
+phone_is_tag|Ponsel adalah tag
+waiting_reader|Menunggu pembaca
+reads|Dibaca: %1$d
+tagmode_hold|Tempelkan bagian belakang ponsel lain ke tengah bagian belakang ponsel ini.
+tagmode_keep_open|Biarkan layar ini terbuka. Jika EMITT masuk latar belakang, tag bawaan atau dompet ponsel bisa menjawab sebagai gantinya.
+tagmode_flipper|Flipper: NFC → Extra Actions → Read Specific Card Type → Type 4 Tag.
+minimise|Kecilkan
+awaiting_tag|Menunggu tag
+bar_hold|Tempelkan ponsel lain ke ponsel Anda. Ketuk di sini untuk mode tag.
+scans|Terbaca
+check|Periksa
+update_available|Pembaruan tersedia
+colourway|Skema warna
+custom_colours|Warna kustom
+use_my_colours|Pakai warna saya
+use_my_colours_hint|Dimulai dari skema warna saat ini
+motion|Gerak
+speed|Kecepatan
+density|Kepadatan
+intensity|Intensitas
+colour|Warna
+scanlines|Garis pindai
+scanline_strength|Kekuatan garis
+vignette|Vinyet
+vignette_hint|Menggelapkan tepi layar
+flicker|Kedip
+flicker_hint|Kilau CRT tipis
+interface_|Antarmuka
+panel_opacity|Opasitas panel
+panel_outlines|Garis tepi panel
+glow|Cahaya
+glow_hint|Cahaya neon pada judul (skema gelap)
+blinking_cursor|Kursor berkedip
+corners|Sudut
+font|Huruf
+text_size|Ukuran teks
+reset_look|Atur ulang tampilan
+app_icon|Ikon aplikasi
+icon_changed|Ikon diubah. Peluncur mungkin butuh waktu sebentar untuk memperbarui.
+language|Bahasa
+language_system|Bahasa ponsel
+language_hint|Beberapa kata, seperti nama protokol dan chip, tetap dalam bahasa Inggris.
+vibration|Getaran
+vibration_hint|Umpan balik saat tag ditulis atau ponsel Anda dibaca
+strength|Kekuatan
+tap_pattern|Ketuk pola untuk merasakannya.
+updates|Pembaruan
+check_releases|Periksa rilis baru
+check_releases_hint|Menanyakan API publik GitHub. Tidak ada data tentang Anda yang dikirim.
+check_every|Periksa setiap
+notifications_off|Notifikasi mati, jadi Anda hanya melihat pembaruan di dalam aplikasi.
+allow_notifications|Izinkan notifikasi
+check_now|Periksa sekarang
+get_it|Unduh
+about|Tentang
+tagline|Kode QR, tag NFC, dan file Flipper Zero dalam satu aplikasi.
+version|Versi
+official_build|Build resmi
+unofficial_build|Build tidak resmi: tidak ditandatangani StarlightJulie
+made_by_line|Dibuat oleh StarlightJulie. Gratis dan sumber terbuka di bawah GPLv3.
+source|Kode sumber
+license|Lisensi
+flipper_trademark|Flipper Zero adalah merek dagang Flipper Devices Inc. EMITT tidak berafiliasi dengan atau didukung oleh mereka.

@@ -126,6 +126,7 @@ Where things live:
 | `flipper/` | `FlipperNfcFile` (`.nfc` format v4), `FlipperProto` (hand-encoded RPC protobuf), `FlipperLink` (BLE serial, flow control, pairing) |
 | `ui/` | Compose screens, `theme/` (colourways, `Backgrounds`, CRT overlay) |
 | `data/Languages.kt`, `res/values-*/` | Language list and translations; `res/xml/locales_config.xml` registers them with Android |
+| `tools/i18n/` | Source text for every language and the script that generates the `strings.xml` files (see its [README](tools/i18n/README.md)) |
 | `widget/` | Home-screen widget, Quick Settings tile, full-screen code activity |
 | `UpdateWorker.kt` | Background release check and notification |
 

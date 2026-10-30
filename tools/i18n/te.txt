@@ -1,0 +1,436 @@
+widget_label|EMITT కోడ్
+widget_description|మీరు సేవ్ చేసిన ఒక కోడ్‌ను హోమ్ స్క్రీన్‌పై చూపిస్తుంది
+tile_label|EMITT కోడ్
+channel_updates|యాప్ అప్‌డేట్‌లు
+channel_emulation|ఫోన్ NFC ట్యాగ్‌గా
+emulation_description|EMITT NFC ట్యాగ్
+kind_text|టెక్స్ట్
+kind_url|లింక్
+kind_contact|కాంటాక్ట్
+kind_email|ఈమెయిల్
+kind_phone|ఫోన్
+kind_geo|స్థానం
+kind_app|యాప్
+wifi_open|ఏదీ లేదు
+need_text|కొంత టెక్స్ట్ ఇవ్వండి
+need_link|ఒక లింక్ ఇవ్వండి
+need_ssid|నెట్‌వర్క్ పేరు ఇవ్వండి
+need_password|పాస్‌వర్డ్ ఇవ్వండి
+need_contact|పేరు, ఫోన్ లేదా ఈమెయిల్ ఇవ్వండి
+need_email|ఈమెయిల్ చిరునామా ఇవ్వండి
+need_number|ఫోన్ నంబర్ ఇవ్వండి
+need_geo|అక్షాంశం మరియు రేఖాంశం ఇవ్వండి
+need_package|ప్యాకేజీ పేరు ఇవ్వండి, ఉదా. com.example.app
+shape_square|చతురస్రం
+shape_rounded|గుండ్రని అంచులు
+shape_dots|చుక్కలు
+shape_fluid|ప్రవాహం
+shape_bars|పట్టీలు
+shape_diamond|వజ్రం
+shape_circle|వృత్తం
+shape_leaf|ఆకు
+grad_flat|ఒకే రంగు
+grad_linear|రేఖీయం
+grad_radial|వృత్తాకారం
+badge_image|చిత్రం
+ec_low|తక్కువ
+ec_medium|మధ్యస్థం
+ec_quartile|చతుర్థాంశం
+ec_high|ఎక్కువ
+pat_off|ఆఫ్
+pat_tick|టిక్
+pat_double|రెండు ట్యాప్‌లు
+pat_triple|మూడు ట్యాప్‌లు
+pat_heartbeat|గుండె చప్పుడు
+pat_buzz|పొడవైన వైబ్రేషన్
+pat_rising|పెరిగే
+pat_falling|తగ్గే
+pat_purr|గుర్రు
+hev_write|ట్యాగ్ రాయబడింది లేదా చదవబడింది
+hev_write_hint|EMITT ఒక ట్యాగ్‌ను రాసినప్పుడు, చదివినప్పుడు, తుడిచినప్పుడు లేదా లాక్ చేసినప్పుడు
+hev_emulated|ఫోన్ ట్యాగ్‌గా చదవబడింది
+hev_emulated_hint|మరో పరికరం ట్యాగ్ మోడ్‌లో ఈ ఫోన్‌ను చదివినప్పుడు
+hev_fail|ఏదో విఫలమైంది
+hev_fail_hint|రాయడం లేదా చదవడం విజయవంతం కాలేదు
+slot_accent|ప్రధాన రంగు
+slot_accent_hint|బటన్‌లు, హైలైట్‌లు మరియు సక్రియ ట్యాబ్
+slot_signal|సిగ్నల్ రంగు
+slot_signal_hint|రెండవ ప్రధాన రంగు: స్థితి, లింక్‌లు, కదలిక
+slot_bg|నేపథ్యం
+slot_bg_hint|అన్నింటి వెనుక
+slot_panels|ప్యానెల్‌లు
+slot_panels_hint|కార్డ్‌లు మరియు షీట్‌లు
+slot_text_hint|ప్రధాన టెక్స్ట్ రంగు
+bg_synth|సింత్ గ్రిడ్
+bg_rain|కోడ్ వర్షం
+bg_scope|ఆసిలోస్కోప్
+bg_radar|రాడార్
+bg_dots|డాట్ మ్యాట్రిక్స్
+bg_circuit|సర్క్యూట్
+bg_warp|వార్ప్
+bg_spectrum|స్పెక్ట్రమ్
+bg_static|స్టాటిక్
+bg_random|యాదృచ్ఛికం
+bgc_duo|రెండు రంగులు
+bgc_cycle|రంగుల చక్రం
+bgc_ink|టెక్స్ట్ రంగు
+corner_cut|కత్తిరించిన
+corner_sharp|పదునైన
+corner_soft|మృదువైన
+font_mixed|మోనో లేబుల్‌లు
+font_mono|అన్నీ మోనో
+tag_read_failed|ట్యాగ్ చదవలేకపోయాం. స్థిరంగా ఉంచి మళ్లీ ప్రయత్నించండి.
+tag_readonly|ఈ ట్యాగ్ చదవడానికి మాత్రమే.
+tag_too_big|చాలా పెద్దది: %1$d బైట్‌లు, కానీ ట్యాగ్‌లో %2$d మాత్రమే పడతాయి.
+tag_no_ndef|ఈ ట్యాగ్ NDEF‌కు మద్దతు ఇవ్వదు.
+tag_lost_write|రాస్తుండగా ట్యాగ్ కదిలింది. స్థిరంగా ఉంచి మళ్లీ ప్రయత్నించండి.
+tag_write_failed|రాయడం విఫలమైంది.
+tag_nothing_to_lock|ఈ ట్యాగ్‌లో లాక్ చేయడానికి NDEF డేటా లేదు.
+tag_cant_lock|ఈ ట్యాగ్‌ను లాక్ చేయలేము.
+tag_lock_refused|ట్యాగ్ లాక్ అవ్వడానికి నిరాకరించింది.
+tag_lost|ట్యాగ్ కదిలింది. స్థిరంగా ఉంచి మళ్లీ ప్రయత్నించండి.
+fl_bt_off|బ్లూటూత్ ఆఫ్‌లో ఉంది
+fl_step_looking|వెతుకుతోంది
+fl_not_in_range|ఈ జత దగ్గరలో లేదు. సిగ్నల్ బలం కనిపిస్తున్న Flipper‌ను ఎంచుకోండి.
+fl_cant_see|మీ Flipper కనిపించడం లేదు. దానిపై Settings → Bluetooth ON గా ఉందని, Flipper యాప్ దానికి కనెక్ట్ కాలేదని చూడండి.
+fl_step_pairing|జత చేయడం: Flipper‌పై కనిపించే PIN ఇవ్వండి
+fl_step_connecting|కనెక్ట్ అవుతోంది
+fl_step_setup|సెటప్ అవుతోంది
+fl_not_flipper|ఇది Flipper లా లేదు (సీరియల్ సేవ లేదు).
+fl_step_info|పరికర సమాచారం చదువుతోంది
+fl_other_app|Flipper మరో యాప్‌కు కనెక్ట్ అయి ఉంది (ఉదా. అధికారిక Flipper యాప్). అక్కడ డిస్‌కనెక్ట్ చేసి మళ్లీ ప్రయత్నించండి.
+fl_timeout|సమయం మించిపోయింది. Flipper సెట్టింగ్‌లలో బ్లూటూత్ ఆన్‌లో ఉందా?
+fl_failed|కనెక్షన్ విఫలమైంది
+fl_disconnected|డిస్‌కనెక్ట్ అయింది
+fl_pair_start|జత చేయడం ప్రారంభించలేకపోయాం
+fl_pair_failed|జత చేయడం రద్దయింది లేదా PIN సరిపోలలేదు
+fl_not_connected|కనెక్ట్ కాలేదు
+fl_refused|బ్లూటూత్ అభ్యర్థన తిరస్కరించబడింది
+fl_dropped|Flipper కనెక్షన్ తెగిపోయింది
+fl_subscribe|Flipper కనెక్షన్‌ను తిరస్కరించింది (%1$d). మళ్లీ జత చేయండి.
+fl_write|బ్లూటూత్ ద్వారా రాయడం విఫలమైంది (%1$d)
+fl_error|Flipper లోపం %1$d
+fl_stalled|Flipper డేటా తీసుకోవడం ఆపేసింది
+fs_unknown|తెలియని లోపం
+fs_decode|డీకోడ్ చేయలేకపోయాం
+fs_unsupported|మద్దతు లేదు
+fs_busy|Flipper బిజీగా ఉంది
+fs_sd|SD కార్డ్ సిద్ధంగా లేదు
+fs_exists|ఇప్పటికే ఉంది
+fs_missing|కనబడలేదు
+fs_param|చెల్లని పారామీటర్
+fs_denied|యాక్సెస్ నిరాకరించబడింది
+fs_name|చెల్లని పేరు
+fs_internal|అంతర్గత లోపం
+fs_open|ఇప్పటికే తెరిచి ఉంది
+fs_interrupted|అంతరాయం కలిగింది
+fs_params|చెల్లని పారామీటర్‌లు
+upd_none|ఇంకా పబ్లిక్ విడుదలలు లేవు
+upd_http|GitHub %1$d తిరిగి ఇచ్చింది
+upd_notag|విడుదలకు వెర్షన్ ట్యాగ్ లేదు
+upd_offline|GitHub‌ను చేరుకోలేకపోయాం
+emu_notif_title|మీ ఫోన్ ఇప్పుడు NFC ట్యాగ్
+emu_notif_text|%1$s పంపుతోంది. EMITT తెరవండి, ఇతర ఫోన్‌లు తాకి దీన్ని చదవగలవు.
+stop|ఆపండి
+upd_notif_title|EMITT %1$s వచ్చింది
+open_release|విడుదలను తెరవండి
+tile_pin|లైబ్రరీ నుండి ఒక కోడ్‌ను పిన్ చేయండి
+tile_show|కోడ్ చూపించు
+widget_pick|కోడ్ ఎంచుకోవడానికి ట్యాప్ చేయండి
+widget_empty|మీ లైబ్రరీ ఖాళీగా ఉంది. ముందు EMITT‌లో ఒక కోడ్ సేవ్ చేసి, తర్వాత విడ్జెట్‌ను మళ్లీ జోడించండి.
+widget_pick_title|ఒక కోడ్ ఎంచుకోండి
+tab_create|సృష్టించు
+tab_scan|స్కాన్
+tab_tags|ట్యాగ్‌లు
+tab_library|లైబ్రరీ
+out_qr|QR కోడ్
+out_nfc|NFC ట్యాగ్
+prompt_write|రాయడానికి ఫోన్‌కు ట్యాగ్ పెట్టండి: %1$s
+prompt_erase|తుడిచేందుకు ట్యాగ్‌ను ఫోన్‌కు పెట్టండి
+prompt_lock|లాక్ చేయడానికి ట్యాగ్‌ను ఫోన్‌కు పెట్టండి. దీన్ని వెనక్కి తీసుకోలేరు.
+prompt_copy_from|ఏ ట్యాగ్ నుండి కాపీ చేయాలో దాన్ని పెట్టండి
+prompt_copy_to|ఇప్పుడు ఏ ట్యాగ్‌కు కాపీ చేయాలో దాన్ని పెట్టండి
+lib_updated|లైబ్రరీలో అప్‌డేట్ అయింది
+lib_saved|లైబ్రరీలో సేవ్ అయింది
+emu_unsupported|ఈ ఫోన్ NFC ట్యాగ్‌లా పని చేయలేదు
+nfc_turn_on_first|ముందు NFC ఆన్ చేయండి
+copy_empty|ఈ ట్యాగ్‌లో కాపీ చేయడానికి ఏమీ లేదు.
+fl_too_big|NTAG216 (872 బైట్‌లు)కు చాలా పెద్దది
+fl_too_big_chip|%1$s కు చాలా పెద్దది. పెద్ద చిప్ ఎంచుకోండి.
+fl_connect_first|ముందు Flipper కనెక్ట్ చేయండి
+fl_sent|Flipper‌కు పంపబడింది: %1$s
+fl_send_failed|పంపలేకపోయాం: %1$s
+upd_checking|తనిఖీ చేస్తోంది…
+upd_available|%1$s అందుబాటులో ఉంది
+upd_latest|మీ వద్ద తాజా వెర్షన్ ఉంది
+qr_selftest_ok|స్వీయ పరీక్ష స్కాన్ విజయవంతం (వెర్షన్ %1$d, %2$d×%2$d)
+qr_selftest_fail|స్వీయ పరీక్ష దీన్ని చదవలేకపోయింది. కాంట్రాస్ట్ పెంచండి, చతురస్ర మాడ్యూల్‌లు లేదా చిన్న బ్యాడ్జ్ వాడండి.
+qr_contrast_low|కాంట్రాస్ట్ %1$.1f:1 చాలా తక్కువ. 4:1 లేదా ఎక్కువ ఉంచండి.
+qr_contrast_mid|తక్కువ వెలుతురులో కాంట్రాస్ట్ %1$.1f:1 అంచున ఉంది.
+qr_contrast_ok|కాంట్రాస్ట్ %1$.1f:1
+qr_inverted|ముదురుపై లేత (తిరగబడిన) కోడ్‌లను కొన్ని పాత స్కానర్‌లు చదవలేవు.
+qr_transparent|పారదర్శక నేపథ్యం: వెనుక ఉన్నది లేతగా, సాదాగా ఉందని నిర్ధారించుకోండి.
+qr_border|అంచు 2 మాడ్యూల్‌ల కంటే తక్కువ: ముద్రించేటప్పుడు ఖాళీ వదలండి.
+qr_ec_raised|బ్యాడ్జ్‌కు చోటు కోసం లోప సవరణ %1$s కు పెంచబడింది.
+qr_big_badge|పెద్ద బ్యాడ్జ్: లోప సవరణను ఎక్కువగా ఉంచండి.
+qr_dense|దట్టమైన కోడ్ (వెర్షన్ %1$d). చిన్న కంటెంట్ వేగంగా, దూరం నుండి స్కాన్ అవుతుంది.
+qr_nothing|ఇంకా ఎన్‌కోడ్ చేయడానికి ఏమీ లేదు
+qr_too_much|QR కోడ్‌కు చాలా ఎక్కువ డేటా
+tap_to_close|మూసేందుకు ట్యాప్ చేయండి
+pick_colour|రంగు ఎంచుకోండి
+use|ఉపయోగించు
+cancel|రద్దు
+edit_title|సవరణ · %1$s
+payload|కంటెంట్
+output|అవుట్‌పుట్
+save|సేవ్
+name|పేరు
+name_hint|లైబ్రరీ, విడ్జెట్ మరియు ఫైల్ పేర్లలో కనిపిస్తుంది
+update|అప్‌డేట్
+save_to_library|లైబ్రరీలో సేవ్ చేయండి
+new_draft|కొత్తది
+ssid|నెట్‌వర్క్ పేరు (SSID)
+password|పాస్‌వర్డ్
+hidden_network|దాచిన నెట్‌వర్క్
+organisation|సంస్థ
+website|వెబ్‌సైట్
+to|కు
+subject|విషయం
+message|సందేశం
+number|నంబర్
+latitude|అక్షాంశం
+longitude|రేఖాంశం
+label_optional|లేబుల్ (ఐచ్ఛికం)
+package_name|ప్యాకేజీ పేరు
+package_hint|NFC నేరుగా యాప్‌ను తెరుస్తుంది; QR దాని స్టోర్ పేజీని తెరుస్తుంది
+export_size|ఎగుమతి పరిమాణం
+full|పూర్తి స్క్రీన్
+share|షేర్
+saved_gallery|Pictures/EMITT లో సేవ్ అయింది
+save_image_failed|చిత్రాన్ని సేవ్ చేయలేకపోయాం
+style|శైలి
+preset_classic|క్లాసిక్
+preset_theme|థీమ్ ప్రకారం
+preset_synth|సింత్
+preset_terminal|టెర్మినల్
+preset_inverted|తిరగబడిన
+image_load_failed|ఆ చిత్రాన్ని లోడ్ చేయలేకపోయాం
+presets|ప్రీసెట్‌లు
+colours|రంగులు
+modules|మాడ్యూల్‌లు
+gradient_end|గ్రేడియంట్ ముగింపు
+transparent_bg|పారదర్శక నేపథ్యం
+custom_eyes|కళ్లకు వేరే రంగులు
+eye_frame|కన్ను ఫ్రేమ్
+eye_centre|కన్ను మధ్య
+swap|మార్చు
+reset|రీసెట్
+shape|ఆకారం
+module_size|మాడ్యూల్ పరిమాణం
+eyes|కళ్లు
+centre_badge|మధ్యలో బ్యాడ్జ్
+badge_text|బ్యాడ్జ్ టెక్స్ట్ (6 వరకు)
+choose_image|చిత్రం ఎంచుకోండి
+badge_size|బ్యాడ్జ్ పరిమాణం
+visibility|చదవగలిగే సౌలభ్యం
+ec_hint|లోప సవరణ: ఎక్కువైతే గీతలు, మెరుపు, లోగోలను తట్టుకుంటుంది, కానీ కోడ్ దట్టమవుతుంది.
+quiet_zone|అంచు (క్వైట్ జోన్)
+n_modules|%1$d మాడ్యూల్‌లు
+max_brightness|పూర్తి స్క్రీన్‌లో గరిష్ఠ ప్రకాశం
+max_brightness_hint|ఇతర ఫోన్‌లు దూరం నుండి స్కాన్ చేయడానికి సహాయపడుతుంది
+ndef_too_big|%1$d బైట్‌లు · NTAG216 కంటే పెద్ద ట్యాగ్ కావాలి
+ndef_fits|%1$d బైట్‌లు · %2$s లో పడుతుంది
+extras|అదనపువి
+also_open_app|ఒక యాప్‌ను కూడా తెరవండి (ప్యాకేజీ)
+also_open_app_hint|ఐచ్ఛిక Android Application Record. అవసరం లేకపోతే ఖాళీగా వదలండి.
+write_to_tag|ట్యాగ్‌పై రాయండి
+be_the_tag|మీరే ట్యాగ్ అవ్వండి
+nfc_modes_hint|«ట్యాగ్‌పై రాయండి» దీన్ని స్టిక్కర్ లేదా కార్డ్‌పై సేవ్ చేస్తుంది. «మీరే ట్యాగ్ అవ్వండి» ఈ ఫోన్‌ను ట్యాగ్‌గా మారుస్తుంది: EMITT తెరిచి ఉన్నంతవరకు ఇతర ఫోన్‌లు తాకి దీన్ని చదవగలవు.
+with_flipper|Flipper తో
+flipper_write_tip|దానిపై రాయడానికి: Flipper‌పై NFC → Add Manually → NTAG215 → Emulate ఎంచుకుని, ఇక్కడ «ట్యాగ్‌పై రాయండి» ట్యాప్ చేయండి.
+flipper_read_tip|ఈ ఫోన్‌ను చదవడానికి: NFC → Extra Actions → Read Specific Card Type → Type 4 Tag వాడండి. సాధారణ Read చెల్లింపు కార్డ్‌ల కోసం కూడా వెతికి వాలెట్ యాప్‌ను లేపుతుంది.
+ntag_tip|చిట్కా: NTAG213 లో సుమారు 130 అక్షరాల లింక్ పడుతుంది; NTAG215 మరియు NTAG216 లో చాలా ఎక్కువ.
+waiting_for_tag|ట్యాగ్ కోసం వేచి ఉంది…
+saved_file|%1$s సేవ్ అయింది
+save_file_failed|ఫైల్‌ను సేవ్ చేయలేకపోయాం
+flipper_file_hint|Flipper ఎమ్యులేట్ చేయగల NTAG ఫైల్‌ను తయారు చేస్తుంది: NFC → Saved → Emulate.
+chip|చిప్
+auto|ఆటో
+uid_7|7 బైట్ UID
+file_summary|%1$s · %2$d బైట్‌లు · %3$d పేజీలు
+hide_file|ఫైల్ దాచు
+show_file|ఫైల్ చూపించు
+send_to_flipper|Flipper‌కు పంపు
+connect_flipper|Flipper కనెక్ట్ చేయండి
+save_file|ఫైల్ సేవ్ చేయండి
+cant_build_file|ఫైల్ తయారు చేయలేకపోయాం
+no_code_in_image|ఆ చిత్రంలో కోడ్ కనబడలేదు
+scanner|స్కానర్
+camera_why|కోడ్‌లను స్కాన్ చేయడానికి EMITT‌కు కెమెరా కావాలి. ఏదీ రికార్డ్ లేదా అప్‌లోడ్ కాదు.
+allow_camera|కెమెరాను అనుమతించండి
+light_off|లైట్ ఆఫ్
+light|లైట్
+from_image|చిత్రం నుండి
+decoded|డీకోడ్ అయింది · %1$s
+type|రకం
+security|భద్రత
+content|కంటెంట్
+open|తెరువు
+copy|కాపీ
+copied|కాపీ అయింది
+re_emit|మళ్లీ వాడు
+edit|సవరించు
+to_tag|ట్యాగ్‌కు
+scan_again|మళ్లీ స్కాన్
+scan_hint|కెమెరాను QR కోడ్ లేదా బార్‌కోడ్ వైపు ఉంచండి. ఫోన్‌లోనే డీకోడ్ అవుతుంది, ఏదీ బయటకు వెళ్లదు.
+not_flipper_file|ఇది Flipper NFC ఫైల్ కాదు
+no_nfc|ఈ ఫోన్‌లో NFC లేదు. అయినా మీరు QR కోడ్‌లు మరియు Flipper ఫైల్‌లు తయారు చేయవచ్చు.
+nfc_off|NFC ఆఫ్‌లో ఉంది.
+turn_on_nfc|NFC ఆన్ చేయండి
+nfc_ready|సిద్ధం. పరిశీలించడానికి ఫోన్ వెనుక ఏదైనా ట్యాగ్ పెట్టండి.
+wrote_of|%2$d లో %1$d బైట్‌లు రాయబడ్డాయి
+wrote|%1$d బైట్‌లు రాయబడ్డాయి
+tag_erased|ట్యాగ్ తుడిచివేయబడింది
+tag_locked|ట్యాగ్ లాక్ అయింది. ఇప్పుడు చదవడానికి మాత్రమే.
+tools|సాధనాలు
+read|చదువు
+tap_to_read|చదవడానికి ట్యాగ్ పెట్టండి
+erase|తుడువు
+lock|లాక్
+import_nfc|.nfc దిగుమతి
+lock_q|ట్యాగ్‌ను లాక్ చేయాలా?
+erase_q|ట్యాగ్‌ను తుడవాలా?
+lock_warn|లాక్ చేస్తే ట్యాగ్ శాశ్వతంగా చదవడానికి మాత్రమే అవుతుంది. ఆ తర్వాత ఎవరూ, మీరు కూడా, దాన్ని మార్చలేరు.
+erase_warn|ఇది ట్యాగ్ కంటెంట్‌ను తుడిచేస్తుంది. ట్యాగ్ రాయగలిగేలానే ఉంటుంది.
+lock_forever|శాశ్వతంగా లాక్ చేయి
+tag_title|ట్యాగ్ · %1$s
+uid_copied|UID కాపీ అయింది
+memory|మెమరీ
+writable|రాయగలిగే
+yes|అవును
+no_readonly|కాదు (చదవడానికి మాత్రమే)
+lockable|లాక్ చేయగలిగే
+no|కాదు
+records|రికార్డ్‌లు
+no_ndef_data|NDEF డేటా లేదు
+uid_only|ఈ చిప్ రకానికి UID, ATQA మరియు SAK మాత్రమే సేవ్ చేయగలం.
+send|పంపు
+cant_convert|Flipper కోసం NFC-A ట్యాగ్‌లు మాత్రమే సేవ్ చేయగలం
+n_pages|%1$d పేజీలు
+file_title|ఫైల్ · %1$s
+device|పరికరం
+pages|పేజీలు
+no_ndef_in_file|ఈ ఫైల్‌లో NDEF సందేశం కనబడలేదు.
+file_data|ఫైల్ డేటా
+uid_not_copied|ఫోన్‌లు ట్యాగ్ UID‌ను కాపీ చేయలేవు; డేటా మాత్రమే రాయబడుతుంది.
+link|కనెక్షన్
+connected_to|%1$s కు కనెక్ట్ అయింది
+bt_why|మీ Flipper‌ను కనుగొని దానితో మాట్లాడటానికి EMITT‌కు బ్లూటూత్ కావాలి.
+allow_bt|బ్లూటూత్‌ను అనుమతించండి
+reconnect|మళ్లీ కనెక్ట్
+scanning|వెతుకుతోంది…
+nearby|దగ్గరలో
+looking_flippers|Flipper ల కోసం వెతుకుతోంది…
+tap_scan|«స్కాన్» ట్యాప్ చేయండి. Flipper‌పై: Settings → Bluetooth → ON.
+paired|జత చేయబడింది
+not_in_range|పరిధిలో లేదు
+first_time|మొదటిసారా?
+pair_hint|పైన మీ Flipper‌ను ఎంచుకోండి. Android PIN అడుగుతుంది: Flipper స్క్రీన్‌పై కనిపించే 6 అంకెలు ఇవ్వండి.
+list_failed|Flipper ఫైల్‌లను చూపలేకపోయాం
+firmware|ఫర్మ్‌వేర్
+built|బిల్డ్
+model|మోడల్
+region|ప్రాంతం
+sd_card|SD కార్డ్
+gb_free|%1$.1f / %2$.1f GB ఖాళీ
+all_device_info|పరికరం పూర్తి సమాచారం
+beep|బీప్
+disconnect|డిస్‌కనెక్ట్
+refresh|రిఫ్రెష్
+reading|చదువుతోంది…
+no_nfc_files|ఇంకా NFC ఫైల్‌లు లేవు. సృష్టించు → Flipper నుండి ఒకటి తయారు చేయండి.
+files_land_here|EMITT నుండి పంపిన ఫైల్‌లు ఇక్కడికి వస్తాయి. Flipper‌పై NFC → Saved నుండి తెరవండి.
+library_count|లైబ్రరీ · %1$d
+search|వెతుకు
+starred|నక్షత్రం గుర్తు ఉన్నవి
+all|అన్నీ
+lib_empty|ఇంకా ఏమీ సేవ్ చేయలేదు. సృష్టించు లో ఏదైనా తయారు చేసి «లైబ్రరీలో సేవ్ చేయండి» ట్యాప్ చేయండి.
+no_matches|సరిపోలేవి లేవు.
+tile|త్వరిత టైల్
+star|నక్షత్రం పెట్టు
+show|చూపించు
+unpin_tile|టైల్ నుండి తీసివేయి
+pin_tile|టైల్‌కు పిన్ చేయి
+tile_removed|త్వరిత సెట్టింగ్‌ల టైల్ నుండి తీసివేయబడింది
+tile_now_shows|త్వరిత సెట్టింగ్‌ల టైల్ ఇప్పుడు %1$s చూపిస్తుంది
+rename|పేరు మార్చు
+delete|తొలగించు
+delete_q|తొలగించాలా?
+delete_confirm|«%1$s» ను లైబ్రరీ నుండి తీసివేయాలా? దాన్ని చూపించే విడ్జెట్‌లు ఖాళీ అవుతాయి.
+back|వెనుకకు
+appearance|రూపురేఖలు
+settings|సెట్టింగ్‌లు
+made_by|రూపొందించినది
+phone_is_tag|ఫోన్ ఇప్పుడు ట్యాగ్
+waiting_reader|రీడర్ కోసం వేచి ఉంది
+reads|చదివినవి: %1$d
+tagmode_hold|మరో ఫోన్ వెనుక భాగాన్ని ఈ ఫోన్ వెనుక మధ్యలో ఉంచండి.
+tagmode_keep_open|ఈ స్క్రీన్‌ను తెరిచే ఉంచండి. EMITT నేపథ్యంలోకి వెళ్తే ఫోన్ సొంత ట్యాగ్ లేదా వాలెట్ బదులు స్పందించవచ్చు.
+tagmode_flipper|Flipper: NFC → Extra Actions → Read Specific Card Type → Type 4 Tag.
+minimise|చిన్నది చేయి
+awaiting_tag|ట్యాగ్ కోసం వేచి
+bar_hold|మరో ఫోన్‌ను మీ ఫోన్‌కు పెట్టండి. ట్యాగ్ మోడ్ కోసం ఇక్కడ ట్యాప్ చేయండి.
+scans|స్కాన్ అవుతుంది
+check|తనిఖీ
+update_available|అప్‌డేట్ అందుబాటులో ఉంది
+colourway|రంగుల శైలి
+custom_colours|సొంత రంగులు
+use_my_colours|నా రంగులు వాడు
+use_my_colours_hint|ప్రస్తుత రంగుల శైలి నుండి మొదలవుతుంది
+motion|కదలిక
+speed|వేగం
+density|సాంద్రత
+intensity|తీవ్రత
+colour|రంగు
+scanlines|స్కాన్‌లైన్‌లు
+scanline_strength|స్కాన్‌లైన్ తీవ్రత
+vignette|విగ్నెట్
+vignette_hint|స్క్రీన్ అంచులను ముదురు చేస్తుంది
+flicker|మిణుకు
+flicker_hint|తేలికపాటి CRT లాంటి మిణుకు
+interface_|ఇంటర్‌ఫేస్
+panel_opacity|ప్యానెల్ అపారదర్శకత
+panel_outlines|ప్యానెల్ అంచు గీతలు
+glow|వెలుగు
+glow_hint|శీర్షికలపై నియాన్ వెలుగు (ముదురు శైలులు)
+blinking_cursor|మెరిసే కర్సర్
+corners|మూలలు
+font|ఫాంట్
+text_size|టెక్స్ట్ పరిమాణం
+reset_look|రూపాన్ని రీసెట్ చేయి
+app_icon|యాప్ ఐకాన్
+icon_changed|ఐకాన్ మారింది. లాంచర్ అప్‌డేట్ అవ్వడానికి కొంచెం సమయం పట్టవచ్చు.
+language|భాష
+language_system|ఫోన్ భాష
+language_hint|ప్రోటోకాల్ మరియు చిప్ పేర్ల వంటి కొన్ని పదాలు ఇంగ్లీష్‌లోనే ఉంటాయి.
+vibration|వైబ్రేషన్
+vibration_hint|ట్యాగ్ రాసినప్పుడు లేదా మీ ఫోన్ చదవబడినప్పుడు వైబ్రేషన్
+strength|బలం
+tap_pattern|అనుభవించడానికి ఒక ప్యాటర్న్‌ను ట్యాప్ చేయండి.
+updates|అప్‌డేట్‌లు
+check_releases|కొత్త విడుదలలను తనిఖీ చేయండి
+check_releases_hint|GitHub పబ్లిక్ API ని అడుగుతుంది. మీ గురించి ఏదీ పంపబడదు.
+check_every|ఇంత కాలానికి ఒకసారి తనిఖీ
+notifications_off|నోటిఫికేషన్‌లు ఆఫ్‌లో ఉన్నాయి, కాబట్టి అప్‌డేట్‌లు యాప్‌లో మాత్రమే కనిపిస్తాయి.
+allow_notifications|నోటిఫికేషన్‌లను అనుమతించండి
+check_now|ఇప్పుడు తనిఖీ
+get_it|డౌన్‌లోడ్
+about|గురించి
+tagline|QR కోడ్‌లు, NFC ట్యాగ్‌లు మరియు Flipper Zero ఫైల్‌లు, ఒకే యాప్‌లో.
+version|వెర్షన్
+official_build|అధికారిక బిల్డ్
+unofficial_build|అనధికారిక బిల్డ్: StarlightJulie సంతకం చేయలేదు
+made_by_line|StarlightJulie రూపొందించారు. ఉచితం మరియు ఓపెన్ సోర్స్, GPLv3 కింద.
+source|సోర్స్ కోడ్
+license|లైసెన్స్
+flipper_trademark|Flipper Zero అనేది Flipper Devices Inc. యొక్క ట్రేడ్‌మార్క్. EMITT వారితో అనుబంధించబడలేదు లేదా వారిచే ఆమోదించబడలేదు.

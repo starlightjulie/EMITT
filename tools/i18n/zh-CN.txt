@@ -1,0 +1,436 @@
+widget_label|EMITT 码
+widget_description|在主屏幕上显示一个已保存的码
+tile_label|EMITT 码
+channel_updates|应用更新
+channel_emulation|手机模拟 NFC 标签
+emulation_description|EMITT NFC 标签
+kind_text|文本
+kind_url|链接
+kind_contact|联系人
+kind_email|邮箱
+kind_phone|电话
+kind_geo|位置
+kind_app|应用
+wifi_open|无
+need_text|请输入文本
+need_link|请输入链接
+need_ssid|请输入网络名称
+need_password|请输入密码
+need_contact|请输入姓名、电话或邮箱
+need_email|请输入邮箱地址
+need_number|请输入电话号码
+need_geo|请输入纬度和经度
+need_package|请输入包名，例如 com.example.app
+shape_square|方形
+shape_rounded|圆角
+shape_dots|圆点
+shape_fluid|流体
+shape_bars|条形
+shape_diamond|菱形
+shape_circle|圆形
+shape_leaf|叶形
+grad_flat|纯色
+grad_linear|线性
+grad_radial|径向
+badge_image|图片
+ec_low|低
+ec_medium|中
+ec_quartile|较高
+ec_high|高
+pat_off|关闭
+pat_tick|轻触
+pat_double|双击
+pat_triple|三连
+pat_heartbeat|心跳
+pat_buzz|长振
+pat_rising|渐强
+pat_falling|渐弱
+pat_purr|呼噜
+hev_write|标签已写入或读取
+hev_write_hint|当 EMITT 写入、读取、擦除或锁定标签时
+hev_emulated|手机被当作标签读取
+hev_emulated_hint|当其他设备在标签模式下读取这部手机时
+hev_fail|操作失败
+hev_fail_hint|写入或读取没有成功
+slot_accent|强调色
+slot_accent_hint|按钮、高亮、当前标签页
+slot_signal|信号色
+slot_signal_hint|第二强调色：状态、链接、动画
+slot_bg|背景
+slot_bg_hint|所有内容之后
+slot_panels|面板
+slot_panels_hint|卡片和面板
+slot_text_hint|主文本颜色
+bg_synth|合成网格
+bg_rain|代码雨
+bg_scope|示波器
+bg_radar|雷达
+bg_dots|点阵
+bg_circuit|电路
+bg_warp|跃迁
+bg_spectrum|频谱
+bg_static|雪花
+bg_random|随机
+bgc_duo|双强调色
+bgc_cycle|色相循环
+bgc_ink|文本颜色
+corner_cut|切角
+corner_sharp|直角
+corner_soft|圆润
+font_mixed|等宽标签
+font_mono|全部等宽
+tag_read_failed|无法读取标签。请保持不动后重试。
+tag_readonly|此标签为只读。
+tag_too_big|内容过大：%1$d 字节，但标签只能容纳 %2$d。
+tag_no_ndef|此标签不支持 NDEF。
+tag_lost_write|写入时标签移开了。请保持不动后重试。
+tag_write_failed|写入失败。
+tag_nothing_to_lock|此标签没有可锁定的 NDEF 数据。
+tag_cant_lock|此标签无法锁定。
+tag_lock_refused|标签拒绝锁定。
+tag_lost|标签移开了。请保持不动后重试。
+fl_bt_off|蓝牙已关闭
+fl_step_looking|正在查找
+fl_not_in_range|该配对设备不在范围内。请选择显示信号强度的 Flipper。
+fl_cant_see|找不到你的 Flipper。请在设备上确认 Settings → Bluetooth 为 ON，且 Flipper 应用没有连接它。
+fl_step_pairing|配对中：输入 Flipper 上显示的 PIN
+fl_step_connecting|正在连接
+fl_step_setup|正在准备
+fl_not_flipper|这看起来不像 Flipper（没有串口服务）。
+fl_step_info|正在读取设备信息
+fl_other_app|Flipper 已连接到另一个应用（例如官方 Flipper 应用）。请先在那里断开，然后重试。
+fl_timeout|超时。Flipper 设置中的蓝牙已打开吗？
+fl_failed|连接失败
+fl_disconnected|已断开
+fl_pair_start|无法开始配对
+fl_pair_failed|配对已取消或 PIN 不匹配
+fl_not_connected|未连接
+fl_refused|蓝牙请求被拒绝
+fl_dropped|Flipper 已断开
+fl_subscribe|Flipper 拒绝了连接（%1$d）。请重新配对。
+fl_write|蓝牙写入失败（%1$d）
+fl_error|Flipper 错误 %1$d
+fl_stalled|Flipper 停止接收数据
+fs_unknown|未知错误
+fs_decode|无法解码
+fs_unsupported|不支持
+fs_busy|Flipper 正忙
+fs_sd|SD 卡未就绪
+fs_exists|已存在
+fs_missing|不存在
+fs_param|参数无效
+fs_denied|拒绝访问
+fs_name|名称无效
+fs_internal|内部错误
+fs_open|已打开
+fs_interrupted|已中断
+fs_params|参数无效
+upd_none|暂无公开版本
+upd_http|GitHub 返回 %1$d
+upd_notag|该版本没有版本标签
+upd_offline|无法连接 GitHub
+emu_notif_title|你的手机现在是 NFC 标签
+emu_notif_text|正在发送 %1$s。打开 EMITT，其他手机即可触碰读取。
+stop|停止
+upd_notif_title|EMITT %1$s 已发布
+open_release|打开版本页面
+tile_pin|在资料库中固定一个
+tile_show|显示码
+widget_pick|点按以选择一个码
+widget_empty|资料库为空。请先在 EMITT 中保存一个码，再重新添加小组件。
+widget_pick_title|选择一个码
+tab_create|创建
+tab_scan|扫描
+tab_tags|标签
+tab_library|资料库
+out_qr|二维码
+out_nfc|NFC 标签
+prompt_write|将标签靠近手机以写入：%1$s
+prompt_erase|将标签靠近手机以擦除
+prompt_lock|将标签靠近手机以锁定。此操作无法撤销。
+prompt_copy_from|靠近要复制的源标签
+prompt_copy_to|现在靠近要写入的目标标签
+lib_updated|已在资料库中更新
+lib_saved|已保存到资料库
+emu_unsupported|这部手机无法充当 NFC 标签
+nfc_turn_on_first|请先打开 NFC
+copy_empty|该标签没有可复制的内容。
+fl_too_big|超出 NTAG216 容量（872 字节）
+fl_too_big_chip|超出 %1$s 容量。请选择更大的芯片。
+fl_connect_first|请先连接你的 Flipper
+fl_sent|已发送到 Flipper：%1$s
+fl_send_failed|发送失败：%1$s
+upd_checking|正在检查…
+upd_available|版本 %1$s 可用
+upd_latest|已是最新版本
+qr_selftest_ok|自检扫描通过（版本 %1$d，%2$d×%2$d）
+qr_selftest_fail|自检无法读取。请提高对比度、使用方形模块或缩小徽标。
+qr_contrast_low|对比度 %1$.1f:1 过低，建议 4:1 或更高。
+qr_contrast_mid|对比度 %1$.1f:1 在光线不足时较勉强。
+qr_contrast_ok|对比度 %1$.1f:1
+qr_inverted|浅色码配深色底（反色）在部分旧扫码器上无法识别。
+qr_transparent|透明背景：请确保背后是浅色纯色。
+qr_border|边距少于 2 个模块：打印时请留出空间。
+qr_ec_raised|已将纠错等级提高到 %1$s，为徽标留出空间。
+qr_big_badge|徽标较大：请将纠错设为高。
+qr_dense|码较密集（版本 %1$d）。内容越短，扫得越快、距离越远。
+qr_nothing|暂无可编码的内容
+qr_too_much|数据过多，无法生成二维码
+tap_to_close|点按关闭
+pick_colour|选择颜色
+use|使用
+cancel|取消
+edit_title|编辑 · %1$s
+payload|内容
+output|输出
+save|保存
+name|名称
+name_hint|显示在资料库、小组件和文件名中
+update|更新
+save_to_library|保存到资料库
+new_draft|新建
+ssid|网络名称（SSID）
+password|密码
+hidden_network|隐藏网络
+organisation|组织
+website|网站
+to|收件人
+subject|主题
+message|内容
+number|号码
+latitude|纬度
+longitude|经度
+label_optional|标签（可选）
+package_name|包名
+package_hint|NFC 会直接打开应用；二维码链接到它的商店页面
+export_size|导出尺寸
+full|全屏
+share|分享
+saved_gallery|已保存到 Pictures/EMITT
+save_image_failed|无法保存图片
+style|样式
+preset_classic|经典
+preset_theme|主题
+preset_synth|合成
+preset_terminal|终端
+preset_inverted|反色
+image_load_failed|无法加载该图片
+presets|预设
+colours|颜色
+modules|模块
+gradient_end|渐变终点
+transparent_bg|透明背景
+custom_eyes|自定义定位点颜色
+eye_frame|定位点外框
+eye_centre|定位点中心
+swap|互换
+reset|重置
+shape|形状
+module_size|模块大小
+eyes|定位点
+centre_badge|中心徽标
+badge_text|徽标文字（最多 6 个）
+choose_image|选择图片
+badge_size|徽标大小
+visibility|可读性
+ec_hint|纠错：等级越高越能抵抗划痕、反光和徽标遮挡，但码会更密集。
+quiet_zone|边距（静区）
+n_modules|%1$d 个模块
+max_brightness|全屏时最大亮度
+max_brightness_hint|帮助其他手机从更远处读取
+ndef_too_big|%1$d 字节 · 需要比 NTAG216 更大的标签
+ndef_fits|%1$d 字节 · 可写入 %2$s
+extras|附加
+also_open_app|同时打开应用（包名）
+also_open_app_hint|可选的 Android Application Record。留空表示不添加。
+write_to_tag|写入标签
+be_the_tag|充当标签
+nfc_modes_hint|“写入标签”会存入贴纸或卡片。“充当标签”把这部手机变成标签：EMITT 打开时，其他手机触碰即可读取。
+with_flipper|配合 Flipper
+flipper_write_tip|写入 Flipper：在 Flipper 上选择 NFC → Add Manually → NTAG215 → Emulate，然后在这里点“写入标签”。
+flipper_read_tip|读取这部手机：使用 NFC → Extra Actions → Read Specific Card Type → Type 4 Tag。普通 Read 还会查找支付卡并唤醒钱包应用。
+ntag_tip|提示：NTAG213 约可存 130 个字符的链接；NTAG215 和 NTAG216 可存更多。
+waiting_for_tag|等待标签…
+saved_file|已保存 %1$s
+save_file_failed|无法保存文件
+flipper_file_hint|生成可在 Flipper 上模拟的 NTAG 文件：NFC → Saved → Emulate。
+chip|芯片
+auto|自动
+uid_7|7 字节 UID
+file_summary|%1$s · %2$d 字节 · %3$d 页
+hide_file|隐藏文件
+show_file|查看文件
+send_to_flipper|发送到 Flipper
+connect_flipper|连接 Flipper
+save_file|保存文件
+cant_build_file|无法生成文件
+no_code_in_image|图片中未找到码
+scanner|扫描器
+camera_why|EMITT 需要相机来扫码。不会录制或上传任何内容。
+allow_camera|允许使用相机
+light_off|关闭闪光灯
+light|闪光灯
+from_image|从图片
+decoded|已解码 · %1$s
+type|类型
+security|安全
+content|内容
+open|打开
+copy|复制
+copied|已复制
+re_emit|再利用
+edit|编辑
+to_tag|写成标签
+scan_again|再次扫描
+scan_hint|对准二维码或条形码。解码在手机上完成，数据不会外传。
+not_flipper_file|这不是 Flipper NFC 文件
+no_nfc|这部手机没有 NFC。你仍然可以制作二维码和 Flipper 文件。
+nfc_off|NFC 已关闭。
+turn_on_nfc|打开 NFC
+nfc_ready|已就绪。将任意标签靠近手机背面即可查看。
+wrote_of|已写入 %1$d / %2$d 字节
+wrote|已写入 %1$d 字节
+tag_erased|标签已擦除
+tag_locked|标签已锁定，现在为只读。
+tools|工具
+read|读取
+tap_to_read|靠近标签以读取
+erase|擦除
+lock|锁定
+import_nfc|导入 .nfc
+lock_q|锁定标签？
+erase_q|擦除标签？
+lock_warn|锁定后标签将永久只读。任何人（包括你）都无法再修改。
+erase_warn|这会清除标签内容。标签仍可写入。
+lock_forever|永久锁定
+tag_title|标签 · %1$s
+uid_copied|已复制 UID
+memory|容量
+writable|可写
+yes|是
+no_readonly|否（只读）
+lockable|可锁定
+no|否
+records|记录
+no_ndef_data|没有 NDEF 数据
+uid_only|此类芯片只能保存 UID、ATQA 和 SAK。
+send|发送
+cant_convert|只有 NFC-A 标签可以保存给 Flipper
+n_pages|%1$d 页
+file_title|文件 · %1$s
+device|设备
+pages|页数
+no_ndef_in_file|此文件中没有 NDEF 消息。
+file_data|文件中的数据
+uid_not_copied|手机无法复制标签的 UID，只会写入数据。
+link|连接
+connected_to|已连接到 %1$s
+bt_why|EMITT 需要蓝牙权限来查找你的 Flipper 并与它通信。
+allow_bt|允许蓝牙
+reconnect|重新连接
+scanning|正在扫描…
+nearby|附近
+looking_flippers|正在查找 Flipper…
+tap_scan|点“扫描”。在 Flipper 上：Settings → Bluetooth → ON。
+paired|已配对
+not_in_range|不在范围内
+first_time|第一次使用？
+pair_hint|在上方选择你的 Flipper。Android 会要求输入 PIN：输入 Flipper 屏幕上显示的 6 位数字。
+list_failed|无法列出 Flipper 上的文件
+firmware|固件
+built|构建日期
+model|型号
+region|地区
+sd_card|SD 卡
+gb_free|可用 %1$.1f / %2$.1f GB
+all_device_info|全部设备信息
+beep|蜂鸣
+disconnect|断开
+refresh|刷新
+reading|正在读取…
+no_nfc_files|还没有 NFC 文件。在“创建 → Flipper”中生成一个。
+files_land_here|从 EMITT 发送的文件会出现在这里。在 Flipper 的 NFC → Saved 中打开。
+library_count|资料库 · %1$d
+search|搜索
+starred|已加星标
+all|全部
+lib_empty|还没有保存任何内容。在“创建”中制作后点“保存到资料库”。
+no_matches|没有匹配项。
+tile|快捷开关
+star|加星标
+show|显示
+unpin_tile|从快捷开关移除
+pin_tile|固定到快捷开关
+tile_removed|已从快捷设置开关中移除
+tile_now_shows|快捷设置开关现在显示 %1$s
+rename|重命名
+delete|删除
+delete_q|删除？
+delete_confirm|从资料库中删除“%1$s”？显示它的小组件将变为空白。
+back|返回
+appearance|外观
+settings|设置
+made_by|作者
+phone_is_tag|手机正在充当标签
+waiting_reader|等待读取设备
+reads|读取次数：%1$d
+tagmode_hold|把另一部手机的背面贴到这部手机背面的中央。
+tagmode_keep_open|请保持此屏幕打开。如果 EMITT 进入后台，手机自带的标签或钱包可能会代替它响应。
+tagmode_flipper|Flipper：NFC → Extra Actions → Read Specific Card Type → Type 4 Tag。
+minimise|最小化
+awaiting_tag|等待标签
+bar_hold|把另一部手机贴近你的手机。点此进入标签模式。
+scans|可扫描
+check|需检查
+update_available|有可用更新
+colourway|配色
+custom_colours|自定义颜色
+use_my_colours|使用我的颜色
+use_my_colours_hint|以当前配色为起点
+motion|动效
+speed|速度
+density|密度
+intensity|强度
+colour|颜色
+scanlines|扫描线
+scanline_strength|扫描线强度
+vignette|暗角
+vignette_hint|让屏幕边缘变暗
+flicker|闪烁
+flicker_hint|轻微的显像管闪烁
+interface_|界面
+panel_opacity|面板不透明度
+panel_outlines|面板边框
+glow|发光
+glow_hint|标题霓虹发光（深色配色）
+blinking_cursor|闪烁光标
+corners|边角
+font|字体
+text_size|文字大小
+reset_look|重置外观
+app_icon|应用图标
+icon_changed|图标已更改。启动器可能需要一点时间更新。
+language|语言
+language_system|跟随手机语言
+language_hint|部分词语（如协议和芯片名称）保留英文。
+vibration|振动
+vibration_hint|写入标签或手机被读取时给出反馈
+strength|强度
+tap_pattern|点按一个模式来感受它。
+updates|更新
+check_releases|检查新版本
+check_releases_hint|访问 GitHub 公共 API，不会发送任何关于你的信息。
+check_every|检查间隔
+notifications_off|通知已关闭，你只能在应用内看到更新。
+allow_notifications|允许通知
+check_now|立即检查
+get_it|获取
+about|关于
+tagline|二维码、NFC 标签和 Flipper Zero 文件，一个应用全搞定。
+version|版本
+official_build|官方版本
+unofficial_build|非官方版本：未经 StarlightJulie 签名
+made_by_line|由 StarlightJulie 制作。基于 GPLv3 免费开源。
+source|源代码
+license|许可证
+flipper_trademark|Flipper Zero 是 Flipper Devices Inc. 的商标。EMITT 与其无关联，也未获其认可。

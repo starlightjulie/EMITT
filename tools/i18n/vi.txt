@@ -1,0 +1,436 @@
+widget_label|Mã EMITT
+widget_description|Hiển thị một mã đã lưu trên màn hình chính
+tile_label|Mã EMITT
+channel_updates|Cập nhật ứng dụng
+channel_emulation|Điện thoại làm thẻ NFC
+emulation_description|Thẻ NFC EMITT
+kind_text|Văn bản
+kind_url|Liên kết
+kind_contact|Danh bạ
+kind_email|Email
+kind_phone|Điện thoại
+kind_geo|Vị trí
+kind_app|Ứng dụng
+wifi_open|Không
+need_text|Nhập văn bản
+need_link|Nhập liên kết
+need_ssid|Nhập tên mạng
+need_password|Nhập mật khẩu
+need_contact|Nhập tên, số điện thoại hoặc email
+need_email|Nhập địa chỉ email
+need_number|Nhập số điện thoại
+need_geo|Nhập vĩ độ và kinh độ
+need_package|Nhập tên gói như com.example.app
+shape_square|Vuông
+shape_rounded|Bo tròn
+shape_dots|Chấm
+shape_fluid|Mềm mại
+shape_bars|Thanh
+shape_diamond|Hình thoi
+shape_circle|Tròn
+shape_leaf|Lá
+grad_flat|Đơn sắc
+grad_linear|Tuyến tính
+grad_radial|Tỏa tròn
+badge_image|Hình ảnh
+ec_low|Thấp
+ec_medium|Trung bình
+ec_quartile|Khá
+ec_high|Cao
+pat_off|Tắt
+pat_tick|Tích
+pat_double|Chạm đôi
+pat_triple|Ba lần
+pat_heartbeat|Nhịp tim
+pat_buzz|Rung dài
+pat_rising|Tăng dần
+pat_falling|Giảm dần
+pat_purr|Rừ rừ
+hev_write|Đã ghi hoặc đọc thẻ
+hev_write_hint|Khi EMITT ghi, đọc, xóa hoặc khóa thẻ
+hev_emulated|Điện thoại được đọc như thẻ
+hev_emulated_hint|Khi thiết bị khác đọc điện thoại này ở chế độ thẻ
+hev_fail|Có lỗi xảy ra
+hev_fail_hint|Lần ghi hoặc đọc không thành công
+slot_accent|Màu nhấn
+slot_accent_hint|Nút, điểm nhấn, tab đang mở
+slot_signal|Tín hiệu
+slot_signal_hint|Màu nhấn thứ hai: trạng thái, liên kết, hiệu ứng
+slot_bg|Nền
+slot_bg_hint|Phía sau mọi thứ
+slot_panels|Bảng
+slot_panels_hint|Thẻ và trang
+slot_text_hint|Màu chữ chính
+bg_synth|Lưới synth
+bg_rain|Mưa mã
+bg_scope|Máy hiện sóng
+bg_radar|Radar
+bg_dots|Ma trận điểm
+bg_circuit|Mạch điện
+bg_warp|Bẻ cong
+bg_spectrum|Phổ
+bg_static|Nhiễu
+bg_random|Ngẫu nhiên
+bgc_duo|Cả hai màu nhấn
+bgc_cycle|Đổi sắc độ
+bgc_ink|Màu chữ
+corner_cut|Vát góc
+corner_sharp|Vuông góc
+corner_soft|Mềm
+font_mixed|Nhãn đơn cách
+font_mono|Toàn bộ đơn cách
+tag_read_failed|Không đọc được thẻ. Giữ yên và thử lại.
+tag_readonly|Thẻ này chỉ đọc.
+tag_too_big|Quá lớn: %1$d byte, nhưng thẻ chỉ chứa %2$d.
+tag_no_ndef|Thẻ này không hỗ trợ NDEF.
+tag_lost_write|Mất thẻ khi đang ghi. Giữ yên và thử lại.
+tag_write_failed|Ghi thất bại.
+tag_nothing_to_lock|Thẻ này không có dữ liệu NDEF để khóa.
+tag_cant_lock|Không thể khóa thẻ này.
+tag_lock_refused|Thẻ từ chối khóa.
+tag_lost|Mất thẻ. Giữ yên và thử lại.
+fl_bt_off|Bluetooth đang tắt
+fl_step_looking|Đang tìm
+fl_not_in_range|Thiết bị đã ghép đó không ở gần. Hãy chọn Flipper có hiện cường độ tín hiệu.
+fl_cant_see|Không thấy Flipper. Trên Flipper, kiểm tra Settings → Bluetooth là ON và ứng dụng Flipper không kết nối với nó.
+fl_step_pairing|Ghép nối: nhập mã PIN hiện trên Flipper
+fl_step_connecting|Đang kết nối
+fl_step_setup|Đang thiết lập
+fl_not_flipper|Thiết bị này không giống Flipper (không có dịch vụ serial).
+fl_step_info|Đang đọc thông tin thiết bị
+fl_other_app|Flipper đang kết nối với ứng dụng khác (như ứng dụng Flipper chính thức). Hãy ngắt kết nối ở đó rồi thử lại.
+fl_timeout|Hết thời gian chờ. Bluetooth trong cài đặt Flipper đã bật chưa?
+fl_failed|Kết nối thất bại
+fl_disconnected|Đã ngắt kết nối
+fl_pair_start|Không thể bắt đầu ghép nối
+fl_pair_failed|Đã hủy ghép nối hoặc mã PIN không khớp
+fl_not_connected|Chưa kết nối
+fl_refused|Yêu cầu Bluetooth bị từ chối
+fl_dropped|Flipper đã ngắt kết nối
+fl_subscribe|Flipper từ chối kết nối (%1$d). Hãy ghép nối lại.
+fl_write|Ghi Bluetooth thất bại (%1$d)
+fl_error|Lỗi Flipper %1$d
+fl_stalled|Flipper ngừng nhận dữ liệu
+fs_unknown|Lỗi không xác định
+fs_decode|Không giải mã được
+fs_unsupported|Không được hỗ trợ
+fs_busy|Flipper đang bận
+fs_sd|Thẻ SD chưa sẵn sàng
+fs_exists|Đã tồn tại
+fs_missing|Không tồn tại
+fs_param|Tham số không hợp lệ
+fs_denied|Bị từ chối truy cập
+fs_name|Tên không hợp lệ
+fs_internal|Lỗi nội bộ
+fs_open|Đã mở
+fs_interrupted|Bị gián đoạn
+fs_params|Tham số không hợp lệ
+upd_none|Chưa có bản phát hành công khai
+upd_http|GitHub trả về %1$d
+upd_notag|Bản phát hành không có thẻ phiên bản
+upd_offline|Không kết nối được GitHub
+emu_notif_title|Điện thoại của bạn là một thẻ NFC
+emu_notif_text|Đang phát %1$s. Mở EMITT và điện thoại khác có thể chạm để đọc.
+stop|Dừng
+upd_notif_title|Đã có EMITT %1$s
+open_release|Mở bản phát hành
+tile_pin|Ghim một mã trong Thư viện
+tile_show|Hiện mã
+widget_pick|Chạm để chọn mã
+widget_empty|Thư viện trống. Hãy lưu một mã trong EMITT trước, rồi thêm lại tiện ích.
+widget_pick_title|Chọn mã
+tab_create|Tạo
+tab_scan|Quét
+tab_tags|Thẻ
+tab_library|Thư viện
+out_qr|Mã QR
+out_nfc|Thẻ NFC
+prompt_write|Chạm thẻ vào điện thoại để ghi: %1$s
+prompt_erase|Chạm thẻ vào điện thoại để xóa
+prompt_lock|Chạm thẻ vào điện thoại để khóa. Không thể hoàn tác.
+prompt_copy_from|Chạm thẻ bạn muốn sao chép
+prompt_copy_to|Giờ chạm thẻ đích
+lib_updated|Đã cập nhật trong thư viện
+lib_saved|Đã lưu vào thư viện
+emu_unsupported|Điện thoại này không thể làm thẻ NFC
+nfc_turn_on_first|Hãy bật NFC trước
+copy_empty|Thẻ đó không có gì để sao chép.
+fl_too_big|Quá lớn cho NTAG216 (872 byte)
+fl_too_big_chip|Quá lớn cho %1$s. Hãy chọn chip lớn hơn.
+fl_connect_first|Hãy kết nối Flipper trước
+fl_sent|Đã gửi tới Flipper: %1$s
+fl_send_failed|Không gửi được: %1$s
+upd_checking|Đang kiểm tra…
+upd_available|Đã có phiên bản %1$s
+upd_latest|Bạn đang dùng phiên bản mới nhất
+qr_selftest_ok|Tự quét thử thành công (phiên bản %1$d, %2$d×%2$d)
+qr_selftest_fail|Quét thử không đọc được. Tăng độ tương phản, dùng mô-đun vuông hoặc logo nhỏ hơn.
+qr_contrast_low|Độ tương phản %1$.1f:1 quá thấp. Nên đạt 4:1 trở lên.
+qr_contrast_mid|Độ tương phản %1$.1f:1 hơi yếu khi thiếu sáng.
+qr_contrast_ok|Độ tương phản %1$.1f:1
+qr_inverted|Mã sáng trên nền tối (đảo màu) không quét được trên một số máy đọc cũ.
+qr_transparent|Nền trong suốt: đảm bảo phía sau sáng màu và trơn.
+qr_border|Viền dưới 2 mô-đun: hãy chừa khoảng trống khi in.
+qr_ec_raised|Đã nâng sửa lỗi lên %1$s để có chỗ cho logo.
+qr_big_badge|Logo lớn: hãy chuyển sửa lỗi sang Cao.
+qr_dense|Mã dày đặc (phiên bản %1$d). Nội dung ngắn hơn quét nhanh hơn và từ xa hơn.
+qr_nothing|Chưa có gì để mã hóa
+qr_too_much|Quá nhiều dữ liệu cho mã QR
+tap_to_close|Chạm để đóng
+pick_colour|Chọn màu
+use|Dùng
+cancel|Hủy
+edit_title|Sửa · %1$s
+payload|Nội dung
+output|Đầu ra
+save|Lưu
+name|Tên
+name_hint|Hiện trong thư viện, tiện ích và tên tệp
+update|Cập nhật
+save_to_library|Lưu vào thư viện
+new_draft|Mới
+ssid|Tên mạng (SSID)
+password|Mật khẩu
+hidden_network|Mạng ẩn
+organisation|Tổ chức
+website|Trang web
+to|Đến
+subject|Tiêu đề
+message|Tin nhắn
+number|Số
+latitude|Vĩ độ
+longitude|Kinh độ
+label_optional|Nhãn (không bắt buộc)
+package_name|Tên gói
+package_hint|NFC mở thẳng ứng dụng; QR dẫn tới trang của ứng dụng trên cửa hàng
+export_size|Kích thước xuất
+full|Toàn màn hình
+share|Chia sẻ
+saved_gallery|Đã lưu vào Pictures/EMITT
+save_image_failed|Không lưu được hình ảnh
+style|Kiểu
+preset_classic|Cổ điển
+preset_theme|Theo giao diện
+preset_synth|Synth
+preset_terminal|Terminal
+preset_inverted|Đảo màu
+image_load_failed|Không tải được hình ảnh đó
+presets|Mẫu có sẵn
+colours|Màu sắc
+modules|Mô-đun
+gradient_end|Màu cuối chuyển sắc
+transparent_bg|Nền trong suốt
+custom_eyes|Màu mắt tùy chỉnh
+eye_frame|Khung mắt
+eye_centre|Tâm mắt
+swap|Đổi chỗ
+reset|Đặt lại
+shape|Hình dạng
+module_size|Kích thước mô-đun
+eyes|Mắt
+centre_badge|Logo ở giữa
+badge_text|Chữ logo (tối đa 6)
+choose_image|Chọn hình ảnh
+badge_size|Kích thước logo
+visibility|Độ dễ đọc
+ec_hint|Sửa lỗi: càng cao càng chịu được trầy xước, chói sáng và logo, nhưng mã dày đặc hơn.
+quiet_zone|Viền (vùng trống)
+n_modules|%1$d mô-đun
+max_brightness|Độ sáng tối đa khi toàn màn hình
+max_brightness_hint|Giúp điện thoại khác đọc từ xa hơn
+ndef_too_big|%1$d byte · cần thẻ lớn hơn NTAG216
+ndef_fits|%1$d byte · vừa với %2$s
+extras|Bổ sung
+also_open_app|Mở thêm ứng dụng (gói)
+also_open_app_hint|Android Application Record tùy chọn. Để trống nếu không cần.
+write_to_tag|Ghi vào thẻ
+be_the_tag|Làm thẻ
+nfc_modes_hint|Ghi vào thẻ lưu nội dung lên nhãn dán hoặc thẻ. Làm thẻ biến điện thoại này thành thẻ: điện thoại khác chạm để đọc khi EMITT đang mở.
+with_flipper|Với Flipper
+flipper_write_tip|Để ghi lên Flipper: trên Flipper chọn NFC → Add Manually → NTAG215 → Emulate, rồi chạm Ghi vào thẻ ở đây.
+flipper_read_tip|Để đọc điện thoại này: dùng NFC → Extra Actions → Read Specific Card Type → Type 4 Tag. Read thường cũng tìm thẻ thanh toán và đánh thức ứng dụng ví.
+ntag_tip|Mẹo: NTAG213 chứa khoảng 130 ký tự liên kết; NTAG215 và NTAG216 chứa nhiều hơn hẳn.
+waiting_for_tag|đang chờ thẻ…
+saved_file|Đã lưu %1$s
+save_file_failed|Không lưu được tệp
+flipper_file_hint|Tạo tệp NTAG mà Flipper có thể mô phỏng: NFC → Saved → Emulate.
+chip|Chip
+auto|Tự động
+uid_7|UID 7 byte
+file_summary|%1$s · %2$d byte · %3$d trang
+hide_file|Ẩn tệp
+show_file|Xem tệp
+send_to_flipper|Gửi tới Flipper
+connect_flipper|Kết nối Flipper
+save_file|Lưu tệp
+cant_build_file|Không tạo được tệp
+no_code_in_image|Không tìm thấy mã trong hình đó
+scanner|Máy quét
+camera_why|EMITT cần máy ảnh để quét mã. Không có gì được ghi lại hay tải lên.
+allow_camera|Cho phép máy ảnh
+light_off|Tắt đèn
+light|Đèn
+from_image|Từ hình ảnh
+decoded|Đã giải mã · %1$s
+type|Loại
+security|Bảo mật
+content|Nội dung
+open|Mở
+copy|Sao chép
+copied|Đã sao chép
+re_emit|Dùng lại
+edit|Sửa
+to_tag|Sang thẻ
+scan_again|Quét lại
+scan_hint|Hướng vào mã QR hoặc mã vạch. Mã được giải trên điện thoại; không gì rời khỏi máy.
+not_flipper_file|Đó không phải tệp NFC của Flipper
+no_nfc|Điện thoại này không có NFC. Bạn vẫn có thể tạo mã QR và tệp Flipper.
+nfc_off|NFC đang tắt.
+turn_on_nfc|Bật NFC
+nfc_ready|Sẵn sàng. Chạm bất kỳ thẻ nào vào mặt sau điện thoại để xem.
+wrote_of|Đã ghi %1$d trên %2$d byte
+wrote|Đã ghi %1$d byte
+tag_erased|Đã xóa thẻ
+tag_locked|Đã khóa thẻ. Giờ thẻ chỉ đọc.
+tools|Công cụ
+read|Đọc
+tap_to_read|Chạm thẻ để đọc
+erase|Xóa
+lock|Khóa
+import_nfc|Nhập .nfc
+lock_q|Khóa thẻ?
+erase_q|Xóa thẻ?
+lock_warn|Khóa sẽ khiến thẻ chỉ đọc vĩnh viễn. Không ai, kể cả bạn, có thể sửa sau đó.
+erase_warn|Thao tác này xóa nội dung thẻ. Thẻ vẫn ghi được.
+lock_forever|Khóa vĩnh viễn
+tag_title|Thẻ · %1$s
+uid_copied|Đã sao chép UID
+memory|Bộ nhớ
+writable|Ghi được
+yes|Có
+no_readonly|Không (chỉ đọc)
+lockable|Khóa được
+no|Không
+records|Bản ghi
+no_ndef_data|Không có dữ liệu NDEF
+uid_only|Với loại chip này chỉ lưu được UID, ATQA và SAK.
+send|Gửi
+cant_convert|Chỉ thẻ NFC-A mới lưu được cho Flipper
+n_pages|%1$d trang
+file_title|Tệp · %1$s
+device|Thiết bị
+pages|Trang
+no_ndef_in_file|Không tìm thấy thông điệp NDEF trong tệp này.
+file_data|dữ liệu của tệp
+uid_not_copied|Điện thoại không thể sao chép UID của thẻ; chỉ dữ liệu được ghi.
+link|Kết nối
+connected_to|Đã kết nối với %1$s
+bt_why|EMITT cần quyền Bluetooth để tìm và giao tiếp với Flipper.
+allow_bt|Cho phép Bluetooth
+reconnect|Kết nối lại
+scanning|Đang quét…
+nearby|Gần đây
+looking_flippers|Đang tìm Flipper…
+tap_scan|Chạm Quét. Trên Flipper: Settings → Bluetooth → ON.
+paired|đã ghép
+not_in_range|ngoài phạm vi
+first_time|Lần đầu?
+pair_hint|Chọn Flipper ở trên. Android sẽ hỏi mã PIN: nhập 6 chữ số hiện trên màn hình Flipper.
+list_failed|Không liệt kê được tệp trên Flipper
+firmware|Firmware
+built|Bản dựng
+model|Mẫu
+region|Khu vực
+sd_card|Thẻ SD
+gb_free|Trống %1$.1f / %2$.1f GB
+all_device_info|Tất cả thông tin
+beep|Kêu bíp
+disconnect|Ngắt kết nối
+refresh|Làm mới
+reading|Đang đọc…
+no_nfc_files|Chưa có tệp NFC. Tạo một tệp trong Tạo → Flipper.
+files_land_here|Tệp gửi từ EMITT sẽ nằm ở đây. Mở chúng trên Flipper trong NFC → Saved.
+library_count|Thư viện · %1$d
+search|Tìm kiếm
+starred|Gắn sao
+all|Tất cả
+lib_empty|Chưa lưu gì. Tạo nội dung trong Tạo rồi chạm Lưu vào thư viện.
+no_matches|Không có kết quả.
+tile|Ô nhanh
+star|Gắn sao
+show|Hiện
+unpin_tile|Bỏ ghim khỏi ô
+pin_tile|Ghim vào ô
+tile_removed|Đã gỡ khỏi ô Cài đặt nhanh
+tile_now_shows|Ô Cài đặt nhanh giờ hiển thị %1$s
+rename|Đổi tên
+delete|Xóa
+delete_q|Xóa?
+delete_confirm|Xóa “%1$s” khỏi thư viện? Các tiện ích đang hiển thị nó sẽ trống.
+back|Quay lại
+appearance|Giao diện
+settings|Cài đặt
+made_by|tạo bởi
+phone_is_tag|Điện thoại là thẻ
+waiting_reader|Đang chờ máy đọc
+reads|Lượt đọc: %1$d
+tagmode_hold|Áp mặt sau điện thoại kia vào giữa mặt sau điện thoại này.
+tagmode_keep_open|Giữ màn hình này mở. Nếu EMITT chạy nền, thẻ hoặc ví có sẵn của điện thoại có thể trả lời thay.
+tagmode_flipper|Flipper: NFC → Extra Actions → Read Specific Card Type → Type 4 Tag.
+minimise|Thu nhỏ
+awaiting_tag|Đang chờ thẻ
+bar_hold|Áp điện thoại khác vào máy bạn. Chạm đây để mở chế độ thẻ.
+scans|Đọc được
+check|Kiểm tra
+update_available|Có bản cập nhật
+colourway|Bảng màu
+custom_colours|Màu tùy chỉnh
+use_my_colours|Dùng màu của tôi
+use_my_colours_hint|Bắt đầu từ bảng màu hiện tại
+motion|Chuyển động
+speed|Tốc độ
+density|Mật độ
+intensity|Cường độ
+colour|Màu
+scanlines|Đường quét
+scanline_strength|Độ đậm đường quét
+vignette|Tối viền
+vignette_hint|Làm tối các cạnh màn hình
+flicker|Nhấp nháy
+flicker_hint|Lấp lánh CRT nhẹ
+interface_|Giao diện người dùng
+panel_opacity|Độ mờ của bảng
+panel_outlines|Viền bảng
+glow|Phát sáng
+glow_hint|Ánh neon trên tiêu đề (bảng màu tối)
+blinking_cursor|Con trỏ nhấp nháy
+corners|Góc
+font|Phông chữ
+text_size|Cỡ chữ
+reset_look|Đặt lại giao diện
+app_icon|Biểu tượng ứng dụng
+icon_changed|Đã đổi biểu tượng. Trình khởi chạy có thể mất chút thời gian để cập nhật.
+language|Ngôn ngữ
+language_system|Ngôn ngữ của điện thoại
+language_hint|Một số từ, như tên giao thức và chip, vẫn để tiếng Anh.
+vibration|Rung
+vibration_hint|Phản hồi khi ghi thẻ hoặc khi điện thoại của bạn được đọc
+strength|Độ mạnh
+tap_pattern|Chạm vào một kiểu để cảm nhận.
+updates|Cập nhật
+check_releases|Kiểm tra bản phát hành mới
+check_releases_hint|Hỏi API công khai của GitHub. Không gửi thông tin gì về bạn.
+check_every|Kiểm tra mỗi
+notifications_off|Thông báo đang tắt, nên bạn chỉ thấy cập nhật trong ứng dụng.
+allow_notifications|Cho phép thông báo
+check_now|Kiểm tra ngay
+get_it|Tải về
+about|Giới thiệu
+tagline|Mã QR, thẻ NFC và tệp Flipper Zero trong một ứng dụng.
+version|Phiên bản
+official_build|Bản chính thức
+unofficial_build|Bản không chính thức: không được StarlightJulie ký
+made_by_line|Do StarlightJulie tạo. Miễn phí và mã nguồn mở theo GPLv3.
+source|Mã nguồn
+license|Giấy phép
+flipper_trademark|Flipper Zero là nhãn hiệu của Flipper Devices Inc. EMITT không liên kết và không được họ bảo trợ.

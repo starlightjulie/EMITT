@@ -1,0 +1,436 @@
+widget_label|EMITT குறியீடு
+widget_description|நீங்கள் சேமித்த ஒரு குறியீட்டை முகப்புத் திரையில் காட்டும்
+tile_label|EMITT குறியீடு
+channel_updates|செயலி புதுப்பிப்புகள்
+channel_emulation|போன் NFC டேகாக
+emulation_description|EMITT NFC டேக்
+kind_text|உரை
+kind_url|இணைப்பு
+kind_contact|தொடர்பு
+kind_email|மின்னஞ்சல்
+kind_phone|போன்
+kind_geo|இடம்
+kind_app|செயலி
+wifi_open|எதுவுமில்லை
+need_text|சிறிது உரை உள்ளிடவும்
+need_link|ஒரு இணைப்பை உள்ளிடவும்
+need_ssid|நெட்வொர்க் பெயரை உள்ளிடவும்
+need_password|கடவுச்சொல்லை உள்ளிடவும்
+need_contact|பெயர், போன் அல்லது மின்னஞ்சல் உள்ளிடவும்
+need_email|மின்னஞ்சல் முகவரியை உள்ளிடவும்
+need_number|போன் எண்ணை உள்ளிடவும்
+need_geo|அட்சரேகை மற்றும் தீர்க்கரேகை உள்ளிடவும்
+need_package|தொகுப்புப் பெயரை உள்ளிடவும், எ.கா. com.example.app
+shape_square|சதுரம்
+shape_rounded|வட்ட முனைகள்
+shape_dots|புள்ளிகள்
+shape_fluid|ஓட்டம்
+shape_bars|பட்டைகள்
+shape_diamond|வைரம்
+shape_circle|வட்டம்
+shape_leaf|இலை
+grad_flat|ஒரே நிறம்
+grad_linear|நேர்கோட்டு
+grad_radial|ஆரை
+badge_image|படம்
+ec_low|குறைவு
+ec_medium|நடுத்தரம்
+ec_quartile|கால்பகுதி
+ec_high|அதிகம்
+pat_off|அணை
+pat_tick|டிக்
+pat_double|இரு தட்டு
+pat_triple|மூன்று தட்டு
+pat_heartbeat|இதயத் துடிப்பு
+pat_buzz|நீண்ட அதிர்வு
+pat_rising|ஏறுமுகம்
+pat_falling|இறங்குமுகம்
+pat_purr|உறுமல்
+hev_write|டேக் எழுதப்பட்டது அல்லது படிக்கப்பட்டது
+hev_write_hint|EMITT ஒரு டேகை எழுதும், படிக்கும், அழிக்கும் அல்லது பூட்டும்போது
+hev_emulated|போன் டேகாகப் படிக்கப்பட்டது
+hev_emulated_hint|வேறு சாதனம் டேக் பயன்முறையில் இந்தப் போனைப் படிக்கும்போது
+hev_fail|ஏதோ தோல்வியடைந்தது
+hev_fail_hint|எழுதுதல் அல்லது படித்தல் வெற்றிபெறவில்லை
+slot_accent|முதன்மை நிறம்
+slot_accent_hint|பொத்தான்கள், சிறப்பம்சங்கள், செயலில் உள்ள தாவல்
+slot_signal|சிக்னல் நிறம்
+slot_signal_hint|இரண்டாம் முதன்மை நிறம்: நிலை, இணைப்புகள், இயக்கம்
+slot_bg|பின்னணி
+slot_bg_hint|எல்லாவற்றுக்கும் பின்னால்
+slot_panels|பேனல்கள்
+slot_panels_hint|அட்டைகள் மற்றும் தாள்கள்
+slot_text_hint|முதன்மை உரை நிறம்
+bg_synth|சிந்த் கட்டம்
+bg_rain|குறியீட்டு மழை
+bg_scope|அலைக்காட்டி
+bg_radar|ரேடார்
+bg_dots|புள்ளி அணி
+bg_circuit|மின்சுற்று
+bg_warp|வார்ப்
+bg_spectrum|நிறமாலை
+bg_static|இரைச்சல்
+bg_random|சீரற்ற
+bgc_duo|இரு நிறங்கள்
+bgc_cycle|நிறச் சுழற்சி
+bgc_ink|உரை நிறம்
+corner_cut|வெட்டிய
+corner_sharp|கூர்மையான
+corner_soft|மென்மையான
+font_mixed|மோனோ லேபிள்கள்
+font_mono|எல்லாம் மோனோ
+tag_read_failed|டேகைப் படிக்க முடியவில்லை. அசையாமல் வைத்து மீண்டும் முயலவும்.
+tag_readonly|இந்த டேக் படிக்க மட்டுமே.
+tag_too_big|மிகப் பெரியது: %1$d பைட்டுகள், ஆனால் டேகில் %2$d மட்டுமே பிடிக்கும்.
+tag_no_ndef|இந்த டேக் NDEF-ஐ ஆதரிக்காது.
+tag_lost_write|எழுதும்போது டேக் நகர்ந்தது. அசையாமல் வைத்து மீண்டும் முயலவும்.
+tag_write_failed|எழுதுதல் தோல்வியடைந்தது.
+tag_nothing_to_lock|இந்த டேகில் பூட்ட NDEF தரவு இல்லை.
+tag_cant_lock|இந்த டேகைப் பூட்ட முடியாது.
+tag_lock_refused|டேக் பூட்ட மறுத்தது.
+tag_lost|டேக் நகர்ந்தது. அசையாமல் வைத்து மீண்டும் முயலவும்.
+fl_bt_off|புளூடூத் அணைக்கப்பட்டுள்ளது
+fl_step_looking|தேடுகிறது
+fl_not_in_range|இந்த இணைப்பு அருகில் இல்லை. சிக்னல் வலிமை தெரியும் Flipper-ஐத் தேர்ந்தெடுக்கவும்.
+fl_cant_see|உங்கள் Flipper தெரியவில்லை. அதில் Settings → Bluetooth ON என்றும் Flipper செயலி இணைக்கப்படவில்லை என்றும் சரிபார்க்கவும்.
+fl_step_pairing|இணைத்தல்: Flipper-இல் காட்டும் PIN-ஐ உள்ளிடவும்
+fl_step_connecting|இணைக்கிறது
+fl_step_setup|அமைக்கிறது
+fl_not_flipper|இது Flipper போலத் தெரியவில்லை (சீரியல் சேவை இல்லை).
+fl_step_info|சாதனத் தகவலைப் படிக்கிறது
+fl_other_app|Flipper வேறு செயலியுடன் இணைந்துள்ளது (எ.கா. அதிகாரப்பூர்வ Flipper செயலி). அங்கே துண்டித்து மீண்டும் முயலவும்.
+fl_timeout|நேரம் முடிந்தது. Flipper அமைப்புகளில் புளூடூத் இயக்கத்தில் உள்ளதா?
+fl_failed|இணைப்பு தோல்வி
+fl_disconnected|துண்டிக்கப்பட்டது
+fl_pair_start|இணைத்தலைத் தொடங்க முடியவில்லை
+fl_pair_failed|இணைத்தல் ரத்தானது அல்லது PIN பொருந்தவில்லை
+fl_not_connected|இணைக்கப்படவில்லை
+fl_refused|புளூடூத் கோரிக்கை மறுக்கப்பட்டது
+fl_dropped|Flipper இணைப்பு துண்டானது
+fl_subscribe|Flipper இணைப்பை மறுத்தது (%1$d). மீண்டும் இணைக்கவும்.
+fl_write|புளூடூத் எழுதுதல் தோல்வி (%1$d)
+fl_error|Flipper பிழை %1$d
+fl_stalled|Flipper தரவை ஏற்பதை நிறுத்தியது
+fs_unknown|தெரியாத பிழை
+fs_decode|குறிவிலக்க முடியவில்லை
+fs_unsupported|ஆதரிக்கப்படவில்லை
+fs_busy|Flipper வேலையில் உள்ளது
+fs_sd|SD கார்டு தயாராக இல்லை
+fs_exists|ஏற்கனவே உள்ளது
+fs_missing|கிடைக்கவில்லை
+fs_param|தவறான அளவுரு
+fs_denied|அணுகல் மறுக்கப்பட்டது
+fs_name|தவறான பெயர்
+fs_internal|உள் பிழை
+fs_open|ஏற்கனவே திறந்துள்ளது
+fs_interrupted|குறுக்கிடப்பட்டது
+fs_params|தவறான அளவுருக்கள்
+upd_none|இன்னும் பொது வெளியீடுகள் இல்லை
+upd_http|GitHub %1$d பதில் தந்தது
+upd_notag|வெளியீட்டுக்குப் பதிப்பு டேக் இல்லை
+upd_offline|GitHub-ஐ அடைய முடியவில்லை
+emu_notif_title|உங்கள் போன் இப்போது ஒரு NFC டேக்
+emu_notif_text|%1$s அனுப்புகிறது. EMITT-ஐத் திறந்தால் மற்ற போன்கள் தொட்டுப் படிக்கலாம்.
+stop|நிறுத்து
+upd_notif_title|EMITT %1$s வந்துவிட்டது
+open_release|வெளியீட்டைத் திற
+tile_pin|நூலகத்திலிருந்து ஒரு குறியீட்டைப் பின் செய்யவும்
+tile_show|குறியீட்டைக் காட்டு
+widget_pick|குறியீட்டைத் தேர்ந்தெடுக்கத் தட்டவும்
+widget_empty|உங்கள் நூலகம் காலியாக உள்ளது. முதலில் EMITT-இல் ஒரு குறியீட்டைச் சேமித்து, பிறகு விட்ஜெட்டை மீண்டும் சேர்க்கவும்.
+widget_pick_title|ஒரு குறியீட்டைத் தேர்ந்தெடு
+tab_create|உருவாக்கு
+tab_scan|ஸ்கேன்
+tab_tags|டேக்குகள்
+tab_library|நூலகம்
+out_qr|QR குறியீடு
+out_nfc|NFC டேக்
+prompt_write|எழுத டேகைப் போனில் வைக்கவும்: %1$s
+prompt_erase|அழிக்க டேகைப் போனில் வைக்கவும்
+prompt_lock|பூட்ட டேகைப் போனில் வைக்கவும். இதைத் திரும்பப் பெற முடியாது.
+prompt_copy_from|நகலெடுக்க வேண்டிய டேகை வைக்கவும்
+prompt_copy_to|இப்போது நகலிட வேண்டிய டேகை வைக்கவும்
+lib_updated|நூலகத்தில் புதுப்பிக்கப்பட்டது
+lib_saved|நூலகத்தில் சேமிக்கப்பட்டது
+emu_unsupported|இந்தப் போன் NFC டேகாகச் செயல்பட முடியாது
+nfc_turn_on_first|முதலில் NFC-ஐ இயக்கவும்
+copy_empty|இந்த டேகில் நகலெடுக்க எதுவுமில்லை.
+fl_too_big|NTAG216 (872 பைட்டுகள்) க்கு மிகப் பெரியது
+fl_too_big_chip|%1$s க்கு மிகப் பெரியது. பெரிய சிப்பைத் தேர்ந்தெடுக்கவும்.
+fl_connect_first|முதலில் Flipper-ஐ இணைக்கவும்
+fl_sent|Flipper-க்கு அனுப்பப்பட்டது: %1$s
+fl_send_failed|அனுப்ப முடியவில்லை: %1$s
+upd_checking|சரிபார்க்கிறது…
+upd_available|%1$s கிடைக்கிறது
+upd_latest|உங்களிடம் சமீபத்திய பதிப்பு உள்ளது
+qr_selftest_ok|சுய சோதனை ஸ்கேன் வெற்றி (பதிப்பு %1$d, %2$d×%2$d)
+qr_selftest_fail|சுய சோதனையால் படிக்க முடியவில்லை. மாறுபாட்டை அதிகரிக்கவும், சதுர மாட்யூல்கள் அல்லது சிறிய பேட்ஜைப் பயன்படுத்தவும்.
+qr_contrast_low|மாறுபாடு %1$.1f:1 மிகக் குறைவு. 4:1 அல்லது அதிகமாக வைக்கவும்.
+qr_contrast_mid|மங்கலான ஒளியில் மாறுபாடு %1$.1f:1 எல்லையில் உள்ளது.
+qr_contrast_ok|மாறுபாடு %1$.1f:1
+qr_inverted|அடர்நிறத்தில் வெளிர் (தலைகீழ்) குறியீடுகளைச் சில பழைய ஸ்கேனர்கள் படிக்காது.
+qr_transparent|ஒளிபுகும் பின்னணி: பின்னால் இருப்பது வெளிர் நிறமாகவும் எளிமையாகவும் இருப்பதை உறுதிசெய்யவும்.
+qr_border|ஓரம் 2 மாட்யூல்களுக்குக் குறைவு: அச்சிடும்போது இடம் விடவும்.
+qr_ec_raised|பேட்ஜுக்கு இடம் தர பிழைதிருத்தம் %1$s ஆக உயர்த்தப்பட்டது.
+qr_big_badge|பெரிய பேட்ஜ்: பிழைதிருத்தத்தை அதிகமாக வைக்கவும்.
+qr_dense|அடர்த்தியான குறியீடு (பதிப்பு %1$d). சுருக்கமான உள்ளடக்கம் வேகமாகவும் தொலைவிலிருந்தும் ஸ்கேன் ஆகும்.
+qr_nothing|இன்னும் குறியாக்க எதுவுமில்லை
+qr_too_much|QR குறியீட்டுக்கு அதிகத் தரவு
+tap_to_close|மூடத் தட்டவும்
+pick_colour|நிறம் தேர்ந்தெடு
+use|பயன்படுத்து
+cancel|ரத்து
+edit_title|திருத்து · %1$s
+payload|உள்ளடக்கம்
+output|வெளியீடு
+save|சேமி
+name|பெயர்
+name_hint|நூலகம், விட்ஜெட், கோப்புப் பெயர்களில் தெரியும்
+update|புதுப்பி
+save_to_library|நூலகத்தில் சேமி
+new_draft|புதியது
+ssid|நெட்வொர்க் பெயர் (SSID)
+password|கடவுச்சொல்
+hidden_network|மறைந்த நெட்வொர்க்
+organisation|நிறுவனம்
+website|இணையதளம்
+to|பெறுநர்
+subject|பொருள்
+message|செய்தி
+number|எண்
+latitude|அட்சரேகை
+longitude|தீர்க்கரேகை
+label_optional|லேபிள் (விருப்பம்)
+package_name|தொகுப்புப் பெயர்
+package_hint|NFC நேரடியாகச் செயலியைத் திறக்கும்; QR அதன் ஸ்டோர் பக்கத்தைத் திறக்கும்
+export_size|ஏற்றுமதி அளவு
+full|முழுத் திரை
+share|பகிர்
+saved_gallery|Pictures/EMITT இல் சேமிக்கப்பட்டது
+save_image_failed|படத்தைச் சேமிக்க முடியவில்லை
+style|பாணி
+preset_classic|கிளாசிக்
+preset_theme|தீம் போல
+preset_synth|சிந்த்
+preset_terminal|டெர்மினல்
+preset_inverted|தலைகீழ்
+image_load_failed|அந்தப் படத்தை ஏற்ற முடியவில்லை
+presets|முன்னமைவுகள்
+colours|நிறங்கள்
+modules|மாட்யூல்கள்
+gradient_end|சாய்வின் முடிவு
+transparent_bg|ஒளிபுகும் பின்னணி
+custom_eyes|கண்களுக்குத் தனி நிறங்கள்
+eye_frame|கண் சட்டகம்
+eye_centre|கண் மையம்
+swap|மாற்று
+reset|மீட்டமை
+shape|வடிவம்
+module_size|மாட்யூல் அளவு
+eyes|கண்கள்
+centre_badge|நடுவில் பேட்ஜ்
+badge_text|பேட்ஜ் உரை (6 வரை)
+choose_image|படம் தேர்ந்தெடு
+badge_size|பேட்ஜ் அளவு
+visibility|படிக்க எளிமை
+ec_hint|பிழைதிருத்தம்: அதிகமானால் கீறல், ஒளிர்வு, லோகோக்களைத் தாங்கும், ஆனால் குறியீடு அடர்த்தியாகும்.
+quiet_zone|ஓரம் (அமைதி மண்டலம்)
+n_modules|%1$d மாட்யூல்கள்
+max_brightness|முழுத் திரையில் அதிகபட்ச ஒளிர்வு
+max_brightness_hint|மற்ற போன்கள் தொலைவிலிருந்து ஸ்கேன் செய்ய உதவும்
+ndef_too_big|%1$d பைட்டுகள் · NTAG216 ஐ விடப் பெரிய டேக் தேவை
+ndef_fits|%1$d பைட்டுகள் · %2$s இல் பொருந்தும்
+extras|கூடுதல்
+also_open_app|ஒரு செயலியையும் திற (தொகுப்பு)
+also_open_app_hint|விருப்பமான Android Application Record. தேவையில்லையெனில் காலியாக விடவும்.
+write_to_tag|டேகில் எழுது
+be_the_tag|நீங்களே டேக்
+nfc_modes_hint|«டேகில் எழுது» இதை ஸ்டிக்கர் அல்லது அட்டையில் சேமிக்கும். «நீங்களே டேக்» இந்தப் போனை டேகாக்கும்: EMITT திறந்திருக்கும் வரை மற்ற போன்கள் தொட்டுப் படிக்கலாம்.
+with_flipper|Flipper உடன்
+flipper_write_tip|அதில் எழுத: Flipper-இல் NFC → Add Manually → NTAG215 → Emulate தேர்ந்தெடுத்து, இங்கே «டேகில் எழுது» தட்டவும்.
+flipper_read_tip|இந்தப் போனைப் படிக்க: NFC → Extra Actions → Read Specific Card Type → Type 4 Tag பயன்படுத்தவும். சாதாரண Read கட்டண அட்டைகளையும் தேடி வாலட் செயலியை எழுப்பும்.
+ntag_tip|குறிப்பு: NTAG213 இல் சுமார் 130 எழுத்து இணைப்பு பிடிக்கும்; NTAG215, NTAG216 இல் இன்னும் அதிகம்.
+waiting_for_tag|டேகுக்காகக் காத்திருக்கிறது…
+saved_file|%1$s சேமிக்கப்பட்டது
+save_file_failed|கோப்பைச் சேமிக்க முடியவில்லை
+flipper_file_hint|Flipper எமுலேட் செய்யக்கூடிய NTAG கோப்பை உருவாக்கும்: NFC → Saved → Emulate.
+chip|சிப்
+auto|தானியங்கு
+uid_7|7 பைட் UID
+file_summary|%1$s · %2$d பைட்டுகள் · %3$d பக்கங்கள்
+hide_file|கோப்பை மறை
+show_file|கோப்பைக் காட்டு
+send_to_flipper|Flipper-க்கு அனுப்பு
+connect_flipper|Flipper-ஐ இணை
+save_file|கோப்பைச் சேமி
+cant_build_file|கோப்பை உருவாக்க முடியவில்லை
+no_code_in_image|அந்தப் படத்தில் குறியீடு இல்லை
+scanner|ஸ்கேனர்
+camera_why|குறியீடுகளை ஸ்கேன் செய்ய EMITT-க்குக் கேமரா தேவை. எதுவும் பதிவு செய்யப்படவோ பதிவேற்றப்படவோ இல்லை.
+allow_camera|கேமராவை அனுமதி
+light_off|விளக்கை அணை
+light|விளக்கு
+from_image|படத்திலிருந்து
+decoded|குறிவிலக்கப்பட்டது · %1$s
+type|வகை
+security|பாதுகாப்பு
+content|உள்ளடக்கம்
+open|திற
+copy|நகலெடு
+copied|நகலெடுக்கப்பட்டது
+re_emit|மீண்டும் பயன்படுத்து
+edit|திருத்து
+to_tag|டேகுக்கு
+scan_again|மீண்டும் ஸ்கேன்
+scan_hint|கேமராவை QR குறியீடு அல்லது பார்கோடை நோக்கி வைக்கவும். போனிலேயே குறிவிலக்கப்படும், எதுவும் வெளியே போகாது.
+not_flipper_file|இது Flipper NFC கோப்பு அல்ல
+no_nfc|இந்தப் போனில் NFC இல்லை. இருந்தாலும் QR குறியீடுகள், Flipper கோப்புகளை உருவாக்கலாம்.
+nfc_off|NFC அணைக்கப்பட்டுள்ளது.
+turn_on_nfc|NFC-ஐ இயக்கு
+nfc_ready|தயார். ஆராய போனின் பின்புறம் எந்த டேகையும் வைக்கவும்.
+wrote_of|%2$d இல் %1$d பைட்டுகள் எழுதப்பட்டன
+wrote|%1$d பைட்டுகள் எழுதப்பட்டன
+tag_erased|டேக் அழிக்கப்பட்டது
+tag_locked|டேக் பூட்டப்பட்டது. இப்போது படிக்க மட்டுமே.
+tools|கருவிகள்
+read|படி
+tap_to_read|படிக்க டேகை வைக்கவும்
+erase|அழி
+lock|பூட்டு
+import_nfc|.nfc இறக்கு
+lock_q|டேகைப் பூட்டவா?
+erase_q|டேகை அழிக்கவா?
+lock_warn|பூட்டினால் டேக் நிரந்தரமாகப் படிக்க மட்டுமே ஆகும். அதன் பிறகு யாரும், நீங்களும், மாற்ற முடியாது.
+erase_warn|இது டேகின் உள்ளடக்கத்தை அழிக்கும். டேக் எழுதக்கூடியதாகவே இருக்கும்.
+lock_forever|நிரந்தரமாகப் பூட்டு
+tag_title|டேக் · %1$s
+uid_copied|UID நகலெடுக்கப்பட்டது
+memory|நினைவகம்
+writable|எழுதக்கூடியது
+yes|ஆம்
+no_readonly|இல்லை (படிக்க மட்டும்)
+lockable|பூட்டக்கூடியது
+no|இல்லை
+records|பதிவுகள்
+no_ndef_data|NDEF தரவு இல்லை
+uid_only|இந்த சிப் வகைக்கு UID, ATQA, SAK மட்டுமே சேமிக்க முடியும்.
+send|அனுப்பு
+cant_convert|Flipper-க்கு NFC-A டேக்குகள் மட்டுமே சேமிக்க முடியும்
+n_pages|%1$d பக்கங்கள்
+file_title|கோப்பு · %1$s
+device|சாதனம்
+pages|பக்கங்கள்
+no_ndef_in_file|இந்தக் கோப்பில் NDEF செய்தி இல்லை.
+file_data|கோப்புத் தரவு
+uid_not_copied|போன்களால் டேகின் UID-ஐ நகலெடுக்க முடியாது; தரவு மட்டுமே எழுதப்படும்.
+link|இணைப்பு
+connected_to|%1$s உடன் இணைந்துள்ளது
+bt_why|உங்கள் Flipper-ஐக் கண்டுபிடித்துப் பேச EMITT-க்குப் புளூடூத் தேவை.
+allow_bt|புளூடூத்தை அனுமதி
+reconnect|மீண்டும் இணை
+scanning|தேடுகிறது…
+nearby|அருகில்
+looking_flippers|Flipper-களைத் தேடுகிறது…
+tap_scan|«ஸ்கேன்» தட்டவும். Flipper-இல்: Settings → Bluetooth → ON.
+paired|இணைக்கப்பட்டது
+not_in_range|வரம்பில் இல்லை
+first_time|முதல் முறையா?
+pair_hint|மேலே உங்கள் Flipper-ஐத் தேர்ந்தெடுக்கவும். Android PIN கேட்கும்: Flipper திரையில் தெரியும் 6 இலக்கங்களை உள்ளிடவும்.
+list_failed|Flipper கோப்புகளைக் காட்ட முடியவில்லை
+firmware|ஃபர்ம்வேர்
+built|பில்ட்
+model|மாடல்
+region|பகுதி
+sd_card|SD கார்டு
+gb_free|%1$.1f / %2$.1f GB காலி
+all_device_info|சாதனத்தின் முழுத் தகவல்
+beep|பீப்
+disconnect|துண்டி
+refresh|புதுப்பி
+reading|படிக்கிறது…
+no_nfc_files|இன்னும் NFC கோப்புகள் இல்லை. உருவாக்கு → Flipper இலிருந்து ஒன்றை உருவாக்கவும்.
+files_land_here|EMITT இலிருந்து அனுப்பிய கோப்புகள் இங்கே வரும். Flipper-இல் NFC → Saved இலிருந்து திறக்கவும்.
+library_count|நூலகம் · %1$d
+search|தேடு
+starred|நட்சத்திரமிட்டவை
+all|அனைத்தும்
+lib_empty|இன்னும் எதுவும் சேமிக்கவில்லை. உருவாக்கு இல் ஏதாவது உருவாக்கி «நூலகத்தில் சேமி» தட்டவும்.
+no_matches|பொருத்தம் இல்லை.
+tile|விரைவு டைல்
+star|நட்சத்திரமிடு
+show|காட்டு
+unpin_tile|டைலிலிருந்து நீக்கு
+pin_tile|டைலில் பின் செய்
+tile_removed|விரைவு அமைப்புகள் டைலிலிருந்து நீக்கப்பட்டது
+tile_now_shows|விரைவு அமைப்புகள் டைல் இப்போது %1$s காட்டுகிறது
+rename|பெயர் மாற்று
+delete|நீக்கு
+delete_q|நீக்கவா?
+delete_confirm|«%1$s» ஐ நூலகத்திலிருந்து நீக்கவா? அதைக் காட்டும் விட்ஜெட்டுகள் காலியாகும்.
+back|பின்
+appearance|தோற்றம்
+settings|அமைப்புகள்
+made_by|உருவாக்கியவர்
+phone_is_tag|போன் இப்போது டேக்
+waiting_reader|ரீடருக்காகக் காத்திருக்கிறது
+reads|படித்தவை: %1$d
+tagmode_hold|மற்றப் போனின் பின்புறத்தை இந்தப் போனின் பின்புற நடுவில் வைக்கவும்.
+tagmode_keep_open|இந்தத் திரையைத் திறந்தே வைக்கவும். EMITT பின்னணிக்குப் போனால் போனின் சொந்த டேக் அல்லது வாலட் பதில் தரலாம்.
+tagmode_flipper|Flipper: NFC → Extra Actions → Read Specific Card Type → Type 4 Tag.
+minimise|சிறிதாக்கு
+awaiting_tag|டேகுக்காகக் காத்திருப்பு
+bar_hold|மற்றொரு போனை உங்கள் போனில் வைக்கவும். டேக் பயன்முறைக்கு இங்கே தட்டவும்.
+scans|ஸ்கேன் ஆகும்
+check|சரிபார்
+update_available|புதுப்பிப்பு உள்ளது
+colourway|நிறத் தொகுப்பு
+custom_colours|சொந்த நிறங்கள்
+use_my_colours|என் நிறங்களைப் பயன்படுத்து
+use_my_colours_hint|தற்போதைய நிறத் தொகுப்பிலிருந்து தொடங்கும்
+motion|இயக்கம்
+speed|வேகம்
+density|அடர்த்தி
+intensity|தீவிரம்
+colour|நிறம்
+scanlines|ஸ்கேன்லைன்கள்
+scanline_strength|ஸ்கேன்லைன் தீவிரம்
+vignette|விக்னெட்
+vignette_hint|திரையின் ஓரங்களை இருட்டாக்கும்
+flicker|மினுமினுப்பு
+flicker_hint|மெல்லிய CRT போன்ற மினுமினுப்பு
+interface_|இடைமுகம்
+panel_opacity|பேனல் ஒளிபுகாமை
+panel_outlines|பேனல் வெளிக்கோடுகள்
+glow|ஒளிர்வு
+glow_hint|தலைப்புகளில் நியான் ஒளிர்வு (அடர் தொகுப்புகள்)
+blinking_cursor|சிமிட்டும் கர்சர்
+corners|மூலைகள்
+font|எழுத்துரு
+text_size|உரை அளவு
+reset_look|தோற்றத்தை மீட்டமை
+app_icon|செயலி ஐகான்
+icon_changed|ஐகான் மாறியது. லாஞ்சர் புதுப்பிக்கச் சிறிது நேரம் ஆகலாம்.
+language|மொழி
+language_system|போனின் மொழி
+language_hint|நெறிமுறை, சிப் பெயர்கள் போன்ற சில சொற்கள் ஆங்கிலத்திலேயே இருக்கும்.
+vibration|அதிர்வு
+vibration_hint|டேக் எழுதப்படும்போது அல்லது போன் படிக்கப்படும்போது அதிர்வு
+strength|வலிமை
+tap_pattern|உணர ஒரு வடிவத்தைத் தட்டவும்.
+updates|புதுப்பிப்புகள்
+check_releases|புதிய வெளியீடுகளைச் சரிபார்
+check_releases_hint|GitHub பொது API-யிடம் கேட்கும். உங்களைப் பற்றி எதுவும் அனுப்பப்படாது.
+check_every|எவ்வளவு இடைவெளியில் சரிபார்
+notifications_off|அறிவிப்புகள் அணைக்கப்பட்டுள்ளன, எனவே புதுப்பிப்புகள் செயலிக்குள் மட்டும் தெரியும்.
+allow_notifications|அறிவிப்புகளை அனுமதி
+check_now|இப்போது சரிபார்
+get_it|பதிவிறக்கு
+about|பற்றி
+tagline|QR குறியீடுகள், NFC டேக்குகள், Flipper Zero கோப்புகள், ஒரே செயலியில்.
+version|பதிப்பு
+official_build|அதிகாரப்பூர்வ பில்ட்
+unofficial_build|அதிகாரப்பூர்வமற்ற பில்ட்: StarlightJulie கையொப்பமிடவில்லை
+made_by_line|StarlightJulie உருவாக்கியது. இலவசம், திறந்த மூலம், GPLv3 கீழ்.
+source|மூலக் குறியீடு
+license|உரிமம்
+flipper_trademark|Flipper Zero என்பது Flipper Devices Inc. இன் வர்த்தகமுத்திரை. EMITT அவர்களுடன் இணைந்ததோ அவர்களால் அங்கீகரிக்கப்பட்டதோ அல்ல.

@@ -1,0 +1,436 @@
+widget_label|كود EMITT
+widget_description|بيعرض كود من الأكواد اللي حفظتها على الشاشة الرئيسية
+tile_label|كود EMITT
+channel_updates|تحديثات التطبيق
+channel_emulation|الموبايل كتاج NFC
+emulation_description|تاج EMITT NFC
+kind_text|نص
+kind_url|لينك
+kind_contact|جهة اتصال
+kind_email|إيميل
+kind_phone|تليفون
+kind_geo|مكان
+kind_app|تطبيق
+wifi_open|مفيش
+need_text|اكتب نص
+need_link|اكتب لينك
+need_ssid|اكتب اسم الشبكة
+need_password|اكتب الباسورد
+need_contact|اكتب اسم أو رقم أو إيميل
+need_email|اكتب عنوان إيميل
+need_number|اكتب رقم تليفون
+need_geo|اكتب خط العرض وخط الطول
+need_package|اكتب اسم الباكدج زي com.example.app
+shape_square|مربع
+shape_rounded|حواف مدورة
+shape_dots|نقط
+shape_fluid|انسيابي
+shape_bars|خطوط
+shape_diamond|معيّن
+shape_circle|دايرة
+shape_leaf|ورقة
+grad_flat|لون واحد
+grad_linear|خطي
+grad_radial|دائري
+badge_image|صورة
+ec_low|قليل
+ec_medium|متوسط
+ec_quartile|ربعي
+ec_high|عالي
+pat_off|مقفول
+pat_tick|تكة
+pat_double|دوستين
+pat_triple|تلات دوسات
+pat_heartbeat|دقة قلب
+pat_buzz|هزة طويلة
+pat_rising|بيعلى
+pat_falling|بيوطى
+pat_purr|خرخرة
+hev_write|التاج اتكتب أو اتقرا
+hev_write_hint|لما EMITT يكتب أو يقرا أو يمسح أو يقفل تاج
+hev_emulated|الموبايل اتقرا كتاج
+hev_emulated_hint|لما جهاز تاني يقرا الموبايل ده في وضع التاج
+hev_fail|حاجة فشلت
+hev_fail_hint|كتابة أو قراية منفعتش
+slot_accent|لون التمييز
+slot_accent_hint|الزراير والتمييز والتاب المفتوحة
+slot_signal|لون الإشارة
+slot_signal_hint|لون تمييز تاني: الحالة واللينكات والحركة
+slot_bg|الخلفية
+slot_bg_hint|ورا كل حاجة
+slot_panels|اللوحات
+slot_panels_hint|الكروت والصفحات
+slot_text_hint|لون الكلام الأساسي
+bg_synth|شبكة سينث
+bg_rain|مطر كود
+bg_scope|أوسيلوسكوب
+bg_radar|رادار
+bg_dots|مصفوفة نقط
+bg_circuit|دايرة كهربا
+bg_warp|وارب
+bg_spectrum|طيف
+bg_static|تشويش
+bg_random|عشوائي
+bgc_duo|اللونين
+bgc_cycle|ألوان بتلف
+bgc_ink|لون الكلام
+corner_cut|مشطوفة
+corner_sharp|حادة
+corner_soft|ناعمة
+font_mixed|عناوين مونو
+font_mono|كله مونو
+tag_read_failed|مقدرناش نقرا التاج. ثبته وجرب تاني.
+tag_readonly|التاج ده للقراية بس.
+tag_too_big|كبير أوي: %1$d بايت، والتاج بياخد %2$d بس.
+tag_no_ndef|التاج ده مش بيدعم NDEF.
+tag_lost_write|التاج بعد وإحنا بنكتب. ثبته وجرب تاني.
+tag_write_failed|الكتابة فشلت.
+tag_nothing_to_lock|التاج ده مفيهوش بيانات NDEF تتقفل.
+tag_cant_lock|التاج ده مينفعش يتقفل.
+tag_lock_refused|التاج رفض يتقفل.
+tag_lost|التاج بعد. ثبته وجرب تاني.
+fl_bt_off|البلوتوث مقفول
+fl_step_looking|بندور عليه
+fl_not_in_range|الاقتران ده مش قريب. اختار الـ Flipper اللي ظاهر له قوة إشارة.
+fl_cant_see|مش شايفين الـ Flipper بتاعك. اتأكد عليه إن Settings → Bluetooth على ON وإن تطبيق Flipper مش متوصل بيه.
+fl_step_pairing|اقتران: اكتب الـ PIN اللي ظاهر على الـ Flipper
+fl_step_connecting|بيوصّل
+fl_step_setup|بيجهّز
+fl_not_flipper|ده شكله مش Flipper (مفيش سيرفس سيريال).
+fl_step_info|بيقرا بيانات الجهاز
+fl_other_app|الـ Flipper متوصل بتطبيق تاني (زي تطبيق Flipper الرسمي). افصله من هناك وجرب تاني.
+fl_timeout|الوقت خلص. البلوتوث شغال في إعدادات الـ Flipper؟
+fl_failed|التوصيل فشل
+fl_disconnected|اتفصل
+fl_pair_start|مقدرناش نبدأ الاقتران
+fl_pair_failed|الاقتران اتلغى أو الـ PIN مش مطابق
+fl_not_connected|مش متوصل
+fl_refused|طلب البلوتوث اترفض
+fl_dropped|الـ Flipper اتفصل
+fl_subscribe|الـ Flipper رفض التوصيل (%1$d). اعمل اقتران تاني.
+fl_write|الكتابة بالبلوتوث فشلت (%1$d)
+fl_error|خطأ في الـ Flipper رقم %1$d
+fl_stalled|الـ Flipper بطّل ياخد بيانات
+fs_unknown|خطأ مش معروف
+fs_decode|مقدرناش نفك الترميز
+fs_unsupported|مش مدعوم
+fs_busy|الـ Flipper مشغول
+fs_sd|كارت الـ SD مش جاهز
+fs_exists|موجود قبل كده
+fs_missing|مش موجود
+fs_param|بارامتر غلط
+fs_denied|الوصول مرفوض
+fs_name|اسم غلط
+fs_internal|خطأ داخلي
+fs_open|مفتوح بالفعل
+fs_interrupted|اتقطع
+fs_params|بارامترات غلط
+upd_none|مفيش إصدارات عامة لسه
+upd_http|GitHub رد بـ %1$d
+upd_notag|الإصدار مفيهوش رقم إصدار
+upd_offline|مقدرناش نوصل لـ GitHub
+emu_notif_title|موبايلك بقى تاج NFC
+emu_notif_text|بيبعت %1$s. افتح EMITT والموبايلات التانية تقدر تقراه باللمس.
+stop|وقّف
+upd_notif_title|EMITT %1$s نزل
+open_release|افتح الإصدار
+tile_pin|ثبّت واحد من المكتبة
+tile_show|اعرض الكود
+widget_pick|دوس عشان تختار كود
+widget_empty|المكتبة فاضية. احفظ كود في EMITT الأول، وبعدين ضيف الويدجت تاني.
+widget_pick_title|اختار كود
+tab_create|إنشاء
+tab_scan|سكان
+tab_tags|التاجات
+tab_library|المكتبة
+out_qr|كود QR
+out_nfc|تاج NFC
+prompt_write|قرّب تاج من الموبايل عشان تكتب: %1$s
+prompt_erase|قرّب التاج من الموبايل عشان تمسحه
+prompt_lock|قرّب التاج من الموبايل عشان تقفله. مفيش رجوع.
+prompt_copy_from|قرّب التاج اللي عايز تنسخ منه
+prompt_copy_to|دلوقتي قرّب التاج اللي هتنسخ عليه
+lib_updated|اتحدّث في المكتبة
+lib_saved|اتحفظ في المكتبة
+emu_unsupported|الموبايل ده مينفعش يشتغل كتاج NFC
+nfc_turn_on_first|شغّل الـ NFC الأول
+copy_empty|التاج ده مفيهوش حاجة تتنسخ.
+fl_too_big|كبير أوي على NTAG216 (‏872 بايت)
+fl_too_big_chip|كبير أوي على %1$s. اختار شريحة أكبر.
+fl_connect_first|وصّل الـ Flipper الأول
+fl_sent|اتبعت للـ Flipper: %1$s
+fl_send_failed|مقدرناش نبعت: %1$s
+upd_checking|بيتأكد…
+upd_available|الإصدار %1$s موجود
+upd_latest|عندك آخر إصدار
+qr_selftest_ok|السكان التجريبي نجح (الإصدار %1$d، %2$d×%2$d)
+qr_selftest_fail|الاختبار مقدرش يقراه. علّي التباين أو استخدم وحدات مربعة أو لوجو أصغر.
+qr_contrast_low|التباين %1$.1f:1 قليل أوي. خليه 4:1 أو أكتر.
+qr_contrast_mid|التباين %1$.1f:1 على الحافة في الإضاءة الضعيفة.
+qr_contrast_ok|التباين %1$.1f:1
+qr_inverted|الأكواد الفاتحة على خلفية غامقة (معكوسة) مش بتتقرا في شوية أجهزة قديمة.
+qr_transparent|خلفية شفافة: اتأكد إن اللي وراها فاتح وسادة.
+qr_border|الهامش أقل من وحدتين: سيب مسافة وانت بتطبع.
+qr_ec_raised|تصحيح الأخطاء اتعلّى لـ %1$s عشان يبقى فيه مكان للوجو.
+qr_big_badge|لوجو كبير: خلّي تصحيح الأخطاء عالي.
+qr_dense|كود زحمة (الإصدار %1$d). المحتوى الأقصر بيتقرا أسرع ومن بعيد.
+qr_nothing|مفيش حاجة تتكود لسه
+qr_too_much|بيانات كتير أوي على كود QR
+tap_to_close|دوس عشان تقفل
+pick_colour|اختار لون
+use|استخدم
+cancel|إلغاء
+edit_title|تعديل · %1$s
+payload|المحتوى
+output|الناتج
+save|حفظ
+name|الاسم
+name_hint|بيظهر في المكتبة والويدجت وأسامي الملفات
+update|تحديث
+save_to_library|احفظ في المكتبة
+new_draft|جديد
+ssid|اسم الشبكة (SSID)
+password|الباسورد
+hidden_network|شبكة مخفية
+organisation|الشركة
+website|الموقع
+to|إلى
+subject|الموضوع
+message|الرسالة
+number|الرقم
+latitude|خط العرض
+longitude|خط الطول
+label_optional|عنوان (اختياري)
+package_name|اسم الباكدج
+package_hint|الـ NFC بيفتح التطبيق على طول؛ والـ QR بيودّي على صفحته في المتجر
+export_size|حجم التصدير
+full|ملء الشاشة
+share|شارك
+saved_gallery|اتحفظ في Pictures/EMITT
+save_image_failed|مقدرناش نحفظ الصورة
+style|الستايل
+preset_classic|كلاسيك
+preset_theme|حسب الثيم
+preset_synth|سينث
+preset_terminal|تيرمنال
+preset_inverted|معكوس
+image_load_failed|مقدرناش نحمّل الصورة دي
+presets|جاهزين
+colours|الألوان
+modules|الوحدات
+gradient_end|آخر التدرج
+transparent_bg|خلفية شفافة
+custom_eyes|ألوان عيون مخصصة
+eye_frame|إطار العين
+eye_centre|نص العين
+swap|بدّل
+reset|رجّع الأصل
+shape|الشكل
+module_size|حجم الوحدة
+eyes|العيون
+centre_badge|لوجو في النص
+badge_text|كلام اللوجو (لحد 6)
+choose_image|اختار صورة
+badge_size|حجم اللوجو
+visibility|سهولة القراية
+ec_hint|تصحيح الأخطاء: كل ما يعلى يستحمل الخدوش واللمعة واللوجو، بس الكود يبقى أزحم.
+quiet_zone|الهامش (المنطقة الفاضية)
+n_modules|%1$d وحدات
+max_brightness|أعلى إضاءة في ملء الشاشة
+max_brightness_hint|بيساعد الموبايلات التانية تقراه من بعيد
+ndef_too_big|%1$d بايت · محتاج تاج أكبر من NTAG216
+ndef_fits|%1$d بايت · ييجي على %2$s
+extras|إضافات
+also_open_app|افتح تطبيق كمان (باكدج)
+also_open_app_hint|‏Android Application Record اختياري. سيبه فاضي لو مش محتاجه.
+write_to_tag|اكتب على تاج
+be_the_tag|خليك التاج
+nfc_modes_hint|«اكتب على تاج» بيحفظه على ستيكر أو كارت. «خليك التاج» بيخلي الموبايل ده تاج: الموبايلات التانية تقراه باللمس طول ما EMITT مفتوح.
+with_flipper|مع Flipper
+flipper_write_tip|عشان تكتب عليه: من الـ Flipper اختار NFC → Add Manually → NTAG215 → Emulate، وبعدين دوس «اكتب على تاج» هنا.
+flipper_read_tip|عشان تقرا الموبايل ده: استخدم NFC → Extra Actions → Read Specific Card Type → Type 4 Tag. الـ Read العادي بيدور على كروت الدفع كمان وبيصحّي تطبيق المحفظة.
+ntag_tip|نصيحة: NTAG213 بياخد حوالي 130 حرف من اللينك؛ وNTAG215 وNTAG216 بياخدوا أكتر بكتير.
+waiting_for_tag|مستني التاج…
+saved_file|اتحفظ %1$s
+save_file_failed|مقدرناش نحفظ الملف
+flipper_file_hint|بيعمل ملف NTAG الـ Flipper يقدر يقلّده: NFC → Saved → Emulate.
+chip|الشريحة
+auto|تلقائي
+uid_7|UID من 7 بايت
+file_summary|%1$s · %2$d بايت · %3$d صفحة
+hide_file|خبّي الملف
+show_file|اعرض الملف
+send_to_flipper|ابعت للـ Flipper
+connect_flipper|وصّل الـ Flipper
+save_file|احفظ الملف
+cant_build_file|مقدرناش نعمل الملف
+no_code_in_image|مفيش كود في الصورة دي
+scanner|السكانر
+camera_why|EMITT محتاج الكاميرا عشان يعمل سكان للأكواد. مفيش حاجة بتتسجل أو بتترفع.
+allow_camera|اسمح بالكاميرا
+light_off|اطفي النور
+light|نور
+from_image|من صورة
+decoded|اتفك · %1$s
+type|النوع
+security|الحماية
+content|المحتوى
+open|افتح
+copy|انسخ
+copied|اتنسخ
+re_emit|استخدمه تاني
+edit|عدّل
+to_tag|لتاج
+scan_again|سكان تاني
+scan_hint|وجّه الكاميرا على كود QR أو باركود. بيتفك على الموبايل ومفيش حاجة بتخرج.
+not_flipper_file|ده مش ملف NFC بتاع Flipper
+no_nfc|الموبايل ده مفيهوش NFC. لسه تقدر تعمل أكواد QR وملفات Flipper.
+nfc_off|الـ NFC مقفول.
+turn_on_nfc|شغّل الـ NFC
+nfc_ready|جاهز. قرّب أي تاج من ضهر الموبايل عشان تفحصه.
+wrote_of|اتكتب %1$d من %2$d بايت
+wrote|اتكتب %1$d بايت
+tag_erased|التاج اتمسح
+tag_locked|التاج اتقفل. بقى للقراية بس.
+tools|الأدوات
+read|اقرا
+tap_to_read|قرّب تاج عشان تقراه
+erase|امسح
+lock|اقفل
+import_nfc|استورد ‎.nfc
+lock_q|تقفل التاج؟
+erase_q|تمسح التاج؟
+lock_warn|القفل بيخلي التاج للقراية بس على طول. محدش، ولا حتى انت، هيقدر يغيره بعد كده.
+erase_warn|ده هيمسح محتوى التاج. التاج هيفضل ينفع يتكتب عليه.
+lock_forever|اقفله على طول
+tag_title|تاج · %1$s
+uid_copied|الـ UID اتنسخ
+memory|الذاكرة
+writable|ينفع يتكتب
+yes|أيوه
+no_readonly|لأ (للقراية بس)
+lockable|ينفع يتقفل
+no|لأ
+records|السجلات
+no_ndef_data|مفيش بيانات NDEF
+uid_only|للنوع ده من الشرايح ينفع نحفظ UID وATQA وSAK بس.
+send|ابعت
+cant_convert|تاجات NFC-A بس هي اللي تتحفظ للـ Flipper
+n_pages|%1$d صفحة
+file_title|ملف · %1$s
+device|الجهاز
+pages|الصفحات
+no_ndef_in_file|مفيش رسالة NDEF في الملف ده.
+file_data|بيانات الملف
+uid_not_copied|الموبايلات مش بتقدر تنسخ الـ UID بتاع التاج؛ البيانات بس هي اللي بتتكتب.
+link|الاتصال
+connected_to|متوصل بـ %1$s
+bt_why|EMITT محتاج البلوتوث عشان يلاقي الـ Flipper ويكلمه.
+allow_bt|اسمح بالبلوتوث
+reconnect|وصّل تاني
+scanning|بيدوّر…
+nearby|قريّب منك
+looking_flippers|بندور على Flipper…
+tap_scan|دوس «سكان». على الـ Flipper: ‏Settings → Bluetooth → ON.
+paired|متقرن
+not_in_range|بعيد
+first_time|أول مرة؟
+pair_hint|اختار الـ Flipper بتاعك من فوق. أندرويد هيطلب PIN: اكتب الـ 6 أرقام اللي ظاهرين على شاشة الـ Flipper.
+list_failed|مقدرناش نعرض ملفات الـ Flipper
+firmware|السوفت وير
+built|اتبنى
+model|الموديل
+region|المنطقة
+sd_card|كارت SD
+gb_free|%1$.1f / %2$.1f جيجا فاضيين
+all_device_info|كل بيانات الجهاز
+beep|صفّارة
+disconnect|افصل
+refresh|حدّث
+reading|بيقرا…
+no_nfc_files|مفيش ملفات NFC لسه. اعمل واحد من إنشاء ← Flipper.
+files_land_here|الملفات اللي بتتبعت من EMITT بتيجي هنا. افتحها على الـ Flipper من NFC → Saved.
+library_count|المكتبة · %1$d
+search|بحث
+starred|المميزة
+all|الكل
+lib_empty|لسه محفظتش حاجة. اعمل حاجة من إنشاء ودوس «احفظ في المكتبة».
+no_matches|مفيش نتايج.
+tile|الإعداد السريع
+star|ميّز بنجمة
+show|اعرض
+unpin_tile|شيله من الإعداد السريع
+pin_tile|ثبّته في الإعداد السريع
+tile_removed|اتشال من مربع الإعدادات السريعة
+tile_now_shows|مربع الإعدادات السريعة بقى بيعرض %1$s
+rename|غيّر الاسم
+delete|امسح
+delete_q|تمسح؟
+delete_confirm|تشيل «%1$s» من المكتبة؟ الويدجت اللي بتعرضه هتبقى فاضية.
+back|رجوع
+appearance|الشكل
+settings|الإعدادات
+made_by|عمل
+phone_is_tag|الموبايل بقى تاج
+waiting_reader|مستني جهاز يقرا
+reads|اتقرا: %1$d
+tagmode_hold|حط ضهر الموبايل التاني على نص ضهر الموبايل ده.
+tagmode_keep_open|سيب الشاشة دي مفتوحة. لو EMITT راح للخلفية، التاج أو المحفظة اللي في الموبايل ممكن يردوا بداله.
+tagmode_flipper|Flipper: ‏NFC → Extra Actions → Read Specific Card Type → Type 4 Tag.
+minimise|صغّر
+awaiting_tag|مستني تاج
+bar_hold|قرّب موبايل تاني من موبايلك. دوس هنا لوضع التاج.
+scans|بيتقرا
+check|راجع
+update_available|فيه تحديث
+colourway|الألوان
+custom_colours|ألوان على مزاجك
+use_my_colours|استخدم ألواني
+use_my_colours_hint|بيبدأ من الألوان الحالية
+motion|الحركة
+speed|السرعة
+density|الكثافة
+intensity|الشدة
+colour|اللون
+scanlines|خطوط السكان
+scanline_strength|شدة الخطوط
+vignette|تغميق الأطراف
+vignette_hint|بيغمّق أطراف الشاشة
+flicker|رعشة
+flicker_hint|رعشة خفيفة زي شاشات CRT
+interface_|الواجهة
+panel_opacity|شفافية اللوحات
+panel_outlines|حدود اللوحات
+glow|توهج
+glow_hint|توهج نيون على العناوين (الألوان الغامقة)
+blinking_cursor|مؤشر بيرمش
+corners|الزوايا
+font|الخط
+text_size|حجم الكلام
+reset_look|رجّع الشكل الأصلي
+app_icon|أيقونة التطبيق
+icon_changed|الأيقونة اتغيرت. ممكن اللانشر ياخد لحظة عشان يحدّثها.
+language|اللغة
+language_system|لغة الموبايل
+language_hint|شوية كلمات، زي أسامي البروتوكولات والشرايح، هتفضل بالإنجليزي.
+vibration|الهزاز
+vibration_hint|هزة لما تاج يتكتب أو موبايلك يتقرا
+strength|القوة
+tap_pattern|دوس على نمط عشان تحس بيه.
+updates|التحديثات
+check_releases|دوّر على إصدارات جديدة
+check_releases_hint|بيسأل الـ API العام بتاع GitHub. مفيش أي حاجة عنك بتتبعت.
+check_every|يتأكد كل
+notifications_off|الإشعارات مقفولة، فهتشوف التحديثات جوه التطبيق بس.
+allow_notifications|اسمح بالإشعارات
+check_now|اتأكد دلوقتي
+get_it|نزّله
+about|عن التطبيق
+tagline|أكواد QR وتاجات NFC وملفات Flipper Zero في تطبيق واحد.
+version|الإصدار
+official_build|إصدار رسمي
+unofficial_build|إصدار مش رسمي: مش متوقّع من StarlightJulie
+made_by_line|عملته StarlightJulie. مجاني ومفتوح المصدر بترخيص GPLv3.
+source|الكود المصدري
+license|الترخيص
+flipper_trademark|Flipper Zero علامة تجارية لشركة Flipper Devices Inc. ‏EMITT ملوش علاقة بيهم ومش متبني منهم.

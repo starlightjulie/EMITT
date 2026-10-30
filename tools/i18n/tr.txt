@@ -1,0 +1,436 @@
+widget_label|EMITT kodu
+widget_description|Kayıtlı kodlarınızdan birini ana ekranda gösterir
+tile_label|EMITT kodu
+channel_updates|Uygulama güncellemeleri
+channel_emulation|NFC etiketi olarak telefon
+emulation_description|EMITT NFC etiketi
+kind_text|Metin
+kind_url|Bağlantı
+kind_contact|Kişi
+kind_email|E-posta
+kind_phone|Telefon
+kind_geo|Konum
+kind_app|Uygulama
+wifi_open|Yok
+need_text|Bir metin girin
+need_link|Bir bağlantı girin
+need_ssid|Ağ adını girin
+need_password|Şifreyi girin
+need_contact|Bir ad, telefon veya e-posta girin
+need_email|Bir e-posta adresi girin
+need_number|Bir telefon numarası girin
+need_geo|Enlem ve boylamı girin
+need_package|com.example.app gibi bir paket adı girin
+shape_square|Kare
+shape_rounded|Yuvarlatılmış
+shape_dots|Noktalar
+shape_fluid|Akışkan
+shape_bars|Çubuklar
+shape_diamond|Elmas
+shape_circle|Daire
+shape_leaf|Yaprak
+grad_flat|Düz
+grad_linear|Doğrusal
+grad_radial|Dairesel
+badge_image|Görsel
+ec_low|Düşük
+ec_medium|Orta
+ec_quartile|Çeyrek
+ec_high|Yüksek
+pat_off|Kapalı
+pat_tick|Tık
+pat_double|Çift dokunuş
+pat_triple|Üçlü
+pat_heartbeat|Kalp atışı
+pat_buzz|Uzun titreşim
+pat_rising|Yükselen
+pat_falling|Alçalan
+pat_purr|Mırlama
+hev_write|Etiket yazıldı veya okundu
+hev_write_hint|EMITT bir etiketi yazdığında, okuduğunda, sildiğinde veya kilitlediğinde
+hev_emulated|Telefon etiket olarak okundu
+hev_emulated_hint|Başka bir cihaz bu telefonu etiket modunda okuduğunda
+hev_fail|Bir şey başarısız oldu
+hev_fail_hint|Çalışmayan bir yazma veya okuma
+slot_accent|Vurgu
+slot_accent_hint|Düğmeler, vurgular, etkin sekme
+slot_signal|Sinyal
+slot_signal_hint|İkinci vurgu: durum, bağlantılar, animasyon
+slot_bg|Arka plan
+slot_bg_hint|Her şeyin arkası
+slot_panels|Paneller
+slot_panels_hint|Kartlar ve sayfalar
+slot_text_hint|Ana metin rengi
+bg_synth|Synth ızgara
+bg_rain|Kod yağmuru
+bg_scope|Osiloskop
+bg_radar|Radar
+bg_dots|Nokta matrisi
+bg_circuit|Devre
+bg_warp|Warp
+bg_spectrum|Spektrum
+bg_static|Parazit
+bg_random|Rastgele
+bgc_duo|İki vurgu
+bgc_cycle|Renk döngüsü
+bgc_ink|Metin rengi
+corner_cut|Pahlı
+corner_sharp|Keskin
+corner_soft|Yumuşak
+font_mixed|Mono etiketler
+font_mono|Tamamen mono
+tag_read_failed|Etiket okunamadı. Sabit tutup tekrar deneyin.
+tag_readonly|Bu etiket salt okunur.
+tag_too_big|Çok büyük: %1$d bayt, ama etiket %2$d bayt alıyor.
+tag_no_ndef|Bu etiket NDEF desteklemiyor.
+tag_lost_write|Yazarken etiket kayboldu. Sabit tutup tekrar deneyin.
+tag_write_failed|Yazma başarısız.
+tag_nothing_to_lock|Bu etikette kilitlenecek NDEF verisi yok.
+tag_cant_lock|Bu etiket kilitlenemez.
+tag_lock_refused|Etiket kilitlemeyi reddetti.
+tag_lost|Etiket kayboldu. Sabit tutup tekrar deneyin.
+fl_bt_off|Bluetooth kapalı
+fl_step_looking|Aranıyor
+fl_not_in_range|O eşleştirme menzilde değil. Sinyal gücü gösteren Flipper'ı seçin.
+fl_cant_see|Flipper'ınız görünmüyor. Üzerinde Settings → Bluetooth'un ON olduğunu ve Flipper uygulamasının bağlı olmadığını kontrol edin.
+fl_step_pairing|Eşleştirme: Flipper'ınızda görünen PIN'i girin
+fl_step_connecting|Bağlanıyor
+fl_step_setup|Hazırlanıyor
+fl_not_flipper|Bu bir Flipper'a benzemiyor (seri hizmet yok).
+fl_step_info|Cihaz bilgileri okunuyor
+fl_other_app|Flipper başka bir uygulamaya bağlı (resmi Flipper uygulaması gibi). Oradan bağlantıyı kesip tekrar deneyin.
+fl_timeout|Zaman aşımı. Flipper ayarlarında Bluetooth açık mı?
+fl_failed|Bağlantı başarısız
+fl_disconnected|Bağlantı kesildi
+fl_pair_start|Eşleştirme başlatılamadı
+fl_pair_failed|Eşleştirme iptal edildi veya PIN eşleşmedi
+fl_not_connected|Bağlı değil
+fl_refused|Bluetooth isteği reddedildi
+fl_dropped|Flipper bağlantısı kesildi
+fl_subscribe|Flipper bağlantıyı reddetti (%1$d). Yeniden eşleştirin.
+fl_write|Bluetooth yazma başarısız (%1$d)
+fl_error|Flipper hatası %1$d
+fl_stalled|Flipper veri kabul etmeyi bıraktı
+fs_unknown|Bilinmeyen hata
+fs_decode|Çözülemedi
+fs_unsupported|Desteklenmiyor
+fs_busy|Flipper meşgul
+fs_sd|SD kart hazır değil
+fs_exists|Zaten var
+fs_missing|Mevcut değil
+fs_param|Geçersiz parametre
+fs_denied|Erişim reddedildi
+fs_name|Geçersiz ad
+fs_internal|Dahili hata
+fs_open|Zaten açık
+fs_interrupted|Kesintiye uğradı
+fs_params|Geçersiz parametreler
+upd_none|Henüz herkese açık sürüm yok
+upd_http|GitHub %1$d yanıtını verdi
+upd_notag|Sürümün sürüm etiketi yok
+upd_offline|GitHub'a ulaşılamadı
+emu_notif_title|Telefonunuz bir NFC etiketi
+emu_notif_text|%1$s yayınlanıyor. EMITT'i açın, diğer telefonlar dokunarak okuyabilir.
+stop|Durdur
+upd_notif_title|EMITT %1$s çıktı
+open_release|Sürümü aç
+tile_pin|Kitaplıkta birini sabitleyin
+tile_show|Kodu göster
+widget_pick|Kod seçmek için dokunun
+widget_empty|Kitaplığınız boş. Önce EMITT'te bir kod kaydedin, sonra widget'ı tekrar ekleyin.
+widget_pick_title|Bir kod seçin
+tab_create|Oluştur
+tab_scan|Tara
+tab_tags|Etiketler
+tab_library|Kitaplık
+out_qr|QR kod
+out_nfc|NFC etiketi
+prompt_write|Yazmak için telefona bir etiket tutun: %1$s
+prompt_erase|Silmek için etiketi telefona tutun
+prompt_lock|Kilitlemek için etiketi telefona tutun. Bu geri alınamaz.
+prompt_copy_from|Kopyalanacak etiketi tutun
+prompt_copy_to|Şimdi kopyalanacağı etiketi tutun
+lib_updated|Kitaplıkta güncellendi
+lib_saved|Kitaplığa kaydedildi
+emu_unsupported|Bu telefon NFC etiketi olarak çalışamaz
+nfc_turn_on_first|Önce NFC'yi açın
+copy_empty|O etikette kopyalanacak bir şey yok.
+fl_too_big|NTAG216 için çok büyük (872 bayt)
+fl_too_big_chip|%1$s için çok büyük. Daha büyük bir çip seçin.
+fl_connect_first|Önce Flipper'ınızı bağlayın
+fl_sent|Flipper'a gönderildi: %1$s
+fl_send_failed|Gönderilemedi: %1$s
+upd_checking|Kontrol ediliyor…
+upd_available|%1$s sürümü hazır
+upd_latest|En son sürümdesiniz
+qr_selftest_ok|Test taraması geçti (sürüm %1$d, %2$d×%2$d)
+qr_selftest_fail|Test okuyamadı. Kontrastı artırın, kare modüller veya daha küçük bir logo kullanın.
+qr_contrast_low|%1$.1f:1 kontrast çok düşük. 4:1 veya üzerini hedefleyin.
+qr_contrast_mid|%1$.1f:1 kontrast loş ışıkta sınırda.
+qr_contrast_ok|Kontrast %1$.1f:1
+qr_inverted|Koyu üzerine açık (ters) kodlar bazı eski okuyucularda okunmaz.
+qr_transparent|Saydam arka plan: arkasının açık renkli ve düz olduğundan emin olun.
+qr_border|Kenar 2 modülden az: yazdırırken boşluk bırakın.
+qr_ec_raised|Logoya yer açmak için hata düzeltme %1$s seviyesine yükseltildi.
+qr_big_badge|Büyük logo: hata düzeltmeyi Yüksek yapın.
+qr_dense|Yoğun kod (sürüm %1$d). Kısa içerik daha hızlı ve daha uzaktan okunur.
+qr_nothing|Henüz kodlanacak bir şey yok
+qr_too_much|QR kod için çok fazla veri
+tap_to_close|Kapatmak için dokunun
+pick_colour|Renk seç
+use|Kullan
+cancel|İptal
+edit_title|Düzenle · %1$s
+payload|İçerik
+output|Çıktı
+save|Kaydet
+name|Ad
+name_hint|Kitaplıkta, widget'ta ve dosya adlarında görünür
+update|Güncelle
+save_to_library|Kitaplığa kaydet
+new_draft|Yeni
+ssid|Ağ adı (SSID)
+password|Şifre
+hidden_network|Gizli ağ
+organisation|Kuruluş
+website|Web sitesi
+to|Alıcı
+subject|Konu
+message|Mesaj
+number|Numara
+latitude|Enlem
+longitude|Boylam
+label_optional|Etiket (isteğe bağlı)
+package_name|Paket adı
+package_hint|NFC uygulamayı doğrudan açar; QR mağaza sayfasına bağlanır
+export_size|Dışa aktarma boyutu
+full|Tam ekran
+share|Paylaş
+saved_gallery|Resimler/EMITT klasörüne kaydedildi
+save_image_failed|Görsel kaydedilemedi
+style|Stil
+preset_classic|Klasik
+preset_theme|Tema
+preset_synth|Synth
+preset_terminal|Terminal
+preset_inverted|Ters
+image_load_failed|Bu görsel yüklenemedi
+presets|Hazır ayarlar
+colours|Renkler
+modules|Modüller
+gradient_end|Geçiş sonu
+transparent_bg|Saydam arka plan
+custom_eyes|Özel göz renkleri
+eye_frame|Göz çerçevesi
+eye_centre|Göz merkezi
+swap|Değiştir
+reset|Sıfırla
+shape|Şekil
+module_size|Modül boyutu
+eyes|Gözler
+centre_badge|Ortadaki logo
+badge_text|Logo metni (en fazla 6)
+choose_image|Görsel seç
+badge_size|Logo boyutu
+visibility|Okunabilirlik
+ec_hint|Hata düzeltme: yüksek olduğunda çizik, parlama ve logolara dayanır ama kodu yoğunlaştırır.
+quiet_zone|Kenar (sessiz bölge)
+n_modules|%1$d modül
+max_brightness|Tam ekranda en yüksek parlaklık
+max_brightness_hint|Diğer telefonların daha uzaktan okumasına yardım eder
+ndef_too_big|%1$d bayt · NTAG216'dan büyük bir etiket gerekir
+ndef_fits|%1$d bayt · %2$s içine sığar
+extras|Ekstralar
+also_open_app|Ayrıca uygulama aç (paket)
+also_open_app_hint|İsteğe bağlı Android Application Record. Gerekmiyorsa boş bırakın.
+write_to_tag|Etikete yaz
+be_the_tag|Etiket ol
+nfc_modes_hint|Etikete yaz, içeriği bir çıkartmaya veya karta kaydeder. Etiket ol, bu telefonu etikete dönüştürür: EMITT açıkken diğer telefonlar dokunarak okur.
+with_flipper|Flipper ile
+flipper_write_tip|Ona yazmak için: Flipper'da NFC → Add Manually → NTAG215 → Emulate seçin, sonra burada Etikete yaz'a dokunun.
+flipper_read_tip|Bu telefonu okumak için: NFC → Extra Actions → Read Specific Card Type → Type 4 Tag kullanın. Normal Read ödeme kartlarını da arar ve cüzdan uygulamanızı uyandırır.
+ntag_tip|İpucu: NTAG213 yaklaşık 130 karakterlik bağlantı alır; NTAG215 ve NTAG216 çok daha fazlasını alır.
+waiting_for_tag|etiket bekleniyor…
+saved_file|%1$s kaydedildi
+save_file_failed|Dosya kaydedilemedi
+flipper_file_hint|Flipper'ın taklit edebileceği bir NTAG dosyası oluşturur: NFC → Saved → Emulate.
+chip|Çip
+auto|Otomatik
+uid_7|7 baytlık UID
+file_summary|%1$s · %2$d bayt · %3$d sayfa
+hide_file|Dosyayı gizle
+show_file|Dosyayı göster
+send_to_flipper|Flipper'a gönder
+connect_flipper|Flipper'ı bağla
+save_file|Dosyayı kaydet
+cant_build_file|Dosya oluşturulamıyor
+no_code_in_image|Bu görselde kod bulunamadı
+scanner|Tarayıcı
+camera_why|EMITT kodları taramak için kameraya ihtiyaç duyar. Hiçbir şey kaydedilmez veya yüklenmez.
+allow_camera|Kameraya izin ver
+light_off|Işığı kapat
+light|Işık
+from_image|Görselden
+decoded|Çözüldü · %1$s
+type|Tür
+security|Güvenlik
+content|İçerik
+open|Aç
+copy|Kopyala
+copied|Kopyalandı
+re_emit|Yeniden kullan
+edit|Düzenle
+to_tag|Etikete
+scan_again|Tekrar tara
+scan_hint|Bir QR koda veya barkoda doğrultun. Telefonda çözülür; hiçbir şey dışarı çıkmaz.
+not_flipper_file|Bu bir Flipper NFC dosyası değil
+no_nfc|Bu telefonda NFC yok. Yine de QR kodları ve Flipper dosyaları oluşturabilirsiniz.
+nfc_off|NFC kapalı.
+turn_on_nfc|NFC'yi aç
+nfc_ready|Hazır. İncelemek için herhangi bir etiketi telefonun arkasına tutun.
+wrote_of|%2$d baytın %1$d baytı yazıldı
+wrote|%1$d bayt yazıldı
+tag_erased|Etiket silindi
+tag_locked|Etiket kilitlendi. Artık salt okunur.
+tools|Araçlar
+read|Oku
+tap_to_read|Okumak için bir etiket tutun
+erase|Sil
+lock|Kilitle
+import_nfc|.nfc içe aktar
+lock_q|Etiket kilitlensin mi?
+erase_q|Etiket silinsin mi?
+lock_warn|Kilitlemek etiketi kalıcı olarak salt okunur yapar. Siz dahil kimse sonradan değiştiremez.
+erase_warn|Bu, etiketin içeriğini temizler. Etiket yazılabilir kalır.
+lock_forever|Kalıcı olarak kilitle
+tag_title|Etiket · %1$s
+uid_copied|UID kopyalandı
+memory|Bellek
+writable|Yazılabilir
+yes|Evet
+no_readonly|Hayır (salt okunur)
+lockable|Kilitlenebilir
+no|Hayır
+records|Kayıtlar
+no_ndef_data|NDEF verisi yok
+uid_only|Bu çip türü için yalnızca UID, ATQA ve SAK kaydedilebilir.
+send|Gönder
+cant_convert|Flipper için yalnızca NFC-A etiketleri kaydedilebilir
+n_pages|%1$d sayfa
+file_title|Dosya · %1$s
+device|Cihaz
+pages|Sayfalar
+no_ndef_in_file|Bu dosyada NDEF mesajı bulunamadı.
+file_data|dosyanın verileri
+uid_not_copied|Telefonlar bir etiketin UID'sini kopyalayamaz; yalnızca veriler yazılır.
+link|Bağlantı
+connected_to|%1$s cihazına bağlı
+bt_why|EMITT, Flipper'ınızı bulmak ve onunla konuşmak için Bluetooth erişimine ihtiyaç duyar.
+allow_bt|Bluetooth'a izin ver
+reconnect|Yeniden bağlan
+scanning|Aranıyor…
+nearby|Yakında
+looking_flippers|Flipper'lar aranıyor…
+tap_scan|Tara'ya dokunun. Flipper'da: Settings → Bluetooth → ON.
+paired|eşleşmiş
+not_in_range|menzil dışında
+first_time|İlk kez mi?
+pair_hint|Yukarıdan Flipper'ınızı seçin. Android bir PIN isteyecek: Flipper ekranındaki 6 rakamı girin.
+list_failed|Flipper'ın dosyaları listelenemedi
+firmware|Yazılım
+built|Derleme
+model|Model
+region|Bölge
+sd_card|SD kart
+gb_free|%1$.1f / %2$.1f GB boş
+all_device_info|Tüm cihaz bilgileri
+beep|Bip
+disconnect|Bağlantıyı kes
+refresh|Yenile
+reading|Okunuyor…
+no_nfc_files|Henüz NFC dosyası yok. Oluştur → Flipper'dan bir tane yapın.
+files_land_here|EMITT'ten gönderilen dosyalar buraya gelir. Flipper'da NFC → Saved altında açın.
+library_count|Kitaplık · %1$d
+search|Ara
+starred|Yıldızlı
+all|Tümü
+lib_empty|Henüz kayıt yok. Oluştur'da bir şey yapıp Kitaplığa kaydet'e dokunun.
+no_matches|Eşleşme yok.
+tile|Kutucuk
+star|Yıldızla
+show|Göster
+unpin_tile|Kutucuktan kaldır
+pin_tile|Kutucuğa sabitle
+tile_removed|Hızlı Ayarlar kutucuğundan kaldırıldı
+tile_now_shows|Hızlı Ayarlar kutucuğu artık %1$s gösteriyor
+rename|Yeniden adlandır
+delete|Sil
+delete_q|Silinsin mi?
+delete_confirm|“%1$s” kitaplıktan kaldırılsın mı? Onu gösteren widget'lar boş kalır.
+back|Geri
+appearance|Görünüm
+settings|Ayarlar
+made_by|yapan
+phone_is_tag|Telefon bir etiket
+waiting_reader|Okuyucu bekleniyor
+reads|Okuma: %1$d
+tagmode_hold|Diğer telefonun arkasını bu telefonun arkasının ortasına tutun.
+tagmode_keep_open|Bu ekranı açık tutun. EMITT arka plana geçerse onun yerine telefonunuzun kendi etiketi veya cüzdanı yanıt verebilir.
+tagmode_flipper|Flipper: NFC → Extra Actions → Read Specific Card Type → Type 4 Tag.
+minimise|Küçült
+awaiting_tag|Etiket bekleniyor
+bar_hold|Başka bir telefonu sizinkine tutun. Etiket modu için buraya dokunun.
+scans|Okunuyor
+check|Kontrol et
+update_available|Güncelleme var
+colourway|Renk şeması
+custom_colours|Özel renkler
+use_my_colours|Kendi renklerimi kullan
+use_my_colours_hint|Mevcut renk şemasından başlar
+motion|Hareket
+speed|Hız
+density|Yoğunluk
+intensity|Şiddet
+colour|Renk
+scanlines|Tarama çizgileri
+scanline_strength|Çizgi şiddeti
+vignette|Vinyet
+vignette_hint|Ekran kenarlarını karartır
+flicker|Titreme
+flicker_hint|Hafif CRT parıltısı
+interface_|Arayüz
+panel_opacity|Panel opaklığı
+panel_outlines|Panel kenarlıkları
+glow|Parıltı
+glow_hint|Başlıklarda neon parıltı (koyu şemalar)
+blinking_cursor|Yanıp sönen imleç
+corners|Köşeler
+font|Yazı tipi
+text_size|Metin boyutu
+reset_look|Görünümü sıfırla
+app_icon|Uygulama simgesi
+icon_changed|Simge değişti. Başlatıcınızın güncellenmesi biraz sürebilir.
+language|Dil
+language_system|Telefonun dili
+language_hint|Protokol ve çip adları gibi bazı kelimeler İngilizce kalır.
+vibration|Titreşim
+vibration_hint|Etiket yazıldığında veya telefonunuz okunduğunda geri bildirim
+strength|Güç
+tap_pattern|Hissetmek için bir desene dokunun.
+updates|Güncellemeler
+check_releases|Yeni sürümleri kontrol et
+check_releases_hint|GitHub'ın herkese açık API'sini sorgular. Sizinle ilgili hiçbir şey gönderilmez.
+check_every|Kontrol sıklığı
+notifications_off|Bildirimler kapalı, bu yüzden güncellemeleri yalnızca uygulamada görürsünüz.
+allow_notifications|Bildirimlere izin ver
+check_now|Şimdi kontrol et
+get_it|İndir
+about|Hakkında
+tagline|QR kodlar, NFC etiketleri ve Flipper Zero dosyaları tek uygulamada.
+version|Sürüm
+official_build|Resmi sürüm
+unofficial_build|Resmi olmayan sürüm: StarlightJulie tarafından imzalanmadı
+made_by_line|StarlightJulie tarafından yapıldı. GPLv3 altında ücretsiz ve açık kaynak.
+source|Kaynak
+license|Lisans
+flipper_trademark|Flipper Zero, Flipper Devices Inc. şirketinin ticari markasıdır. EMITT onlarla bağlantılı değildir ve onlar tarafından desteklenmez.

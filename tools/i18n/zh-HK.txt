@@ -1,0 +1,436 @@
+widget_label|EMITT 碼
+widget_description|喺主畫面顯示你儲咗嘅其中一個碼
+tile_label|EMITT 碼
+channel_updates|App 更新
+channel_emulation|部手機扮 NFC 標籤
+emulation_description|EMITT NFC 標籤
+kind_text|文字
+kind_url|連結
+kind_contact|聯絡人
+kind_email|電郵
+kind_phone|電話
+kind_geo|位置
+kind_app|App
+wifi_open|冇
+need_text|輸入啲文字
+need_link|輸入連結
+need_ssid|輸入網絡名稱
+need_password|輸入密碼
+need_contact|輸入名、電話或者電郵
+need_email|輸入電郵地址
+need_number|輸入電話號碼
+need_geo|輸入緯度同經度
+need_package|輸入套件名，例如 com.example.app
+shape_square|正方
+shape_rounded|圓角
+shape_dots|圓點
+shape_fluid|流線
+shape_bars|條形
+shape_diamond|菱形
+shape_circle|圓形
+shape_leaf|葉形
+grad_flat|純色
+grad_linear|線性
+grad_radial|放射
+badge_image|圖片
+ec_low|低
+ec_medium|中
+ec_quartile|偏高
+ec_high|高
+pat_off|關
+pat_tick|輕觸
+pat_double|㩒兩下
+pat_triple|三下
+pat_heartbeat|心跳
+pat_buzz|長震
+pat_rising|漸強
+pat_falling|漸弱
+pat_purr|呼嚕
+hev_write|寫咗或者讀咗標籤
+hev_write_hint|EMITT 寫入、讀取、清除或者鎖定標籤嗰陣
+hev_emulated|部手機俾人當標籤讀
+hev_emulated_hint|其他裝置喺標籤模式讀呢部手機嗰陣
+hev_fail|有嘢失敗
+hev_fail_hint|寫入或者讀取唔成功
+slot_accent|強調色
+slot_accent_hint|按鈕、重點、而家嘅分頁
+slot_signal|訊號色
+slot_signal_hint|第二強調色：狀態、連結、動畫
+slot_bg|背景
+slot_bg_hint|喺所有嘢後面
+slot_panels|面板
+slot_panels_hint|卡同面板
+slot_text_hint|主要文字顏色
+bg_synth|合成網格
+bg_rain|代碼雨
+bg_scope|示波器
+bg_radar|雷達
+bg_dots|點陣
+bg_circuit|電路
+bg_warp|躍遷
+bg_spectrum|頻譜
+bg_static|雪花
+bg_random|隨機
+bgc_duo|兩隻強調色
+bgc_cycle|色相循環
+bgc_ink|文字顏色
+corner_cut|切角
+corner_sharp|直角
+corner_soft|圓潤
+font_mixed|等寬標籤
+font_mono|全部等寬
+tag_read_failed|讀唔到標籤。拎穩唔好郁，再試一次。
+tag_readonly|呢個標籤係唯讀。
+tag_too_big|太大：%1$d 位元組，但標籤只裝到 %2$d。
+tag_no_ndef|呢個標籤唔支援 NDEF。
+tag_lost_write|寫入途中標籤離開咗。拎穩唔好郁，再試一次。
+tag_write_failed|寫入失敗。
+tag_nothing_to_lock|呢個標籤冇 NDEF 資料可以鎖。
+tag_cant_lock|呢個標籤鎖唔到。
+tag_lock_refused|標籤拒絕鎖定。
+tag_lost|標籤離開咗。拎穩唔好郁，再試一次。
+fl_bt_off|藍牙閂咗
+fl_step_looking|搵緊
+fl_not_in_range|嗰個配對唔喺範圍內。揀有顯示訊號強度嘅 Flipper。
+fl_cant_see|睇唔到你部 Flipper。喺 Flipper 度確認 Settings → Bluetooth 係 ON，同埋 Flipper App 冇連住佢。
+fl_step_pairing|配對緊：輸入 Flipper 顯示嘅 PIN
+fl_step_connecting|連接緊
+fl_step_setup|準備緊
+fl_not_flipper|呢部唔似 Flipper（冇序列服務）。
+fl_step_info|讀緊裝置資料
+fl_other_app|Flipper 連咗去另一個 App（例如官方 Flipper App）。喺嗰邊斷開，再試一次。
+fl_timeout|逾時。Flipper 設定入面開咗藍牙未？
+fl_failed|連接失敗
+fl_disconnected|斷開咗
+fl_pair_start|開始唔到配對
+fl_pair_failed|配對取消咗或者 PIN 唔啱
+fl_not_connected|未連接
+fl_refused|藍牙要求被拒
+fl_dropped|Flipper 斷開咗
+fl_subscribe|Flipper 拒絕咗連接（%1$d）。重新配對吖。
+fl_write|藍牙寫入失敗（%1$d）
+fl_error|Flipper 錯誤 %1$d
+fl_stalled|Flipper 唔再收資料
+fs_unknown|未知錯誤
+fs_decode|解碼唔到
+fs_unsupported|唔支援
+fs_busy|Flipper 忙緊
+fs_sd|SD 卡未準備好
+fs_exists|已經有
+fs_missing|唔存在
+fs_param|參數無效
+fs_denied|拒絕存取
+fs_name|名稱無效
+fs_internal|內部錯誤
+fs_open|已經開咗
+fs_interrupted|中斷咗
+fs_params|參數無效
+upd_none|暫時未有公開版本
+upd_http|GitHub 回覆 %1$d
+upd_notag|呢個版本冇版本標籤
+upd_offline|連唔到 GitHub
+emu_notif_title|你部手機而家係 NFC 標籤
+emu_notif_text|發送緊 %1$s。開住 EMITT，其他手機掂一掂就讀到。
+stop|停
+upd_notif_title|EMITT %1$s 出咗
+open_release|打開版本
+tile_pin|喺資料庫釘一個
+tile_show|顯示碼
+widget_pick|㩒一下揀碼
+widget_empty|你個資料庫係空嘅。先喺 EMITT 儲一個碼，再加返個小工具。
+widget_pick_title|揀一個碼
+tab_create|製作
+tab_scan|掃描
+tab_tags|標籤
+tab_library|資料庫
+out_qr|QR 碼
+out_nfc|NFC 標籤
+prompt_write|將標籤貼近手機寫入：%1$s
+prompt_erase|將標籤貼近手機嚟清除
+prompt_lock|將標籤貼近手機嚟鎖定。做咗就返唔轉頭。
+prompt_copy_from|貼近你想複製嘅標籤
+prompt_copy_to|而家貼近要寫入嘅標籤
+lib_updated|已喺資料庫更新
+lib_saved|已儲落資料庫
+emu_unsupported|呢部手機做唔到 NFC 標籤
+nfc_turn_on_first|先開 NFC 吖
+copy_empty|嗰個標籤冇嘢可以複製。
+fl_too_big|NTAG216 裝唔落（872 位元組）
+fl_too_big_chip|%1$s 裝唔落。揀大啲嘅晶片。
+fl_connect_first|先連接你部 Flipper
+fl_sent|已傳去 Flipper：%1$s
+fl_send_failed|傳唔到：%1$s
+upd_checking|檢查緊…
+upd_available|有 %1$s 版本
+upd_latest|你已經用緊最新版本
+qr_selftest_ok|自我測試掃描通過（版本 %1$d，%2$d×%2$d）
+qr_selftest_fail|自我測試讀唔到。提高對比、用方形模組或者細啲嘅徽章。
+qr_contrast_low|對比 %1$.1f:1 太低，建議 4:1 或以上。
+qr_contrast_mid|對比 %1$.1f:1 喺暗光下有啲勉強。
+qr_contrast_ok|對比 %1$.1f:1
+qr_inverted|深底淺碼（反色）喺一啲舊掃描器讀唔到。
+qr_transparent|透明背景：確保後面係淺色同純色。
+qr_border|邊少過 2 個模組：打印時留返啲位。
+qr_ec_raised|為咗留位俾徽章，糾錯已經升到 %1$s。
+qr_big_badge|徽章好大：將糾錯轉做高。
+qr_dense|碼好密（版本 %1$d）。內容短啲會掃得快啲、遠啲。
+qr_nothing|未有嘢可以編碼
+qr_too_much|資料太多，做唔到 QR 碼
+tap_to_close|㩒一下關閉
+pick_colour|揀顏色
+use|用
+cancel|取消
+edit_title|編輯 · %1$s
+payload|內容
+output|輸出
+save|儲存
+name|名稱
+name_hint|會喺資料庫、小工具同檔案名顯示
+update|更新
+save_to_library|儲落資料庫
+new_draft|新增
+ssid|網絡名稱（SSID）
+password|密碼
+hidden_network|隱藏網絡
+organisation|機構
+website|網站
+to|收件人
+subject|主旨
+message|訊息
+number|號碼
+latitude|緯度
+longitude|經度
+label_optional|標籤（可選）
+package_name|套件名
+package_hint|NFC 會直接打開 App；QR 會連去佢嘅商店頁
+export_size|匯出尺寸
+full|全螢幕
+share|分享
+saved_gallery|已儲到 Pictures/EMITT
+save_image_failed|儲唔到圖片
+style|樣式
+preset_classic|經典
+preset_theme|主題
+preset_synth|合成
+preset_terminal|終端
+preset_inverted|反色
+image_load_failed|載入唔到嗰張圖
+presets|預設
+colours|顏色
+modules|模組
+gradient_end|漸變終點
+transparent_bg|透明背景
+custom_eyes|自訂定位眼顏色
+eye_frame|定位眼外框
+eye_centre|定位眼中心
+swap|對調
+reset|重設
+shape|形狀
+module_size|模組大小
+eyes|定位眼
+centre_badge|中間徽章
+badge_text|徽章文字（最多 6 個）
+choose_image|揀圖片
+badge_size|徽章大小
+visibility|易讀程度
+ec_hint|糾錯：越高越頂得住刮花、反光同徽章，但個碼會密啲。
+quiet_zone|邊位（靜區）
+n_modules|%1$d 個模組
+max_brightness|全螢幕時最高亮度
+max_brightness_hint|等其他手機遠啲都讀到
+ndef_too_big|%1$d 位元組 · 要比 NTAG216 大嘅標籤
+ndef_fits|%1$d 位元組 · 裝得落 %2$s
+extras|附加
+also_open_app|同時打開 App（套件）
+also_open_app_hint|可選嘅 Android Application Record。唔使就留空。
+write_to_tag|寫入標籤
+be_the_tag|扮標籤
+nfc_modes_hint|「寫入標籤」會寫落貼紙或者卡度。「扮標籤」令呢部手機變成標籤：開住 EMITT 嗰陣，其他手機掂一掂就讀到。
+with_flipper|配合 Flipper
+flipper_write_tip|寫入 Flipper：喺 Flipper 揀 NFC → Add Manually → NTAG215 → Emulate，再喺呢度㩒「寫入標籤」。
+flipper_read_tip|讀呢部手機：用 NFC → Extra Actions → Read Specific Card Type → Type 4 Tag。普通 Read 會順便搵付款卡，會叫醒你個錢包 App。
+ntag_tip|小貼士：NTAG213 大約裝到 130 個字嘅連結；NTAG215 同 NTAG216 裝得多好多。
+waiting_for_tag|等緊標籤…
+saved_file|已儲 %1$s
+save_file_failed|儲唔到檔案
+flipper_file_hint|整一個 Flipper 可以模擬嘅 NTAG 檔：NFC → Saved → Emulate。
+chip|晶片
+auto|自動
+uid_7|7 位元組 UID
+file_summary|%1$s · %2$d 位元組 · %3$d 頁
+hide_file|收埋檔案
+show_file|睇檔案
+send_to_flipper|傳去 Flipper
+connect_flipper|連接 Flipper
+save_file|儲存檔案
+cant_build_file|整唔到檔案
+no_code_in_image|嗰張圖搵唔到碼
+scanner|掃描器
+camera_why|EMITT 要用相機掃碼。唔會錄影或者上載任何嘢。
+allow_camera|允許相機
+light_off|熄燈
+light|燈
+from_image|由圖片
+decoded|已解碼 · %1$s
+type|類型
+security|保安
+content|內容
+open|打開
+copy|複製
+copied|複製咗
+re_emit|再用
+edit|編輯
+to_tag|寫做標籤
+scan_again|再掃
+scan_hint|對準 QR 碼或者條碼。喺手機入面解碼，乜都唔會傳出去。
+not_flipper_file|呢個唔係 Flipper NFC 檔案
+no_nfc|呢部手機冇 NFC。你照樣可以整 QR 碼同 Flipper 檔案。
+nfc_off|NFC 閂咗。
+turn_on_nfc|開 NFC
+nfc_ready|準備好。將任何標籤貼近手機背面就可以檢查。
+wrote_of|寫咗 %1$d / %2$d 位元組
+wrote|寫咗 %1$d 位元組
+tag_erased|標籤已清除
+tag_locked|標籤已鎖定，而家係唯讀。
+tools|工具
+read|讀取
+tap_to_read|貼近標籤嚟讀
+erase|清除
+lock|鎖定
+import_nfc|匯入 .nfc
+lock_q|鎖定標籤？
+erase_q|清除標籤？
+lock_warn|鎖定之後標籤會永久唯讀。冇人（包括你）可以再改。
+erase_warn|咁會清走標籤內容。標籤仍然可以寫。
+lock_forever|永久鎖定
+tag_title|標籤 · %1$s
+uid_copied|已複製 UID
+memory|容量
+writable|可寫
+yes|係
+no_readonly|唔係（唯讀）
+lockable|可鎖
+no|唔係
+records|記錄
+no_ndef_data|冇 NDEF 資料
+uid_only|呢種晶片只可以儲 UID、ATQA 同 SAK。
+send|傳送
+cant_convert|只有 NFC-A 標籤可以儲俾 Flipper
+n_pages|%1$d 頁
+file_title|檔案 · %1$s
+device|裝置
+pages|頁數
+no_ndef_in_file|呢個檔案搵唔到 NDEF 訊息。
+file_data|檔案入面嘅資料
+uid_not_copied|手機複製唔到標籤嘅 UID，只會寫入資料。
+link|連線
+connected_to|已連接 %1$s
+bt_why|EMITT 要用藍牙去搵你部 Flipper 同佢溝通。
+allow_bt|允許藍牙
+reconnect|重新連接
+scanning|掃描緊…
+nearby|附近
+looking_flippers|搵緊 Flipper…
+tap_scan|㩒「掃描」。喺 Flipper：Settings → Bluetooth → ON。
+paired|已配對
+not_in_range|唔喺範圍
+first_time|第一次用？
+pair_hint|喺上面揀你部 Flipper。Android 會問 PIN：輸入 Flipper 螢幕顯示嘅 6 個數字。
+list_failed|列唔到 Flipper 嘅檔案
+firmware|韌體
+built|構建日期
+model|型號
+region|地區
+sd_card|SD 卡
+gb_free|剩 %1$.1f / %2$.1f GB
+all_device_info|全部裝置資料
+beep|響一聲
+disconnect|斷開
+refresh|重新整理
+reading|讀緊…
+no_nfc_files|未有 NFC 檔案。去「製作 → Flipper」整一個。
+files_land_here|EMITT 傳過嚟嘅檔案會喺度。喺 Flipper 嘅 NFC → Saved 打開。
+library_count|資料庫 · %1$d
+search|搜尋
+starred|星號
+all|全部
+lib_empty|未儲過嘢。喺「製作」整啲嘢再㩒「儲落資料庫」。
+no_matches|冇相符嘅。
+tile|快速設定
+star|加星號
+show|顯示
+unpin_tile|由快速設定移除
+pin_tile|釘到快速設定
+tile_removed|已由快速設定方塊移除
+tile_now_shows|快速設定方塊而家顯示 %1$s
+rename|改名
+delete|刪除
+delete_q|刪除？
+delete_confirm|由資料庫刪除「%1$s」？顯示緊佢嘅小工具會變空白。
+back|返回
+appearance|外觀
+settings|設定
+made_by|作者
+phone_is_tag|手機扮緊標籤
+waiting_reader|等緊讀取器
+reads|讀咗：%1$d 次
+tagmode_hold|將另一部手機背面貼住呢部手機背面中間。
+tagmode_keep_open|開住呢個畫面。如果 EMITT 去咗背景，手機自己嘅標籤或者錢包可能會代佢回應。
+tagmode_flipper|Flipper：NFC → Extra Actions → Read Specific Card Type → Type 4 Tag。
+minimise|縮細
+awaiting_tag|等緊標籤
+bar_hold|將另一部手機貼住你部。㩒呢度入標籤模式。
+scans|掃到
+check|要檢查
+update_available|有更新
+colourway|配色
+custom_colours|自訂顏色
+use_my_colours|用我自己嘅顏色
+use_my_colours_hint|由而家嘅配色開始
+motion|動態
+speed|速度
+density|密度
+intensity|強度
+colour|顏色
+scanlines|掃描線
+scanline_strength|掃描線強度
+vignette|暗角
+vignette_hint|令螢幕邊位暗啲
+flicker|閃爍
+flicker_hint|輕微 CRT 閃爍
+interface_|介面
+panel_opacity|面板不透明度
+panel_outlines|面板邊框
+glow|發光
+glow_hint|標題霓虹光（深色配色）
+blinking_cursor|閃爍游標
+corners|角
+font|字體
+text_size|字體大小
+reset_look|重設外觀
+app_icon|App 圖示
+icon_changed|圖示已改。主畫面可能要等陣先更新。
+language|語言
+language_system|跟手機語言
+language_hint|有啲字，例如協定同晶片名稱，會保留英文。
+vibration|震動
+vibration_hint|寫標籤或者手機俾人讀嗰陣嘅回饋
+strength|強度
+tap_pattern|㩒一個模式試下感覺。
+updates|更新
+check_releases|檢查新版本
+check_releases_hint|會問 GitHub 公開 API，唔會傳送任何關於你嘅資料。
+check_every|檢查間隔
+notifications_off|通知閂咗，所以你只會喺 App 入面見到更新。
+allow_notifications|允許通知
+check_now|即刻檢查
+get_it|下載
+about|關於
+tagline|QR 碼、NFC 標籤同 Flipper Zero 檔案，一個 App 搞掂。
+version|版本
+official_build|官方版本
+unofficial_build|非官方版本：唔係 StarlightJulie 簽署
+made_by_line|由 StarlightJulie 製作。以 GPLv3 免費開源。
+source|原始碼
+license|授權
+flipper_trademark|Flipper Zero 係 Flipper Devices Inc. 嘅商標。EMITT 同佢哋冇關係，亦冇得到佢哋認可。

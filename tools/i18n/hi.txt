@@ -1,0 +1,436 @@
+widget_label|EMITT कोड
+widget_description|आपका सेव किया एक कोड होम स्क्रीन पर दिखाता है
+tile_label|EMITT कोड
+channel_updates|ऐप अपडेट
+channel_emulation|फ़ोन NFC टैग के रूप में
+emulation_description|EMITT NFC टैग
+kind_text|टेक्स्ट
+kind_url|लिंक
+kind_contact|संपर्क
+kind_email|ईमेल
+kind_phone|फ़ोन
+kind_geo|स्थान
+kind_app|ऐप
+wifi_open|कोई नहीं
+need_text|कुछ टेक्स्ट डालें
+need_link|एक लिंक डालें
+need_ssid|नेटवर्क का नाम डालें
+need_password|पासवर्ड डालें
+need_contact|नाम, फ़ोन या ईमेल डालें
+need_email|ईमेल पता डालें
+need_number|फ़ोन नंबर डालें
+need_geo|अक्षांश और देशांतर डालें
+need_package|पैकेज नाम डालें, जैसे com.example.app
+shape_square|वर्ग
+shape_rounded|गोल किनारे
+shape_dots|बिंदु
+shape_fluid|प्रवाही
+shape_bars|पट्टियाँ
+shape_diamond|हीरा
+shape_circle|वृत्त
+shape_leaf|पत्ती
+grad_flat|एक रंग
+grad_linear|रेखीय
+grad_radial|त्रिज्य
+badge_image|चित्र
+ec_low|कम
+ec_medium|मध्यम
+ec_quartile|चतुर्थक
+ec_high|उच्च
+pat_off|बंद
+pat_tick|टिक
+pat_double|दो टैप
+pat_triple|तीन टैप
+pat_heartbeat|धड़कन
+pat_buzz|लंबा कंपन
+pat_rising|बढ़ता
+pat_falling|घटता
+pat_purr|घुरघुराहट
+hev_write|टैग लिखा या पढ़ा गया
+hev_write_hint|जब EMITT कोई टैग लिखे, पढ़े, मिटाए या लॉक करे
+hev_emulated|फ़ोन टैग के रूप में पढ़ा गया
+hev_emulated_hint|जब कोई दूसरा डिवाइस टैग मोड में इस फ़ोन को पढ़े
+hev_fail|कुछ विफल हुआ
+hev_fail_hint|लिखना या पढ़ना सफल नहीं हुआ
+slot_accent|मुख्य रंग
+slot_accent_hint|बटन, हाइलाइट और सक्रिय टैब
+slot_signal|सिग्नल रंग
+slot_signal_hint|दूसरा मुख्य रंग: स्थिति, लिंक, एनिमेशन
+slot_bg|पृष्ठभूमि
+slot_bg_hint|हर चीज़ के पीछे
+slot_panels|पैनल
+slot_panels_hint|कार्ड और शीट
+slot_text_hint|मुख्य टेक्स्ट का रंग
+bg_synth|सिंथ ग्रिड
+bg_rain|कोड बारिश
+bg_scope|ऑसिलोस्कोप
+bg_radar|रडार
+bg_dots|डॉट मैट्रिक्स
+bg_circuit|सर्किट
+bg_warp|वार्प
+bg_spectrum|स्पेक्ट्रम
+bg_static|स्टैटिक
+bg_random|यादृच्छिक
+bgc_duo|दोनों रंग
+bgc_cycle|रंग चक्र
+bgc_ink|टेक्स्ट रंग
+corner_cut|कटे हुए
+corner_sharp|नुकीले
+corner_soft|मुलायम
+font_mixed|मोनो लेबल
+font_mono|सब मोनो
+tag_read_failed|टैग पढ़ा नहीं जा सका। उसे स्थिर रखें और फिर कोशिश करें।
+tag_readonly|यह टैग केवल पढ़ने योग्य है।
+tag_too_big|बहुत बड़ा: %1$d बाइट, पर टैग में केवल %2$d की जगह है।
+tag_no_ndef|यह टैग NDEF सपोर्ट नहीं करता।
+tag_lost_write|लिखते समय टैग हट गया। उसे स्थिर रखें और फिर कोशिश करें।
+tag_write_failed|लिखना विफल रहा।
+tag_nothing_to_lock|इस टैग पर लॉक करने के लिए कोई NDEF डेटा नहीं है।
+tag_cant_lock|यह टैग लॉक नहीं किया जा सकता।
+tag_lock_refused|टैग ने लॉक करने से मना कर दिया।
+tag_lost|टैग हट गया। उसे स्थिर रखें और फिर कोशिश करें।
+fl_bt_off|ब्लूटूथ बंद है
+fl_step_looking|खोज रहा है
+fl_not_in_range|यह पेयरिंग पास में नहीं है। वह Flipper चुनें जिसकी सिग्नल ताकत दिख रही हो।
+fl_cant_see|आपका Flipper नहीं दिख रहा। उस पर देखें कि Settings → Bluetooth ON है और Flipper ऐप उससे जुड़ा नहीं है।
+fl_step_pairing|पेयरिंग: Flipper पर दिख रहा PIN डालें
+fl_step_connecting|कनेक्ट हो रहा है
+fl_step_setup|सेट अप हो रहा है
+fl_not_flipper|यह Flipper नहीं लगता (सीरियल सेवा नहीं मिली)।
+fl_step_info|डिवाइस जानकारी पढ़ रहा है
+fl_other_app|Flipper किसी दूसरे ऐप (जैसे आधिकारिक Flipper ऐप) से जुड़ा है। उसे वहाँ से डिस्कनेक्ट करें और फिर कोशिश करें।
+fl_timeout|समय समाप्त। क्या Flipper की सेटिंग में ब्लूटूथ चालू है?
+fl_failed|कनेक्शन विफल
+fl_disconnected|डिस्कनेक्ट हो गया
+fl_pair_start|पेयरिंग शुरू नहीं हो सकी
+fl_pair_failed|पेयरिंग रद्द हुई या PIN मेल नहीं खाया
+fl_not_connected|कनेक्ट नहीं है
+fl_refused|ब्लूटूथ अनुरोध अस्वीकार हुआ
+fl_dropped|Flipper का कनेक्शन टूट गया
+fl_subscribe|Flipper ने कनेक्शन अस्वीकार किया (%1$d)। फिर से पेयर करें।
+fl_write|ब्लूटूथ से लिखना विफल (%1$d)
+fl_error|Flipper त्रुटि %1$d
+fl_stalled|Flipper ने डेटा लेना बंद कर दिया
+fs_unknown|अज्ञात त्रुटि
+fs_decode|डिकोड नहीं हो सका
+fs_unsupported|समर्थित नहीं
+fs_busy|Flipper व्यस्त है
+fs_sd|SD कार्ड तैयार नहीं है
+fs_exists|पहले से मौजूद है
+fs_missing|नहीं मिला
+fs_param|अमान्य पैरामीटर
+fs_denied|पहुँच अस्वीकृत
+fs_name|अमान्य नाम
+fs_internal|आंतरिक त्रुटि
+fs_open|पहले से खुला है
+fs_interrupted|बाधित
+fs_params|अमान्य पैरामीटर
+upd_none|अभी कोई सार्वजनिक रिलीज़ नहीं
+upd_http|GitHub ने %1$d लौटाया
+upd_notag|रिलीज़ पर संस्करण टैग नहीं है
+upd_offline|GitHub तक नहीं पहुँच सके
+emu_notif_title|आपका फ़ोन अब एक NFC टैग है
+emu_notif_text|%1$s भेज रहा है। EMITT खोलें और दूसरे फ़ोन छूकर इसे पढ़ सकेंगे।
+stop|रोकें
+upd_notif_title|EMITT %1$s आ गया है
+open_release|रिलीज़ खोलें
+tile_pin|लाइब्रेरी से एक कोड पिन करें
+tile_show|कोड दिखाएँ
+widget_pick|कोड चुनने के लिए टैप करें
+widget_empty|आपकी लाइब्रेरी खाली है। पहले EMITT में एक कोड सेव करें, फिर विजेट दोबारा जोड़ें।
+widget_pick_title|एक कोड चुनें
+tab_create|बनाएँ
+tab_scan|स्कैन
+tab_tags|टैग
+tab_library|लाइब्रेरी
+out_qr|QR कोड
+out_nfc|NFC टैग
+prompt_write|लिखने के लिए फ़ोन पर टैग लगाएँ: %1$s
+prompt_erase|मिटाने के लिए टैग फ़ोन पर लगाएँ
+prompt_lock|लॉक करने के लिए टैग फ़ोन पर लगाएँ। इसे वापस नहीं किया जा सकता।
+prompt_copy_from|जिस टैग से कॉपी करना है उसे लगाएँ
+prompt_copy_to|अब जिस टैग पर कॉपी करना है उसे लगाएँ
+lib_updated|लाइब्रेरी में अपडेट हुआ
+lib_saved|लाइब्रेरी में सेव हुआ
+emu_unsupported|यह फ़ोन NFC टैग की तरह काम नहीं कर सकता
+nfc_turn_on_first|पहले NFC चालू करें
+copy_empty|इस टैग पर कॉपी करने को कुछ नहीं है।
+fl_too_big|NTAG216 (872 बाइट) के लिए बहुत बड़ा
+fl_too_big_chip|%1$s के लिए बहुत बड़ा। बड़ी चिप चुनें।
+fl_connect_first|पहले Flipper कनेक्ट करें
+fl_sent|Flipper को भेजा गया: %1$s
+fl_send_failed|भेज नहीं सके: %1$s
+upd_checking|जाँच रहा है…
+upd_available|%1$s उपलब्ध है
+upd_latest|आपके पास नवीनतम संस्करण है
+qr_selftest_ok|स्व-परीक्षण स्कैन सफल (संस्करण %1$d, %2$d×%2$d)
+qr_selftest_fail|स्व-परीक्षण इसे पढ़ नहीं सका। कंट्रास्ट बढ़ाएँ, वर्ग मॉड्यूल या छोटा बैज इस्तेमाल करें।
+qr_contrast_low|कंट्रास्ट %1$.1f:1 बहुत कम है। 4:1 या ज़्यादा रखें।
+qr_contrast_mid|कम रोशनी में कंट्रास्ट %1$.1f:1 सीमा पर है।
+qr_contrast_ok|कंट्रास्ट %1$.1f:1
+qr_inverted|गहरे पर हल्के (उलटे) कोड कुछ पुराने स्कैनर नहीं पढ़ पाते।
+qr_transparent|पारदर्शी पृष्ठभूमि: ध्यान रखें कि पीछे का रंग हल्का और सादा हो।
+qr_border|किनारा 2 मॉड्यूल से कम: छापते समय जगह छोड़ें।
+qr_ec_raised|बैज के लिए जगह बनाने हेतु त्रुटि सुधार %1$s तक बढ़ाया गया।
+qr_big_badge|बड़ा बैज: त्रुटि सुधार उच्च रखें।
+qr_dense|घना कोड (संस्करण %1$d)। छोटा कंटेंट जल्दी और दूर से स्कैन होता है।
+qr_nothing|अभी एन्कोड करने को कुछ नहीं
+qr_too_much|QR कोड के लिए बहुत ज़्यादा डेटा
+tap_to_close|बंद करने के लिए टैप करें
+pick_colour|रंग चुनें
+use|उपयोग करें
+cancel|रद्द करें
+edit_title|संपादन · %1$s
+payload|सामग्री
+output|आउटपुट
+save|सेव करें
+name|नाम
+name_hint|लाइब्रेरी, विजेट और फ़ाइल नामों में दिखता है
+update|अपडेट करें
+save_to_library|लाइब्रेरी में सेव करें
+new_draft|नया
+ssid|नेटवर्क नाम (SSID)
+password|पासवर्ड
+hidden_network|छिपा नेटवर्क
+organisation|संगठन
+website|वेबसाइट
+to|प्रति
+subject|विषय
+message|संदेश
+number|नंबर
+latitude|अक्षांश
+longitude|देशांतर
+label_optional|लेबल (वैकल्पिक)
+package_name|पैकेज नाम
+package_hint|NFC सीधे ऐप खोलता है; QR उसका स्टोर पेज खोलता है
+export_size|एक्सपोर्ट आकार
+full|पूर्ण स्क्रीन
+share|शेयर करें
+saved_gallery|Pictures/EMITT में सेव हुआ
+save_image_failed|चित्र सेव नहीं हो सका
+style|स्टाइल
+preset_classic|क्लासिक
+preset_theme|थीम जैसा
+preset_synth|सिंथ
+preset_terminal|टर्मिनल
+preset_inverted|उलटा
+image_load_failed|वह चित्र लोड नहीं हो सका
+presets|प्रीसेट
+colours|रंग
+modules|मॉड्यूल
+gradient_end|ग्रेडिएंट का अंत
+transparent_bg|पारदर्शी पृष्ठभूमि
+custom_eyes|आँखों के अलग रंग
+eye_frame|आँख का फ़्रेम
+eye_centre|आँख का केंद्र
+swap|अदला-बदली
+reset|रीसेट
+shape|आकार
+module_size|मॉड्यूल आकार
+eyes|आँखें
+centre_badge|बीच में बैज
+badge_text|बैज टेक्स्ट (6 तक)
+choose_image|चित्र चुनें
+badge_size|बैज आकार
+visibility|पठनीयता
+ec_hint|त्रुटि सुधार: ज़्यादा होने पर खरोंच, चमक और लोगो झेल लेता है, पर कोड घना हो जाता है।
+quiet_zone|किनारा (क्वाइट ज़ोन)
+n_modules|%1$d मॉड्यूल
+max_brightness|पूर्ण स्क्रीन में अधिकतम चमक
+max_brightness_hint|दूसरे फ़ोन को दूर से स्कैन करने में मदद करता है
+ndef_too_big|%1$d बाइट · NTAG216 से बड़ा टैग चाहिए
+ndef_fits|%1$d बाइट · %2$s में आ जाता है
+extras|अतिरिक्त
+also_open_app|साथ में ऐप भी खोलें (पैकेज)
+also_open_app_hint|वैकल्पिक Android Application Record। ज़रूरत न हो तो खाली छोड़ें।
+write_to_tag|टैग पर लिखें
+be_the_tag|खुद टैग बनें
+nfc_modes_hint|«टैग पर लिखें» इसे स्टिकर या कार्ड पर सेव करता है। «खुद टैग बनें» इस फ़ोन को टैग बना देता है: जब तक EMITT खुला है, दूसरे फ़ोन छूकर इसे पढ़ सकते हैं।
+with_flipper|Flipper के साथ
+flipper_write_tip|उस पर लिखने के लिए: Flipper पर NFC → Add Manually → NTAG215 → Emulate चुनें, फिर यहाँ «टैग पर लिखें» टैप करें।
+flipper_read_tip|इस फ़ोन को पढ़ने के लिए: NFC → Extra Actions → Read Specific Card Type → Type 4 Tag इस्तेमाल करें। साधारण Read भुगतान कार्ड भी खोजता है और वॉलेट ऐप जगा देता है।
+ntag_tip|सुझाव: NTAG213 में लगभग 130 अक्षरों का लिंक आता है; NTAG215 और NTAG216 में कहीं ज़्यादा।
+waiting_for_tag|टैग का इंतज़ार…
+saved_file|%1$s सेव हुआ
+save_file_failed|फ़ाइल सेव नहीं हो सकी
+flipper_file_hint|एक NTAG फ़ाइल बनाता है जिसे Flipper इम्युलेट कर सकता है: NFC → Saved → Emulate।
+chip|चिप
+auto|स्वचालित
+uid_7|7-बाइट UID
+file_summary|%1$s · %2$d बाइट · %3$d पेज
+hide_file|फ़ाइल छिपाएँ
+show_file|फ़ाइल दिखाएँ
+send_to_flipper|Flipper को भेजें
+connect_flipper|Flipper कनेक्ट करें
+save_file|फ़ाइल सेव करें
+cant_build_file|फ़ाइल नहीं बन सकी
+no_code_in_image|उस चित्र में कोई कोड नहीं मिला
+scanner|स्कैनर
+camera_why|कोड स्कैन करने के लिए EMITT को कैमरा चाहिए। कुछ भी रिकॉर्ड या अपलोड नहीं होता।
+allow_camera|कैमरा की अनुमति दें
+light_off|लाइट बंद
+light|लाइट
+from_image|चित्र से
+decoded|डिकोड हुआ · %1$s
+type|प्रकार
+security|सुरक्षा
+content|सामग्री
+open|खोलें
+copy|कॉपी करें
+copied|कॉपी हुआ
+re_emit|फिर से उपयोग करें
+edit|संपादित करें
+to_tag|टैग पर
+scan_again|फिर स्कैन करें
+scan_hint|कैमरा को QR कोड या बारकोड की ओर करें। यह फ़ोन पर ही डिकोड होता है, कुछ बाहर नहीं जाता।
+not_flipper_file|यह Flipper NFC फ़ाइल नहीं है
+no_nfc|इस फ़ोन में NFC नहीं है। आप फिर भी QR कोड और Flipper फ़ाइलें बना सकते हैं।
+nfc_off|NFC बंद है।
+turn_on_nfc|NFC चालू करें
+nfc_ready|तैयार। जाँचने के लिए फ़ोन के पीछे कोई भी टैग लगाएँ।
+wrote_of|%2$d में से %1$d बाइट लिखे
+wrote|%1$d बाइट लिखे
+tag_erased|टैग मिटाया गया
+tag_locked|टैग लॉक हुआ। अब यह केवल पढ़ने योग्य है।
+tools|टूल
+read|पढ़ें
+tap_to_read|पढ़ने के लिए टैग लगाएँ
+erase|मिटाएँ
+lock|लॉक करें
+import_nfc|.nfc आयात करें
+lock_q|टैग लॉक करें?
+erase_q|टैग मिटाएँ?
+lock_warn|लॉक करने से टैग हमेशा के लिए केवल पढ़ने योग्य हो जाता है। उसके बाद कोई भी, आप भी, उसे बदल नहीं सकते।
+erase_warn|इससे टैग की सामग्री मिट जाएगी। टैग लिखने योग्य रहेगा।
+lock_forever|हमेशा के लिए लॉक करें
+tag_title|टैग · %1$s
+uid_copied|UID कॉपी हुआ
+memory|मेमोरी
+writable|लिखने योग्य
+yes|हाँ
+no_readonly|नहीं (केवल पढ़ने योग्य)
+lockable|लॉक योग्य
+no|नहीं
+records|रिकॉर्ड
+no_ndef_data|कोई NDEF डेटा नहीं
+uid_only|इस चिप प्रकार के लिए केवल UID, ATQA और SAK सेव किए जा सकते हैं।
+send|भेजें
+cant_convert|Flipper के लिए केवल NFC-A टैग सेव हो सकते हैं
+n_pages|%1$d पेज
+file_title|फ़ाइल · %1$s
+device|डिवाइस
+pages|पेज
+no_ndef_in_file|इस फ़ाइल में कोई NDEF संदेश नहीं मिला।
+file_data|फ़ाइल डेटा
+uid_not_copied|फ़ोन टैग का UID कॉपी नहीं कर सकते; केवल डेटा लिखा जाता है।
+link|कनेक्शन
+connected_to|%1$s से जुड़ा
+bt_why|आपका Flipper खोजने और उससे बात करने के लिए EMITT को ब्लूटूथ चाहिए।
+allow_bt|ब्लूटूथ की अनुमति दें
+reconnect|फिर से कनेक्ट करें
+scanning|खोज रहा है…
+nearby|आसपास
+looking_flippers|Flipper खोज रहा है…
+tap_scan|«स्कैन» टैप करें। Flipper पर: Settings → Bluetooth → ON।
+paired|पेयर किया हुआ
+not_in_range|दायरे में नहीं
+first_time|पहली बार?
+pair_hint|ऊपर से अपना Flipper चुनें। Android PIN माँगेगा: Flipper की स्क्रीन पर दिख रहे 6 अंक डालें।
+list_failed|Flipper की फ़ाइलें नहीं दिख सकीं
+firmware|फ़र्मवेयर
+built|बिल्ड
+model|मॉडल
+region|क्षेत्र
+sd_card|SD कार्ड
+gb_free|%1$.1f / %2$.1f GB खाली
+all_device_info|पूरी डिवाइस जानकारी
+beep|बीप
+disconnect|डिस्कनेक्ट करें
+refresh|रीफ़्रेश
+reading|पढ़ रहा है…
+no_nfc_files|अभी कोई NFC फ़ाइल नहीं। बनाएँ → Flipper से एक बनाएँ।
+files_land_here|EMITT से भेजी गई फ़ाइलें यहाँ आती हैं। Flipper पर NFC → Saved से खोलें।
+library_count|लाइब्रेरी · %1$d
+search|खोजें
+starred|तारांकित
+all|सभी
+lib_empty|अभी कुछ सेव नहीं किया। बनाएँ में कुछ बनाकर «लाइब्रेरी में सेव करें» टैप करें।
+no_matches|कोई मेल नहीं।
+tile|त्वरित टाइल
+star|तारांकित करें
+show|दिखाएँ
+unpin_tile|टाइल से हटाएँ
+pin_tile|टाइल पर पिन करें
+tile_removed|त्वरित सेटिंग टाइल से हटाया गया
+tile_now_shows|त्वरित सेटिंग टाइल अब %1$s दिखाती है
+rename|नाम बदलें
+delete|हटाएँ
+delete_q|हटाएँ?
+delete_confirm|«%1$s» को लाइब्रेरी से हटाएँ? इसे दिखाने वाले विजेट खाली हो जाएँगे।
+back|वापस
+appearance|रूप-रंग
+settings|सेटिंग
+made_by|निर्माता
+phone_is_tag|फ़ोन अब एक टैग है
+waiting_reader|रीडर का इंतज़ार
+reads|पढ़ा गया: %1$d
+tagmode_hold|दूसरे फ़ोन की पीठ इस फ़ोन की पीठ के बीच में रखें।
+tagmode_keep_open|यह स्क्रीन खुली रखें। अगर EMITT पृष्ठभूमि में गया तो फ़ोन का अपना टैग या वॉलेट जवाब दे सकता है।
+tagmode_flipper|Flipper: NFC → Extra Actions → Read Specific Card Type → Type 4 Tag।
+minimise|छोटा करें
+awaiting_tag|टैग का इंतज़ार
+bar_hold|दूसरा फ़ोन अपने फ़ोन से लगाएँ। टैग मोड के लिए यहाँ टैप करें।
+scans|स्कैन होता है
+check|जाँचें
+update_available|अपडेट उपलब्ध
+colourway|रंग योजना
+custom_colours|अपने रंग
+use_my_colours|मेरे रंग इस्तेमाल करें
+use_my_colours_hint|मौजूदा रंग योजना से शुरू होता है
+motion|गति
+speed|रफ़्तार
+density|घनत्व
+intensity|तीव्रता
+colour|रंग
+scanlines|स्कैनलाइन
+scanline_strength|स्कैनलाइन की तीव्रता
+vignette|विनेट
+vignette_hint|स्क्रीन के किनारे गहरे करता है
+flicker|झिलमिलाहट
+flicker_hint|हल्की CRT जैसी झिलमिलाहट
+interface_|इंटरफ़ेस
+panel_opacity|पैनल की अपारदर्शिता
+panel_outlines|पैनल की रूपरेखा
+glow|चमक
+glow_hint|शीर्षकों पर नियॉन चमक (गहरी योजनाएँ)
+blinking_cursor|टिमटिमाता कर्सर
+corners|कोने
+font|फ़ॉन्ट
+text_size|टेक्स्ट आकार
+reset_look|रूप रीसेट करें
+app_icon|ऐप आइकन
+icon_changed|आइकन बदल गया। लॉन्चर को अपडेट होने में थोड़ा समय लग सकता है।
+language|भाषा
+language_system|फ़ोन की भाषा
+language_hint|कुछ शब्द, जैसे प्रोटोकॉल और चिप के नाम, अंग्रेज़ी में ही रहते हैं।
+vibration|कंपन
+vibration_hint|टैग लिखने या फ़ोन पढ़े जाने पर कंपन
+strength|ताकत
+tap_pattern|महसूस करने के लिए किसी पैटर्न पर टैप करें।
+updates|अपडेट
+check_releases|नई रिलीज़ जाँचें
+check_releases_hint|GitHub की सार्वजनिक API से पूछता है। आपके बारे में कुछ नहीं भेजा जाता।
+check_every|हर इतने में जाँचें
+notifications_off|सूचनाएँ बंद हैं, इसलिए अपडेट केवल ऐप में दिखेंगे।
+allow_notifications|सूचनाओं की अनुमति दें
+check_now|अभी जाँचें
+get_it|डाउनलोड करें
+about|परिचय
+tagline|QR कोड, NFC टैग और Flipper Zero फ़ाइलें, एक ही ऐप में।
+version|संस्करण
+official_build|आधिकारिक बिल्ड
+unofficial_build|अनौपचारिक बिल्ड: StarlightJulie द्वारा साइन नहीं किया गया
+made_by_line|StarlightJulie द्वारा बनाया गया। मुफ़्त और ओपन सोर्स, GPLv3 के तहत।
+source|सोर्स कोड
+license|लाइसेंस
+flipper_trademark|Flipper Zero, Flipper Devices Inc. का ट्रेडमार्क है। EMITT उनसे संबद्ध या उनके द्वारा समर्थित नहीं है।

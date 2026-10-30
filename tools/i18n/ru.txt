@@ -1,0 +1,436 @@
+widget_label|Код EMITT
+widget_description|Показывает один из сохранённых кодов на главном экране
+tile_label|Код EMITT
+channel_updates|Обновления приложения
+channel_emulation|Телефон как NFC-метка
+emulation_description|NFC-метка EMITT
+kind_text|Текст
+kind_url|Ссылка
+kind_contact|Контакт
+kind_email|Почта
+kind_phone|Телефон
+kind_geo|Место
+kind_app|Приложение
+wifi_open|Нет
+need_text|Введите текст
+need_link|Введите ссылку
+need_ssid|Введите имя сети
+need_password|Введите пароль
+need_contact|Введите имя, телефон или почту
+need_email|Введите адрес почты
+need_number|Введите номер телефона
+need_geo|Введите широту и долготу
+need_package|Введите имя пакета, например com.example.app
+shape_square|Квадрат
+shape_rounded|Скруглённый
+shape_dots|Точки
+shape_fluid|Плавный
+shape_bars|Полосы
+shape_diamond|Ромб
+shape_circle|Круг
+shape_leaf|Лист
+grad_flat|Сплошной
+grad_linear|Линейный
+grad_radial|Радиальный
+badge_image|Изображение
+ec_low|Низкая
+ec_medium|Средняя
+ec_quartile|Квартиль
+ec_high|Высокая
+pat_off|Выкл.
+pat_tick|Щелчок
+pat_double|Двойное касание
+pat_triple|Тройной
+pat_heartbeat|Сердцебиение
+pat_buzz|Долгий гул
+pat_rising|Нарастание
+pat_falling|Затухание
+pat_purr|Мурлыканье
+hev_write|Метка записана или прочитана
+hev_write_hint|Когда EMITT записывает, читает, стирает или блокирует метку
+hev_emulated|Телефон прочитан как метка
+hev_emulated_hint|Когда другое устройство читает этот телефон в режиме метки
+hev_fail|Что-то пошло не так
+hev_fail_hint|Неудачная запись или чтение
+slot_accent|Акцент
+slot_accent_hint|Кнопки, выделения, активная вкладка
+slot_signal|Сигнал
+slot_signal_hint|Второй акцент: статусы, ссылки, анимация
+slot_bg|Фон
+slot_bg_hint|Позади всего
+slot_panels|Панели
+slot_panels_hint|Карточки и листы
+slot_text_hint|Цвет основного текста
+bg_synth|Синт-сетка
+bg_rain|Дождь кода
+bg_scope|Осциллограф
+bg_radar|Радар
+bg_dots|Точечная матрица
+bg_circuit|Схема
+bg_warp|Варп
+bg_spectrum|Спектр
+bg_static|Помехи
+bg_random|Случайно
+bgc_duo|Оба акцента
+bgc_cycle|Смена оттенка
+bgc_ink|Цвет текста
+corner_cut|Скошенные
+corner_sharp|Острые
+corner_soft|Мягкие
+font_mixed|Моно-подписи
+font_mono|Всё моно
+tag_read_failed|Не удалось прочитать метку. Держите её неподвижно и повторите.
+tag_readonly|Эта метка только для чтения.
+tag_too_big|Слишком много: %1$d байт, а метка вмещает %2$d.
+tag_no_ndef|Эта метка не поддерживает NDEF.
+tag_lost_write|Метка потеряна во время записи. Держите её неподвижно и повторите.
+tag_write_failed|Ошибка записи.
+tag_nothing_to_lock|На этой метке нет данных NDEF для блокировки.
+tag_cant_lock|Эту метку нельзя заблокировать.
+tag_lock_refused|Метка отказалась блокироваться.
+tag_lost|Метка потеряна. Держите её неподвижно и повторите.
+fl_bt_off|Bluetooth выключен
+fl_step_looking|Поиск
+fl_not_in_range|Это сопряжение вне зоны действия. Выберите Flipper, у которого показан уровень сигнала.
+fl_cant_see|Flipper не виден. Проверьте на нём, что Settings → Bluetooth включён (ON) и что приложение Flipper к нему не подключено.
+fl_step_pairing|Сопряжение: введите PIN с экрана Flipper
+fl_step_connecting|Подключение
+fl_step_setup|Настройка
+fl_not_flipper|Это не похоже на Flipper (нет последовательного сервиса).
+fl_step_info|Чтение сведений об устройстве
+fl_other_app|Flipper подключён к другому приложению (например, официальному приложению Flipper). Отключите его там и повторите.
+fl_timeout|Время ожидания истекло. Включён ли Bluetooth в настройках Flipper?
+fl_failed|Не удалось подключиться
+fl_disconnected|Отключено
+fl_pair_start|Не удалось начать сопряжение
+fl_pair_failed|Сопряжение отменено или PIN не совпал
+fl_not_connected|Не подключено
+fl_refused|Запрос Bluetooth отклонён
+fl_dropped|Flipper отключился
+fl_subscribe|Flipper отклонил подключение (%1$d). Выполните сопряжение снова.
+fl_write|Ошибка записи по Bluetooth (%1$d)
+fl_error|Ошибка Flipper %1$d
+fl_stalled|Flipper перестал принимать данные
+fs_unknown|Неизвестная ошибка
+fs_decode|Не удалось декодировать
+fs_unsupported|Не поддерживается
+fs_busy|Flipper занят
+fs_sd|SD-карта не готова
+fs_exists|Уже существует
+fs_missing|Не существует
+fs_param|Неверный параметр
+fs_denied|Доступ запрещён
+fs_name|Недопустимое имя
+fs_internal|Внутренняя ошибка
+fs_open|Уже открыто
+fs_interrupted|Прервано
+fs_params|Неверные параметры
+upd_none|Публичных релизов пока нет
+upd_http|GitHub ответил %1$d
+upd_notag|У релиза нет тега версии
+upd_offline|Не удалось связаться с GitHub
+emu_notif_title|Ваш телефон — NFC-метка
+emu_notif_text|Передаётся %1$s. Откройте EMITT, и другие телефоны смогут прочитать его касанием.
+stop|Стоп
+upd_notif_title|Вышел EMITT %1$s
+open_release|Открыть релиз
+tile_pin|Закрепите код в библиотеке
+tile_show|Показать код
+widget_pick|Нажмите, чтобы выбрать код
+widget_empty|Библиотека пуста. Сначала сохраните код в EMITT, затем снова добавьте виджет.
+widget_pick_title|Выберите код
+tab_create|Создать
+tab_scan|Скан
+tab_tags|Метки
+tab_library|Библиотека
+out_qr|QR-код
+out_nfc|NFC-метка
+prompt_write|Поднесите метку к телефону для записи: %1$s
+prompt_erase|Поднесите метку к телефону, чтобы стереть её
+prompt_lock|Поднесите метку к телефону, чтобы заблокировать её. Это необратимо.
+prompt_copy_from|Поднесите метку, с которой нужно копировать
+prompt_copy_to|Теперь поднесите метку, на которую копировать
+lib_updated|Обновлено в библиотеке
+lib_saved|Сохранено в библиотеке
+emu_unsupported|Этот телефон не может работать как NFC-метка
+nfc_turn_on_first|Сначала включите NFC
+copy_empty|На этой метке нечего копировать.
+fl_too_big|Слишком много для NTAG216 (872 байта)
+fl_too_big_chip|Слишком много для %1$s. Выберите чип побольше.
+fl_connect_first|Сначала подключите Flipper
+fl_sent|Отправлено на Flipper: %1$s
+fl_send_failed|Не удалось отправить: %1$s
+upd_checking|Проверка…
+upd_available|Доступна версия %1$s
+upd_latest|У вас последняя версия
+qr_selftest_ok|Тестовое сканирование пройдено (версия %1$d, %2$d×%2$d)
+qr_selftest_fail|Тест не смог его прочитать. Повысьте контраст, используйте квадратные модули или уменьшите логотип.
+qr_contrast_low|Контраст %1$.1f:1 слишком низкий. Нужно 4:1 или больше.
+qr_contrast_mid|Контраст %1$.1f:1 на грани при плохом освещении.
+qr_contrast_ok|Контраст %1$.1f:1
+qr_inverted|Светлые коды на тёмном (инвертированные) не читаются некоторыми старыми сканерами.
+qr_transparent|Прозрачный фон: убедитесь, что под ним светлое однотонное покрытие.
+qr_border|Поле меньше 2 модулей: оставьте место при печати.
+qr_ec_raised|Коррекция ошибок повышена до %1$s, чтобы освободить место для логотипа.
+qr_big_badge|Большой логотип: включите высокую коррекцию ошибок.
+qr_dense|Плотный код (версия %1$d). Короткое содержимое читается быстрее и с большего расстояния.
+qr_nothing|Пока нечего кодировать
+qr_too_much|Слишком много данных для QR-кода
+tap_to_close|Нажмите, чтобы закрыть
+pick_colour|Выбор цвета
+use|Применить
+cancel|Отмена
+edit_title|Изменить · %1$s
+payload|Содержимое
+output|Вывод
+save|Сохранить
+name|Название
+name_hint|Видно в библиотеке, виджете и именах файлов
+update|Обновить
+save_to_library|Сохранить в библиотеку
+new_draft|Новый
+ssid|Имя сети (SSID)
+password|Пароль
+hidden_network|Скрытая сеть
+organisation|Организация
+website|Сайт
+to|Кому
+subject|Тема
+message|Сообщение
+number|Номер
+latitude|Широта
+longitude|Долгота
+label_optional|Подпись (необязательно)
+package_name|Имя пакета
+package_hint|NFC сразу открывает приложение; QR ведёт на его страницу в магазине
+export_size|Размер экспорта
+full|Во весь экран
+share|Поделиться
+saved_gallery|Сохранено в Pictures/EMITT
+save_image_failed|Не удалось сохранить изображение
+style|Стиль
+preset_classic|Классика
+preset_theme|Тема
+preset_synth|Синт
+preset_terminal|Терминал
+preset_inverted|Инверсия
+image_load_failed|Не удалось загрузить изображение
+presets|Пресеты
+colours|Цвета
+modules|Модули
+gradient_end|Конец градиента
+transparent_bg|Прозрачный фон
+custom_eyes|Свои цвета «глаз»
+eye_frame|Рамка «глаза»
+eye_centre|Центр «глаза»
+swap|Поменять
+reset|Сбросить
+shape|Форма
+module_size|Размер модулей
+eyes|«Глаза»
+centre_badge|Логотип в центре
+badge_text|Текст логотипа (до 6)
+choose_image|Выбрать изображение
+badge_size|Размер логотипа
+visibility|Читаемость
+ec_hint|Коррекция ошибок: чем выше, тем лучше код переносит царапины, блики и логотипы, но тем он плотнее.
+quiet_zone|Поле (тихая зона)
+n_modules|Модулей: %1$d
+max_brightness|Максимальная яркость во весь экран
+max_brightness_hint|Помогает другим телефонам читать код издалека
+ndef_too_big|%1$d байт · нужна метка больше NTAG216
+ndef_fits|%1$d байт · подходит для %2$s
+extras|Дополнительно
+also_open_app|Также открыть приложение (пакет)
+also_open_app_hint|Необязательная запись Android Application Record. Оставьте пустым, если не нужна.
+write_to_tag|Записать на метку
+be_the_tag|Стать меткой
+nfc_modes_hint|«Записать на метку» сохраняет данные на наклейку или карту. «Стать меткой» превращает телефон в метку: другие телефоны читают его касанием, пока открыт EMITT.
+with_flipper|С Flipper
+flipper_write_tip|Записать на него: на Flipper выберите NFC → Add Manually → NTAG215 → Emulate, затем нажмите здесь «Записать на метку».
+flipper_read_tip|Прочитать этот телефон: используйте NFC → Extra Actions → Read Specific Card Type → Type 4 Tag. Обычный Read ищет ещё и платёжные карты и будит приложение кошелька.
+ntag_tip|Совет: NTAG213 вмещает около 130 символов ссылки, NTAG215 и NTAG216 — гораздо больше.
+waiting_for_tag|ожидание метки…
+saved_file|Сохранено: %1$s
+save_file_failed|Не удалось сохранить файл
+flipper_file_hint|Создаёт NTAG-файл для эмуляции на Flipper: NFC → Saved → Emulate.
+chip|Чип
+auto|Авто
+uid_7|7-байтовый UID
+file_summary|%1$s · %2$d байт · страниц: %3$d
+hide_file|Скрыть файл
+show_file|Показать файл
+send_to_flipper|Отправить на Flipper
+connect_flipper|Подключить Flipper
+save_file|Сохранить файл
+cant_build_file|Не удаётся создать файл
+no_code_in_image|На изображении не найден код
+scanner|Сканер
+camera_why|EMITT нужна камера для сканирования кодов. Ничего не записывается и не загружается.
+allow_camera|Разрешить камеру
+light_off|Выключить свет
+light|Фонарик
+from_image|Из изображения
+decoded|Распознано · %1$s
+type|Тип
+security|Защита
+content|Содержимое
+open|Открыть
+copy|Копировать
+copied|Скопировано
+re_emit|Использовать
+edit|Изменить
+to_tag|На метку
+scan_again|Сканировать снова
+scan_hint|Наведите на QR-код или штрихкод. Он распознаётся на телефоне и никуда не отправляется.
+not_flipper_file|Это не NFC-файл Flipper
+no_nfc|В этом телефоне нет NFC. Но можно создавать QR-коды и файлы для Flipper.
+nfc_off|NFC выключен.
+turn_on_nfc|Включить NFC
+nfc_ready|Готово. Поднесите любую метку к задней стороне телефона, чтобы её осмотреть.
+wrote_of|Записано %1$d из %2$d байт
+wrote|Записано байт: %1$d
+tag_erased|Метка стёрта
+tag_locked|Метка заблокирована. Теперь она только для чтения.
+tools|Инструменты
+read|Читать
+tap_to_read|Поднесите метку, чтобы прочитать
+erase|Стереть
+lock|Заблокировать
+import_nfc|Импорт .nfc
+lock_q|Заблокировать метку?
+erase_q|Стереть метку?
+lock_warn|Блокировка навсегда делает метку только для чтения. Никто, даже вы, не сможет её изменить.
+erase_warn|Это очистит содержимое метки. Метка останется перезаписываемой.
+lock_forever|Заблокировать навсегда
+tag_title|Метка · %1$s
+uid_copied|UID скопирован
+memory|Память
+writable|Запись
+yes|Да
+no_readonly|Нет (только чтение)
+lockable|Блокировка
+no|Нет
+records|Записи
+no_ndef_data|Нет данных NDEF
+uid_only|Для этого типа чипа можно сохранить только UID, ATQA и SAK.
+send|Отправить
+cant_convert|Для Flipper можно сохранить только метки NFC-A
+n_pages|Страниц: %1$d
+file_title|Файл · %1$s
+device|Устройство
+pages|Страницы
+no_ndef_in_file|В этом файле нет сообщения NDEF.
+file_data|данные файла
+uid_not_copied|Телефоны не могут копировать UID метки; записываются только данные.
+link|Связь
+connected_to|Подключено к %1$s
+bt_why|EMITT нужен доступ к Bluetooth, чтобы найти Flipper и общаться с ним.
+allow_bt|Разрешить Bluetooth
+reconnect|Переподключить
+scanning|Поиск…
+nearby|Рядом
+looking_flippers|Ищем Flipper…
+tap_scan|Нажмите «Скан». На Flipper: Settings → Bluetooth → ON.
+paired|сопряжён
+not_in_range|вне зоны
+first_time|Впервые?
+pair_hint|Выберите Flipper выше. Android запросит PIN: введите 6 цифр с экрана Flipper.
+list_failed|Не удалось получить список файлов Flipper
+firmware|Прошивка
+built|Сборка
+model|Модель
+region|Регион
+sd_card|SD-карта
+gb_free|%1$.1f / %2$.1f ГБ свободно
+all_device_info|Все сведения
+beep|Сигнал
+disconnect|Отключить
+refresh|Обновить
+reading|Чтение…
+no_nfc_files|NFC-файлов пока нет. Создайте файл в разделе Создать → Flipper.
+files_land_here|Файлы, отправленные из EMITT, попадают сюда. Откройте их на Flipper в NFC → Saved.
+library_count|Библиотека · %1$d
+search|Поиск
+starred|Избранное
+all|Все
+lib_empty|Пока ничего не сохранено. Создайте что-нибудь и нажмите «Сохранить в библиотеку».
+no_matches|Ничего не найдено.
+tile|Плитка
+star|В избранное
+show|Показать
+unpin_tile|Открепить от плитки
+pin_tile|Закрепить на плитке
+tile_removed|Убрано с плитки быстрых настроек
+tile_now_shows|Плитка быстрых настроек теперь показывает %1$s
+rename|Переименовать
+delete|Удалить
+delete_q|Удалить?
+delete_confirm|Удалить «%1$s» из библиотеки? Виджеты с ним станут пустыми.
+back|Назад
+appearance|Оформление
+settings|Настройки
+made_by|автор
+phone_is_tag|Телефон — метка
+waiting_reader|Ожидание считывателя
+reads|Прочтений: %1$d
+tagmode_hold|Приложите заднюю сторону другого телефона к центру задней стороны этого.
+tagmode_keep_open|Не закрывайте этот экран. Если EMITT уйдёт в фон, вместо него может ответить встроенная метка или кошелёк телефона.
+tagmode_flipper|Flipper: NFC → Extra Actions → Read Specific Card Type → Type 4 Tag.
+minimise|Свернуть
+awaiting_tag|Ожидание метки
+bar_hold|Приложите другой телефон к своему. Нажмите для режима метки.
+scans|Читается
+check|Проверьте
+update_available|Доступно обновление
+colourway|Цветовая схема
+custom_colours|Свои цвета
+use_my_colours|Использовать свои цвета
+use_my_colours_hint|Начинает с текущей схемы
+motion|Движение
+speed|Скорость
+density|Плотность
+intensity|Яркость
+colour|Цвет
+scanlines|Строки развёртки
+scanline_strength|Сила строк
+vignette|Виньетка
+vignette_hint|Затемняет края экрана
+flicker|Мерцание
+flicker_hint|Лёгкое мерцание ЭЛТ
+interface_|Интерфейс
+panel_opacity|Непрозрачность панелей
+panel_outlines|Контуры панелей
+glow|Свечение
+glow_hint|Неоновое свечение заголовков (тёмные схемы)
+blinking_cursor|Мигающий курсор
+corners|Углы
+font|Шрифт
+text_size|Размер текста
+reset_look|Сбросить оформление
+app_icon|Значок приложения
+icon_changed|Значок изменён. Лаунчеру может понадобиться немного времени.
+language|Язык
+language_system|Язык телефона
+language_hint|Некоторые слова, например названия протоколов и чипов, остаются на английском.
+vibration|Вибрация
+vibration_hint|Отклик при записи меток или чтении вашего телефона
+strength|Сила
+tap_pattern|Нажмите на шаблон, чтобы почувствовать его.
+updates|Обновления
+check_releases|Проверять новые релизы
+check_releases_hint|Обращается к публичному API GitHub. О вас ничего не передаётся.
+check_every|Проверять каждые
+notifications_off|Уведомления выключены, поэтому об обновлениях вы узнаете только в приложении.
+allow_notifications|Разрешить уведомления
+check_now|Проверить сейчас
+get_it|Скачать
+about|О приложении
+tagline|QR-коды, NFC-метки и файлы Flipper Zero в одном приложении.
+version|Версия
+official_build|Официальная сборка
+unofficial_build|Неофициальная сборка: не подписана StarlightJulie
+made_by_line|Создано StarlightJulie. Бесплатно и с открытым кодом под GPLv3.
+source|Исходный код
+license|Лицензия
+flipper_trademark|Flipper Zero — товарный знак Flipper Devices Inc. EMITT не связан с ними и не одобрен ими.

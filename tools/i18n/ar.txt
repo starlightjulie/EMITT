@@ -1,0 +1,436 @@
+widget_label|رمز EMITT
+widget_description|يعرض أحد رموزك المحفوظة على الشاشة الرئيسية
+tile_label|رمز EMITT
+channel_updates|تحديثات التطبيق
+channel_emulation|الهاتف كبطاقة NFC
+emulation_description|بطاقة EMITT NFC
+kind_text|نص
+kind_url|رابط
+kind_contact|جهة اتصال
+kind_email|بريد إلكتروني
+kind_phone|هاتف
+kind_geo|موقع
+kind_app|تطبيق
+wifi_open|بدون
+need_text|أدخل نصًا
+need_link|أدخل رابطًا
+need_ssid|أدخل اسم الشبكة
+need_password|أدخل كلمة المرور
+need_contact|أدخل اسمًا أو هاتفًا أو بريدًا إلكترونيًا
+need_email|أدخل عنوان بريد إلكتروني
+need_number|أدخل رقم هاتف
+need_geo|أدخل خط العرض وخط الطول
+need_package|أدخل اسم حزمة مثل com.example.app
+shape_square|مربع
+shape_rounded|مستدير الحواف
+shape_dots|نقاط
+shape_fluid|انسيابي
+shape_bars|أشرطة
+shape_diamond|معيّن
+shape_circle|دائرة
+shape_leaf|ورقة
+grad_flat|لون واحد
+grad_linear|خطي
+grad_radial|شعاعي
+badge_image|صورة
+ec_low|منخفض
+ec_medium|متوسط
+ec_quartile|ربعي
+ec_high|مرتفع
+pat_off|إيقاف
+pat_tick|نقرة
+pat_double|نقرتان
+pat_triple|ثلاث نقرات
+pat_heartbeat|نبض القلب
+pat_buzz|اهتزاز طويل
+pat_rising|متصاعد
+pat_falling|متناقص
+pat_purr|خرخرة
+hev_write|كتابة البطاقة أو قراءتها
+hev_write_hint|عندما يكتب EMITT بطاقة أو يقرأها أو يمسحها أو يقفلها
+hev_emulated|قُرئ الهاتف كبطاقة
+hev_emulated_hint|عندما يقرأ جهاز آخر هذا الهاتف في وضع البطاقة
+hev_fail|حدث خطأ
+hev_fail_hint|كتابة أو قراءة لم تنجح
+slot_accent|لون التمييز
+slot_accent_hint|الأزرار والإبرازات والتبويب النشط
+slot_signal|لون الإشارة
+slot_signal_hint|لون تمييز ثانٍ: الحالة والروابط والحركة
+slot_bg|الخلفية
+slot_bg_hint|خلف كل شيء
+slot_panels|اللوحات
+slot_panels_hint|البطاقات والأوراق
+slot_text_hint|لون النص الرئيسي
+bg_synth|شبكة سينث
+bg_rain|مطر الشيفرة
+bg_scope|راسم الذبذبات
+bg_radar|رادار
+bg_dots|مصفوفة نقاط
+bg_circuit|دائرة كهربائية
+bg_warp|اعوجاج
+bg_spectrum|طيف
+bg_static|تشويش
+bg_random|عشوائي
+bgc_duo|كلا اللونين
+bgc_cycle|دورة الألوان
+bgc_ink|لون النص
+corner_cut|مشطوفة
+corner_sharp|حادة
+corner_soft|ناعمة
+font_mixed|تسميات أحادية المسافة
+font_mono|الكل أحادي المسافة
+tag_read_failed|تعذّرت قراءة البطاقة. ثبّتها وحاول مجددًا.
+tag_readonly|هذه البطاقة للقراءة فقط.
+tag_too_big|كبير جدًا: %1$d بايت، لكن البطاقة تتسع لـ %2$d.
+tag_no_ndef|هذه البطاقة لا تدعم NDEF.
+tag_lost_write|ابتعدت البطاقة أثناء الكتابة. ثبّتها وحاول مجددًا.
+tag_write_failed|فشلت الكتابة.
+tag_nothing_to_lock|لا توجد بيانات NDEF على هذه البطاقة لقفلها.
+tag_cant_lock|لا يمكن قفل هذه البطاقة.
+tag_lock_refused|رفضت البطاقة القفل.
+tag_lost|ابتعدت البطاقة. ثبّتها وحاول مجددًا.
+fl_bt_off|البلوتوث متوقف
+fl_step_looking|جارٍ البحث
+fl_not_in_range|هذا الاقتران خارج النطاق. اختر جهاز Flipper الذي تظهر له قوة إشارة.
+fl_cant_see|لا يظهر جهاز Flipper. تأكد على الجهاز أن Settings → Bluetooth على ON وأن تطبيق Flipper غير متصل به.
+fl_step_pairing|الاقتران: أدخل رمز PIN الظاهر على Flipper
+fl_step_connecting|جارٍ الاتصال
+fl_step_setup|جارٍ التجهيز
+fl_not_flipper|لا يبدو أن هذا جهاز Flipper (لا توجد خدمة تسلسلية).
+fl_step_info|جارٍ قراءة معلومات الجهاز
+fl_other_app|جهاز Flipper متصل بتطبيق آخر (مثل تطبيق Flipper الرسمي). افصله من هناك ثم أعد المحاولة.
+fl_timeout|انتهت المهلة. هل البلوتوث مفعّل في إعدادات Flipper؟
+fl_failed|فشل الاتصال
+fl_disconnected|انقطع الاتصال
+fl_pair_start|تعذّر بدء الاقتران
+fl_pair_failed|أُلغي الاقتران أو رمز PIN غير مطابق
+fl_not_connected|غير متصل
+fl_refused|رُفض طلب البلوتوث
+fl_dropped|انقطع اتصال Flipper
+fl_subscribe|رفض Flipper الاتصال (%1$d). أعد الاقتران.
+fl_write|فشلت الكتابة عبر البلوتوث (%1$d)
+fl_error|خطأ في Flipper رقم %1$d
+fl_stalled|توقف Flipper عن استقبال البيانات
+fs_unknown|خطأ غير معروف
+fs_decode|تعذّر فك الترميز
+fs_unsupported|غير مدعوم
+fs_busy|جهاز Flipper مشغول
+fs_sd|بطاقة SD غير جاهزة
+fs_exists|موجود بالفعل
+fs_missing|غير موجود
+fs_param|معامل غير صالح
+fs_denied|تم رفض الوصول
+fs_name|اسم غير صالح
+fs_internal|خطأ داخلي
+fs_open|مفتوح بالفعل
+fs_interrupted|انقطع
+fs_params|معاملات غير صالحة
+upd_none|لا توجد إصدارات عامة بعد
+upd_http|ردّ GitHub بـ %1$d
+upd_notag|الإصدار بلا وسم رقم الإصدار
+upd_offline|تعذّر الوصول إلى GitHub
+emu_notif_title|هاتفك الآن بطاقة NFC
+emu_notif_text|جارٍ بث %1$s. افتح EMITT وستتمكن الهواتف الأخرى من قراءته باللمس.
+stop|إيقاف
+upd_notif_title|صدر EMITT %1$s
+open_release|فتح الإصدار
+tile_pin|ثبّت رمزًا من المكتبة
+tile_show|عرض الرمز
+widget_pick|انقر لاختيار رمز
+widget_empty|مكتبتك فارغة. احفظ رمزًا في EMITT أولًا، ثم أضف الأداة مجددًا.
+widget_pick_title|اختر رمزًا
+tab_create|إنشاء
+tab_scan|مسح
+tab_tags|البطاقات
+tab_library|المكتبة
+out_qr|رمز QR
+out_nfc|بطاقة NFC
+prompt_write|قرّب بطاقة من الهاتف لكتابة: %1$s
+prompt_erase|قرّب البطاقة من الهاتف لمسحها
+prompt_lock|قرّب البطاقة من الهاتف لقفلها. لا يمكن التراجع عن ذلك.
+prompt_copy_from|قرّب البطاقة التي تريد النسخ منها
+prompt_copy_to|الآن قرّب البطاقة التي تريد النسخ إليها
+lib_updated|تم التحديث في المكتبة
+lib_saved|تم الحفظ في المكتبة
+emu_unsupported|هذا الهاتف لا يمكنه العمل كبطاقة NFC
+nfc_turn_on_first|فعّل NFC أولًا
+copy_empty|لا شيء على هذه البطاقة لنسخه.
+fl_too_big|كبير جدًا على NTAG216 (‏872 بايت)
+fl_too_big_chip|كبير جدًا على %1$s. اختر شريحة أكبر.
+fl_connect_first|وصّل جهاز Flipper أولًا
+fl_sent|أُرسل إلى Flipper: %1$s
+fl_send_failed|تعذّر الإرسال: %1$s
+upd_checking|جارٍ التحقق…
+upd_available|الإصدار %1$s متاح
+upd_latest|لديك أحدث إصدار
+qr_selftest_ok|نجح المسح التجريبي (الإصدار %1$d، %2$d×%2$d)
+qr_selftest_fail|تعذّرت القراءة في الاختبار. ارفع التباين، أو استخدم وحدات مربعة، أو شعارًا أصغر.
+qr_contrast_low|التباين %1$.1f:1 منخفض جدًا. استهدف 4:1 أو أكثر.
+qr_contrast_mid|التباين %1$.1f:1 على الحد في الإضاءة الضعيفة.
+qr_contrast_ok|التباين %1$.1f:1
+qr_inverted|الرموز الفاتحة على خلفية داكنة (المعكوسة) لا تُقرأ في بعض القارئات القديمة.
+qr_transparent|خلفية شفافة: تأكد أن ما خلفها فاتح وسادة.
+qr_border|الهامش أقل من وحدتين: اترك مساحة عند الطباعة.
+qr_ec_raised|رُفع تصحيح الأخطاء إلى %1$s لإفساح المجال للشعار.
+qr_big_badge|شعار كبير: اجعل تصحيح الأخطاء مرتفعًا.
+qr_dense|رمز كثيف (الإصدار %1$d). المحتوى الأقصر يُقرأ أسرع ومن مسافة أبعد.
+qr_nothing|لا يوجد ما يُرمَّز بعد
+qr_too_much|البيانات كثيرة جدًا على رمز QR
+tap_to_close|انقر للإغلاق
+pick_colour|اختر لونًا
+use|استخدام
+cancel|إلغاء
+edit_title|تعديل · %1$s
+payload|المحتوى
+output|المخرج
+save|حفظ
+name|الاسم
+name_hint|يظهر في مكتبتك والأداة وأسماء الملفات
+update|تحديث
+save_to_library|حفظ في المكتبة
+new_draft|جديد
+ssid|اسم الشبكة (SSID)
+password|كلمة المرور
+hidden_network|شبكة مخفية
+organisation|المؤسسة
+website|الموقع الإلكتروني
+to|إلى
+subject|الموضوع
+message|الرسالة
+number|الرقم
+latitude|خط العرض
+longitude|خط الطول
+label_optional|تسمية (اختياري)
+package_name|اسم الحزمة
+package_hint|NFC يفتح التطبيق مباشرة؛ ورمز QR يفتح صفحته في المتجر
+export_size|حجم التصدير
+full|ملء الشاشة
+share|مشاركة
+saved_gallery|حُفظ في Pictures/EMITT
+save_image_failed|تعذّر حفظ الصورة
+style|النمط
+preset_classic|كلاسيكي
+preset_theme|حسب السمة
+preset_synth|سينث
+preset_terminal|طرفية
+preset_inverted|معكوس
+image_load_failed|تعذّر تحميل تلك الصورة
+presets|إعدادات جاهزة
+colours|الألوان
+modules|الوحدات
+gradient_end|نهاية التدرّج
+transparent_bg|خلفية شفافة
+custom_eyes|ألوان عيون مخصصة
+eye_frame|إطار العين
+eye_centre|مركز العين
+swap|تبديل
+reset|إعادة ضبط
+shape|الشكل
+module_size|حجم الوحدة
+eyes|العيون
+centre_badge|شعار في المنتصف
+badge_text|نص الشعار (حتى 6)
+choose_image|اختر صورة
+badge_size|حجم الشعار
+visibility|سهولة القراءة
+ec_hint|تصحيح الأخطاء: كلما ارتفع تحمّل الخدوش والانعكاس والشعارات، لكن الرمز يصبح أكثف.
+quiet_zone|الهامش (المنطقة الهادئة)
+n_modules|%1$d وحدات
+max_brightness|أقصى سطوع في ملء الشاشة
+max_brightness_hint|يساعد الهواتف الأخرى على قراءته من مسافة أبعد
+ndef_too_big|%1$d بايت · يحتاج بطاقة أكبر من NTAG216
+ndef_fits|%1$d بايت · يتسع في %2$s
+extras|إضافات
+also_open_app|فتح تطبيق أيضًا (الحزمة)
+also_open_app_hint|سجل Android Application Record اختياري. اتركه فارغًا إن لم تحتجه.
+write_to_tag|كتابة على بطاقة
+be_the_tag|كن البطاقة
+nfc_modes_hint|«كتابة على بطاقة» تحفظه على ملصق أو بطاقة. «كن البطاقة» يجعل هذا الهاتف بطاقة: تقرؤه الهواتف الأخرى باللمس ما دام EMITT مفتوحًا.
+with_flipper|مع Flipper
+flipper_write_tip|للكتابة عليه: اختر على Flipper ‏NFC → Add Manually → NTAG215 → Emulate، ثم انقر «كتابة على بطاقة» هنا.
+flipper_read_tip|لقراءة هذا الهاتف: استخدم NFC → Extra Actions → Read Specific Card Type → Type 4 Tag. القراءة العادية Read تبحث أيضًا عن بطاقات الدفع وتوقظ تطبيق المحفظة.
+ntag_tip|نصيحة: تتسع NTAG213 لنحو 130 حرفًا من الرابط؛ وNTAG215 وNTAG216 لأكثر بكثير.
+waiting_for_tag|بانتظار البطاقة…
+saved_file|حُفظ %1$s
+save_file_failed|تعذّر حفظ الملف
+flipper_file_hint|ينشئ ملف NTAG يستطيع Flipper محاكاته: NFC → Saved → Emulate.
+chip|الشريحة
+auto|تلقائي
+uid_7|معرّف UID من 7 بايت
+file_summary|%1$s · %2$d بايت · %3$d صفحة
+hide_file|إخفاء الملف
+show_file|عرض الملف
+send_to_flipper|إرسال إلى Flipper
+connect_flipper|توصيل Flipper
+save_file|حفظ الملف
+cant_build_file|تعذّر إنشاء الملف
+no_code_in_image|لم يُعثر على رمز في تلك الصورة
+scanner|الماسح
+camera_why|يحتاج EMITT إلى الكاميرا لمسح الرموز. لا يُسجَّل أو يُرفع أي شيء.
+allow_camera|السماح بالكاميرا
+light_off|إطفاء الضوء
+light|الضوء
+from_image|من صورة
+decoded|تم فك الترميز · %1$s
+type|النوع
+security|الأمان
+content|المحتوى
+open|فتح
+copy|نسخ
+copied|تم النسخ
+re_emit|إعادة الاستخدام
+edit|تعديل
+to_tag|إلى بطاقة
+scan_again|مسح مرة أخرى
+scan_hint|وجّه الكاميرا إلى رمز QR أو باركود. يُفك ترميزه على الهاتف ولا يغادره شيء.
+not_flipper_file|هذا ليس ملف NFC خاصًا بـ Flipper
+no_nfc|هذا الهاتف لا يدعم NFC. ما زال بإمكانك إنشاء رموز QR وملفات Flipper.
+nfc_off|NFC متوقف.
+turn_on_nfc|تفعيل NFC
+nfc_ready|جاهز. قرّب أي بطاقة من ظهر الهاتف لفحصها.
+wrote_of|كُتب %1$d من %2$d بايت
+wrote|كُتب %1$d بايت
+tag_erased|تم مسح البطاقة
+tag_locked|تم قفل البطاقة. أصبحت للقراءة فقط.
+tools|الأدوات
+read|قراءة
+tap_to_read|قرّب بطاقة لقراءتها
+erase|مسح
+lock|قفل
+import_nfc|استيراد ‎.nfc
+lock_q|قفل البطاقة؟
+erase_q|مسح البطاقة؟
+lock_warn|القفل يجعل البطاقة للقراءة فقط إلى الأبد. لا يستطيع أحد، ولا حتى أنت، تعديلها بعد ذلك.
+erase_warn|سيُمسح محتوى البطاقة. ستبقى قابلة للكتابة.
+lock_forever|قفل نهائي
+tag_title|بطاقة · %1$s
+uid_copied|تم نسخ UID
+memory|الذاكرة
+writable|قابلة للكتابة
+yes|نعم
+no_readonly|لا (للقراءة فقط)
+lockable|قابلة للقفل
+no|لا
+records|السجلات
+no_ndef_data|لا توجد بيانات NDEF
+uid_only|لهذا النوع من الشرائح يمكن حفظ UID وATQA وSAK فقط.
+send|إرسال
+cant_convert|يمكن حفظ بطاقات NFC-A فقط من أجل Flipper
+n_pages|%1$d صفحة
+file_title|ملف · %1$s
+device|الجهاز
+pages|الصفحات
+no_ndef_in_file|لم يُعثر على رسالة NDEF في هذا الملف.
+file_data|بيانات الملف
+uid_not_copied|لا تستطيع الهواتف نسخ UID البطاقة؛ تُكتب البيانات فقط.
+link|الاتصال
+connected_to|متصل بـ %1$s
+bt_why|يحتاج EMITT إلى البلوتوث للعثور على جهاز Flipper والتواصل معه.
+allow_bt|السماح بالبلوتوث
+reconnect|إعادة الاتصال
+scanning|جارٍ البحث…
+nearby|بالقرب منك
+looking_flippers|جارٍ البحث عن أجهزة Flipper…
+tap_scan|انقر «مسح». على Flipper: ‏Settings → Bluetooth → ON.
+paired|مقترن
+not_in_range|خارج النطاق
+first_time|أول مرة؟
+pair_hint|اختر جهاز Flipper أعلاه. سيطلب Android رمز PIN: أدخل الأرقام الستة الظاهرة على شاشة Flipper.
+list_failed|تعذّر عرض ملفات Flipper
+firmware|البرنامج الثابت
+built|تاريخ البناء
+model|الطراز
+region|المنطقة
+sd_card|بطاقة SD
+gb_free|%1$.1f / %2$.1f غيغابايت متاحة
+all_device_info|كل معلومات الجهاز
+beep|تنبيه صوتي
+disconnect|قطع الاتصال
+refresh|تحديث
+reading|جارٍ القراءة…
+no_nfc_files|لا توجد ملفات NFC بعد. أنشئ واحدًا من إنشاء ← Flipper.
+files_land_here|الملفات المرسلة من EMITT تصل إلى هنا. افتحها على Flipper من NFC → Saved.
+library_count|المكتبة · %1$d
+search|بحث
+starred|المميزة بنجمة
+all|الكل
+lib_empty|لم تحفظ شيئًا بعد. أنشئ شيئًا ثم انقر «حفظ في المكتبة».
+no_matches|لا نتائج مطابقة.
+tile|المربع السريع
+star|تمييز بنجمة
+show|عرض
+unpin_tile|إزالة من المربع
+pin_tile|تثبيت في المربع
+tile_removed|أُزيل من مربع الإعدادات السريعة
+tile_now_shows|مربع الإعدادات السريعة يعرض الآن %1$s
+rename|إعادة التسمية
+delete|حذف
+delete_q|حذف؟
+delete_confirm|إزالة «%1$s» من مكتبتك؟ الأدوات التي تعرضه ستصبح فارغة.
+back|رجوع
+appearance|المظهر
+settings|الإعدادات
+made_by|من صنع
+phone_is_tag|الهاتف بطاقة الآن
+waiting_reader|بانتظار قارئ
+reads|مرات القراءة: %1$d
+tagmode_hold|ضع ظهر الهاتف الآخر على منتصف ظهر هذا الهاتف.
+tagmode_keep_open|أبقِ هذه الشاشة مفتوحة. إذا انتقل EMITT إلى الخلفية فقد تجيب بطاقة الهاتف المدمجة أو محفظته بدلًا منه.
+tagmode_flipper|Flipper: ‏NFC → Extra Actions → Read Specific Card Type → Type 4 Tag.
+minimise|تصغير
+awaiting_tag|بانتظار البطاقة
+bar_hold|قرّب هاتفًا آخر من هاتفك. انقر هنا لوضع البطاقة.
+scans|يُقرأ
+check|يحتاج مراجعة
+update_available|يتوفر تحديث
+colourway|نظام الألوان
+custom_colours|ألوان مخصصة
+use_my_colours|استخدام ألواني
+use_my_colours_hint|يبدأ من نظام الألوان الحالي
+motion|الحركة
+speed|السرعة
+density|الكثافة
+intensity|الشدة
+colour|اللون
+scanlines|خطوط المسح
+scanline_strength|شدة خطوط المسح
+vignette|تعتيم الحواف
+vignette_hint|يعتّم حواف الشاشة
+flicker|وميض
+flicker_hint|وميض خفيف كشاشات CRT
+interface_|الواجهة
+panel_opacity|عتامة اللوحات
+panel_outlines|حدود اللوحات
+glow|توهج
+glow_hint|توهج نيون على العناوين (الأنظمة الداكنة)
+blinking_cursor|مؤشر وامض
+corners|الزوايا
+font|الخط
+text_size|حجم النص
+reset_look|إعادة ضبط المظهر
+app_icon|أيقونة التطبيق
+icon_changed|تم تغيير الأيقونة. قد يستغرق المشغّل لحظة لتحديثها.
+language|اللغة
+language_system|لغة الهاتف
+language_hint|تبقى بعض الكلمات، مثل أسماء البروتوكولات والشرائح، بالإنجليزية.
+vibration|الاهتزاز
+vibration_hint|اهتزاز عند كتابة البطاقات أو قراءة هاتفك
+strength|القوة
+tap_pattern|انقر على نمط لتجربته.
+updates|التحديثات
+check_releases|التحقق من الإصدارات الجديدة
+check_releases_hint|يستعلم من واجهة GitHub العامة. لا يُرسل أي شيء عنك.
+check_every|التحقق كل
+notifications_off|الإشعارات متوقفة، لذا سترى التحديثات داخل التطبيق فقط.
+allow_notifications|السماح بالإشعارات
+check_now|تحقّق الآن
+get_it|تنزيل
+about|حول
+tagline|رموز QR وبطاقات NFC وملفات Flipper Zero في تطبيق واحد.
+version|الإصدار
+official_build|إصدار رسمي
+unofficial_build|إصدار غير رسمي: غير موقّع من StarlightJulie
+made_by_line|من صنع StarlightJulie. مجاني ومفتوح المصدر بترخيص GPLv3.
+source|الشيفرة المصدرية
+license|الترخيص
+flipper_trademark|Flipper Zero علامة تجارية لشركة Flipper Devices Inc. لا يرتبط EMITT بهم ولا يحظى بتأييدهم.
