@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">EMITT</string>
+    <string name="widget_label">EMITT code</string>
+    <string name="widget_description">Shows one of your saved codes on the home screen</string>
+    <string name="tile_label">EMITT code</string>
+    <string name="channel_updates">App updates</string>
+</resources>
