@@ -60,8 +60,25 @@ import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
+import androidx.compose.animation.Crossfade
+import androidx.compose.animation.core.Spring
+import androidx.compose.animation.core.spring
+import androidx.compose.animation.scaleIn
+import androidx.compose.animation.scaleOut
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.gestures.detectDragGestures
+import androidx.compose.foundation.layout.offset
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.graphics.TransformOrigin
+import androidx.compose.ui.graphics.asImageBitmap
+import androidx.compose.ui.input.pointer.pointerInput
+import com.emitt.data.Encoding
 import com.emitt.data.UpdateChecker
+import com.emitt.nfc.Emulator
+import kotlin.math.roundToInt
 import com.emitt.flipper.FlipperLink
 import com.emitt.flipper.FlipperState
 import com.emitt.ui.theme.CrtOverlay
@@ -116,8 +133,10 @@ fun EmittRoot(vm: MainViewModel) {
                 Spacer(Modifier.height(24.dp))
             }
             NfcPrompt(vm)
+            EmulationBar(vm)
             BottomBar(vm)
         }
+        FloatingQr(vm, Modifier.align(Alignment.TopEnd).windowInsetsPadding(WindowInsets.statusBars).padding(top = 60.dp, end = 12.dp))
         SnackbarHost(snack, Modifier.align(Alignment.BottomCenter).padding(bottom = 120.dp))
         CrtOverlay()
         vm.fullscreen?.let { (text, style) ->
@@ -215,46 +234,119 @@ private fun BottomBar(vm: MainViewModel) {
     }
 }
 
-/** Shown while EMITT is waiting for a tag. The bracket mark pulses outward like it's transmitting. */
+/** The bracket mark pulsing outward, like it's transmitting. */
+@Composable
+private fun EmitPulse(ring: androidx.compose.ui.graphics.Color, core: androidx.compose.ui.graphics.Color) {
+    val t = rememberInfiniteTransition(label = "emit")
+    val p by t.animateFloat(0f, 1f, infiniteRepeatable(tween(1400), RepeatMode.Restart), label = "p")
+    Canvas(Modifier.size(44.dp)) {
+        val c = Offset(size.width / 2, size.height / 2)
+        drawRect(core, Offset(c.x - 4.dp.toPx(), c.y - 4.dp.toPx()), androidx.compose.ui.geometry.Size(8.dp.toPx(), 8.dp.toPx()))
+        for (k in 0 until 3) {
+            val f = (p + k / 3f) % 1f
+            val s = 6.dp.toPx() + f * size.width / 2
+            val arm = s * 0.4f
+            val path = Path().apply {
+                moveTo(c.x - s, c.y - s + arm); lineTo(c.x - s, c.y - s); lineTo(c.x - s + arm, c.y - s)
+                moveTo(c.x + s - arm, c.y - s); lineTo(c.x + s, c.y - s); lineTo(c.x + s, c.y - s + arm)
+                moveTo(c.x + s, c.y + s - arm); lineTo(c.x + s, c.y + s); lineTo(c.x + s - arm, c.y + s)
+                moveTo(c.x - s + arm, c.y + s); lineTo(c.x - s, c.y + s); lineTo(c.x - s, c.y + s - arm)
+            }
+            drawPath(path, ring.copy(alpha = 1f - f), style = Stroke(2.dp.toPx()))
+        }
+    }
+}
+
+/** A bottom bar with the pulse, a title, details and one action. */
+@Composable
+private fun PulseBar(title: String, color: androidx.compose.ui.graphics.Color, action: String, onAction: () -> Unit, details: @Composable () -> Unit) {
+    val look = LocalLook.current
+    Row(
+        Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 14.dp, vertical = 8.dp)
+            .background(look.panel.copy(alpha = 0.97f), look.panelShape)
+            .border(1.dp, color, look.panelShape)
+            .padding(14.dp),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        EmitPulse(color, look.accent)
+        Spacer(Modifier.width(14.dp))
+        Column(Modifier.weight(1f)) {
+            Text(title, style = MaterialTheme.typography.labelLarge, color = color)
+            details()
+        }
+        TermButton(action, onAction)
+    }
+}
+
+/** Shown while EMITT is waiting for a tag. */
 @Composable
 private fun NfcPrompt(vm: MainViewModel) {
     val look = LocalLook.current
     val op = vm.nfcOp
     AnimatedVisibility(op != null, enter = slideInVertically { it } + fadeIn(), exit = slideOutVertically { it } + fadeOut()) {
-        val t = rememberInfiniteTransition(label = "emit")
-        val p by t.animateFloat(0f, 1f, infiniteRepeatable(tween(1400), RepeatMode.Restart), label = "p")
-        Row(
+        PulseBar("AWAITING TAG", look.signal, "Cancel", { vm.nfcOp = null }) {
+            Text(op?.prompt.orEmpty(), style = MaterialTheme.typography.bodySmall)
+            (vm.lastResult as? com.emitt.nfc.TagResult.Failed)?.let { StatusLine(Status.FAIL, it.reason) }
+        }
+    }
+}
+
+/** Shown while the phone itself is acting as a tag. */
+@Composable
+private fun EmulationBar(vm: MainViewModel) {
+    val look = LocalLook.current
+    val emu by Emulator.state.collectAsState()
+    AnimatedVisibility(emu != null, enter = slideInVertically { it } + fadeIn(), exit = slideOutVertically { it } + fadeOut()) {
+        val e = emu ?: return@AnimatedVisibility
+        PulseBar("PHONE IS A TAG", look.ok, "Stop", vm::stopEmulating) {
+            Text(e.label, style = MaterialTheme.typography.bodySmall, maxLines = 1, overflow = TextOverflow.Ellipsis)
+            Dim(if (e.reads == 0) "Hold another phone's back to yours. Keep your screen on." else "Read ${e.reads} time${if (e.reads == 1) "" else "s"}")
+        }
+    }
+}
+
+/**
+ * When the QR preview scrolls out of view while styling, a small copy swoops down into the corner
+ * so changes stay visible. Drag it anywhere; tap it for full screen.
+ */
+@Composable
+private fun FloatingQr(vm: MainViewModel, modifier: Modifier) {
+    val look = LocalLook.current
+    val health = vm.liveQr
+    val show = vm.previewOffscreen && !vm.settingsOpen && vm.tab == Tab.CREATE && vm.output == Output.QR &&
+        health?.bitmap != null && vm.fullscreen == null
+    var drag by remember { mutableStateOf(Offset.Zero) }
+    val swoop = spring<IntOffset>(dampingRatio = 0.55f, stiffness = Spring.StiffnessMediumLow)
+    AnimatedVisibility(
+        show,
+        modifier = modifier.offset { IntOffset(drag.x.roundToInt(), drag.y.roundToInt()) },
+        enter = slideInVertically(swoop) { -it * 2 } +
+            scaleIn(spring(dampingRatio = 0.6f, stiffness = Spring.StiffnessMediumLow), initialScale = 0.35f, transformOrigin = TransformOrigin(1f, 0f)) +
+            fadeIn(tween(150)),
+        exit = slideOutVertically(tween(220)) { -it * 2 } + scaleOut(tween(220), targetScale = 0.35f, transformOrigin = TransformOrigin(1f, 0f)) + fadeOut(tween(220)),
+    ) {
+        Column(
             Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 14.dp, vertical = 8.dp)
-                .background(look.panel.copy(alpha = 0.97f), look.panelShape)
-                .border(1.dp, look.signal, look.panelShape)
-                .padding(14.dp),
-            verticalAlignment = Alignment.CenterVertically,
+                .width(144.dp)
+                .background(look.panel.copy(alpha = 0.97f), look.controlShape)
+                .border(1.dp, look.accent, look.controlShape)
+                .pointerInput(Unit) { detectDragGestures { change, d -> change.consume(); drag += d } }
+                .clickable { vm.fullscreen = Encoding.toQrText(vm.payload) to vm.style }
+                .padding(8.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            Canvas(Modifier.size(44.dp)) {
-                val c = Offset(size.width / 2, size.height / 2)
-                drawRect(look.accent, Offset(c.x - 4.dp.toPx(), c.y - 4.dp.toPx()), androidx.compose.ui.geometry.Size(8.dp.toPx(), 8.dp.toPx()))
-                for (k in 0 until 3) {
-                    val f = (p + k / 3f) % 1f
-                    val s = 6.dp.toPx() + f * size.width / 2
-                    val arm = s * 0.4f
-                    val path = Path().apply {
-                        moveTo(c.x - s, c.y - s + arm); lineTo(c.x - s, c.y - s); lineTo(c.x - s + arm, c.y - s)
-                        moveTo(c.x + s - arm, c.y - s); lineTo(c.x + s, c.y - s); lineTo(c.x + s, c.y - s + arm)
-                        moveTo(c.x + s, c.y + s - arm); lineTo(c.x + s, c.y + s); lineTo(c.x + s - arm, c.y + s)
-                        moveTo(c.x - s + arm, c.y + s); lineTo(c.x - s, c.y + s); lineTo(c.x - s, c.y + s - arm)
-                    }
-                    drawPath(path, look.signal.copy(alpha = 1f - f), style = Stroke(2.dp.toPx()))
-                }
+            Crossfade(health?.bitmap, animationSpec = tween(160), label = "qr") { bmp ->
+                if (bmp != null) Image(bmp.asImageBitmap(), "QR preview", Modifier.size(128.dp))
             }
-            Spacer(Modifier.width(14.dp))
-            Column(Modifier.weight(1f)) {
-                Text("AWAITING TAG", style = MaterialTheme.typography.labelLarge, color = look.signal)
-                Text(op?.prompt.orEmpty(), style = MaterialTheme.typography.bodySmall)
-                (vm.lastResult as? com.emitt.nfc.TagResult.Failed)?.let { StatusLine(Status.FAIL, it.reason) }
-            }
-            TermButton("Cancel", { vm.nfcOp = null })
+            val ok = health?.readable == true
+            Text(
+                if (ok) "[ OK ] SCANS" else "[FAIL] CHECK",
+                style = MaterialTheme.typography.labelSmall,
+                color = if (ok) look.ok else look.fail,
+                modifier = Modifier.padding(top = 4.dp),
+            )
         }
     }
 }

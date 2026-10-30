@@ -93,7 +93,8 @@ data class ThemeConfig(
     val colourway: String = "synthwave",
     /** When set, replaces the colourway. */
     val custom: Palette? = null,
-    val background: BgStyle = BgStyle.SYNTH_GRID,
+    /** Off for new installs: calmer first impression. Every style is one tap away in Settings. */
+    val background: BgStyle = BgStyle.NONE,
     val bgSpeed: Float = 1f,
     val bgDensity: Float = 1f,
     /** 0..1: how strongly the animation shows. */

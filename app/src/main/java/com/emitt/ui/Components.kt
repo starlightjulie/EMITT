@@ -40,6 +40,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
@@ -247,6 +250,11 @@ fun SwitchRow(title: String, checked: Boolean, onChange: (Boolean) -> Unit, subt
     }
 }
 
+/**
+ * [applyOnRelease] keeps the drag local and only reports the value when the finger lifts. Use it
+ * for settings that relayout the whole screen (like text size), which would otherwise move the
+ * slider out from under the finger mid-drag.
+ */
 @Composable
 fun SliderRow(
     label: String,
@@ -255,16 +263,20 @@ fun SliderRow(
     onChange: (Float) -> Unit,
     format: (Float) -> String = { "%.2f".format(it) },
     steps: Int = 0,
+    applyOnRelease: Boolean = false,
 ) {
     val look = LocalLook.current
+    var dragging by remember { mutableStateOf<Float?>(null) }
+    val shown = dragging ?: value
     Column(Modifier.fillMaxWidth().padding(vertical = 2.dp)) {
         Row(verticalAlignment = Alignment.CenterVertically) {
             Text(label, style = MaterialTheme.typography.bodyMedium, modifier = Modifier.weight(1f))
-            Text(format(value), style = MaterialTheme.typography.labelMedium, color = look.accent)
+            Text(format(shown), style = MaterialTheme.typography.labelMedium, color = look.accent)
         }
         Slider(
-            value = value,
-            onValueChange = onChange,
+            value = shown,
+            onValueChange = { if (applyOnRelease) dragging = it else onChange(it) },
+            onValueChangeFinished = { dragging?.let(onChange); dragging = null },
             valueRange = range,
             steps = steps,
             colors = SliderDefaults.colors(

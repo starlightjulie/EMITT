@@ -117,7 +117,7 @@ fun SettingsScreen(vm: MainViewModel) {
             ChipGroup(Corners.entries, cfg.corners, { it.label }, { c -> set { it.copy(corners = c) } })
             SectionLabel("Font")
             ChipGroup(FontStyle.entries, cfg.font, { it.label }, { f -> set { it.copy(font = f) } })
-            SliderRow("Text size", cfg.fontScale, 0.85f..1.3f, { v -> set { it.copy(fontScale = v) } }, { "${(it * 100).toInt()}%" })
+            SliderRow("Text size", cfg.fontScale, 0.85f..1.3f, { v -> set { it.copy(fontScale = v) } }, { "${(it * 100).toInt()}%" }, applyOnRelease = true)
             ButtonRow { TermButton("Reset look", { set { com.emitt.ui.theme.ThemeConfig(icon = it.icon) } }, Modifier.weight(1f)) }
         }
 

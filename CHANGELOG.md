@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.1.0
+
+- **Be the tag**: your phone can now act as an NFC tag. Pick it under Create → NFC tag (or on any library item or imported `.nfc` file), and other phones read your link, Wi-Fi, contact and so on by tapping the back of yours while your screen is on. An ongoing notification lets you stop it from anywhere.
+- **Floating QR preview**: when you scroll down into Style, a small live copy of the code swoops into the corner so you can see every change. Drag it out of the way or tap it for full screen.
+- **Calmer first launch**: the background animation now starts Off for new installs. Every style is still in Settings → Background.
+- **Fixed**: the Text size slider no longer gets stuck while dragging. The new size applies when you let go.
+
 ## 1.0.0
 
 First build.

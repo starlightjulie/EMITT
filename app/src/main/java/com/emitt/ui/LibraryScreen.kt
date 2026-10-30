@@ -21,6 +21,7 @@ import androidx.compose.material.icons.rounded.Fullscreen
 import androidx.compose.material.icons.rounded.Nfc
 import androidx.compose.material.icons.rounded.PushPin
 import androidx.compose.material.icons.rounded.Send
+import androidx.compose.material.icons.rounded.Smartphone
 import androidx.compose.material.icons.rounded.Star
 import androidx.compose.material.icons.rounded.StarBorder
 import androidx.compose.material3.AlertDialog
@@ -123,7 +124,10 @@ private fun LibraryRow(vm: MainViewModel, item: SavedItem, expanded: Boolean, on
                     }, Modifier.weight(1f), Icons.Rounded.PushPin)
                     TermButton("Rename", { rename = true }, Modifier.weight(1f), Icons.Rounded.DriveFileRenameOutline)
                 }
-                ButtonRow { TermButton("Delete", { delete = true }, Modifier.weight(1f), Icons.Rounded.Delete, danger = true) }
+                ButtonRow {
+                    TermButton("Be the tag", { vm.emulate(item.payload, item.name) }, Modifier.weight(1f), Icons.Rounded.Smartphone)
+                    TermButton("Delete", { delete = true }, Modifier.weight(1f), Icons.Rounded.Delete, danger = true)
+                }
             }
         }
     }

@@ -26,6 +26,7 @@ import androidx.compose.material.icons.rounded.Nfc
 import androidx.compose.material.icons.rounded.Search
 import androidx.compose.material.icons.rounded.Send
 import androidx.compose.material.icons.rounded.Share
+import androidx.compose.material.icons.rounded.Smartphone
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -211,6 +212,9 @@ private fun ImportedPanel(vm: MainViewModel, imp: ImportedFile) {
             ButtonRow {
                 TermButton("Write to tag", { vm.startWrite(msg, "the file's data") }, Modifier.weight(1f), Icons.Rounded.Nfc, primary = true)
                 if (payload != null) TermButton("Edit", { vm.newDraft(payload); vm.tab = Tab.CREATE }, Modifier.weight(1f), Icons.Rounded.Edit)
+            }
+            ButtonRow {
+                TermButton("Be the tag", { vm.emulate(msg, imp.name.removeSuffix(".nfc")) }, Modifier.weight(1f), Icons.Rounded.Smartphone)
             }
         }
         Dim("Phones can't copy a tag's UID; writing copies the data only.", Modifier.padding(top = 6.dp))

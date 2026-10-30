@@ -26,12 +26,19 @@ import androidx.compose.material.icons.rounded.Image
 import androidx.compose.material.icons.rounded.Nfc
 import androidx.compose.material.icons.rounded.Send
 import androidx.compose.material.icons.rounded.Share
+import androidx.compose.material.icons.rounded.Smartphone
 import androidx.compose.material3.Icon
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
+import androidx.compose.ui.layout.boundsInWindow
+import androidx.compose.ui.layout.findRootCoordinates
+import androidx.compose.ui.layout.onGloballyPositioned
+import androidx.compose.ui.layout.positionInWindow
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.runtime.mutableIntStateOf
@@ -157,10 +164,22 @@ private fun QrOutput(vm: MainViewModel) {
         }
     }
 
+    LaunchedEffect(health) { vm.liveQr = health }
+    DisposableEffect(Unit) { onDispose { vm.previewOffscreen = false } }
+
     TermPanel(title = "QR code", trailing = {
         health?.takeIf { it.bitmap != null }?.let { Dim("V${it.version} · ${it.modules}²") }
     }) {
-        QrPreview(health)
+        QrPreview(
+            health,
+            Modifier.onGloballyPositioned { c ->
+                // boundsInWindow is clipped by the scrolling column, so it shrinks as the preview leaves the screen.
+                // Only count it as gone when it scrolled off the top (you're below it, styling).
+                val hidden = c.boundsInWindow().height < c.size.height * 0.3f
+                val above = c.positionInWindow().y < c.findRootCoordinates().size.height / 2f
+                vm.previewOffscreen = hidden && above
+            },
+        )
         HealthReport(health)
         SectionLabel("Export size")
         ChipGroup(listOf(512, 1024, 2048, 4096), exportSize, { "${it}px" }, { exportSize = it })
@@ -299,7 +318,14 @@ private fun NfcOutput(vm: MainViewModel) {
         ButtonRow {
             TermButton("Write to tag", { vm.startWrite() }, Modifier.weight(1f), Icons.Rounded.Nfc, primary = true, enabled = msg != null)
         }
-        Dim("Tip: NTAG213 holds about 130 characters of link, NTAG215/216 hold much more.", Modifier.padding(top = 8.dp))
+        ButtonRow {
+            TermButton("Be the tag", { vm.emulate() }, Modifier.weight(1f), Icons.Rounded.Smartphone, enabled = msg != null)
+        }
+        Dim(
+            "Write to tag puts it on a sticker or card. Be the tag makes this phone act as one: other phones tap your phone to read it while your screen is on.",
+            Modifier.padding(top = 8.dp),
+        )
+        Dim("Tip: NTAG213 holds about 130 characters of link, NTAG215/216 hold much more.", Modifier.padding(top = 4.dp))
         if (vm.nfcOp != null) Text("> waiting for tag…", style = MaterialTheme.typography.labelLarge, color = look.signal, modifier = Modifier.padding(top = 8.dp))
     }
 }

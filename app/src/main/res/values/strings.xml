@@ -5,4 +5,6 @@
     <string name="widget_description">Shows one of your saved codes on the home screen</string>
     <string name="tile_label">EMITT code</string>
     <string name="channel_updates">App updates</string>
+    <string name="channel_emulation">Phone as NFC tag</string>
+    <string name="emulation_description">EMITT NFC tag</string>
 </resources>

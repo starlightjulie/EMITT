@@ -20,7 +20,8 @@ Write a payload once, then emit it however you need: a styled QR code, a real NF
 One editor for **text, links, Wi-Fi, contacts, email, SMS, phone numbers, locations and Android apps**. Pick an output underneath it:
 
 - **QR code**: styled, previewed and test-scanned as you type
-- **NFC tag**: proper NDEF records (Wi-Fi tags use the WSC format Android joins automatically), with an optional "also open this app" record
+- **NFC tag**: proper NDEF records (Wi-Fi tags use the WSC format Android joins automatically), with an optional "also open this app" record. Write it to a sticker or card, or tap **Be the tag** to make your phone act as the tag itself
+- While you style a QR code, a small live preview floats in the corner so you can see each change
 - **Flipper**: an NTAG213/215/216 file the Flipper can emulate, with a random or custom 7-byte UID. EMITT picks the smallest chip that fits.
 
 ### QR styling and visibility
@@ -40,6 +41,7 @@ Camera scanner for QR, Data Matrix, Aztec, PDF417 and common barcodes, or scan f
 - **Read** any tag: chip type, UID, ATQA/SAK, memory used, every NDEF record, and a raw page dump for NTAG/Ultralight
 - **Copy** a tag's data onto another, **erase** a tag, or **lock** it permanently (with a confirmation)
 - **Import** a Flipper `.nfc` file and write its data to a real tag
+- **Be the tag**: the phone emulates an NFC Forum Type 4 tag, so other phones (Android or iPhone) read it like a sticker while your screen is on. It gets a random UID each tap, so it can't replace UID-based badges or door fobs
 
 ### Flipper Zero
 - Pair over Bluetooth (enter the PIN from the Flipper's screen) and see device info and SD card space
@@ -85,7 +87,7 @@ Where things live:
 |---|---|
 | `data/` | `Payload` model, `Encoding` (QR text formats and parsing), `Library`, `Settings`, `UpdateChecker` |
 | `qr/` | `QrRenderer` (custom drawing on top of ZXing's encoder), `QrDecoder`, `QrStyle` |
-| `nfc/` | `NdefCodec` (payload ↔ NDEF, Wi-Fi WSC), `TagOps` (write, read, erase, lock, NTAG dumps) |
+| `nfc/` | `NdefCodec` (payload ↔ NDEF, Wi-Fi WSC), `TagOps` (write, read, erase, lock, NTAG dumps), `Type4Tag` + `EmulationService` + `Emulator` (phone as a tag) |
 | `flipper/` | `FlipperNfcFile` (`.nfc` format v4), `FlipperProto` (hand-encoded RPC protobuf), `FlipperLink` (BLE serial, flow control, pairing) |
 | `ui/` | Compose screens, `theme/` (colourways, `Backgrounds`, CRT overlay) |
 | `widget/` | Home-screen widget, Quick Settings tile, full-screen code activity |

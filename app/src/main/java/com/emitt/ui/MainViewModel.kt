@@ -24,6 +24,7 @@ import com.emitt.data.summary
 import com.emitt.flipper.FlipperLink
 import com.emitt.flipper.FlipperNfc
 import com.emitt.flipper.FlipperNfcFile
+import com.emitt.nfc.Emulator
 import com.emitt.nfc.NdefCodec
 import com.emitt.nfc.TagOps
 import com.emitt.nfc.TagReport
@@ -81,6 +82,10 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
     /** Null picks the smallest NTAG that fits. */
     var flipperChip by mutableStateOf<UltralightType?>(null)
     var flipperUid by mutableStateOf(FlipperNfcFile.randomUid())
+    /** The latest rendered QR, shared with the floating preview. */
+    var liveQr by mutableStateOf<QrHealth?>(null)
+    /** True while the QR preview is scrolled out of view, so the floating copy shows. */
+    var previewOffscreen by mutableStateOf(false)
 
     // ---- NFC ----
     var nfcOp by mutableStateOf<NfcOp?>(null)
@@ -144,6 +149,24 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
         nfcOp = NfcOp.Write(msg, label)
         lastResult = null
     }
+
+    /** Makes this phone act as a tag carrying [p], until stopped. */
+    fun emulate(p: Payload = payload, label: String = draftTitle()) {
+        p.problem()?.let { toast(it); return }
+        emulate(ndefFor(p), label)
+    }
+
+    fun emulate(msg: NdefMessage, label: String) {
+        val app = getApplication<Application>()
+        val adapter = android.nfc.NfcAdapter.getDefaultAdapter(app)
+        when {
+            adapter == null || !Emulator.supported(app) -> toast("This phone can't act as an NFC tag")
+            !adapter.isEnabled -> { toast("Turn NFC on first"); tab = Tab.TAGS }
+            else -> { nfcOp = null; Emulator.start(app, msg, label) }
+        }
+    }
+
+    fun stopEmulating() = Emulator.stop(getApplication())
 
     /** Called from the NFC reader thread whenever a tag is tapped. */
     fun onTag(tag: Tag) {
