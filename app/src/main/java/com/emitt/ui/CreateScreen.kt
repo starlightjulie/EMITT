@@ -165,7 +165,7 @@ private fun QrOutput(vm: MainViewModel) {
     }
 
     LaunchedEffect(health) { vm.liveQr = health }
-    DisposableEffect(Unit) { onDispose { vm.previewOffscreen = false } }
+    DisposableEffect(Unit) { onDispose { vm.previewOffscreen = false; vm.styleVisible = false } }
 
     TermPanel(title = "QR code", trailing = {
         health?.takeIf { it.bitmap != null }?.let { Dim("V${it.version} · ${it.modules}²") }
@@ -191,7 +191,7 @@ private fun QrOutput(vm: MainViewModel) {
             }, Modifier.weight(1f), Icons.Rounded.Download)
         }
     }
-    TermPanel(title = "Style", trailing = {
+    TermPanel(Modifier.onGloballyPositioned { vm.styleVisible = styleOpen && it.boundsInWindow().height > 0f }, title = "Style", trailing = {
         Icon(if (styleOpen) Icons.Rounded.ExpandLess else Icons.Rounded.ExpandMore, null, Modifier.clickable { styleOpen = !styleOpen }, tint = LocalLook.current.accent)
     }) {
         AnimatedVisibility(styleOpen) {
@@ -322,8 +322,14 @@ private fun NfcOutput(vm: MainViewModel) {
             TermButton("Be the tag", { vm.emulate() }, Modifier.weight(1f), Icons.Rounded.Smartphone, enabled = msg != null)
         }
         Dim(
-            "Write to tag puts it on a sticker or card. Be the tag makes this phone act as one: other phones tap your phone to read it while your screen is on.",
+            "Write to tag puts it on a sticker or card. Be the tag makes this phone act as one: other phones tap your phone to read it while EMITT is open.",
             Modifier.padding(top = 8.dp),
+        )
+        SectionLabel("With a Flipper")
+        Dim("Write to it: on the Flipper pick NFC → Add Manually → NTAG215 → Emulate, then tap Write to tag here.")
+        Dim(
+            "Read this phone: use NFC → Extra Actions → Read Specific Card Type → Type 4 Tag. Plain Read also checks for payment cards and wakes your wallet app.",
+            Modifier.padding(top = 4.dp),
         )
         Dim("Tip: NTAG213 holds about 130 characters of link, NTAG215/216 hold much more.", Modifier.padding(top = 4.dp))
         if (vm.nfcOp != null) Text("> waiting for tag…", style = MaterialTheme.typography.labelLarge, color = look.signal, modifier = Modifier.padding(top = 8.dp))

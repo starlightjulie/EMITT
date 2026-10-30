@@ -2,6 +2,8 @@ package com.emitt.data
 
 import android.content.Context
 import androidx.core.content.edit
+import com.emitt.HapticEvent
+import com.emitt.HapticPattern
 
 class Settings(context: Context) {
     private val prefs = context.applicationContext.getSharedPreferences("settings", Context.MODE_PRIVATE)
@@ -25,9 +27,18 @@ class Settings(context: Context) {
         get() = prefs.getBoolean("asked_notifications", false)
         set(v) = prefs.edit { putBoolean("asked_notifications", v) }
 
+    /** Master switch for all vibration. */
     var haptics: Boolean
         get() = prefs.getBoolean("haptics", true)
         set(v) = prefs.edit { putBoolean("haptics", v) }
+
+    fun hapticPattern(e: HapticEvent): HapticPattern = HapticPattern.of(prefs.getString("haptic_${e.name}", null), e.default)
+    fun setHapticPattern(e: HapticEvent, p: HapticPattern) = prefs.edit { putString("haptic_${e.name}", p.name) }
+
+    /** 0.1..1: vibration strength on phones that support it. */
+    var hapticStrength: Float
+        get() = prefs.getFloat("haptic_strength", 0.85f)
+        set(v) = prefs.edit { putFloat("haptic_strength", v) }
 
     /** Full brightness while a code is shown full screen, so cameras read it from further away. */
     var boostBrightness: Boolean

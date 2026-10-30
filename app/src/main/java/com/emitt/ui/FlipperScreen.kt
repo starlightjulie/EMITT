@@ -104,7 +104,7 @@ fun FlipperScreen(vm: MainViewModel) {
                         Spacer(Modifier.width(10.dp))
                         Column(Modifier.weight(1f)) {
                             Text(f.name, style = MaterialTheme.typography.titleSmall)
-                            Dim(f.address + if (f.bonded) " · paired" else "")
+                            Dim(f.address + (if (f.bonded) " · paired" else "") + if (f.rssi == null) " · not in range" else "")
                         }
                         f.rssi?.let { Dim("$it dBm") }
                     }
@@ -167,7 +167,7 @@ private fun ReadyPanels(vm: MainViewModel, s: FlipperState.Ready) {
         when {
             list == null || busy -> Dim("Reading…")
             list.isEmpty() -> Dim("No NFC files yet. Make one in Create → Flipper.")
-            else -> list.forEach { f -> KvRow(f.name, "${f.size} B") }
+            else -> list.forEach { f -> KvRow(f.name, "${f.size} B", keepCase = true) }
         }
         Dim("Files sent from EMITT land here. Open them on the Flipper under NFC → Saved.", Modifier.padding(top = 8.dp))
     }

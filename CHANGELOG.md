@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.2.0
+
+### Fixed
+- **Flipper Bluetooth now connects.** EMITT finds Flippers by their Bluetooth service instead of the name "Flipper", so renamed Flippers (Momentum and other custom firmware) show up. It connects to the address the Flipper is actually advertising, not a stale pairing, and tells you when another app (like the official Flipper app) is holding the connection.
+- **Flippers can read your phone in tag mode.** EMITT now accepts the ISO 7816 "select file under current application" command the Flipper uses, which it used to reject.
+- The floating QR preview no longer pops up while you're typing. It only shows while the Style panel is on screen.
+- Flipper file names show in their real case.
+
+### New
+- **Tag mode**: Be the tag now opens a full-screen view that keeps the screen on and EMITT in front, with a big pulse, your payload and a read counter. Some phones (like Samsung's with "Embedded tag") only let EMITT answer readers while it's on screen. Minimise it to the bottom bar any time.
+- **Vibration patterns**: pick Tick, Double tap, Triple, Heartbeat, Long buzz, Rising, Falling, Purr or SOS (or Off) separately for tag writes/reads, for being read as a tag, and for failures, with a strength slider. Settings → Vibration.
+- Tips in the NFC tag output for using a Flipper: emulate an NTAG to test Write to tag, and use Read Specific Card Type → Type 4 Tag to read your phone (plain Read also wakes your wallet app).
+
 ## 1.1.0
 
 - **Be the tag**: your phone can now act as an NFC tag. Pick it under Create → NFC tag (or on any library item or imported `.nfc` file), and other phones read your link, Wi-Fi, contact and so on by tapping the back of yours while your screen is on. An ongoing notification lets you stop it from anywhere.

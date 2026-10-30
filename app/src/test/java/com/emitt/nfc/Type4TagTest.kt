@@ -40,6 +40,18 @@ class Type4TagTest {
     }
 
     @Test
+    fun flipperStyleSelectsWork() {
+        // Momentum's Type 4 poller: select app with P2=0C, select files with P1=02, read CC length then CC
+        val tag = Type4Tag(byteArrayOf(0xD1.toByte(), 0x01, 0x01, 0x55, 0x00))
+        assertArrayEquals(ok, tag.process(hex("00A4040C07D2760000850101")))
+        assertArrayEquals(ok, tag.process(hex("00A4020C02E103")))
+        assertArrayEquals(hex("000F") + ok, tag.process(hex("00B0000002")))
+        assertArrayEquals(ok, tag.process(hex("00A4020C02E104")))
+        assertArrayEquals(hex("0005D101015500") + ok, tag.process(hex("00B0000007")))
+        assertTrue(tag.fullyRead)
+    }
+
+    @Test
     fun filesNeedTheApplicationSelectedFirst() {
         val tag = Type4Tag(byteArrayOf(1, 2, 3))
         assertArrayEquals(Type4Tag.SW_NOT_FOUND, tag.process(hex("00A4000C02E104")))

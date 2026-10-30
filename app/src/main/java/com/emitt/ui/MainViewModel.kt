@@ -3,8 +3,8 @@ package com.emitt.ui
 import android.app.Application
 import android.nfc.NdefMessage
 import android.nfc.Tag
-import android.os.VibrationEffect
-import android.os.Vibrator
+import com.emitt.HapticEvent
+import com.emitt.Haptics
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
@@ -30,6 +30,7 @@ import com.emitt.nfc.TagOps
 import com.emitt.nfc.TagReport
 import com.emitt.nfc.TagResult
 import com.emitt.nfc.UltralightType
+import com.emitt.nfc.toHex
 import com.emitt.qr.QrStyle
 import com.emitt.ui.theme.ThemeRepository
 import kotlinx.coroutines.Dispatchers
@@ -86,6 +87,8 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
     var liveQr by mutableStateOf<QrHealth?>(null)
     /** True while the QR preview is scrolled out of view, so the floating copy shows. */
     var previewOffscreen by mutableStateOf(false)
+    /** True while any part of the QR Style panel is on screen. */
+    var styleVisible by mutableStateOf(false)
 
     // ---- NFC ----
     var nfcOp by mutableStateOf<NfcOp?>(null)
@@ -162,11 +165,17 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
         when {
             adapter == null || !Emulator.supported(app) -> toast("This phone can't act as an NFC tag")
             !adapter.isEnabled -> { toast("Turn NFC on first"); tab = Tab.TAGS }
-            else -> { nfcOp = null; Emulator.start(app, msg, label) }
+            else -> { nfcOp = null; Emulator.start(app, msg, label); tagModeOpen = true }
         }
     }
 
-    fun stopEmulating() = Emulator.stop(getApplication())
+    /** Full-screen tag mode while emulating; false when minimised to the bottom bar. */
+    var tagModeOpen by mutableStateOf(false)
+
+    fun stopEmulating() {
+        Emulator.stop(getApplication())
+        tagModeOpen = false
+    }
 
     /** Called from the NFC reader thread whenever a tag is tapped. */
     fun onTag(tag: Tag) {
@@ -181,6 +190,7 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
                     NfcOp.CopyRead, null -> TagOps.read(tag)
                 }
             }
+            android.util.Log.i("EMITT/NFC", "tag ${tag.id.toHex("")} techs=${tag.techList.map { it.substringAfterLast('.') }} op=$op -> $result")
             buzz(result !is TagResult.Failed)
             lastResult = result
             when {
@@ -205,13 +215,7 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
         }
     }
 
-    private fun buzz(ok: Boolean) {
-        if (!settings.haptics) return
-        val v = getApplication<Application>().getSystemService(Vibrator::class.java) ?: return
-        runCatching {
-            v.vibrate(if (ok) VibrationEffect.createOneShot(40, 180) else VibrationEffect.createWaveform(longArrayOf(0, 60, 80, 60), -1))
-        }
-    }
+    private fun buzz(ok: Boolean) = Haptics.play(getApplication(), if (ok) HapticEvent.WRITE else HapticEvent.FAIL)
 
     // ---- Flipper ----
 

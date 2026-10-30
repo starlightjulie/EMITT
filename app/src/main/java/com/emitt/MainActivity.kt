@@ -96,7 +96,9 @@ class MainActivity : ComponentActivity() {
                 val service = ComponentName(this@MainActivity, EmulationService::class.java)
                 repeat(20) {
                     if (!lifecycle.currentState.isAtLeast(Lifecycle.State.RESUMED) || Emulator.state.value == null) return@launch
-                    if (runCatching { ce.setPreferredService(this@MainActivity, service) }.getOrDefault(false)) return@launch
+                    val ok = runCatching { ce.setPreferredService(this@MainActivity, service) }.getOrDefault(false)
+                    android.util.Log.i("EMITT/HCE", "setPreferredService attempt ${it + 1}: $ok")
+                    if (ok) return@launch
                     delay(250)
                 }
             }

@@ -311,12 +311,12 @@ fun StatusLine(status: Status, text: String, modifier: Modifier = Modifier) {
 
 /** A key: value row in mono, used by the tag inspector and device info. */
 @Composable
-fun KvRow(key: String, value: String, onClick: (() -> Unit)? = null) {
+fun KvRow(key: String, value: String, keepCase: Boolean = false, onClick: (() -> Unit)? = null) {
     val look = LocalLook.current
     Row(
         Modifier.fillMaxWidth().then(if (onClick != null) Modifier.clickable(onClick = onClick) else Modifier).padding(vertical = 3.dp),
     ) {
-        Text(key.uppercase(), style = MaterialTheme.typography.labelMedium, color = look.dim, modifier = Modifier.width(110.dp))
+        Text(if (keepCase) key else key.uppercase(), style = MaterialTheme.typography.labelMedium, color = look.dim, modifier = Modifier.width(110.dp))
         Text(value, style = MaterialTheme.typography.bodySmall.copy(fontFamily = look.mono), color = look.ink, modifier = Modifier.weight(1f))
     }
 }

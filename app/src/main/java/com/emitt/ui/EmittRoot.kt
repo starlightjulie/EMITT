@@ -48,7 +48,10 @@ import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.foundation.layout.systemBars
+import androidx.compose.foundation.layout.isImeVisible
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
@@ -69,6 +72,7 @@ import androidx.compose.animation.scaleIn
 import androidx.compose.animation.scaleOut
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.gestures.detectDragGestures
+import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.offset
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
@@ -99,9 +103,11 @@ fun EmittRoot(vm: MainViewModel) {
     val snack = remember { SnackbarHostState() }
     LaunchedEffect(Unit) { vm.messages.collect { snack.currentSnackbarData?.dismiss(); snack.showSnackbar(it) } }
 
-    BackHandler(enabled = vm.fullscreen != null || vm.nfcOp != null || vm.settingsOpen || vm.tab != Tab.CREATE) {
+    val emulating = Emulator.state.collectAsState().value != null
+    BackHandler(enabled = vm.fullscreen != null || vm.nfcOp != null || vm.settingsOpen || vm.tab != Tab.CREATE || (vm.tagModeOpen && emulating)) {
         when {
             vm.fullscreen != null -> vm.fullscreen = null
+            vm.tagModeOpen && emulating -> vm.tagModeOpen = false
             vm.nfcOp != null -> vm.nfcOp = null
             vm.settingsOpen -> vm.settingsOpen = false
             else -> vm.tab = Tab.CREATE
@@ -139,6 +145,7 @@ fun EmittRoot(vm: MainViewModel) {
         FloatingQr(vm, Modifier.align(Alignment.TopEnd).windowInsetsPadding(WindowInsets.statusBars).padding(top = 60.dp, end = 12.dp))
         SnackbarHost(snack, Modifier.align(Alignment.BottomCenter).padding(bottom = 120.dp))
         CrtOverlay()
+        if (vm.tagModeOpen) TagMode(vm)
         vm.fullscreen?.let { (text, style) ->
             FullscreenCode(text, style, null, vm.settings.boostBrightness) { vm.fullscreen = null }
         }
@@ -236,15 +243,17 @@ private fun BottomBar(vm: MainViewModel) {
 
 /** The bracket mark pulsing outward, like it's transmitting. */
 @Composable
-private fun EmitPulse(ring: androidx.compose.ui.graphics.Color, core: androidx.compose.ui.graphics.Color) {
+private fun EmitPulse(ring: androidx.compose.ui.graphics.Color, core: androidx.compose.ui.graphics.Color, size: androidx.compose.ui.unit.Dp = 44.dp) {
     val t = rememberInfiniteTransition(label = "emit")
     val p by t.animateFloat(0f, 1f, infiniteRepeatable(tween(1400), RepeatMode.Restart), label = "p")
-    Canvas(Modifier.size(44.dp)) {
-        val c = Offset(size.width / 2, size.height / 2)
-        drawRect(core, Offset(c.x - 4.dp.toPx(), c.y - 4.dp.toPx()), androidx.compose.ui.geometry.Size(8.dp.toPx(), 8.dp.toPx()))
-        for (k in 0 until 3) {
-            val f = (p + k / 3f) % 1f
-            val s = 6.dp.toPx() + f * size.width / 2
+    val k = size / 44.dp
+    Canvas(Modifier.size(size)) {
+        val c = Offset(this.size.width / 2, this.size.height / 2)
+        val half = 4.dp.toPx() * k
+        drawRect(core, Offset(c.x - half, c.y - half), androidx.compose.ui.geometry.Size(half * 2, half * 2))
+        for (k2 in 0 until 3) {
+            val f = (p + k2 / 3f) % 1f
+            val s = 6.dp.toPx() * k + f * this.size.width / 2
             val arm = s * 0.4f
             val path = Path().apply {
                 moveTo(c.x - s, c.y - s + arm); lineTo(c.x - s, c.y - s); lineTo(c.x - s + arm, c.y - s)
@@ -252,18 +261,71 @@ private fun EmitPulse(ring: androidx.compose.ui.graphics.Color, core: androidx.c
                 moveTo(c.x + s, c.y + s - arm); lineTo(c.x + s, c.y + s); lineTo(c.x + s - arm, c.y + s)
                 moveTo(c.x - s + arm, c.y + s); lineTo(c.x - s, c.y + s); lineTo(c.x - s, c.y + s - arm)
             }
-            drawPath(path, ring.copy(alpha = 1f - f), style = Stroke(2.dp.toPx()))
+            drawPath(path, ring.copy(alpha = 1f - f), style = Stroke(2.dp.toPx() * k.coerceAtMost(3f)))
+        }
+    }
+}
+
+/**
+ * Full-screen "you are a tag" view. Keeping EMITT in front matters: on phones with a built-in
+ * tag service (Samsung's "Embedded tag") EMITT only wins NFC readers while it's on screen, and
+ * readers that probe for payment cards can pop Google Wallet over a backgrounded app.
+ */
+@Composable
+private fun TagMode(vm: MainViewModel) {
+    val look = LocalLook.current
+    val emu by Emulator.state.collectAsState()
+    val e = emu ?: return
+    val context = LocalContext.current
+    DisposableEffect(Unit) {
+        val window = (context as? android.app.Activity)?.window
+        window?.addFlags(android.view.WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+        onDispose { window?.clearFlags(android.view.WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON) }
+    }
+    Box(
+        Modifier.fillMaxSize().background(look.bg).pointerInput(Unit) { detectTapGestures { } }
+            .windowInsetsPadding(WindowInsets.systemBars).padding(24.dp),
+    ) {
+        Column(Modifier.align(Alignment.Center), horizontalAlignment = Alignment.CenterHorizontally) {
+            EmitPulse(look.ok, look.accent, 220.dp)
+            Spacer(Modifier.height(28.dp))
+            Text("PHONE IS A TAG", style = glowing(MaterialTheme.typography.headlineSmall, look.ok), color = look.ok)
+            Spacer(Modifier.height(8.dp))
+            Text(e.label, style = MaterialTheme.typography.titleMedium, maxLines = 2, overflow = TextOverflow.Ellipsis)
+            Spacer(Modifier.height(14.dp))
+            StatusLine(
+                if (e.reads > 0) Status.OK else Status.INFO,
+                if (e.reads == 0) "Waiting for a reader" else "Read ${e.reads} time${if (e.reads == 1) "" else "s"}",
+            )
+            Spacer(Modifier.height(22.dp))
+            Dim("Hold the other phone's back to the middle of this phone's back.", Modifier.padding(horizontal = 12.dp))
+            Spacer(Modifier.height(6.dp))
+            Dim("Keep this screen open. If EMITT goes to the background, your phone's own tag or wallet can answer instead.", Modifier.padding(horizontal = 12.dp))
+            Spacer(Modifier.height(6.dp))
+            Dim("Flipper: NFC → Extra Actions → Read Specific Card Type → Type 4 Tag.", Modifier.padding(horizontal = 12.dp))
+        }
+        Row(Modifier.align(Alignment.BottomCenter).fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+            TermButton("Minimise", { vm.tagModeOpen = false }, Modifier.weight(1f))
+            TermButton("Stop", { vm.stopEmulating() }, Modifier.weight(1f), danger = true, primary = true)
         }
     }
 }
 
 /** A bottom bar with the pulse, a title, details and one action. */
 @Composable
-private fun PulseBar(title: String, color: androidx.compose.ui.graphics.Color, action: String, onAction: () -> Unit, details: @Composable () -> Unit) {
+private fun PulseBar(
+    title: String,
+    color: androidx.compose.ui.graphics.Color,
+    action: String,
+    onAction: () -> Unit,
+    onOpen: (() -> Unit)? = null,
+    details: @Composable () -> Unit,
+) {
     val look = LocalLook.current
     Row(
         Modifier
             .fillMaxWidth()
+            .then(if (onOpen != null) Modifier.clickable(onClick = onOpen) else Modifier)
             .padding(horizontal = 14.dp, vertical = 8.dp)
             .background(look.panel.copy(alpha = 0.97f), look.panelShape)
             .border(1.dp, color, look.panelShape)
@@ -300,7 +362,7 @@ private fun EmulationBar(vm: MainViewModel) {
     val emu by Emulator.state.collectAsState()
     AnimatedVisibility(emu != null, enter = slideInVertically { it } + fadeIn(), exit = slideOutVertically { it } + fadeOut()) {
         val e = emu ?: return@AnimatedVisibility
-        PulseBar("PHONE IS A TAG", look.ok, "Stop", vm::stopEmulating) {
+        PulseBar("PHONE IS A TAG", look.ok, "Stop", vm::stopEmulating, onOpen = { vm.tagModeOpen = true }) {
             Text(e.label, style = MaterialTheme.typography.bodySmall, maxLines = 1, overflow = TextOverflow.Ellipsis)
             Dim(if (e.reads == 0) "Hold another phone's back to yours. Keep your screen on." else "Read ${e.reads} time${if (e.reads == 1) "" else "s"}")
         }
@@ -311,12 +373,15 @@ private fun EmulationBar(vm: MainViewModel) {
  * When the QR preview scrolls out of view while styling, a small copy swoops down into the corner
  * so changes stay visible. Drag it anywhere; tap it for full screen.
  */
+@OptIn(androidx.compose.foundation.layout.ExperimentalLayoutApi::class)
 @Composable
 private fun FloatingQr(vm: MainViewModel, modifier: Modifier) {
     val look = LocalLook.current
     val health = vm.liveQr
-    val show = vm.previewOffscreen && !vm.settingsOpen && vm.tab == Tab.CREATE && vm.output == Output.QR &&
-        health?.bitmap != null && vm.fullscreen == null
+    // Only while styling: the Style panel is on screen and nobody is typing
+    val typing = WindowInsets.isImeVisible
+    val show = vm.previewOffscreen && vm.styleVisible && !typing && !vm.settingsOpen && vm.tab == Tab.CREATE &&
+        vm.output == Output.QR && health?.bitmap != null && vm.fullscreen == null
     var drag by remember { mutableStateOf(Offset.Zero) }
     val swoop = spring<IntOffset>(dampingRatio = 0.55f, stiffness = Spring.StiffnessMediumLow)
     AnimatedVisibility(

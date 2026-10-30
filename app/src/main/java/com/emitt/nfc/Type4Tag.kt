@@ -53,7 +53,9 @@ class Type4Tag(ndef: ByteArray) {
         val data = apdu.copyOfRange(5, 5 + lc)
         return when (p1) {
             0x04 -> if (data.contentEquals(NDEF_AID)) { appSelected = true; file = null; SW_OK } else SW_NOT_FOUND
-            0x00 -> when {
+            // P1 00 = select by file id (what Android sends); 02 = select EF under the current DF
+            // (what the Flipper and other ISO 7816 readers send). Both mean the same thing here.
+            0x00, 0x02 -> when {
                 !appSelected -> SW_NOT_FOUND
                 data.contentEquals(CC_ID) -> { file = ccFile; SW_OK }
                 data.contentEquals(NDEF_ID) -> { file = ndefFile; SW_OK }

@@ -49,6 +49,9 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat
 import com.emitt.BuildConfig
+import com.emitt.HapticEvent
+import com.emitt.HapticPattern
+import com.emitt.Haptics
 import com.emitt.LauncherIcons
 import com.emitt.UpdateWorker
 import com.emitt.data.OfficialBuild
@@ -141,10 +144,7 @@ fun SettingsScreen(vm: MainViewModel) {
 
         UpdatesPanel(vm)
 
-        TermPanel(title = "Behaviour") {
-            var haptics by remember { mutableStateOf(vm.settings.haptics) }
-            SwitchRow("Vibrate on tag read/write", haptics, { haptics = it; vm.settings.haptics = it })
-        }
+        VibrationPanel(vm)
 
         AboutPanel()
     }
@@ -194,6 +194,30 @@ private fun IconPreview(ic: LauncherIcon, selected: Boolean) {
                 path.moveTo(a.x, a.y); path.lineTo(b.x, b.y); path.lineTo(c.x, c.y)
             }
             drawPath(path, Color(ic.ring).copy(alpha = alpha), style = Stroke(5 * k))
+        }
+    }
+}
+
+@Composable
+private fun VibrationPanel(vm: MainViewModel) {
+    val context = LocalContext.current
+    var on by remember { mutableStateOf(vm.settings.haptics) }
+    var strength by remember { mutableStateOf(vm.settings.hapticStrength) }
+    TermPanel(title = "Vibration") {
+        SwitchRow("Vibration", on, { on = it; vm.settings.haptics = it }, "Feedback when tags are written or your phone is read")
+        if (on) {
+            SliderRow("Strength", strength, 0.1f..1f, { strength = it; vm.settings.hapticStrength = it }, { "${(it * 100).toInt()}%" })
+            HapticEvent.entries.forEach { e ->
+                var pattern by remember { mutableStateOf(vm.settings.hapticPattern(e)) }
+                SectionLabel(e.label)
+                Dim(e.hint, Modifier.padding(bottom = 6.dp))
+                ChipStrip(HapticPattern.entries, pattern, { it.label }, {
+                    pattern = it
+                    vm.settings.setHapticPattern(e, it)
+                    Haptics.play(context, it, strength)
+                })
+            }
+            Dim("Tap a pattern to feel it.", Modifier.padding(top = 8.dp))
         }
     }
 }

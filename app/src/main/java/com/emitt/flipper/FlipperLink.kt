@@ -17,6 +17,7 @@ import android.content.Intent
 import android.content.IntentFilter
 import android.os.Build
 import androidx.core.content.ContextCompat
+
 import com.emitt.data.Settings
 import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.CoroutineScope
@@ -80,7 +81,24 @@ object FlipperLink {
     private var pendingGatt: CompletableDeferred<Any?>? = null
     private val freeBytes = AtomicInteger(0)
     private val flowSignal = Channel<Unit>(Channel.CONFLATED)
-    private val nextId = AtomicInteger(1)
+    // Start high and random: if another app shares the link, our command ids won't collide with its
+    private val nextId = AtomicInteger(kotlin.random.Random.nextInt(10_000, 60_000))
+    private var otherAppConnected = false
+    var verboseScan = false
+    /**
+     * Device objects from Flipper advertisements, by address. Custom firmware (Momentum, etc.) can
+     * change the Flipper's Bluetooth name and address, so a stored pairing may point at an address the
+     * Flipper no longer uses; only an address seen advertising is worth dialling.
+     */
+    private val advertising = ConcurrentHashMap<String, BluetoothDevice>()
+
+    /** Flippers advertise service 0x3080 + body colour (0x3081 black, 0x3082 white, 0x3083 clear). */
+    private fun isFlipperUuid(u: android.os.ParcelUuid) = u.uuid.toString().let { it.startsWith("0000308") && it.endsWith("-0000-1000-8000-00805f9b34fb") }
+
+    private fun looksLikeFlipper(name: String?, uuids: List<android.os.ParcelUuid>?) =
+        uuids.orEmpty().any(::isFlipperUuid) || name?.startsWith("Flipper", ignoreCase = true) == true
+
+    private fun log(msg: String) = android.util.Log.i("EMITT/Flipper", msg)
     private val pendingRpc = ConcurrentHashMap<Int, Pair<MutableList<FlipperProto.Main>, CompletableDeferred<List<FlipperProto.Main>>>>()
     private var inBuf = ByteArray(4096)
     private var inLen = 0
@@ -89,10 +107,16 @@ object FlipperLink {
 
     private val scanCallback = object : ScanCallback() {
         override fun onScanResult(callbackType: Int, result: ScanResult) {
-            val name = result.scanRecord?.deviceName ?: result.device.name ?: return
-            if (!name.startsWith("Flipper", ignoreCase = true)) return
-            val f = FoundFlipper(name, result.device.address, result.device.bondState == BluetoothDevice.BOND_BONDED, result.rssi)
-            _found.value = (_found.value.filterNot { it.address == f.address } + f).sortedByDescending { it.rssi ?: -999 }
+            val advName = result.scanRecord?.deviceName
+            val uuids = result.scanRecord?.serviceUuids
+            if (verboseScan) log("adv ${result.device.address} name=$advName uuids=$uuids")
+            if (!looksLikeFlipper(advName ?: result.device.name, uuids)) return
+            val d = result.device
+            advertising[d.address] = d
+            val f = FoundFlipper(advName ?: d.name ?: "Flipper", d.address, d.bondState == BluetoothDevice.BOND_BONDED, result.rssi)
+            // Anything advertising now goes to the top; paired-but-silent entries stay below
+            _found.value = (_found.value.filterNot { it.address == f.address } + f)
+                .sortedWith(compareByDescending<FoundFlipper> { it.rssi != null }.thenByDescending { it.rssi ?: -999 })
         }
 
         override fun onScanFailed(errorCode: Int) {
@@ -106,10 +130,11 @@ object FlipperLink {
             _state.value = FlipperState.Failed("Bluetooth is off")
             return
         }
-        // Paired Flippers show up straight away, even when they aren't advertising
+        // Paired Flippers show up straight away (marked not in range until they advertise)
+        advertising.clear()
         _found.value = adapter.bondedDevices.orEmpty()
-            .filter { it.name?.startsWith("Flipper", true) == true }
-            .map { FoundFlipper(it.name, it.address, true, null) }
+            .filter { looksLikeFlipper(it.name, it.uuids?.toList()) }
+            .map { FoundFlipper(it.name ?: "Flipper", it.address, true, null) }
         val scanner = adapter.bluetoothLeScanner ?: return
         scanner.startScan(null, ScanSettings.Builder().setScanMode(ScanSettings.SCAN_MODE_LOW_LATENCY).build(), scanCallback)
         _scanning.value = true
@@ -130,36 +155,68 @@ object FlipperLink {
     suspend fun connect(context: Context, address: String, name: String) {
         stopScan(context)
         disconnect()
+        otherAppConnected = false
         val app = context.applicationContext
-        val device = app.getSystemService(BluetoothManager::class.java).adapter.getRemoteDevice(address)
+        val bm = app.getSystemService(BluetoothManager::class.java)
         try {
+            // Make sure it's actually advertising at this address (a few seconds at most)
+            if (!advertising.containsKey(address)) {
+                _state.value = FlipperState.Connecting(name, "Looking for it")
+                bm.adapter.bluetoothLeScanner?.startScan(null, ScanSettings.Builder().setScanMode(ScanSettings.SCAN_MODE_LOW_LATENCY).build(), scanCallback)
+                withTimeoutOrNull(6_000) { while (!advertising.containsKey(address)) delay(100) }
+                runCatching { bm.adapter.bluetoothLeScanner?.stopScan(scanCallback) }
+            }
+            val busy = bm.getConnectedDevices(BluetoothProfile.GATT).firstOrNull { it.address == address }
+            val device = advertising[address] ?: busy ?: throw FlipperException(
+                if (advertising.isNotEmpty()) "That pairing isn't in range. Pick the Flipper marked with a signal strength."
+                else "Can't see your Flipper. On it, check Settings → Bluetooth is ON, and that the Flipper app isn't connected to it.",
+            )
+            log("connect ${device.address} '$name' bond=${device.bondState} advertising=${advertising.containsKey(address)}")
+            if (busy != null) {
+                log("already connected at the BLE level (another app?)")
+                otherAppConnected = true
+            }
             if (device.bondState != BluetoothDevice.BOND_BONDED) {
                 _state.value = FlipperState.Connecting(name, "Pairing: enter the PIN shown on your Flipper")
                 bond(app, device)
+                log("bonded")
             }
             _state.value = FlipperState.Connecting(name, "Connecting")
             val connected = CompletableDeferred<Any?>()
             pendingGatt = connected
             gatt = device.connectGatt(app, false, callback, BluetoothDevice.TRANSPORT_LE)
             withTimeout(20_000) { connected.await() }
+            log("gatt connected")
 
             _state.value = FlipperState.Connecting(name, "Setting up")
             gattOp { gatt!!.requestMtu(512) }
+            log("mtu=$mtu")
             gattOp { gatt!!.discoverServices() }
+            log("services: ${gatt!!.services.map { it.uuid }}")
             val svc = gatt!!.getService(SERVICE) ?: throw FlipperException("This doesn't look like a Flipper (no serial service)")
             rx = svc.getCharacteristic(RX)
             val tx = svc.getCharacteristic(TX)
             val flow = svc.getCharacteristic(FLOW)
             subscribe(tx, indicate = true)
             subscribe(flow, indicate = false)
+            log("subscribed")
             val initial = gattOp { readCharacteristic(flow) } as? ByteArray
             freeBytes.set(initial?.let(::u32) ?: 1024)
+            log("flow control free=${freeBytes.get()}")
 
             _state.value = FlipperState.Connecting(name, "Reading device info")
             val info = deviceInfo()
-            Settings(app).apply { flipperAddress = address; flipperName = name }
-            _state.value = FlipperState.Ready(info["hardware_name"]?.let { "Flipper $it" } ?: name, address, info)
+            log("device info: ${info.size} keys")
+            val stable = device.address
+            Settings(app).apply { flipperAddress = stable; flipperName = name }
+            _state.value = FlipperState.Ready(info["hardware_name"]?.let { "Flipper $it" } ?: name, stable, info)
         } catch (e: Exception) {
+            log("connect failed: $e")
+            if (otherAppConnected && e !is FlipperException) {
+                disconnect()
+                _state.value = FlipperState.Failed("The Flipper is connected to another app (like the official Flipper app). Disconnect it there, then try again.")
+                return
+            }
             disconnect()
             _state.value = FlipperState.Failed(
                 when (e) {
@@ -228,12 +285,16 @@ object FlipperLink {
         val g = gatt ?: throw FlipperException("Not connected")
         val d = CompletableDeferred<Any?>()
         pendingGatt = d
-        if (!g.start()) throw FlipperException("Bluetooth request was refused")
+        if (!g.start()) {
+            log("gatt op refused")
+            throw FlipperException("Bluetooth request was refused")
+        }
         withTimeout(10_000) { d.await() }
     }
 
     private val callback = object : BluetoothGattCallback() {
         override fun onConnectionStateChange(g: BluetoothGatt, status: Int, newState: Int) {
+            log("connection state=$newState status=$status")
             when (newState) {
                 BluetoothProfile.STATE_CONNECTED -> pendingGatt?.complete(null)
                 BluetoothProfile.STATE_DISCONNECTED -> {
@@ -254,6 +315,7 @@ object FlipperLink {
         }
 
         override fun onDescriptorWrite(g: BluetoothGatt, d: BluetoothGattDescriptor, status: Int) {
+            log("descriptor write ${d.characteristic.uuid} status=$status")
             if (status == BluetoothGatt.GATT_SUCCESS) pendingGatt?.complete(null)
             else pendingGatt?.completeExceptionally(FlipperException("Flipper refused the subscription ($status). Try pairing again."))
         }
@@ -301,6 +363,7 @@ object FlipperLink {
     }
 
     private fun dispatch(m: FlipperProto.Main) {
+        log("rx frame id=${m.commandId} status=${m.status} field=${m.field} next=${m.hasNext}")
         val (parts, done) = pendingRpc[m.commandId] ?: return
         parts += m
         if (!m.hasNext) {
@@ -334,6 +397,7 @@ object FlipperLink {
     /** Writes [frame] to RX in pieces that fit the MTU and the Flipper's free buffer. */
     private suspend fun send(frame: ByteArray) {
         val c = rx ?: throw FlipperException("Not connected")
+        log("tx frame ${frame.size} bytes, free=${freeBytes.get()}")
         var off = 0
         while (off < frame.size) {
             while (freeBytes.get() <= 0) {

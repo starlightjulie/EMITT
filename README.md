@@ -41,10 +41,11 @@ Camera scanner for QR, Data Matrix, Aztec, PDF417 and common barcodes, or scan f
 - **Read** any tag: chip type, UID, ATQA/SAK, memory used, every NDEF record, and a raw page dump for NTAG/Ultralight
 - **Copy** a tag's data onto another, **erase** a tag, or **lock** it permanently (with a confirmation)
 - **Import** a Flipper `.nfc` file and write its data to a real tag
-- **Be the tag**: the phone emulates an NFC Forum Type 4 tag, so other phones (Android or iPhone) read it like a sticker while your screen is on. It gets a random UID each tap, so it can't replace UID-based badges or door fobs
+- **Be the tag**: the phone emulates an NFC Forum Type 4 tag, so other phones (Android or iPhone) and Flippers read it like a sticker. A full-screen tag mode keeps EMITT in front, which matters on phones with a built-in tag service (such as Samsung's "Embedded tag"). It gets a random UID each tap, so it can't replace UID-based badges or door fobs
+- **Testing with a Flipper**: to test Write to tag, emulate a blank NTAG on the Flipper (NFC → Add Manually → NTAG215 → Emulate). To read your phone, use NFC → Extra Actions → Read Specific Card Type → Type 4 Tag; plain Read also probes for payment cards, which wakes your wallet app
 
 ### Flipper Zero
-- Pair over Bluetooth (enter the PIN from the Flipper's screen) and see device info and SD card space
+- Pair over Bluetooth (enter the PIN from the Flipper's screen) and see device info and SD card space. Works with renamed Flippers and custom firmware like Momentum; close the official Flipper app's connection first, since the Flipper allows one
 - **Send files straight to `/ext/nfc`**, list what's there, or make the Flipper beep to check the link
 - Convert tags the phone reads into Flipper files (full memory for NTAG/Ultralight; UID/ATQA/SAK for others)
 - Or share/save `.nfc` files and copy them over however you like

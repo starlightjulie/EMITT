@@ -2,9 +2,8 @@ package com.emitt.nfc
 
 import android.nfc.cardemulation.HostApduService
 import android.os.Bundle
-import android.os.VibrationEffect
-import android.os.Vibrator
-import com.emitt.data.Settings
+import com.emitt.HapticEvent
+import com.emitt.Haptics
 
 /**
  * Answers NFC readers as a Type 4 tag (see [Type4Tag]). Android routes the NDEF application's
@@ -16,16 +15,16 @@ class EmulationService : HostApduService() {
         val tag = Emulator.tag ?: run { Emulator.restore(this); Emulator.tag } ?: return Type4Tag.SW_NOT_FOUND
         val wasRead = tag.fullyRead
         val reply = tag.process(apdu)
+        android.util.Log.i("EMITT/HCE", "rx ${apdu.toHex("")} -> tx ${reply.takeLast(2).toByteArray().toHex("")} (${reply.size - 2} data bytes)")
         if (!wasRead && tag.fullyRead) {
             Emulator.onRead()
-            if (Settings(this).haptics) {
-                runCatching { getSystemService(Vibrator::class.java)?.vibrate(VibrationEffect.createOneShot(40, 180)) }
-            }
+            Haptics.play(this, HapticEvent.EMULATED)
         }
         return reply
     }
 
     override fun onDeactivated(reason: Int) {
+        android.util.Log.i("EMITT/HCE", "deactivated reason=$reason")
         Emulator.tag?.reset()
     }
 }
