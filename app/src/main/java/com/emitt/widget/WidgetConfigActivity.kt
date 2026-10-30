@@ -1,9 +1,11 @@
 package com.emitt.widget
 
+import androidx.compose.ui.res.stringResource
+import com.emitt.R
 import android.appwidget.AppWidgetManager
 import android.content.Intent
 import android.os.Bundle
-import androidx.activity.ComponentActivity
+import androidx.appcompat.app.AppCompatActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.clickable
@@ -32,7 +34,7 @@ import com.emitt.ui.theme.LocalLook
 import com.emitt.ui.theme.ThemeRepository
 
 /** Lets the user pick which saved code a new (or reconfigured) widget shows. */
-class WidgetConfigActivity : ComponentActivity() {
+class WidgetConfigActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         enableEdgeToEdge()
         super.onCreate(savedInstanceState)
@@ -51,9 +53,9 @@ class WidgetConfigActivity : ComponentActivity() {
                         Modifier.fillMaxSize().windowInsetsPadding(WindowInsets.safeDrawing).verticalScroll(rememberScrollState()).padding(14.dp),
                         verticalArrangement = Arrangement.spacedBy(10.dp),
                     ) {
-                        Text("PICK A CODE", style = MaterialTheme.typography.titleLarge, color = LocalLook.current.accent)
+                        Text(stringResource(R.string.widget_pick_title).uppercase(), style = MaterialTheme.typography.titleLarge, color = LocalLook.current.accent)
                         if (items.isEmpty()) {
-                            TermPanel { Dim("Your library is empty. Save a code in EMITT first, then add the widget again.") }
+                            TermPanel { Dim(stringResource(R.string.widget_empty)) }
                         }
                         items.forEach { item ->
                             TermPanel(Modifier.clickable {
@@ -62,7 +64,7 @@ class WidgetConfigActivity : ComponentActivity() {
                                 finish()
                             }) {
                                 Text(item.name, style = MaterialTheme.typography.titleSmall)
-                                Dim("${item.payload.kind.label} · ${item.payload.summary()}", Modifier.fillMaxWidth())
+                                Dim("${stringResource(item.payload.kind.label)} · ${item.payload.summary()}", Modifier.fillMaxWidth())
                             }
                         }
                     }

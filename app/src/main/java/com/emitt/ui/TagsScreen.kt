@@ -1,5 +1,8 @@
 package com.emitt.ui
 
+import androidx.compose.ui.res.stringResource
+import com.emitt.R
+import com.emitt.data.UiText
 import android.content.Intent
 import android.nfc.NfcAdapter
 import android.provider.Settings
@@ -24,7 +27,7 @@ import androidx.compose.material.icons.rounded.FileOpen
 import androidx.compose.material.icons.rounded.Lock
 import androidx.compose.material.icons.rounded.Nfc
 import androidx.compose.material.icons.rounded.Search
-import androidx.compose.material.icons.rounded.Send
+import androidx.compose.material.icons.automirrored.rounded.Send
 import androidx.compose.material.icons.rounded.Share
 import androidx.compose.material.icons.rounded.Smartphone
 import androidx.compose.material3.AlertDialog
@@ -68,43 +71,43 @@ fun TagsScreen(vm: MainViewModel) {
         val text = context.readUri(uri)
         val raw = uri.lastPathSegment?.substringAfterLast('/')?.substringAfterLast(':') ?: "imported"
         val name = FlipperNfcFile.safeName(raw.removeSuffix(".nfc")) + ".nfc"
-        runCatching { FlipperNfcFile.parse(text ?: error("Couldn't read the file")) }
+        runCatching { FlipperNfcFile.parse(text ?: error("unreadable")) }
             .onSuccess { vm.imported = ImportedFile(name, text!!, it) }
-            .onFailure { vm.toast(it.message ?: "Not a Flipper NFC file") }
+            .onFailure { vm.toast(R.string.not_flipper_file) }
     }
 
     Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
         TermPanel(title = "NFC") {
             when {
-                adapter == null -> StatusLine(Status.FAIL, "This phone doesn't have NFC. You can still make QR codes and Flipper files.")
+                adapter == null -> StatusLine(Status.FAIL, stringResource(R.string.no_nfc))
                 !enabled -> {
-                    StatusLine(Status.WARN, "NFC is off.")
-                    ButtonRow { TermButton("Turn on NFC", { context.startActivity(Intent(Settings.ACTION_NFC_SETTINGS)) }, Modifier.weight(1f), primary = true) }
+                    StatusLine(Status.WARN, stringResource(R.string.nfc_off))
+                    ButtonRow { TermButton(stringResource(R.string.turn_on_nfc), { context.startActivity(Intent(Settings.ACTION_NFC_SETTINGS)) }, Modifier.weight(1f), primary = true) }
                 }
-                else -> StatusLine(Status.OK, "Ready. Tap any tag on the back of the phone to inspect it.")
+                else -> StatusLine(Status.OK, stringResource(R.string.nfc_ready))
             }
             vm.lastResult?.let { r ->
                 when (r) {
-                    is TagResult.Written -> StatusLine(Status.OK, "Wrote ${r.bytes} bytes" + (r.capacity?.let { " of $it" } ?: ""))
-                    TagResult.Erased -> StatusLine(Status.OK, "Tag erased")
-                    TagResult.Locked -> StatusLine(Status.OK, "Tag locked. It's read-only now.")
-                    is TagResult.Failed -> StatusLine(Status.FAIL, r.reason)
+                    is TagResult.Written -> StatusLine(Status.OK, r.capacity?.let { stringResource(R.string.wrote_of, r.bytes, it) } ?: stringResource(R.string.wrote, r.bytes))
+                    TagResult.Erased -> StatusLine(Status.OK, stringResource(R.string.tag_erased))
+                    TagResult.Locked -> StatusLine(Status.OK, stringResource(R.string.tag_locked))
+                    is TagResult.Failed -> StatusLine(Status.FAIL, r.reason.text())
                     is TagResult.Read -> Unit
                 }
             }
         }
 
-        TermPanel(title = "Tools") {
+        TermPanel(title = stringResource(R.string.tools)) {
             ButtonRow {
-                TermButton("Read", { vm.nfcOp = null; vm.toast("Tap a tag to read it") }, Modifier.weight(1f), Icons.Rounded.Search)
-                TermButton("Copy", { vm.nfcOp = NfcOp.CopyRead }, Modifier.weight(1f), Icons.Rounded.ContentCopy)
+                TermButton(stringResource(R.string.read), { vm.nfcOp = null; vm.toast(R.string.tap_to_read) }, Modifier.weight(1f), Icons.Rounded.Search)
+                TermButton(stringResource(R.string.copy), { vm.nfcOp = NfcOp.CopyRead }, Modifier.weight(1f), Icons.Rounded.ContentCopy)
             }
             ButtonRow {
-                TermButton("Erase", { confirm = NfcOp.Erase }, Modifier.weight(1f), Icons.Rounded.DeleteSweep)
-                TermButton("Lock", { confirm = NfcOp.Lock }, Modifier.weight(1f), Icons.Rounded.Lock, danger = true)
+                TermButton(stringResource(R.string.erase), { confirm = NfcOp.Erase }, Modifier.weight(1f), Icons.Rounded.DeleteSweep)
+                TermButton(stringResource(R.string.lock), { confirm = NfcOp.Lock }, Modifier.weight(1f), Icons.Rounded.Lock, danger = true)
             }
             ButtonRow {
-                TermButton("Import .nfc", { importFile.launch(arrayOf("*/*")) }, Modifier.weight(1f), Icons.Rounded.FileOpen)
+                TermButton(stringResource(R.string.import_nfc), { importFile.launch(arrayOf("*/*")) }, Modifier.weight(1f), Icons.Rounded.FileOpen)
             }
         }
 
@@ -116,19 +119,19 @@ fun TagsScreen(vm: MainViewModel) {
         val lock = op == NfcOp.Lock
         AlertDialog(
             onDismissRequest = { confirm = null },
-            title = { Text(if (lock) "LOCK TAG?" else "ERASE TAG?", style = MaterialTheme.typography.titleMedium) },
+            title = { Text(stringResource(if (lock) R.string.lock_q else R.string.erase_q).uppercase(), style = MaterialTheme.typography.titleMedium) },
             text = {
                 Text(
-                    if (lock) "Locking makes the tag permanently read-only. Nobody, including you, can change it afterwards."
-                    else "This clears the tag's content. The tag stays writable.",
+                    stringResource(if (lock) R.string.lock_warn
+                    else R.string.erase_warn),
                 )
             },
             confirmButton = {
                 TextButton(onClick = { vm.nfcOp = op; vm.lastResult = null; confirm = null }) {
-                    Text(if (lock) "LOCK FOREVER" else "ERASE", color = LocalLook.current.fail)
+                    Text(stringResource(if (lock) R.string.lock_forever else R.string.erase).uppercase(), color = LocalLook.current.fail)
                 }
             },
-            dismissButton = { TextButton(onClick = { confirm = null }) { Text("CANCEL") } },
+            dismissButton = { TextButton(onClick = { confirm = null }) { Text(stringResource(R.string.cancel).uppercase()) } },
         )
     }
 }
@@ -139,48 +142,48 @@ private fun ReportPanel(vm: MainViewModel, r: TagReport) {
     val look = LocalLook.current
     var raw by rememberSaveable { mutableStateOf(false) }
     val payload = remember(r) { r.message?.let(NdefCodec::toPayload) }
-    TermPanel(title = "Tag · ${r.chip}") {
-        KvRow("uid", r.uid.toHex(":")) { context.copyText("UID", r.uid.toHex(":")); vm.toast("UID copied") }
+    TermPanel(title = stringResource(R.string.tag_title, r.chip)) {
+        KvRow("uid", r.uid.toHex(":")) { context.copyText("UID", r.uid.toHex(":")); vm.toast(R.string.uid_copied) }
         KvRow("tech", r.techs.joinToString(", "))
         r.atqa?.let { KvRow("atqa", it.toHex()) }
         r.sak?.let { KvRow("sak", "%02X".format(it)) }
         r.ndefType?.let { KvRow("ndef", it) }
-        r.maxSize?.let { KvRow("memory", "${r.usedBytes ?: 0} / $it bytes") }
-        r.writable?.let { KvRow("writable", if (it) "yes" else "no (read-only)") }
-        r.canLock?.let { KvRow("lockable", if (it) "yes" else "no") }
+        r.maxSize?.let { KvRow(stringResource(R.string.memory), "${r.usedBytes ?: 0} / $it B") }
+        r.writable?.let { KvRow(stringResource(R.string.writable), stringResource(if (it) R.string.yes else R.string.no_readonly)) }
+        r.canLock?.let { KvRow(stringResource(R.string.lockable), stringResource(if (it) R.string.yes else R.string.no)) }
 
-        SectionLabel("Records")
+        SectionLabel(stringResource(R.string.records))
         val msg = r.message
-        if (msg == null) Dim("No NDEF data") else NdefCodec.describe(msg).forEach { KvRow(it.type, it.value) }
+        if (msg == null) Dim(stringResource(R.string.no_ndef_data)) else NdefCodec.describe(msg).forEach { KvRow(it.type, it.value) }
 
         if (payload != null) {
             ButtonRow {
-                TermButton("Edit", { vm.newDraft(payload); vm.tab = Tab.CREATE }, Modifier.weight(1f), Icons.Rounded.Edit)
-                TermButton("Save", {
+                TermButton(stringResource(R.string.edit), { vm.newDraft(payload); vm.tab = Tab.CREATE }, Modifier.weight(1f), Icons.Rounded.Edit)
+                TermButton(stringResource(R.string.save), {
                     vm.library.upsert(SavedItem(name = payload.summary().take(40).ifBlank { "Tag ${r.uid.toHex("")}" }, payload = payload))
-                    vm.toast("Saved to library")
+                    vm.toast(R.string.lib_saved)
                 }, Modifier.weight(1f), Icons.Rounded.Bookmark)
             }
         }
 
-        SectionLabel("Flipper")
+        SectionLabel(stringResource(R.string.tab_flipper))
         val flipper = remember(r) { runCatching { FlipperNfcFile.fromReport(r) } }
         flipper.fold(
             onSuccess = { text ->
                 val name = "Tag_${r.uid.toHex("")}.nfc"
-                if (r.dump == null) Dim("Only UID, ATQA and SAK can be saved for this chip type.")
+                if (r.dump == null) Dim(stringResource(R.string.uid_only))
                 ButtonRow {
-                    TermButton("Send", { vm.sendToFlipper(name, text) }, Modifier.weight(1f), Icons.Rounded.Send, primary = true, enabled = vm.flipperProgress == null)
-                    TermButton("Share", { context.shareText(name, "application/octet-stream", text) }, Modifier.weight(1f), Icons.Rounded.Share)
+                    TermButton(stringResource(R.string.send), { vm.sendToFlipper(name, text) }, Modifier.weight(1f), Icons.AutoMirrored.Rounded.Send, primary = true, enabled = vm.flipperProgress == null)
+                    TermButton(stringResource(R.string.share), { context.shareText(name, "application/octet-stream", text) }, Modifier.weight(1f), Icons.Rounded.Share)
                 }
             },
-            onFailure = { StatusLine(Status.INFO, it.message ?: "Can't convert this tag") },
+            onFailure = { StatusLine(Status.INFO, stringResource(R.string.cant_convert)) },
         )
 
         r.dump?.let { d ->
             Row(Modifier.clickable { raw = !raw }.padding(top = 10.dp), verticalAlignment = Alignment.CenterVertically) {
                 Icon(if (raw) Icons.Rounded.ExpandLess else Icons.Rounded.ExpandMore, null, tint = look.signal)
-                Text("${d.pages.size} pages", style = MaterialTheme.typography.labelMedium, color = look.signal)
+                Text(stringResource(R.string.n_pages, d.pages.size), style = MaterialTheme.typography.labelMedium, color = look.signal)
             }
             AnimatedVisibility(raw) {
                 Text(
@@ -198,28 +201,28 @@ private fun ImportedPanel(vm: MainViewModel, imp: ImportedFile) {
     val f = imp.file
     val msg = remember(f) { f.ndef() }
     val payload = remember(msg) { msg?.let(NdefCodec::toPayload) }
-    TermPanel(title = "File · ${imp.name}", trailing = {
+    TermPanel(title = stringResource(R.string.file_title, imp.name), trailing = {
         Text("✕", color = LocalLook.current.dim, modifier = Modifier.clickable { vm.imported = null }.padding(4.dp))
     }) {
-        KvRow("device", f.deviceType)
-        f.ultralight?.let { KvRow("chip", it.flipperName) }
+        KvRow(stringResource(R.string.device), f.deviceType)
+        f.ultralight?.let { KvRow(stringResource(R.string.chip), it.flipperName) }
         KvRow("uid", f.uid.toHex(":"))
-        f.pages?.let { KvRow("pages", it.size.toString()) }
-        SectionLabel("Records")
-        if (msg == null) Dim("No NDEF message found in this file.") else NdefCodec.describe(msg).forEach { KvRow(it.type, it.value) }
+        f.pages?.let { KvRow(stringResource(R.string.pages), it.size.toString()) }
+        SectionLabel(stringResource(R.string.records))
+        if (msg == null) Dim(stringResource(R.string.no_ndef_in_file)) else NdefCodec.describe(msg).forEach { KvRow(it.type, it.value) }
         Spacer(Modifier.height(4.dp))
         if (msg != null) {
             ButtonRow {
-                TermButton("Write to tag", { vm.startWrite(msg, "the file's data") }, Modifier.weight(1f), Icons.Rounded.Nfc, primary = true)
-                if (payload != null) TermButton("Edit", { vm.newDraft(payload); vm.tab = Tab.CREATE }, Modifier.weight(1f), Icons.Rounded.Edit)
+                TermButton(stringResource(R.string.write_to_tag), { vm.startWrite(msg, UiText(R.string.file_data)) }, Modifier.weight(1f), Icons.Rounded.Nfc, primary = true)
+                if (payload != null) TermButton(stringResource(R.string.edit), { vm.newDraft(payload); vm.tab = Tab.CREATE }, Modifier.weight(1f), Icons.Rounded.Edit)
             }
             ButtonRow {
-                TermButton("Be the tag", { vm.emulate(msg, imp.name.removeSuffix(".nfc")) }, Modifier.weight(1f), Icons.Rounded.Smartphone)
+                TermButton(stringResource(R.string.be_the_tag), { vm.emulate(msg, imp.name.removeSuffix(".nfc")) }, Modifier.weight(1f), Icons.Rounded.Smartphone)
             }
         }
-        Dim("Phones can't copy a tag's UID; writing copies the data only.", Modifier.padding(top = 6.dp))
+        Dim(stringResource(R.string.uid_not_copied), Modifier.padding(top = 6.dp))
         ButtonRow {
-            TermButton("Send to Flipper", { vm.sendToFlipper(imp.name, imp.text) }, Modifier.weight(1f), Icons.Rounded.Send, enabled = vm.flipperProgress == null)
+            TermButton(stringResource(R.string.send_to_flipper), { vm.sendToFlipper(imp.name, imp.text) }, Modifier.weight(1f), Icons.AutoMirrored.Rounded.Send, enabled = vm.flipperProgress == null)
         }
     }
 }

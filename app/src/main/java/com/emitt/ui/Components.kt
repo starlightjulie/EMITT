@@ -55,6 +55,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
+import androidx.compose.ui.text.style.TextDirection
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.emitt.ui.theme.LocalLook
@@ -171,7 +172,7 @@ fun TermChip(label: String, selected: Boolean, onClick: () -> Unit, modifier: Mo
 /** A wrapping row of single-choice chips. */
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
-fun <T> ChipGroup(options: List<T>, selected: T, label: (T) -> String, onSelect: (T) -> Unit, modifier: Modifier = Modifier) {
+fun <T> ChipGroup(options: List<T>, selected: T, label: @Composable (T) -> String, onSelect: (T) -> Unit, modifier: Modifier = Modifier) {
     FlowRow(modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(8.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
         options.forEach { TermChip(label(it), it == selected, { onSelect(it) }) }
     }
@@ -179,7 +180,7 @@ fun <T> ChipGroup(options: List<T>, selected: T, label: (T) -> String, onSelect:
 
 /** A single horizontally scrolling row of chips, for long option lists. */
 @Composable
-fun <T> ChipStrip(options: List<T>, selected: T, label: (T) -> String, onSelect: (T) -> Unit, modifier: Modifier = Modifier) {
+fun <T> ChipStrip(options: List<T>, selected: T, label: @Composable (T) -> String, onSelect: (T) -> Unit, modifier: Modifier = Modifier) {
     Row(modifier.fillMaxWidth().horizontalScroll(rememberScrollState()), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
         options.forEach { TermChip(label(it), it == selected, { onSelect(it) }) }
     }
@@ -209,7 +210,8 @@ fun TermField(
         minLines = minLines,
         isError = isError,
         supportingText = supporting?.let { { Text(it, style = MaterialTheme.typography.bodySmall) } },
-        textStyle = if (mono) MaterialTheme.typography.bodyLarge.copy(fontFamily = look.mono) else MaterialTheme.typography.bodyLarge,
+        textStyle = (if (mono) MaterialTheme.typography.bodyLarge.copy(fontFamily = look.mono) else MaterialTheme.typography.bodyLarge)
+            .copy(textDirection = TextDirection.Content),
         keyboardOptions = KeyboardOptions(keyboardType = keyboard),
         visualTransformation = if (password) PasswordVisualTransformation() else VisualTransformation.None,
         shape = look.controlShape,

@@ -43,7 +43,7 @@ class CodeWidget : AppWidgetProvider() {
             val item = Library.get(context).byId(prefs(context).getString(key(widgetId), null))
             if (item == null) {
                 views.setImageViewResource(R.id.widget_code, R.drawable.ic_launcher_monochrome)
-                views.setTextViewText(R.id.widget_title, "Tap to pick a code")
+                views.setTextViewText(R.id.widget_title, context.getString(R.string.widget_pick))
                 val pick = Intent(context, WidgetConfigActivity::class.java)
                     .putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, widgetId)
                     .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)

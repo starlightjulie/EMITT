@@ -1,5 +1,7 @@
 package com.emitt.ui
 
+import androidx.compose.ui.res.stringResource
+import com.emitt.R
 import android.app.Activity
 import android.view.WindowManager
 import androidx.compose.foundation.Image
@@ -51,9 +53,9 @@ fun FullscreenCode(text: String, style: QrStyle, title: String?, boostBrightness
         contentAlignment = Alignment.Center,
     ) {
         Column(horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(16.dp)) {
-            health?.bitmap?.let { Image(it.asImageBitmap(), "QR code", Modifier.fillMaxWidth().padding(20.dp).aspectRatio(1f)) }
+            health?.bitmap?.let { Image(it.asImageBitmap(), stringResource(R.string.out_qr), Modifier.fillMaxWidth().padding(20.dp).aspectRatio(1f)) }
             if (title != null) Text(title, style = MaterialTheme.typography.titleLarge, color = ink, textAlign = TextAlign.Center)
-            Text("TAP TO CLOSE", style = MaterialTheme.typography.labelMedium, color = ink.copy(alpha = 0.5f))
+            Text(stringResource(R.string.tap_to_close).uppercase(), style = MaterialTheme.typography.labelMedium, color = ink.copy(alpha = 0.5f))
         }
     }
 }

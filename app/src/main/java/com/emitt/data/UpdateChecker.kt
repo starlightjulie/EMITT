@@ -1,5 +1,6 @@
 package com.emitt.data
 
+import com.emitt.R
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import kotlinx.serialization.json.Json
@@ -17,7 +18,7 @@ sealed interface UpdateResult {
     data class Available(val update: AppUpdate) : UpdateResult
     data object UpToDate : UpdateResult
     /** GitHub couldn't be reached, or the repo has no public releases yet. */
-    data class Failed(val reason: String) : UpdateResult
+    data class Failed(val reason: UiText) : UpdateResult
 }
 
 /**
@@ -41,14 +42,14 @@ object UpdateChecker {
             try {
                 when (conn.responseCode) {
                     200 -> Unit
-                    404 -> return@runCatching UpdateResult.Failed("No public releases yet")
-                    else -> return@runCatching UpdateResult.Failed("GitHub replied ${conn.responseCode}")
+                    404 -> return@runCatching UpdateResult.Failed(UiText(R.string.upd_none))
+                    else -> return@runCatching UpdateResult.Failed(UiText(R.string.upd_http, conn.responseCode))
                 }
                 val json = Json.parseToJsonElement(conn.inputStream.bufferedReader().readText()).jsonObject
                 if (json["draft"]?.jsonPrimitive?.booleanOrNull == true) return@runCatching UpdateResult.UpToDate
                 if (json["prerelease"]?.jsonPrimitive?.booleanOrNull == true) return@runCatching UpdateResult.UpToDate
                 val tag = json["tag_name"]?.jsonPrimitive?.contentOrNull?.removePrefix("v")
-                    ?: return@runCatching UpdateResult.Failed("Release has no version tag")
+                    ?: return@runCatching UpdateResult.Failed(UiText(R.string.upd_notag))
                 if (compare(tag, currentVersion) <= 0) return@runCatching UpdateResult.UpToDate
                 UpdateResult.Available(
                     AppUpdate(
@@ -60,7 +61,7 @@ object UpdateChecker {
             } finally {
                 conn.disconnect()
             }
-        }.getOrElse { UpdateResult.Failed("Couldn't reach GitHub") }
+        }.getOrElse { UpdateResult.Failed(UiText(R.string.upd_offline)) }
     }
 
     /** Compares dotted version names numerically ("1.1.10" > "1.1.9"). */

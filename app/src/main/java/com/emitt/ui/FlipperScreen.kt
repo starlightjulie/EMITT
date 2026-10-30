@@ -1,5 +1,8 @@
 package com.emitt.ui
 
+import androidx.compose.ui.res.stringResource
+import com.emitt.R
+import com.emitt.data.UiText
 import android.Manifest
 import android.content.pm.PackageManager
 import android.os.Build
@@ -16,7 +19,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Bluetooth
-import androidx.compose.material.icons.rounded.BluetoothSearching
+import androidx.compose.material.icons.automirrored.rounded.BluetoothSearching
 import androidx.compose.material.icons.rounded.Campaign
 import androidx.compose.material.icons.rounded.ExpandLess
 import androidx.compose.material.icons.rounded.ExpandMore
@@ -64,34 +67,34 @@ fun FlipperScreen(vm: MainViewModel) {
     val ask = rememberLauncherForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { granted = hasPerms() }
 
     Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
-        TermPanel(title = "Link") {
+        TermPanel(title = stringResource(R.string.link)) {
             when (val s = state) {
-                FlipperState.Idle -> StatusLine(Status.INFO, "Not connected")
+                FlipperState.Idle -> StatusLine(Status.INFO, stringResource(R.string.fl_not_connected))
                 is FlipperState.Connecting -> Row(verticalAlignment = Alignment.CenterVertically) {
                     CircularProgressIndicator(Modifier.padding(end = 10.dp), color = LocalLook.current.accent, strokeWidth = 2.dp)
-                    Text("${s.name}: ${s.step}…", style = MaterialTheme.typography.bodyMedium)
+                    Text("${s.name}: ${s.step.text()}…", style = MaterialTheme.typography.bodyMedium)
                 }
-                is FlipperState.Ready -> StatusLine(Status.OK, "Connected to ${s.name}")
-                is FlipperState.Failed -> StatusLine(Status.FAIL, s.reason)
+                is FlipperState.Ready -> StatusLine(Status.OK, stringResource(R.string.connected_to, s.name))
+                is FlipperState.Failed -> StatusLine(Status.FAIL, s.reason.text())
             }
             if (!granted) {
-                Dim("EMITT needs Bluetooth access to find and talk to your Flipper.", Modifier.padding(top = 6.dp))
-                ButtonRow { TermButton("Allow Bluetooth", { ask.launch(blePermissions) }, Modifier.weight(1f), Icons.Rounded.Bluetooth, primary = true) }
+                Dim(stringResource(R.string.bt_why), Modifier.padding(top = 6.dp))
+                ButtonRow { TermButton(stringResource(R.string.allow_bt), { ask.launch(blePermissions) }, Modifier.weight(1f), Icons.Rounded.Bluetooth, primary = true) }
             } else if (state !is FlipperState.Ready && state !is FlipperState.Connecting) {
                 val last = vm.settings.flipperAddress
                 ButtonRow {
-                    if (last != null) TermButton("Reconnect", {
+                    if (last != null) TermButton(stringResource(R.string.reconnect), {
                         scope.launch { FlipperLink.connect(context, last, vm.settings.flipperName ?: "Flipper") }
                     }, Modifier.weight(1f), Icons.Rounded.Bluetooth, primary = true)
-                    TermButton(if (scanning) "Scanning…" else "Scan", { FlipperLink.startScan(context) }, Modifier.weight(1f), Icons.Rounded.BluetoothSearching, enabled = !scanning)
+                    TermButton(stringResource(if (scanning) R.string.scanning else R.string.tab_scan), { FlipperLink.startScan(context) }, Modifier.weight(1f), Icons.AutoMirrored.Rounded.BluetoothSearching, enabled = !scanning)
                 }
             }
         }
 
         if (granted && state !is FlipperState.Ready) {
-            TermPanel(title = "Nearby") {
+            TermPanel(title = stringResource(R.string.nearby)) {
                 if (found.isEmpty()) {
-                    Dim(if (scanning) "Looking for Flippers…" else "Tap Scan. On the Flipper: Settings → Bluetooth → ON.")
+                    Dim(stringResource(if (scanning) R.string.looking_flippers else R.string.tap_scan))
                 }
                 found.forEach { f ->
                     Row(
@@ -104,13 +107,13 @@ fun FlipperScreen(vm: MainViewModel) {
                         Spacer(Modifier.width(10.dp))
                         Column(Modifier.weight(1f)) {
                             Text(f.name, style = MaterialTheme.typography.titleSmall)
-                            Dim(f.address + (if (f.bonded) " · paired" else "") + if (f.rssi == null) " · not in range" else "")
+                            Dim(f.address + (if (f.bonded) " · " + stringResource(R.string.paired) else "") + if (f.rssi == null) " · " + stringResource(R.string.not_in_range) else "")
                         }
                         f.rssi?.let { Dim("$it dBm") }
                     }
                 }
-                SectionLabel("First time?")
-                Dim("Pick your Flipper above. Android will ask for a PIN: type the 6 digits shown on the Flipper's screen.")
+                SectionLabel(stringResource(R.string.first_time))
+                Dim(stringResource(R.string.pair_hint))
             }
         }
 
@@ -133,7 +136,7 @@ private fun ReadyPanels(vm: MainViewModel, s: FlipperState.Ready) {
             runCatching {
                 sd = FlipperLink.sdInfo()
                 files = FlipperLink.list(FlipperNfcFile.NFC_DIR).filter { !it.isDir }.sortedBy { it.name.lowercase() }
-            }.onFailure { vm.toast("Couldn't list files: ${it.message}"); files = emptyList() }
+            }.onFailure { vm.toast(R.string.list_failed); files = emptyList() }
             busy = false
         }
     }
@@ -141,34 +144,34 @@ private fun ReadyPanels(vm: MainViewModel, s: FlipperState.Ready) {
 
     TermPanel(title = s.name) {
         val i = s.info
-        i["firmware_version"]?.let { KvRow("firmware", it + (i["firmware_branch"]?.let { b -> " ($b)" } ?: "")) }
-        i["firmware_build_date"]?.let { KvRow("built", it) }
-        i["hardware_model"]?.let { KvRow("model", it) }
-        i["hardware_region"]?.let { KvRow("region", it) }
-        sd?.let { (total, free) -> if (total > 0) KvRow("sd card", "%.1f / %.1f GB free".format(free / 1e9, total / 1e9)) }
+        i["firmware_version"]?.let { KvRow(stringResource(R.string.firmware), it + (i["firmware_branch"]?.let { b -> " ($b)" } ?: "")) }
+        i["firmware_build_date"]?.let { KvRow(stringResource(R.string.built), it) }
+        i["hardware_model"]?.let { KvRow(stringResource(R.string.model), it) }
+        i["hardware_region"]?.let { KvRow(stringResource(R.string.region), it) }
+        sd?.let { (total, free) -> if (total > 0) KvRow(stringResource(R.string.sd_card), stringResource(R.string.gb_free, free / 1e9, total / 1e9)) }
         Row(Modifier.clickable { allInfo = !allInfo }.padding(top = 6.dp), verticalAlignment = Alignment.CenterVertically) {
             Icon(if (allInfo) Icons.Rounded.ExpandLess else Icons.Rounded.ExpandMore, null, tint = look.signal)
-            Text("All device info", style = MaterialTheme.typography.labelMedium, color = look.signal)
+            Text(stringResource(R.string.all_device_info), style = MaterialTheme.typography.labelMedium, color = look.signal)
         }
         AnimatedVisibility(allInfo) {
             Column { i.toSortedMap().forEach { (k, v) -> KvRow(k.replace('_', ' '), v) } }
         }
         ButtonRow {
-            TermButton("Beep", { scope.launch { runCatching { FlipperLink.alert() }.onFailure { vm.toast(it.message ?: "Failed") } } }, Modifier.weight(1f), Icons.Rounded.Campaign)
-            TermButton("Disconnect", { FlipperLink.disconnect() }, Modifier.weight(1f), Icons.Rounded.LinkOff)
+            TermButton(stringResource(R.string.beep), { scope.launch { runCatching { FlipperLink.alert() }.onFailure { vm.toast((it as? com.emitt.flipper.FlipperException)?.text ?: UiText(R.string.fl_failed)) } } }, Modifier.weight(1f), Icons.Rounded.Campaign)
+            TermButton(stringResource(R.string.disconnect), { FlipperLink.disconnect() }, Modifier.weight(1f), Icons.Rounded.LinkOff)
         }
     }
 
     TermPanel(title = FlipperNfcFile.NFC_DIR, trailing = {
-        Icon(Icons.Rounded.Refresh, "Refresh", Modifier.clickable(enabled = !busy) { refresh() }, tint = look.accent)
+        Icon(Icons.Rounded.Refresh, stringResource(R.string.refresh), Modifier.clickable(enabled = !busy) { refresh() }, tint = look.accent)
     }) {
         vm.flipperProgress?.let { LinearProgressIndicator(progress = { it }, Modifier.fillMaxWidth().padding(bottom = 8.dp), color = look.accent) }
         val list = files
         when {
-            list == null || busy -> Dim("Reading…")
-            list.isEmpty() -> Dim("No NFC files yet. Make one in Create → Flipper.")
+            list == null || busy -> Dim(stringResource(R.string.reading))
+            list.isEmpty() -> Dim(stringResource(R.string.no_nfc_files))
             else -> list.forEach { f -> KvRow(f.name, "${f.size} B", keepCase = true) }
         }
-        Dim("Files sent from EMITT land here. Open them on the Flipper under NFC → Saved.", Modifier.padding(top = 8.dp))
+        Dim(stringResource(R.string.files_land_here), Modifier.padding(top = 8.dp))
     }
 }

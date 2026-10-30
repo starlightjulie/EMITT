@@ -1,5 +1,7 @@
 package com.emitt.data
 
+import androidx.annotation.StringRes
+import com.emitt.R
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -70,11 +72,11 @@ sealed interface Payload {
 }
 
 @Serializable
-enum class WifiSecurity(val label: String) { WPA("WPA/WPA2/WPA3"), WEP("WEP"), OPEN("None") }
+enum class WifiSecurity(@StringRes val label: Int) { WPA(R.string.wifi_wpa), WEP(R.string.wifi_wep), OPEN(R.string.wifi_open) }
 
-enum class PayloadKind(val label: String) {
-    TEXT("TEXT"), URL("URL"), WIFI("WIFI"), CONTACT("CONTACT"), EMAIL("EMAIL"),
-    SMS("SMS"), PHONE("PHONE"), GEO("GEO"), APP("APP");
+enum class PayloadKind(@StringRes val label: Int) {
+    TEXT(R.string.kind_text), URL(R.string.kind_url), WIFI(R.string.kind_wifi), CONTACT(R.string.kind_contact), EMAIL(R.string.kind_email),
+    SMS(R.string.kind_sms), PHONE(R.string.kind_phone), GEO(R.string.kind_geo), APP(R.string.kind_app);
 
     fun blank(): Payload = when (this) {
         TEXT -> Payload.Text()
@@ -103,18 +105,18 @@ fun Payload.summary(): String = when (this) {
 }.trim()
 
 /** Why this payload can't be used yet, or null when it's ready. */
-fun Payload.problem(): String? = when (this) {
-    is Payload.Text -> if (text.isEmpty()) "Enter some text" else null
-    is Payload.Url -> if (url.isBlank() || url == "https://" || url == "http://") "Enter a link" else null
+fun Payload.problem(): UiText? = when (this) {
+    is Payload.Text -> if (text.isEmpty()) UiText(R.string.need_text) else null
+    is Payload.Url -> if (url.isBlank() || url == "https://" || url == "http://") UiText(R.string.need_link) else null
     is Payload.Wifi -> when {
-        ssid.isEmpty() -> "Enter the network name"
-        security != WifiSecurity.OPEN && password.isEmpty() -> "Enter the password"
+        ssid.isEmpty() -> UiText(R.string.need_ssid)
+        security != WifiSecurity.OPEN && password.isEmpty() -> UiText(R.string.need_password)
         else -> null
     }
-    is Payload.Contact -> if (name.isBlank() && phone.isBlank() && email.isBlank()) "Enter a name, phone or email" else null
-    is Payload.Email -> if (to.isBlank()) "Enter an address" else null
-    is Payload.Sms -> if (number.isBlank()) "Enter a number" else null
-    is Payload.Phone -> if (number.isBlank()) "Enter a number" else null
-    is Payload.Geo -> if (lat.toDoubleOrNull() == null || lon.toDoubleOrNull() == null) "Enter latitude and longitude" else null
-    is Payload.App -> if (!Regex("[A-Za-z][\\w]*(\\.[A-Za-z][\\w]*)+").matches(packageName)) "Enter a package name like com.example.app" else null
+    is Payload.Contact -> if (name.isBlank() && phone.isBlank() && email.isBlank()) UiText(R.string.need_contact) else null
+    is Payload.Email -> if (to.isBlank()) UiText(R.string.need_email) else null
+    is Payload.Sms -> if (number.isBlank()) UiText(R.string.need_number) else null
+    is Payload.Phone -> if (number.isBlank()) UiText(R.string.need_number) else null
+    is Payload.Geo -> if (lat.toDoubleOrNull() == null || lon.toDoubleOrNull() == null) UiText(R.string.need_geo) else null
+    is Payload.App -> if (!Regex("[A-Za-z][\\w]*(\\.[A-Za-z][\\w]*)+").matches(packageName)) UiText(R.string.need_package) else null
 }

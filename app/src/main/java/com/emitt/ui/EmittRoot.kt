@@ -1,5 +1,8 @@
 package com.emitt.ui
 
+import androidx.compose.ui.res.stringResource
+import com.emitt.R
+import androidx.compose.material.icons.rounded.Palette
 import androidx.activity.compose.BackHandler
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.RepeatMode
@@ -48,6 +51,7 @@ import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.foundation.layout.systemBars
@@ -62,8 +66,10 @@ import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.IntOffset
+import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import androidx.compose.animation.Crossfade
 import androidx.compose.animation.core.Spring
@@ -100,8 +106,9 @@ private fun Tab.icon(): ImageVector = when (this) {
 @Composable
 fun EmittRoot(vm: MainViewModel) {
     val look = LocalLook.current
+    val context = LocalContext.current
     val snack = remember { SnackbarHostState() }
-    LaunchedEffect(Unit) { vm.messages.collect { snack.currentSnackbarData?.dismiss(); snack.showSnackbar(it) } }
+    LaunchedEffect(Unit) { vm.messages.collect { snack.currentSnackbarData?.dismiss(); snack.showSnackbar(it.get(context)) } }
 
     val emulating = Emulator.state.collectAsState().value != null
     BackHandler(enabled = vm.fullscreen != null || vm.nfcOp != null || vm.settingsOpen || vm.tab != Tab.CREATE || (vm.tagModeOpen && emulating)) {
@@ -119,13 +126,15 @@ fun EmittRoot(vm: MainViewModel) {
         Column(Modifier.fillMaxSize().windowInsetsPadding(WindowInsets.statusBars)) {
             TopBar(vm)
             val scroll = rememberScrollState()
-            LaunchedEffect(vm.tab, vm.settingsOpen) { scroll.scrollTo(0) }
+            LaunchedEffect(vm.tab, vm.page) { scroll.scrollTo(0) }
             Column(
                 Modifier.weight(1f).fillMaxWidth().imePadding().verticalScroll(scroll).padding(horizontal = 14.dp, vertical = 8.dp),
                 verticalArrangement = Arrangement.spacedBy(12.dp),
             ) {
                 vm.update?.let { UpdateBanner(it.version) { vm.update = null } }
-                if (vm.settingsOpen) {
+                if (vm.page == Page.APPEARANCE) {
+                    AppearanceScreen(vm)
+                } else if (vm.page == Page.SETTINGS) {
                     SettingsScreen(vm)
                 } else {
                     when (vm.tab) {
@@ -158,17 +167,22 @@ private fun TopBar(vm: MainViewModel) {
     val link by FlipperLink.state.collectAsState()
     Row(Modifier.fillMaxWidth().padding(start = 16.dp, end = 8.dp, top = 6.dp, bottom = 6.dp), verticalAlignment = Alignment.CenterVertically) {
         if (vm.settingsOpen) {
-            Icon(Icons.AutoMirrored.Rounded.ArrowBack, "Back", Modifier.clickable { vm.settingsOpen = false }.padding(end = 10.dp), tint = look.accent)
+            Icon(Icons.AutoMirrored.Rounded.ArrowBack, stringResource(R.string.back), Modifier.clickable { vm.settingsOpen = false }.padding(end = 10.dp), tint = look.accent)
         }
-        Text("EMITT", style = glowing(MaterialTheme.typography.titleLarge), color = look.accent)
-        Text(
-            "://" + if (vm.settingsOpen) "settings" else vm.tab.path,
-            style = MaterialTheme.typography.titleLarge,
-            color = look.signal,
-            maxLines = 1,
-            overflow = TextOverflow.Clip,
-        )
-        BlinkCursor()
+        // The path is a URL-like name, so it reads left to right even in Arabic and Urdu.
+        CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Ltr) {
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Text("EMITT", style = glowing(MaterialTheme.typography.titleLarge), color = look.accent)
+                Text(
+                    "://" + when (vm.page) { Page.SETTINGS -> "settings"; Page.APPEARANCE -> "appearance"; null -> vm.tab.path },
+                    style = MaterialTheme.typography.titleLarge,
+                    color = look.signal,
+                    maxLines = 1,
+                    overflow = TextOverflow.Clip,
+                )
+                BlinkCursor()
+            }
+        }
         Spacer(Modifier.weight(1f))
         if (link is FlipperState.Ready) {
             Row(
@@ -180,9 +194,16 @@ private fun TopBar(vm: MainViewModel) {
                 Text("FLP", style = MaterialTheme.typography.labelSmall, color = look.ok)
             }
         }
-        if (!vm.settingsOpen) {
-            Icon(Icons.Rounded.Settings, "Settings", Modifier.clickable { vm.settingsOpen = true }.padding(10.dp), tint = look.accent)
-        }
+        Icon(
+            Icons.Rounded.Palette, stringResource(R.string.appearance),
+            Modifier.clickable { vm.page = if (vm.page == Page.APPEARANCE) null else Page.APPEARANCE }.padding(10.dp),
+            tint = if (vm.page == Page.APPEARANCE) look.signal else look.accent,
+        )
+        Icon(
+            Icons.Rounded.Settings, stringResource(R.string.settings),
+            Modifier.clickable { vm.page = if (vm.page == Page.SETTINGS) null else Page.SETTINGS }.padding(10.dp),
+            tint = if (vm.page == Page.SETTINGS) look.signal else look.accent,
+        )
     }
 }
 
@@ -202,7 +223,7 @@ private fun BottomBar(vm: MainViewModel) {
             horizontalArrangement = Arrangement.Center,
             verticalAlignment = Alignment.CenterVertically,
         ) {
-            Dim("made by ")
+            Dim(stringResource(R.string.made_by) + " ")
             Text(
                 "StarlightJulie",
                 style = MaterialTheme.typography.labelSmall,
@@ -228,9 +249,9 @@ private fun BottomBar(vm: MainViewModel) {
                 ) {
                     Box(Modifier.width(28.dp).height(2.dp).background(if (sel) look.accent else androidx.compose.ui.graphics.Color.Transparent))
                     Spacer(Modifier.height(6.dp))
-                    Icon(t.icon(), t.label, tint = if (sel) look.accent else look.dim)
+                    Icon(t.icon(), stringResource(t.label), tint = if (sel) look.accent else look.dim)
                     Text(
-                        t.label,
+                        stringResource(t.label).uppercase(),
                         style = if (sel) glowing(MaterialTheme.typography.labelSmall) else MaterialTheme.typography.labelSmall,
                         color = if (sel) look.accent else look.dim,
                         maxLines = 1,
@@ -289,24 +310,24 @@ private fun TagMode(vm: MainViewModel) {
         Column(Modifier.align(Alignment.Center), horizontalAlignment = Alignment.CenterHorizontally) {
             EmitPulse(look.ok, look.accent, 220.dp)
             Spacer(Modifier.height(28.dp))
-            Text("PHONE IS A TAG", style = glowing(MaterialTheme.typography.headlineSmall, look.ok), color = look.ok)
+            Text(stringResource(R.string.phone_is_tag).uppercase(), style = glowing(MaterialTheme.typography.headlineSmall, look.ok), color = look.ok)
             Spacer(Modifier.height(8.dp))
             Text(e.label, style = MaterialTheme.typography.titleMedium, maxLines = 2, overflow = TextOverflow.Ellipsis)
             Spacer(Modifier.height(14.dp))
             StatusLine(
                 if (e.reads > 0) Status.OK else Status.INFO,
-                if (e.reads == 0) "Waiting for a reader" else "Read ${e.reads} time${if (e.reads == 1) "" else "s"}",
+                if (e.reads == 0) stringResource(R.string.waiting_reader) else stringResource(R.string.reads, e.reads),
             )
             Spacer(Modifier.height(22.dp))
-            Dim("Hold the other phone's back to the middle of this phone's back.", Modifier.padding(horizontal = 12.dp))
+            Dim(stringResource(R.string.tagmode_hold), Modifier.padding(horizontal = 12.dp))
             Spacer(Modifier.height(6.dp))
-            Dim("Keep this screen open. If EMITT goes to the background, your phone's own tag or wallet can answer instead.", Modifier.padding(horizontal = 12.dp))
+            Dim(stringResource(R.string.tagmode_keep_open), Modifier.padding(horizontal = 12.dp))
             Spacer(Modifier.height(6.dp))
-            Dim("Flipper: NFC → Extra Actions → Read Specific Card Type → Type 4 Tag.", Modifier.padding(horizontal = 12.dp))
+            Dim(stringResource(R.string.tagmode_flipper), Modifier.padding(horizontal = 12.dp))
         }
         Row(Modifier.align(Alignment.BottomCenter).fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(10.dp)) {
-            TermButton("Minimise", { vm.tagModeOpen = false }, Modifier.weight(1f))
-            TermButton("Stop", { vm.stopEmulating() }, Modifier.weight(1f), danger = true, primary = true)
+            TermButton(stringResource(R.string.minimise), { vm.tagModeOpen = false }, Modifier.weight(1f))
+            TermButton(stringResource(R.string.stop), { vm.stopEmulating() }, Modifier.weight(1f), danger = true, primary = true)
         }
     }
 }
@@ -348,9 +369,9 @@ private fun NfcPrompt(vm: MainViewModel) {
     val look = LocalLook.current
     val op = vm.nfcOp
     AnimatedVisibility(op != null, enter = slideInVertically { it } + fadeIn(), exit = slideOutVertically { it } + fadeOut()) {
-        PulseBar("AWAITING TAG", look.signal, "Cancel", { vm.nfcOp = null }) {
-            Text(op?.prompt.orEmpty(), style = MaterialTheme.typography.bodySmall)
-            (vm.lastResult as? com.emitt.nfc.TagResult.Failed)?.let { StatusLine(Status.FAIL, it.reason) }
+        PulseBar(stringResource(R.string.awaiting_tag).uppercase(), look.signal, stringResource(R.string.cancel), { vm.nfcOp = null }) {
+            Text(op?.prompt?.text().orEmpty(), style = MaterialTheme.typography.bodySmall)
+            (vm.lastResult as? com.emitt.nfc.TagResult.Failed)?.let { StatusLine(Status.FAIL, it.reason.text()) }
         }
     }
 }
@@ -362,9 +383,9 @@ private fun EmulationBar(vm: MainViewModel) {
     val emu by Emulator.state.collectAsState()
     AnimatedVisibility(emu != null, enter = slideInVertically { it } + fadeIn(), exit = slideOutVertically { it } + fadeOut()) {
         val e = emu ?: return@AnimatedVisibility
-        PulseBar("PHONE IS A TAG", look.ok, "Stop", vm::stopEmulating, onOpen = { vm.tagModeOpen = true }) {
+        PulseBar(stringResource(R.string.phone_is_tag).uppercase(), look.ok, stringResource(R.string.stop), vm::stopEmulating, onOpen = { vm.tagModeOpen = true }) {
             Text(e.label, style = MaterialTheme.typography.bodySmall, maxLines = 1, overflow = TextOverflow.Ellipsis)
-            Dim(if (e.reads == 0) "Hold another phone's back to yours. Keep your screen on." else "Read ${e.reads} time${if (e.reads == 1) "" else "s"}")
+            Dim(if (e.reads == 0) stringResource(R.string.bar_hold) else stringResource(R.string.reads, e.reads))
         }
     }
 }
@@ -403,11 +424,11 @@ private fun FloatingQr(vm: MainViewModel, modifier: Modifier) {
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             Crossfade(health?.bitmap, animationSpec = tween(160), label = "qr") { bmp ->
-                if (bmp != null) Image(bmp.asImageBitmap(), "QR preview", Modifier.size(128.dp))
+                if (bmp != null) Image(bmp.asImageBitmap(), stringResource(R.string.out_qr), Modifier.size(128.dp))
             }
             val ok = health?.readable == true
             Text(
-                if (ok) "[ OK ] SCANS" else "[FAIL] CHECK",
+                if (ok) "[ OK ] " + stringResource(R.string.scans).uppercase() else "[FAIL] " + stringResource(R.string.check).uppercase(),
                 style = MaterialTheme.typography.labelSmall,
                 color = if (ok) look.ok else look.fail,
                 modifier = Modifier.padding(top = 4.dp),
@@ -420,10 +441,10 @@ private fun FloatingQr(vm: MainViewModel, modifier: Modifier) {
 private fun UpdateBanner(version: String, onDismiss: () -> Unit) {
     val look = LocalLook.current
     val context = LocalContext.current
-    TermPanel(title = "Update available", trailing = {
+    TermPanel(title = stringResource(R.string.update_available), trailing = {
         Text("✕", color = look.dim, modifier = Modifier.clickable(onClick = onDismiss).padding(4.dp))
     }) {
-        StatusLine(Status.OK, "EMITT $version is out.")
-        ButtonRow { TermButton("Open release", { context.openUrl(UpdateChecker.LATEST_RELEASE_URL) }, Modifier.weight(1f), primary = true) }
+        StatusLine(Status.OK, stringResource(R.string.upd_notif_title, version))
+        ButtonRow { TermButton(stringResource(R.string.open_release), { context.openUrl(UpdateChecker.LATEST_RELEASE_URL) }, Modifier.weight(1f), primary = true) }
     }
 }

@@ -3,7 +3,7 @@ package com.emitt.widget
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import androidx.activity.ComponentActivity
+import androidx.appcompat.app.AppCompatActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import com.emitt.data.Encoding
@@ -14,7 +14,7 @@ import com.emitt.ui.theme.EmittTheme
 import com.emitt.ui.theme.ThemeRepository
 
 /** Opens one saved code full screen, straight from the widget or Quick Settings tile. */
-class ShowCodeActivity : ComponentActivity() {
+class ShowCodeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         enableEdgeToEdge()
         super.onCreate(savedInstanceState)

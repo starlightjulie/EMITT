@@ -1,5 +1,7 @@
 package com.emitt.ui
 
+import androidx.compose.ui.res.stringResource
+import com.emitt.R
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -80,7 +82,7 @@ fun ColorPickerDialog(initial: Long, onDismiss: () -> Unit, onPick: (Long) -> Un
         onDismissRequest = onDismiss,
         containerColor = look.panel.copy(alpha = 1f),
         shape = look.panelShape,
-        title = { Text("PICK COLOUR", style = MaterialTheme.typography.titleMedium, color = look.accent) },
+        title = { Text(stringResource(R.string.pick_colour).uppercase(), style = MaterialTheme.typography.titleMedium, color = look.accent) },
         text = {
             Column {
                 // Saturation (x) / value (y) square
@@ -141,15 +143,15 @@ fun ColorPickerDialog(initial: Long, onDismiss: () -> Unit, onPick: (Long) -> Un
                                 android.graphics.Color.colorToHSV((0xFF000000 or it).toInt(), hsv); h = hsv[0]; s = hsv[1]; v = hsv[2]
                             }
                         },
-                        label = "Hex",
+                        label = stringResource(R.string.hex),
                         mono = true,
                     )
                 }
             }
         },
         confirmButton = {
-            TextButton(onClick = { onPick(current.toArgb().toLong() and 0xFFFFFFFF) }) { Text("USE", color = look.accent) }
+            TextButton(onClick = { onPick(current.toArgb().toLong() and 0xFFFFFFFF) }) { Text(stringResource(R.string.use).uppercase(), color = look.accent) }
         },
-        dismissButton = { TextButton(onClick = onDismiss) { Text("CANCEL", color = look.dim) } },
+        dismissButton = { TextButton(onClick = onDismiss) { Text(stringResource(R.string.cancel).uppercase(), color = look.dim) } },
     )
 }

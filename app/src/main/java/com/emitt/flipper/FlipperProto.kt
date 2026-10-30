@@ -1,5 +1,6 @@
 package com.emitt.flipper
 
+import com.emitt.R
 import java.io.ByteArrayOutputStream
 
 /**
@@ -24,10 +25,20 @@ object FlipperProto {
     const val OK = 0
     const val ERROR_STORAGE_EXIST = 6
     val statusNames = mapOf(
-        1 to "Unknown error", 2 to "Couldn't decode", 3 to "Not supported", 4 to "Flipper is busy",
-        5 to "SD card not ready", 6 to "Already exists", 7 to "Doesn't exist", 8 to "Invalid parameter",
-        9 to "Access denied", 10 to "Invalid name", 11 to "Internal error", 13 to "Already open",
-        14 to "Interrupted", 15 to "Invalid parameters",
+        1 to R.string.fs_unknown,
+        2 to R.string.fs_decode,
+        3 to R.string.fs_unsupported,
+        4 to R.string.fs_busy,
+        5 to R.string.fs_sd,
+        6 to R.string.fs_exists,
+        7 to R.string.fs_missing,
+        8 to R.string.fs_param,
+        9 to R.string.fs_denied,
+        10 to R.string.fs_name,
+        11 to R.string.fs_internal,
+        13 to R.string.fs_open,
+        14 to R.string.fs_interrupted,
+        15 to R.string.fs_params,
     )
 
     /** A decoded PB.Main: [field] is the oneof content's field number, [body] its encoded message. */

@@ -1,5 +1,7 @@
 package com.emitt.ui
 
+import androidx.compose.ui.res.stringResource
+import com.emitt.R
 import android.Manifest
 import android.content.pm.PackageManager
 import android.graphics.BitmapFactory
@@ -38,7 +40,7 @@ import androidx.compose.material.icons.rounded.FlashlightOff
 import androidx.compose.material.icons.rounded.FlashlightOn
 import androidx.compose.material.icons.rounded.Image
 import androidx.compose.material.icons.rounded.Nfc
-import androidx.compose.material.icons.rounded.OpenInNew
+import androidx.compose.material.icons.automirrored.rounded.OpenInNew
 import androidx.compose.material.icons.rounded.Refresh
 import androidx.compose.material.icons.rounded.SdCard
 import androidx.compose.runtime.Composable
@@ -80,22 +82,22 @@ fun ScanScreen(vm: MainViewModel) {
         if (uri == null) return@rememberLauncherForActivityResult
         val bmp = context.contentResolver.openInputStream(uri)?.use { BitmapFactory.decodeStream(it) }
         val r = bmp?.let { QrDecoder(tryHarder = true).decode(it) }
-        if (r == null) vm.toast("No code found in that image") else hit = ScanHit(r.text, r.barcodeFormat.name)
+        if (r == null) vm.toast(R.string.no_code_in_image) else hit = ScanHit(r.text, r.barcodeFormat.name)
     }
 
     Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
         val h = hit
         if (h == null) {
-            TermPanel(title = "Scanner") {
+            TermPanel(title = stringResource(R.string.scanner)) {
                 if (granted) {
                     CameraBox(torch) { r -> if (hit == null) hit = r }
                 } else {
-                    StatusLine(Status.INFO, "EMITT needs the camera to scan codes. Nothing is recorded or uploaded.")
-                    ButtonRow { TermButton("Allow camera", { ask.launch(Manifest.permission.CAMERA) }, Modifier.weight(1f), Icons.Rounded.CameraAlt, primary = true) }
+                    StatusLine(Status.INFO, stringResource(R.string.camera_why))
+                    ButtonRow { TermButton(stringResource(R.string.allow_camera), { ask.launch(Manifest.permission.CAMERA) }, Modifier.weight(1f), Icons.Rounded.CameraAlt, primary = true) }
                 }
                 ButtonRow {
-                    if (granted) TermButton(if (torch) "Light off" else "Light", { torch = !torch }, Modifier.weight(1f), if (torch) Icons.Rounded.FlashlightOff else Icons.Rounded.FlashlightOn)
-                    TermButton("From image", { pickImage.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly)) }, Modifier.weight(1f), Icons.Rounded.Image)
+                    if (granted) TermButton(stringResource(if (torch) R.string.light_off else R.string.light), { torch = !torch }, Modifier.weight(1f), if (torch) Icons.Rounded.FlashlightOff else Icons.Rounded.FlashlightOn)
+                    TermButton(stringResource(R.string.from_image), { pickImage.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly)) }, Modifier.weight(1f), Icons.Rounded.Image)
                 }
             }
         } else {
@@ -108,30 +110,30 @@ fun ScanScreen(vm: MainViewModel) {
 private fun ScanResult(vm: MainViewModel, hit: ScanHit, onAgain: () -> Unit) {
     val context = LocalContext.current
     val payload = remember(hit) { Encoding.parse(hit.text) }
-    TermPanel(title = "Decoded · ${hit.format.replace('_', ' ')}") {
-        KvRow("type", payload.kind.label)
+    TermPanel(title = stringResource(R.string.decoded, hit.format.replace('_', ' '))) {
+        KvRow(stringResource(R.string.type), stringResource(payload.kind.label))
         when (payload) {
-            is Payload.Wifi -> { KvRow("ssid", payload.ssid); KvRow("security", payload.security.label); KvRow("password", payload.password) }
-            is Payload.Contact -> { KvRow("name", payload.name); KvRow("phone", payload.phone); KvRow("email", payload.email) }
-            else -> KvRow("content", hit.text)
+            is Payload.Wifi -> { KvRow("SSID", payload.ssid); KvRow(stringResource(R.string.security), stringResource(payload.security.label)); KvRow(stringResource(R.string.password), payload.password) }
+            is Payload.Contact -> { KvRow(stringResource(R.string.name), payload.name); KvRow(stringResource(R.string.kind_phone), payload.phone); KvRow(stringResource(R.string.kind_email), payload.email) }
+            else -> KvRow(stringResource(R.string.content), hit.text)
         }
         ButtonRow {
-            if (payload is Payload.Url) TermButton("Open", { context.openUrl(payload.url) }, Modifier.weight(1f), Icons.Rounded.OpenInNew, primary = true)
-            TermButton("Copy", { context.copyText("Scanned", hit.text); vm.toast("Copied") }, Modifier.weight(1f), Icons.Rounded.ContentCopy)
+            if (payload is Payload.Url) TermButton(stringResource(R.string.open), { context.openUrl(payload.url) }, Modifier.weight(1f), Icons.AutoMirrored.Rounded.OpenInNew, primary = true)
+            TermButton(stringResource(R.string.copy), { context.copyText("EMITT", hit.text); vm.toast(R.string.copied) }, Modifier.weight(1f), Icons.Rounded.ContentCopy)
         }
-        SectionLabel("Re-emit")
+        SectionLabel(stringResource(R.string.re_emit))
         ButtonRow {
-            TermButton("Edit", { vm.newDraft(payload); vm.output = Output.QR; vm.tab = Tab.CREATE }, Modifier.weight(1f), Icons.Rounded.Edit)
-            TermButton("To tag", { vm.newDraft(payload); vm.output = Output.NFC; vm.tab = Tab.CREATE }, Modifier.weight(1f), Icons.Rounded.Nfc)
+            TermButton(stringResource(R.string.edit), { vm.newDraft(payload); vm.output = Output.QR; vm.tab = Tab.CREATE }, Modifier.weight(1f), Icons.Rounded.Edit)
+            TermButton(stringResource(R.string.to_tag), { vm.newDraft(payload); vm.output = Output.NFC; vm.tab = Tab.CREATE }, Modifier.weight(1f), Icons.Rounded.Nfc)
         }
         ButtonRow {
-            TermButton("Flipper", { vm.newDraft(payload); vm.output = Output.FLIPPER; vm.tab = Tab.CREATE }, Modifier.weight(1f), Icons.Rounded.SdCard)
-            TermButton("Save", {
-                vm.library.upsert(SavedItem(name = payload.summary().take(40).ifBlank { "Scanned" }, payload = payload))
-                vm.toast("Saved to library")
+            TermButton(stringResource(R.string.tab_flipper), { vm.newDraft(payload); vm.output = Output.FLIPPER; vm.tab = Tab.CREATE }, Modifier.weight(1f), Icons.Rounded.SdCard)
+            TermButton(stringResource(R.string.save), {
+                vm.library.upsert(SavedItem(name = payload.summary().take(40).ifBlank { "QR" }, payload = payload))
+                vm.toast(R.string.lib_saved)
             }, Modifier.weight(1f), Icons.Rounded.Bookmark)
         }
-        ButtonRow { TermButton("Scan again", onAgain, Modifier.weight(1f), Icons.Rounded.Refresh, primary = true) }
+        ButtonRow { TermButton(stringResource(R.string.scan_again), onAgain, Modifier.weight(1f), Icons.Rounded.Refresh, primary = true) }
     }
 }
 
@@ -192,7 +194,7 @@ private fun CameraBox(torch: Boolean, onHit: (ScanHit) -> Unit) {
             drawLine(look.signal.copy(alpha = 0.8f), Offset(c.x - s, yy), Offset(c.x + s, yy), 2.dp.toPx())
         }
     }
-    Dim("Point at a QR code or barcode. It decodes on the phone; nothing leaves it.", Modifier.padding(top = 8.dp))
+    Dim(stringResource(R.string.scan_hint), Modifier.padding(top = 8.dp))
 }
 
 /** Decodes the luminance plane of each frame, trying a rotated copy so sideways barcodes work too. */

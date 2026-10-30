@@ -1,5 +1,9 @@
 package com.emitt.ui
 
+import androidx.compose.ui.res.stringResource
+import com.emitt.R
+import com.emitt.data.UiText
+import com.emitt.data.UiTextException
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -20,7 +24,7 @@ import androidx.compose.material.icons.rounded.Edit
 import androidx.compose.material.icons.rounded.Fullscreen
 import androidx.compose.material.icons.rounded.Nfc
 import androidx.compose.material.icons.rounded.PushPin
-import androidx.compose.material.icons.rounded.Send
+import androidx.compose.material.icons.automirrored.rounded.Send
 import androidx.compose.material.icons.rounded.Smartphone
 import androidx.compose.material.icons.rounded.Star
 import androidx.compose.material.icons.rounded.StarBorder
@@ -59,13 +63,13 @@ fun LibraryScreen(vm: MainViewModel) {
         .sortedWith(compareByDescending<SavedItem> { it.favourite }.thenByDescending { it.created })
 
     Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
-        TermPanel(title = "Library · ${items.size}") {
-            TermField(query, { query = it }, "Search")
-            ChipGroup(listOf(false, true), starred, { if (it) "★ Starred" else "All" }, { starred = it }, Modifier.padding(top = 4.dp))
+        TermPanel(title = stringResource(R.string.library_count, items.size)) {
+            TermField(query, { query = it }, stringResource(R.string.search))
+            ChipGroup(listOf(false, true), starred, { if (it) "★ " + stringResource(R.string.starred) else stringResource(R.string.all) }, { starred = it }, Modifier.padding(top = 4.dp))
         }
         if (shown.isEmpty()) {
             TermPanel {
-                Dim(if (items.isEmpty()) "Nothing saved yet. Make something in Create and tap Save to library." else "No matches.")
+                Dim(stringResource(if (items.isEmpty()) R.string.lib_empty else R.string.no_matches))
             }
         }
         shown.forEach { item ->
@@ -93,12 +97,12 @@ private fun LibraryRow(vm: MainViewModel, item: SavedItem, expanded: Boolean, on
             Column(Modifier.weight(1f)) {
                 Text(item.name, style = MaterialTheme.typography.titleSmall, maxLines = 1, overflow = TextOverflow.Ellipsis)
                 Text(
-                    "${item.payload.kind.label}${if (pinned) " · TILE" else ""} · ${item.payload.summary()}",
+                    "${stringResource(item.payload.kind.label)}${if (pinned) " · " + stringResource(R.string.tile) else ""} · ${item.payload.summary()}",
                     style = MaterialTheme.typography.bodySmall, color = look.dim, maxLines = 1, overflow = TextOverflow.Ellipsis,
                 )
             }
             Icon(
-                if (item.favourite) Icons.Rounded.Star else Icons.Rounded.StarBorder, "Star",
+                if (item.favourite) Icons.Rounded.Star else Icons.Rounded.StarBorder, stringResource(R.string.star),
                 Modifier.clickable { vm.library.upsert(item.copy(favourite = !item.favourite)) }.padding(6.dp),
                 tint = if (item.favourite) look.accent else look.dim,
             )
@@ -106,27 +110,27 @@ private fun LibraryRow(vm: MainViewModel, item: SavedItem, expanded: Boolean, on
         AnimatedVisibility(expanded) {
             Column {
                 ButtonRow {
-                    TermButton("Show", { vm.fullscreen = text to item.style }, Modifier.weight(1f), Icons.Rounded.Fullscreen, primary = true)
-                    TermButton("Edit", { vm.edit(item) }, Modifier.weight(1f), Icons.Rounded.Edit)
+                    TermButton(stringResource(R.string.show), { vm.fullscreen = text to item.style }, Modifier.weight(1f), Icons.Rounded.Fullscreen, primary = true)
+                    TermButton(stringResource(R.string.edit), { vm.edit(item) }, Modifier.weight(1f), Icons.Rounded.Edit)
                 }
                 ButtonRow {
-                    TermButton("Write tag", { vm.startWrite(item.payload) }, Modifier.weight(1f), Icons.Rounded.Nfc)
-                    TermButton("Flipper", {
-                        vm.flipperFile(item.payload, item.name).onSuccess { (n, t) -> vm.sendToFlipper(n, t) }.onFailure { vm.toast(it.message ?: "Can't build file") }
-                    }, Modifier.weight(1f), Icons.Rounded.Send, enabled = vm.flipperProgress == null)
+                    TermButton(stringResource(R.string.write_to_tag), { vm.startWrite(item.payload) }, Modifier.weight(1f), Icons.Rounded.Nfc)
+                    TermButton(stringResource(R.string.tab_flipper), {
+                        vm.flipperFile(item.payload, item.name).onSuccess { (n, t) -> vm.sendToFlipper(n, t) }.onFailure { vm.toast((it as? UiTextException)?.text ?: UiText(R.string.cant_build_file)) }
+                    }, Modifier.weight(1f), Icons.AutoMirrored.Rounded.Send, enabled = vm.flipperProgress == null)
                 }
                 ButtonRow {
-                    TermButton(if (pinned) "Unpin tile" else "Pin to tile", {
+                    TermButton(stringResource(if (pinned) R.string.unpin_tile else R.string.pin_tile), {
                         vm.settings.tileItemId = if (pinned) null else item.id
                         CodeTileService.refresh(context)
                         CodeWidget.refreshAll(context)
-                        vm.toast(if (pinned) "Removed from the Quick Settings tile" else "Quick Settings tile now shows ${item.name}")
+                        if (pinned) vm.toast(R.string.tile_removed) else vm.toast(R.string.tile_now_shows, item.name)
                     }, Modifier.weight(1f), Icons.Rounded.PushPin)
-                    TermButton("Rename", { rename = true }, Modifier.weight(1f), Icons.Rounded.DriveFileRenameOutline)
+                    TermButton(stringResource(R.string.rename), { rename = true }, Modifier.weight(1f), Icons.Rounded.DriveFileRenameOutline)
                 }
                 ButtonRow {
-                    TermButton("Be the tag", { vm.emulate(item.payload, item.name) }, Modifier.weight(1f), Icons.Rounded.Smartphone)
-                    TermButton("Delete", { delete = true }, Modifier.weight(1f), Icons.Rounded.Delete, danger = true)
+                    TermButton(stringResource(R.string.be_the_tag), { vm.emulate(item.payload, item.name) }, Modifier.weight(1f), Icons.Rounded.Smartphone)
+                    TermButton(stringResource(R.string.delete), { delete = true }, Modifier.weight(1f), Icons.Rounded.Delete, danger = true)
                 }
             }
         }
@@ -136,31 +140,31 @@ private fun LibraryRow(vm: MainViewModel, item: SavedItem, expanded: Boolean, on
         var name by remember { mutableStateOf(item.name) }
         AlertDialog(
             onDismissRequest = { rename = false },
-            title = { Text("RENAME", style = MaterialTheme.typography.titleMedium) },
-            text = { TermField(name, { name = it }, "Name") },
+            title = { Text(stringResource(R.string.rename).uppercase(), style = MaterialTheme.typography.titleMedium) },
+            text = { TermField(name, { name = it }, stringResource(R.string.name)) },
             confirmButton = {
                 TextButton(onClick = {
                     vm.library.upsert(item.copy(name = name.trim().ifEmpty { item.name })); rename = false
                     CodeWidget.refreshAll(context)
-                }) { Text("SAVE", color = look.accent) }
+                }) { Text(stringResource(R.string.save).uppercase(), color = look.accent) }
             },
-            dismissButton = { TextButton(onClick = { rename = false }) { Text("CANCEL") } },
+            dismissButton = { TextButton(onClick = { rename = false }) { Text(stringResource(R.string.cancel).uppercase()) } },
         )
     }
     if (delete) {
         AlertDialog(
             onDismissRequest = { delete = false },
-            title = { Text("DELETE?", style = MaterialTheme.typography.titleMedium) },
-            text = { Text("Remove “${item.name}” from your library? Widgets showing it will go blank.") },
+            title = { Text(stringResource(R.string.delete_q).uppercase(), style = MaterialTheme.typography.titleMedium) },
+            text = { Text(stringResource(R.string.delete_confirm, item.name)) },
             confirmButton = {
                 TextButton(onClick = {
                     vm.library.delete(item.id)
                     if (vm.settings.tileItemId == item.id) vm.settings.tileItemId = null
                     delete = false
                     CodeWidget.refreshAll(context)
-                }) { Text("DELETE", color = look.fail) }
+                }) { Text(stringResource(R.string.delete).uppercase(), color = look.fail) }
             },
-            dismissButton = { TextButton(onClick = { delete = false }) { Text("CANCEL") } },
+            dismissButton = { TextButton(onClick = { delete = false }) { Text(stringResource(R.string.cancel).uppercase()) } },
         )
     }
 }

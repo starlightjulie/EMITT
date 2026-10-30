@@ -53,13 +53,13 @@ object NdefCodec {
             r.tnf == NdefRecord.TNF_WELL_KNOWN && r.type.contentEquals(NdefRecord.RTD_TEXT) -> RecordInfo("TEXT", textOf(r))
             r.toUri() != null -> RecordInfo("URI", r.toUri().toString())
             r.tnf == NdefRecord.TNF_MIME_MEDIA && r.mime() == WIFI_MIME ->
-                RecordInfo("WIFI", parseWifi(r.payload)?.let { "${it.ssid} · ${it.security.label}" } ?: "Wi-Fi credential")
+                RecordInfo("WIFI", parseWifi(r.payload)?.let { "${it.ssid} · ${it.security.name}" } ?: "Wi-Fi")
             r.tnf == NdefRecord.TNF_MIME_MEDIA -> RecordInfo(
                 r.mime().uppercase(),
-                if (r.mime().startsWith("text/")) String(r.payload) else "${r.payload.size} bytes",
+                if (r.mime().startsWith("text/")) String(r.payload) else "${r.payload.size} B",
             )
             r.tnf == NdefRecord.TNF_EXTERNAL_TYPE && String(r.type) == "android.com:pkg" -> RecordInfo("APP", String(r.payload))
-            r.tnf == NdefRecord.TNF_EXTERNAL_TYPE -> RecordInfo(String(r.type), "${r.payload.size} bytes")
+            r.tnf == NdefRecord.TNF_EXTERNAL_TYPE -> RecordInfo(String(r.type), "${r.payload.size} B")
             else -> RecordInfo("TNF ${r.tnf}", r.payload.toHex())
         }
     }

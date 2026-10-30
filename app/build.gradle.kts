@@ -16,8 +16,8 @@ android {
         applicationId = "com.emitt"
         minSdk = 26
         targetSdk = 36
-        versionCode = 3
-        versionName = "1.2.0"
+        versionCode = 4
+        versionName = "1.3.0"
     }
 
     // Release key: keystore.properties next to the project, in ~/.emitt-signing/, or EMITT_KEYSTORE_* env vars.
@@ -93,6 +93,8 @@ dependencies {
 
     implementation("androidx.core:core-ktx:1.17.0")
     implementation("androidx.activity:activity-compose:1.11.0")
+    // Per-app language picker (works back to Android 8 via AppCompat)
+    implementation("androidx.appcompat:appcompat:1.7.1")
     implementation("androidx.lifecycle:lifecycle-runtime-compose:2.9.4")
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.9.4")
     implementation("androidx.work:work-runtime-ktx:2.10.5")

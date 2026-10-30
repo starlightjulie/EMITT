@@ -1,5 +1,6 @@
 package com.emitt.widget
 
+import com.emitt.R
 import android.annotation.SuppressLint
 import android.app.PendingIntent
 import android.content.ComponentName
@@ -18,8 +19,8 @@ class CodeTileService : TileService() {
     override fun onStartListening() {
         val tile = qsTile ?: return
         val item = Library.get(this).byId(Settings(this).tileItemId)
-        tile.label = item?.name ?: "EMITT code"
-        if (Build.VERSION.SDK_INT >= 29) tile.subtitle = if (item == null) "Pin one in Library" else "Show code"
+        tile.label = item?.name ?: getString(R.string.tile_label)
+        if (Build.VERSION.SDK_INT >= 29) tile.subtitle = getString(if (item == null) R.string.tile_pin else R.string.tile_show)
         tile.state = if (item == null) Tile.STATE_INACTIVE else Tile.STATE_ACTIVE
         tile.updateTile()
     }

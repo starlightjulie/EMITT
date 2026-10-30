@@ -1,5 +1,6 @@
 package com.emitt
 
+import androidx.annotation.StringRes
 import android.content.Context
 import android.os.Build
 import android.os.VibrationEffect
@@ -11,18 +12,18 @@ import com.emitt.data.Settings
  * Vibration patterns. [timings] alternate off/on in ms (starting with a pause), [amps] is the
  * strength for each step, 0..255.
  */
-enum class HapticPattern(val label: String, val timings: LongArray, val amps: IntArray) {
-    OFF("Off", longArrayOf(), intArrayOf()),
-    TICK("Tick", longArrayOf(0, 25), intArrayOf(0, 220)),
-    DOUBLE("Double tap", longArrayOf(0, 40, 90, 40), intArrayOf(0, 230, 0, 230)),
-    TRIPLE("Triple", longArrayOf(0, 35, 70, 35, 70, 35), intArrayOf(0, 220, 0, 220, 0, 220)),
-    HEARTBEAT("Heartbeat", longArrayOf(0, 70, 110, 110, 420, 70, 110, 110), intArrayOf(0, 255, 0, 160, 0, 255, 0, 160)),
-    BUZZ("Long buzz", longArrayOf(0, 380), intArrayOf(0, 200)),
-    RISING("Rising", longArrayOf(0, 60, 40, 60, 40, 60, 40, 130), intArrayOf(0, 60, 0, 120, 0, 190, 0, 255)),
-    FALLING("Falling", longArrayOf(0, 130, 40, 60, 40, 60, 40, 60), intArrayOf(0, 255, 0, 190, 0, 120, 0, 60)),
-    PURR("Purr", LongArray(20) { if (it % 2 == 0) 18 else 22 }, IntArray(20) { if (it % 2 == 0) 0 else 110 }),
+enum class HapticPattern(@StringRes val label: Int, val timings: LongArray, val amps: IntArray) {
+    OFF(R.string.pat_off, longArrayOf(), intArrayOf()),
+    TICK(R.string.pat_tick, longArrayOf(0, 25), intArrayOf(0, 220)),
+    DOUBLE(R.string.pat_double, longArrayOf(0, 40, 90, 40), intArrayOf(0, 230, 0, 230)),
+    TRIPLE(R.string.pat_triple, longArrayOf(0, 35, 70, 35, 70, 35), intArrayOf(0, 220, 0, 220, 0, 220)),
+    HEARTBEAT(R.string.pat_heartbeat, longArrayOf(0, 70, 110, 110, 420, 70, 110, 110), intArrayOf(0, 255, 0, 160, 0, 255, 0, 160)),
+    BUZZ(R.string.pat_buzz, longArrayOf(0, 380), intArrayOf(0, 200)),
+    RISING(R.string.pat_rising, longArrayOf(0, 60, 40, 60, 40, 60, 40, 130), intArrayOf(0, 60, 0, 120, 0, 190, 0, 255)),
+    FALLING(R.string.pat_falling, longArrayOf(0, 130, 40, 60, 40, 60, 40, 60), intArrayOf(0, 255, 0, 190, 0, 120, 0, 60)),
+    PURR(R.string.pat_purr, LongArray(20) { if (it % 2 == 0) 18 else 22 }, IntArray(20) { if (it % 2 == 0) 0 else 110 }),
     SOS(
-        "SOS",
+        R.string.pat_sos,
         longArrayOf(0, 60, 60, 60, 60, 60, 180, 180, 60, 180, 60, 180, 180, 60, 60, 60, 60, 60),
         intArrayOf(0, 230, 0, 230, 0, 230, 0, 230, 0, 230, 0, 230, 0, 230, 0, 230, 0, 230),
     ),
@@ -34,10 +35,10 @@ enum class HapticPattern(val label: String, val timings: LongArray, val amps: In
 }
 
 /** The moments EMITT can vibrate for, each with its own pattern in Settings. */
-enum class HapticEvent(val label: String, val hint: String, val default: HapticPattern) {
-    WRITE("Tag written or read", "When EMITT writes, reads, erases or locks a tag", HapticPattern.DOUBLE),
-    EMULATED("Phone read as a tag", "When another device reads this phone in tag mode", HapticPattern.HEARTBEAT),
-    FAIL("Something failed", "A write or read that didn't work", HapticPattern.BUZZ),
+enum class HapticEvent(@StringRes val label: Int, @StringRes val hint: Int, val default: HapticPattern) {
+    WRITE(R.string.hev_write, R.string.hev_write_hint, HapticPattern.DOUBLE),
+    EMULATED(R.string.hev_emulated, R.string.hev_emulated_hint, HapticPattern.HEARTBEAT),
+    FAIL(R.string.hev_fail, R.string.hev_fail_hint, HapticPattern.BUZZ),
 }
 
 object Haptics {

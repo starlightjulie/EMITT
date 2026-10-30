@@ -1,5 +1,7 @@
 package com.emitt.flipper
 
+import com.emitt.R
+import com.emitt.data.UiText
 import android.annotation.SuppressLint
 import android.bluetooth.BluetoothDevice
 import android.bluetooth.BluetoothGatt
@@ -41,13 +43,13 @@ data class FoundFlipper(val name: String, val address: String, val bonded: Boole
 
 sealed interface FlipperState {
     data object Idle : FlipperState
-    data class Connecting(val name: String, val step: String) : FlipperState
+    data class Connecting(val name: String, val step: UiText) : FlipperState
     data class Ready(val name: String, val address: String, val info: Map<String, String>) : FlipperState
-    data class Failed(val reason: String) : FlipperState
+    data class Failed(val reason: UiText) : FlipperState
 }
 
 /** [status] is the Flipper's PB.CommandStatus when the error came from the Flipper itself. */
-class FlipperException(message: String, val status: Int = 0) : Exception(message)
+class FlipperException(val text: UiText, val status: Int = 0) : Exception("Flipper error ${text.id} $status")
 
 /**
  * The Bluetooth LE link to a Flipper Zero. It speaks the Flipper's RPC over its serial GATT service
@@ -127,7 +129,7 @@ object FlipperLink {
     fun startScan(context: Context) {
         val adapter = context.getSystemService(BluetoothManager::class.java)?.adapter ?: return
         if (!adapter.isEnabled) {
-            _state.value = FlipperState.Failed("Bluetooth is off")
+            _state.value = FlipperState.Failed(UiText(R.string.fl_bt_off))
             return
         }
         // Paired Flippers show up straight away (marked not in range until they advertise)
@@ -161,15 +163,15 @@ object FlipperLink {
         try {
             // Make sure it's actually advertising at this address (a few seconds at most)
             if (!advertising.containsKey(address)) {
-                _state.value = FlipperState.Connecting(name, "Looking for it")
+                _state.value = FlipperState.Connecting(name, UiText(R.string.fl_step_looking))
                 bm.adapter.bluetoothLeScanner?.startScan(null, ScanSettings.Builder().setScanMode(ScanSettings.SCAN_MODE_LOW_LATENCY).build(), scanCallback)
                 withTimeoutOrNull(6_000) { while (!advertising.containsKey(address)) delay(100) }
                 runCatching { bm.adapter.bluetoothLeScanner?.stopScan(scanCallback) }
             }
             val busy = bm.getConnectedDevices(BluetoothProfile.GATT).firstOrNull { it.address == address }
             val device = advertising[address] ?: busy ?: throw FlipperException(
-                if (advertising.isNotEmpty()) "That pairing isn't in range. Pick the Flipper marked with a signal strength."
-                else "Can't see your Flipper. On it, check Settings → Bluetooth is ON, and that the Flipper app isn't connected to it.",
+                if (advertising.isNotEmpty()) UiText(R.string.fl_not_in_range)
+                else UiText(R.string.fl_cant_see),
             )
             log("connect ${device.address} '$name' bond=${device.bondState} advertising=${advertising.containsKey(address)}")
             if (busy != null) {
@@ -177,23 +179,23 @@ object FlipperLink {
                 otherAppConnected = true
             }
             if (device.bondState != BluetoothDevice.BOND_BONDED) {
-                _state.value = FlipperState.Connecting(name, "Pairing: enter the PIN shown on your Flipper")
+                _state.value = FlipperState.Connecting(name, UiText(R.string.fl_step_pairing))
                 bond(app, device)
                 log("bonded")
             }
-            _state.value = FlipperState.Connecting(name, "Connecting")
+            _state.value = FlipperState.Connecting(name, UiText(R.string.fl_step_connecting))
             val connected = CompletableDeferred<Any?>()
             pendingGatt = connected
             gatt = device.connectGatt(app, false, callback, BluetoothDevice.TRANSPORT_LE)
             withTimeout(20_000) { connected.await() }
             log("gatt connected")
 
-            _state.value = FlipperState.Connecting(name, "Setting up")
+            _state.value = FlipperState.Connecting(name, UiText(R.string.fl_step_setup))
             gattOp { gatt!!.requestMtu(512) }
             log("mtu=$mtu")
             gattOp { gatt!!.discoverServices() }
             log("services: ${gatt!!.services.map { it.uuid }}")
-            val svc = gatt!!.getService(SERVICE) ?: throw FlipperException("This doesn't look like a Flipper (no serial service)")
+            val svc = gatt!!.getService(SERVICE) ?: throw FlipperException(UiText(R.string.fl_not_flipper))
             rx = svc.getCharacteristic(RX)
             val tx = svc.getCharacteristic(TX)
             val flow = svc.getCharacteristic(FLOW)
@@ -204,7 +206,7 @@ object FlipperLink {
             freeBytes.set(initial?.let(::u32) ?: 1024)
             log("flow control free=${freeBytes.get()}")
 
-            _state.value = FlipperState.Connecting(name, "Reading device info")
+            _state.value = FlipperState.Connecting(name, UiText(R.string.fl_step_info))
             val info = deviceInfo()
             log("device info: ${info.size} keys")
             val stable = device.address
@@ -214,15 +216,15 @@ object FlipperLink {
             log("connect failed: $e")
             if (otherAppConnected && e !is FlipperException) {
                 disconnect()
-                _state.value = FlipperState.Failed("The Flipper is connected to another app (like the official Flipper app). Disconnect it there, then try again.")
+                _state.value = FlipperState.Failed(UiText(R.string.fl_other_app))
                 return
             }
             disconnect()
             _state.value = FlipperState.Failed(
                 when (e) {
-                    is FlipperException -> e.message!!
-                    is kotlinx.coroutines.TimeoutCancellationException -> "Timed out. Is Bluetooth on in the Flipper's settings?"
-                    else -> e.message ?: "Connection failed"
+                    is FlipperException -> e.text
+                    is kotlinx.coroutines.TimeoutCancellationException -> UiText(R.string.fl_timeout)
+                    else -> UiText(R.string.fl_failed)
                 },
             )
         }
@@ -232,9 +234,9 @@ object FlipperLink {
         gatt?.let { runCatching { it.disconnect(); it.close() } }
         gatt = null
         rx = null
-        pendingGatt?.completeExceptionally(FlipperException("Disconnected"))
+        pendingGatt?.completeExceptionally(FlipperException(UiText(R.string.fl_disconnected)))
         pendingGatt = null
-        pendingRpc.values.forEach { it.second.completeExceptionally(FlipperException("Disconnected")) }
+        pendingRpc.values.forEach { it.second.completeExceptionally(FlipperException(UiText(R.string.fl_disconnected))) }
         pendingRpc.clear()
         inLen = 0
         if (_state.value !is FlipperState.Failed) _state.value = FlipperState.Idle
@@ -255,16 +257,16 @@ object FlipperLink {
         }
         ContextCompat.registerReceiver(context, receiver, IntentFilter(BluetoothDevice.ACTION_BOND_STATE_CHANGED), ContextCompat.RECEIVER_EXPORTED)
         try {
-            if (!device.createBond()) throw FlipperException("Couldn't start pairing")
+            if (!device.createBond()) throw FlipperException(UiText(R.string.fl_pair_start))
             val result = withTimeoutOrNull(90_000) { done.await() }
-            if (result != BluetoothDevice.BOND_BONDED) throw FlipperException("Pairing was cancelled or the PIN didn't match")
+            if (result != BluetoothDevice.BOND_BONDED) throw FlipperException(UiText(R.string.fl_pair_failed))
         } finally {
             context.unregisterReceiver(receiver)
         }
     }
 
     private suspend fun subscribe(c: BluetoothGattCharacteristic, indicate: Boolean) {
-        val g = gatt ?: throw FlipperException("Not connected")
+        val g = gatt ?: throw FlipperException(UiText(R.string.fl_not_connected))
         g.setCharacteristicNotification(c, true)
         val d = c.getDescriptor(CCCD) ?: return
         val value = if (indicate) BluetoothGattDescriptor.ENABLE_INDICATION_VALUE else BluetoothGattDescriptor.ENABLE_NOTIFICATION_VALUE
@@ -282,12 +284,12 @@ object FlipperLink {
 
     /** Runs one GATT operation and waits for its callback; Android allows only one in flight. */
     private suspend fun gattOp(start: BluetoothGatt.() -> Boolean): Any? = gattLock.withLock {
-        val g = gatt ?: throw FlipperException("Not connected")
+        val g = gatt ?: throw FlipperException(UiText(R.string.fl_not_connected))
         val d = CompletableDeferred<Any?>()
         pendingGatt = d
         if (!g.start()) {
             log("gatt op refused")
-            throw FlipperException("Bluetooth request was refused")
+            throw FlipperException(UiText(R.string.fl_refused))
         }
         withTimeout(10_000) { d.await() }
     }
@@ -300,7 +302,7 @@ object FlipperLink {
                 BluetoothProfile.STATE_DISCONNECTED -> {
                     val wasReady = _state.value is FlipperState.Ready
                     disconnect()
-                    if (wasReady) _state.value = FlipperState.Failed("Flipper disconnected")
+                    if (wasReady) _state.value = FlipperState.Failed(UiText(R.string.fl_dropped))
                 }
             }
         }
@@ -317,12 +319,12 @@ object FlipperLink {
         override fun onDescriptorWrite(g: BluetoothGatt, d: BluetoothGattDescriptor, status: Int) {
             log("descriptor write ${d.characteristic.uuid} status=$status")
             if (status == BluetoothGatt.GATT_SUCCESS) pendingGatt?.complete(null)
-            else pendingGatt?.completeExceptionally(FlipperException("Flipper refused the subscription ($status). Try pairing again."))
+            else pendingGatt?.completeExceptionally(FlipperException(UiText(R.string.fl_subscribe, status)))
         }
 
         override fun onCharacteristicWrite(g: BluetoothGatt, c: BluetoothGattCharacteristic, status: Int) {
             if (status == BluetoothGatt.GATT_SUCCESS) pendingGatt?.complete(null)
-            else pendingGatt?.completeExceptionally(FlipperException("Write failed ($status)"))
+            else pendingGatt?.completeExceptionally(FlipperException(UiText(R.string.fl_write, status)))
         }
 
         override fun onCharacteristicRead(g: BluetoothGatt, c: BluetoothGattCharacteristic, value: ByteArray, status: Int) {
@@ -389,19 +391,19 @@ object FlipperLink {
             }
             val parts = withTimeout(timeoutMs) { done.await() }
             parts.firstOrNull { it.status != FlipperProto.OK }?.let {
-                throw FlipperException(FlipperProto.statusNames[it.status] ?: "Flipper error ${it.status}", it.status)
+                throw FlipperException(UiText(FlipperProto.statusNames[it.status] ?: R.string.fl_error, it.status), it.status)
             }
             parts
         }
 
     /** Writes [frame] to RX in pieces that fit the MTU and the Flipper's free buffer. */
     private suspend fun send(frame: ByteArray) {
-        val c = rx ?: throw FlipperException("Not connected")
+        val c = rx ?: throw FlipperException(UiText(R.string.fl_not_connected))
         log("tx frame ${frame.size} bytes, free=${freeBytes.get()}")
         var off = 0
         while (off < frame.size) {
             while (freeBytes.get() <= 0) {
-                withTimeoutOrNull(5_000) { flowSignal.receive() } ?: throw FlipperException("Flipper stopped accepting data")
+                withTimeoutOrNull(5_000) { flowSignal.receive() } ?: throw FlipperException(UiText(R.string.fl_stalled))
             }
             val n = minOf(frame.size - off, mtu - 3, 243, freeBytes.get())
             val piece = frame.copyOfRange(off, off + n)

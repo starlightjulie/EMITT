@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.3.0
+
+### New
+- **23 languages.** EMITT now speaks English, 简体中文, हिन्दी, Español, Français, العربية, বাংলা, Português (Brasil), Русский, اردو, Bahasa Indonesia, Deutsch, 日本語, Naijá (Nigerian Pidgin), العربية المصرية, मराठी, తెలుగు, Türkçe, தமிழ், 粵語（香港）, Italiano, Tiếng Việt and 한국어. Pick one in Settings → Language, or follow your phone. Arabic and Urdu get a full right-to-left layout. Flipper menu paths and chip names stay in English so they match what's on your Flipper.
+- **Appearance has its own page.** Tap the palette icon next to the cog for colourways, background, interface and app icon. Settings now holds Language, Updates, Vibration and About.
+- **Six new colourways**: Midnight, Sakura, Forest, Ember, Coffee and Glacier (16 in total).
+- **Six new app icons**: Mono, Sakura, Redline, Ultraviolet, Paper and Glacier (10 in total).
+
+### Changed
+- New installs start in the **Mono** colourway. Your current look is kept when you update.
+- Links and other Latin text in input boxes read left to right even when the app is in Arabic or Urdu.
+
 ## 1.2.0
 
 ### Fixed

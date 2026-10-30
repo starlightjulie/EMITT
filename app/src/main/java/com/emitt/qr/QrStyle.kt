@@ -1,29 +1,31 @@
 package com.emitt.qr
 
+import androidx.annotation.StringRes
+import com.emitt.R
 import kotlinx.serialization.Serializable
 
 @Serializable
-enum class ModuleShape(val label: String) {
-    SQUARE("Square"),
-    ROUNDED("Rounded"),
-    DOTS("Dots"),
-    FLUID("Fluid"),
-    BARS("Bars"),
-    DIAMOND("Diamond"),
+enum class ModuleShape(@StringRes val label: Int) {
+    SQUARE(R.string.shape_square),
+    ROUNDED(R.string.shape_rounded),
+    DOTS(R.string.shape_dots),
+    FLUID(R.string.shape_fluid),
+    BARS(R.string.shape_bars),
+    DIAMOND(R.string.shape_diamond),
 }
 
 @Serializable
-enum class EyeShape(val label: String) { SQUARE("Square"), ROUNDED("Rounded"), CIRCLE("Circle"), LEAF("Leaf") }
+enum class EyeShape(@StringRes val label: Int) { SQUARE(R.string.shape_square), ROUNDED(R.string.shape_rounded), CIRCLE(R.string.shape_circle), LEAF(R.string.shape_leaf) }
 
 @Serializable
-enum class Gradient(val label: String) { NONE("Flat"), LINEAR("Linear"), RADIAL("Radial") }
+enum class Gradient(@StringRes val label: Int) { NONE(R.string.grad_flat), LINEAR(R.string.grad_linear), RADIAL(R.string.grad_radial) }
 
 @Serializable
-enum class Badge(val label: String) { NONE("None"), GLYPH("EMITT"), TEXT("Text"), IMAGE("Image") }
+enum class Badge(@StringRes val label: Int) { NONE(R.string.wifi_open), GLYPH(R.string.app_name), TEXT(R.string.kind_text), IMAGE(R.string.badge_image) }
 
 /** Error correction: how much of the code can be covered or damaged and still scan. */
 @Serializable
-enum class Ec(val label: String, val percent: Int) { L("Low", 7), M("Medium", 15), Q("Quartile", 25), H("High", 30) }
+enum class Ec(@StringRes val label: Int, val percent: Int) { L(R.string.ec_low, 7), M(R.string.ec_medium, 15), Q(R.string.ec_quartile, 25), H(R.string.ec_high, 30) }
 
 /** Everything about how a QR code looks. Colours are ARGB. */
 @Serializable

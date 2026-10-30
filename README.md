@@ -10,9 +10,27 @@ Write a payload once, then emit it however you need: a styled QR code, a real NF
 
 [Download](../../releases/latest) · [Changelog](CHANGELOG.md) · [Support on Ko-fi](https://ko-fi.com/vvanadium)
 
+Free and open source · No ads, no tracking, no account · Works offline · 23 languages
+
+<br />
+
+<img src="docs/screenshots/create.png" width="19%" alt="Create screen with a QR code that passed its self-test" />
+<img src="docs/screenshots/nfc.png" width="19%" alt="NFC tag output with Write to tag and Be the tag buttons" />
+<img src="docs/screenshots/flipper.png" width="19%" alt="Flipper .nfc file output with chip and UID options" />
+<img src="docs/screenshots/appearance.png" width="19%" alt="Appearance page showing the 16 colourways" />
+<img src="docs/screenshots/languages.png" width="19%" alt="Language picker in Settings" />
+
 </div>
 
 ---
+
+## Install
+
+1. Download `EMITT-x.y.z.apk` from the [latest release](../../releases/latest) on your phone.
+2. Open it and allow your browser or file manager to install apps when Android asks.
+3. That's it. EMITT tells you when a new version is out, and updates install over the top, keeping your library and settings.
+
+Official builds are signed by me, and the About section in Settings says **Official build**. If it says otherwise, the copy didn't come from this page.
 
 ## What it does
 
@@ -54,13 +72,29 @@ Camera scanner for QR, Data Matrix, Aztec, PDF417 and common barcodes, or scan f
 Save codes to a library with stars and search. Put any saved code on your **home screen as a widget**, or pin one to the **Quick Settings tile** (handy for your Wi-Fi) so it opens full screen in one tap.
 
 ### Make it yours
-- **10 colourways** (Synthwave, Amber CRT, Phosphor, Ice, Ultraviolet, Redline, Vapor, Mono, Paper, Solar) or your own five colours
-- **10 background animations**: synth grid, signal, code rain, oscilloscope, radar, dot matrix, circuit, warp, spectrum and static, each with speed, density, intensity and colour controls
+Everything lives under the palette icon at the top (**Appearance**):
+
+- **16 colourways**: Mono (the default), Synthwave, Amber CRT, Phosphor, Ice, Ultraviolet, Redline, Vapor, Paper, Solar, Midnight, Sakura, Forest, Ember, Coffee and Glacier, or your own five colours
+- **10 background animations**: synth grid, signal, code rain, oscilloscope, radar, dot matrix, circuit, warp, spectrum and static, each with speed, density, intensity and colour controls. Off by default
 - CRT scanlines, vignette and flicker; glow; panel opacity and outlines; chamfered, sharp or soft corners; mono or mixed fonts; text size
-- Four launcher icons to match
+- **10 launcher icons** to match: Amber, Synthwave, Phosphor, Cyan, Mono, Sakura, Redline, Ultraviolet, Paper and Glacier
+
+### Languages
+English, 简体中文, हिन्दी, Español, Français, العربية, বাংলা, Português (Brasil), Русский, اردو, Bahasa Indonesia, Deutsch, 日本語, Naijá (Nigerian Pidgin), العربية المصرية, मराठी, తెలుగు, Türkçe, தமிழ், 粵語（香港）, Italiano, Tiếng Việt and 한국어. EMITT follows your phone's language, or you can pick one in Settings → Language (on Android 13+ it's also in your phone's per-app language settings). Arabic and Urdu use a right-to-left layout. Flipper menu paths and chip names stay in English so they match your Flipper's screen.
+
+Spotted a clumsy translation? Please open an issue with the language, the screen and a better wording.
+
+### Vibration
+Pick a pattern (tick, double tap, heartbeat, rising, purr and more, or off) separately for tag writes and reads, for being read as a tag, and for failures, with a strength slider.
 
 ### Updates
-EMITT checks GitHub for new releases in the background (every 6 hours to 3 days, your choice) and sends a notification that opens the release page. You can turn this off.
+EMITT checks GitHub for new releases in the background (every 6 hours to 3 days, your choice) and sends a notification that opens the release page. It only asks GitHub's public API for the latest version and sends nothing about you. You can turn this off.
+
+## Privacy
+
+EMITT has no ads, analytics or accounts. Scanning, QR rendering and tag work all happen on your phone. The only network request it makes is the optional update check to GitHub.
+
+Permissions are asked for when you first need them: the camera when you open Scan, Bluetooth when you connect a Flipper (Android 11 and older also need Location for Bluetooth scanning), and notifications once on first launch so update alerts can reach you. Saying no only switches off that one feature.
 
 ## Requirements
 
@@ -91,6 +125,7 @@ Where things live:
 | `nfc/` | `NdefCodec` (payload ↔ NDEF, Wi-Fi WSC), `TagOps` (write, read, erase, lock, NTAG dumps), `Type4Tag` + `EmulationService` + `Emulator` (phone as a tag) |
 | `flipper/` | `FlipperNfcFile` (`.nfc` format v4), `FlipperProto` (hand-encoded RPC protobuf), `FlipperLink` (BLE serial, flow control, pairing) |
 | `ui/` | Compose screens, `theme/` (colourways, `Backgrounds`, CRT overlay) |
+| `data/Languages.kt`, `res/values-*/` | Language list and translations; `res/xml/locales_config.xml` registers them with Android |
 | `widget/` | Home-screen widget, Quick Settings tile, full-screen code activity |
 | `UpdateWorker.kt` | Background release check and notification |
 

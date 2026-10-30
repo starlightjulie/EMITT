@@ -1,5 +1,7 @@
 package com.emitt.nfc
 
+import com.emitt.R
+import com.emitt.data.UiText
 import android.nfc.NdefMessage
 import android.nfc.NdefRecord
 import android.nfc.Tag
@@ -53,13 +55,13 @@ sealed interface TagResult {
     data class Written(val bytes: Int, val capacity: Int?) : TagResult
     data object Erased : TagResult
     data object Locked : TagResult
-    data class Failed(val reason: String) : TagResult
+    data class Failed(val reason: UiText) : TagResult
 }
 
 object TagOps {
 
     fun read(tag: Tag): TagResult = runCatching { TagResult.Read(inspect(tag)) }
-        .getOrElse { TagResult.Failed(it.message ?: "Couldn't read the tag. Hold it still and try again.") }
+        .getOrElse { TagResult.Failed(UiText(R.string.tag_read_failed)) }
 
     fun write(tag: Tag, msg: NdefMessage): TagResult = try {
         val ndef = Ndef.get(tag)
@@ -67,21 +69,21 @@ object TagOps {
             ndef.connect()
             ndef.use {
                 when {
-                    !it.isWritable -> TagResult.Failed("This tag is read-only.")
-                    msg.byteArrayLength > it.maxSize -> TagResult.Failed("Too big: ${msg.byteArrayLength} bytes, tag holds ${it.maxSize}.")
+                    !it.isWritable -> TagResult.Failed(UiText(R.string.tag_readonly))
+                    msg.byteArrayLength > it.maxSize -> TagResult.Failed(UiText(R.string.tag_too_big, msg.byteArrayLength, it.maxSize))
                     else -> { it.writeNdefMessage(msg); TagResult.Written(msg.byteArrayLength, it.maxSize) }
                 }
             }
         } else {
-            val f = NdefFormatable.get(tag) ?: return TagResult.Failed("This tag doesn't support NDEF.")
+            val f = NdefFormatable.get(tag) ?: return TagResult.Failed(UiText(R.string.tag_no_ndef))
             f.connect()
             f.use { it.format(msg) }
             TagResult.Written(msg.byteArrayLength, null)
         }
     } catch (e: IOException) {
-        TagResult.Failed("Lost the tag mid-write. Hold it still and try again.")
+        TagResult.Failed(UiText(R.string.tag_lost_write))
     } catch (e: Exception) {
-        TagResult.Failed(e.message ?: "Write failed.")
+        TagResult.Failed(UiText(R.string.tag_write_failed))
     }
 
     /** Replaces the content with a single empty record (the tag stays usable). */
@@ -93,17 +95,17 @@ object TagOps {
 
     /** Permanently makes the tag read-only. */
     fun lock(tag: Tag): TagResult = try {
-        val ndef = Ndef.get(tag) ?: return TagResult.Failed("This tag has no NDEF data to lock.")
+        val ndef = Ndef.get(tag) ?: return TagResult.Failed(UiText(R.string.tag_nothing_to_lock))
         ndef.connect()
         ndef.use {
             when {
-                !it.canMakeReadOnly() -> TagResult.Failed("This tag can't be locked.")
+                !it.canMakeReadOnly() -> TagResult.Failed(UiText(R.string.tag_cant_lock))
                 it.makeReadOnly() -> TagResult.Locked
-                else -> TagResult.Failed("The tag refused to lock.")
+                else -> TagResult.Failed(UiText(R.string.tag_lock_refused))
             }
         }
     } catch (e: Exception) {
-        TagResult.Failed("Lost the tag. Hold it still and try again.")
+        TagResult.Failed(UiText(R.string.tag_lost))
     }
 
     private fun inspect(tag: Tag): TagReport {

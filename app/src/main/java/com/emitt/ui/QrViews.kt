@@ -1,5 +1,8 @@
 package com.emitt.ui
 
+import androidx.compose.ui.res.stringResource
+import com.emitt.R
+import com.emitt.data.UiText
 import android.graphics.Bitmap
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -34,40 +37,40 @@ import kotlinx.coroutines.withContext
 /** How likely a code is to scan, with reasons. */
 class QrHealth(
     val bitmap: Bitmap?,
-    val error: String?,
+    val error: UiText?,
     val version: Int = 0,
     val modules: Int = 0,
-    val checks: List<Pair<Status, String>> = emptyList(),
+    val checks: List<Pair<Status, UiText>> = emptyList(),
 ) {
     val readable get() = checks.none { it.first == Status.FAIL } && bitmap != null
 }
 
-fun qrChecks(text: String, style: QrStyle, bmp: Bitmap, version: Int, modules: Int): List<Pair<Status, String>> {
-    val out = mutableListOf<Pair<Status, String>>()
+fun qrChecks(text: String, style: QrStyle, bmp: Bitmap, version: Int, modules: Int): List<Pair<Status, UiText>> {
+    val out = mutableListOf<Pair<Status, UiText>>()
     val decoded = QrDecoder.selfTest(bmp, text)
-    out += if (decoded) Status.OK to "Self-test scan passed (version $version, ${modules}×$modules)"
-    else Status.FAIL to "Self-test couldn't read it. Raise contrast, use square modules or less badge."
+    out += if (decoded) Status.OK to UiText(R.string.qr_selftest_ok, version, modules)
+    else Status.FAIL to UiText(R.string.qr_selftest_fail)
 
     val bg = if (style.transparentBg) 0xFFFFFFFF else style.bg
     val worst = listOfNotNull(style.fg, style.fg2.takeIf { style.gradient != com.emitt.qr.Gradient.NONE }, style.eyeOuter, style.eyeInner)
         .minOf { QrRenderer.contrast(it, bg) }
     out += when {
-        worst < 2.5 -> Status.FAIL to "Contrast %.1f:1 is too low. Aim for 4:1 or more.".format(worst)
-        worst < 4.0 -> Status.WARN to "Contrast %.1f:1 is borderline in poor light.".format(worst)
-        else -> Status.OK to "Contrast %.1f:1".format(worst)
+        worst < 2.5 -> Status.FAIL to UiText(R.string.qr_contrast_low, worst)
+        worst < 4.0 -> Status.WARN to UiText(R.string.qr_contrast_mid, worst)
+        else -> Status.OK to UiText(R.string.qr_contrast_ok, worst)
     }
     if (QrRenderer.luminance(style.fg) > QrRenderer.luminance(bg)) {
-        out += Status.WARN to "Light-on-dark (inverted) codes don't scan on some older readers."
+        out += Status.WARN to UiText(R.string.qr_inverted)
     }
-    if (style.transparentBg) out += Status.INFO to "Transparent background: make sure what's behind it is light and plain."
-    if (style.quietZone < 2) out += Status.WARN to "Border under 2 modules: give it space when printing."
+    if (style.transparentBg) out += Status.INFO to UiText(R.string.qr_transparent)
+    if (style.quietZone < 2) out += Status.WARN to UiText(R.string.qr_border)
     if (style.badge != Badge.NONE && QrRenderer.effectiveEc(style) != style.ec) {
-        out += Status.INFO to "Error correction raised to ${QrRenderer.effectiveEc(style).label} to make room for the badge."
+        out += Status.INFO to UiText(R.string.qr_ec_raised, UiText(QrRenderer.effectiveEc(style).label))
     }
     if (style.badge != Badge.NONE && style.badgeSize > 0.26f && style.ec != Ec.H) {
-        out += Status.WARN to "Large badge: switch error correction to High."
+        out += Status.WARN to UiText(R.string.qr_big_badge)
     }
-    if (version >= 15) out += Status.WARN to "Dense code (version $version). Shorter content scans faster and from further away."
+    if (version >= 15) out += Status.WARN to UiText(R.string.qr_dense, version)
     return out
 }
 
@@ -77,11 +80,11 @@ fun rememberQr(text: String, style: QrStyle, sizePx: Int = 900): QrHealth? {
     val state by produceState<QrHealth?>(null, text, style, sizePx) {
         delay(120)
         value = withContext(Dispatchers.Default) {
-            if (text.isEmpty()) return@withContext QrHealth(null, "Nothing to encode yet")
+            if (text.isEmpty()) return@withContext QrHealth(null, UiText(R.string.qr_nothing))
             runCatching {
                 val r = QrRenderer.render(text, style, sizePx)
                 QrHealth(r.bitmap, null, r.version, r.modules, qrChecks(text, style, r.bitmap, r.version, r.modules))
-            }.getOrElse { QrHealth(null, if (it is com.google.zxing.WriterException) "Too much data for a QR code" else it.message) }
+            }.getOrElse { QrHealth(null, UiText(R.string.qr_too_much)) }
         }
     }
     return state
@@ -103,9 +106,9 @@ fun QrPreview(health: QrHealth?, modifier: Modifier = Modifier) {
         val bmp = health?.bitmap
         when {
             health == null -> CircularProgressIndicator(color = look.accent)
-            bmp != null -> Image(bmp.asImageBitmap(), "QR code preview", Modifier.fillMaxWidth().aspectRatio(1f))
+            bmp != null -> Image(bmp.asImageBitmap(), stringResource(R.string.out_qr), Modifier.fillMaxWidth().aspectRatio(1f))
             else -> Text(
-                "> ${health.error ?: "…"}",
+                "> ${health.error?.text() ?: "…"}",
                 style = MaterialTheme.typography.labelLarge,
                 color = look.dim,
                 textAlign = TextAlign.Center,
@@ -133,6 +136,6 @@ private fun checker(): androidx.compose.ui.graphics.Brush {
 fun HealthReport(health: QrHealth?) {
     if (health == null) return
     Column(Modifier.padding(top = 10.dp)) {
-        health.checks.forEach { (s, t) -> StatusLine(s, t) }
+        health.checks.forEach { (s, t) -> StatusLine(s, t.text()) }
     }
 }
