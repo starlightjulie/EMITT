@@ -1,5 +1,21 @@
 package com.emitt.ui
 
+import androidx.compose.animation.AnimatedContent
+import androidx.compose.animation.EnterTransition
+import androidx.compose.animation.ExitTransition
+import androidx.compose.animation.SizeTransform
+import androidx.compose.animation.animateColorAsState
+import androidx.compose.animation.core.animateDpAsState
+import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.snap
+import androidx.compose.animation.slideInHorizontally
+import androidx.compose.animation.slideOutHorizontally
+import androidx.compose.animation.togetherWith
+import androidx.compose.foundation.layout.BoxWithConstraints
+import androidx.compose.ui.draw.alpha
+import com.emitt.ui.theme.reduceMotion
+import kotlinx.coroutines.delay
+import kotlin.math.sign
 import androidx.compose.ui.res.stringResource
 import com.emitt.R
 import androidx.compose.material.icons.rounded.Palette
@@ -116,7 +132,7 @@ fun EmittRoot(vm: MainViewModel) {
             vm.fullscreen != null -> vm.fullscreen = null
             vm.tagModeOpen && emulating -> vm.tagModeOpen = false
             vm.nfcOp != null -> vm.nfcOp = null
-            vm.settingsOpen -> vm.settingsOpen = false
+            vm.settingsOpen -> vm.page = vm.page?.parent
             else -> vm.tab = Tab.CREATE
         }
     }
@@ -132,17 +148,35 @@ fun EmittRoot(vm: MainViewModel) {
                 verticalArrangement = Arrangement.spacedBy(12.dp),
             ) {
                 vm.update?.let { UpdateBanner(it.version) { vm.update = null } }
-                if (vm.page == Page.APPEARANCE) {
-                    AppearanceScreen(vm)
-                } else if (vm.page == Page.SETTINGS) {
-                    SettingsScreen(vm)
-                } else {
-                    when (vm.tab) {
-                        Tab.CREATE -> CreateScreen(vm)
-                        Tab.SCAN -> ScanScreen(vm)
-                        Tab.TAGS -> TagsScreen(vm)
-                        Tab.FLIPPER -> FlipperScreen(vm)
-                        Tab.LIBRARY -> LibraryScreen(vm)
+                val still = reduceMotion()
+                AnimatedContent(
+                    targetState = vm.page to vm.tab,
+                    transitionSpec = {
+                        if (still) {
+                            EnterTransition.None togetherWith ExitTransition.None
+                        } else {
+                            // Slide a little in the direction of travel: along the tabs, or into a sub-page
+                            val dir = (screenRank(targetState.first, targetState.second) - screenRank(initialState.first, initialState.second)).sign
+                            (fadeIn(tween(220, delayMillis = 60)) + slideInHorizontally(tween(260)) { it / 12 * dir }) togetherWith
+                                (fadeOut(tween(120)) + slideOutHorizontally(tween(260)) { -it / 12 * dir }) using
+                                SizeTransform(clip = false) { _, _ -> snap() }
+                        }
+                    },
+                    label = "screen",
+                ) { (page, tab) ->
+                    Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
+                        when (page) {
+                            Page.APPEARANCE -> AppearanceScreen(vm)
+                            Page.CUSTOM_COLOURS -> CustomColoursScreen(vm)
+                            Page.SETTINGS -> SettingsScreen(vm)
+                            null -> when (tab) {
+                                Tab.CREATE -> CreateScreen(vm)
+                                Tab.SCAN -> ScanScreen(vm)
+                                Tab.TAGS -> TagsScreen(vm)
+                                Tab.FLIPPER -> FlipperScreen(vm)
+                                Tab.LIBRARY -> LibraryScreen(vm)
+                            }
+                        }
                     }
                 }
                 Spacer(Modifier.height(24.dp))
@@ -167,23 +201,30 @@ private fun TopBar(vm: MainViewModel) {
     val link by FlipperLink.state.collectAsState()
     Row(Modifier.fillMaxWidth().padding(start = 16.dp, end = 8.dp, top = 6.dp, bottom = 6.dp), verticalAlignment = Alignment.CenterVertically) {
         if (vm.settingsOpen) {
-            Icon(Icons.AutoMirrored.Rounded.ArrowBack, stringResource(R.string.back), Modifier.clickable { vm.settingsOpen = false }.padding(end = 10.dp), tint = look.accent)
+            Icon(Icons.AutoMirrored.Rounded.ArrowBack, stringResource(R.string.back), Modifier.clickable { vm.page = vm.page?.parent }.padding(end = 10.dp), tint = look.accent)
         }
         // The path is a URL-like name, so it reads left to right even in Arabic and Urdu.
+        // Takes whatever width the icons leave, so a long path clips instead of pushing them off screen
+        val rtl = LocalLayoutDirection.current == LayoutDirection.Rtl
         CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Ltr) {
-            Row(verticalAlignment = Alignment.CenterVertically) {
+            Row(
+                Modifier.weight(1f),
+                horizontalArrangement = if (rtl) Arrangement.End else Arrangement.Start,
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
                 Text("EMITT", style = glowing(MaterialTheme.typography.titleLarge), color = look.accent)
                 Text(
-                    "://" + when (vm.page) { Page.SETTINGS -> "settings"; Page.APPEARANCE -> "appearance"; null -> vm.tab.path },
+                    "://" + typed(vm.page?.path ?: vm.tab.path),
                     style = MaterialTheme.typography.titleLarge,
                     color = look.signal,
                     maxLines = 1,
+                    softWrap = false,
                     overflow = TextOverflow.Clip,
+                    modifier = Modifier.weight(1f, fill = false),
                 )
                 BlinkCursor()
             }
         }
-        Spacer(Modifier.weight(1f))
         if (link is FlipperState.Ready) {
             Row(
                 Modifier.clickable { vm.settingsOpen = false; vm.tab = Tab.FLIPPER }.padding(8.dp),
@@ -197,7 +238,7 @@ private fun TopBar(vm: MainViewModel) {
         Icon(
             Icons.Rounded.Palette, stringResource(R.string.appearance),
             Modifier.clickable { vm.page = if (vm.page == Page.APPEARANCE) null else Page.APPEARANCE }.padding(10.dp),
-            tint = if (vm.page == Page.APPEARANCE) look.signal else look.accent,
+            tint = if (vm.page == Page.APPEARANCE || vm.page == Page.CUSTOM_COLOURS) look.signal else look.accent,
         )
         Icon(
             Icons.Rounded.Settings, stringResource(R.string.settings),
@@ -240,24 +281,35 @@ private fun BottomBar(vm: MainViewModel) {
                 Text("Ko-fi", style = MaterialTheme.typography.labelSmall, color = look.accent)
             }
         }
-        Row(Modifier.fillMaxWidth()) {
-            Tab.entries.forEach { t ->
-                val sel = t == vm.tab && !vm.settingsOpen
-                Column(
-                    Modifier.weight(1f).clickable { vm.settingsOpen = false; vm.tab = t }.padding(vertical = 8.dp),
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                ) {
-                    Box(Modifier.width(28.dp).height(2.dp).background(if (sel) look.accent else androidx.compose.ui.graphics.Color.Transparent))
-                    Spacer(Modifier.height(6.dp))
-                    Icon(t.icon(), stringResource(t.label), tint = if (sel) look.accent else look.dim)
-                    Text(
-                        stringResource(t.label).uppercase(),
-                        style = if (sel) glowing(MaterialTheme.typography.labelSmall) else MaterialTheme.typography.labelSmall,
-                        color = if (sel) look.accent else look.dim,
-                        maxLines = 1,
-                    )
+        BoxWithConstraints(Modifier.fillMaxWidth()) {
+            val slot = maxWidth / Tab.entries.size
+            val still = reduceMotion()
+            val x by animateDpAsState(
+                slot * vm.tab.ordinal + (slot - 28.dp) / 2,
+                if (still) snap() else spring(dampingRatio = 0.75f, stiffness = 420f),
+                label = "tabIndicator",
+            )
+            val shown by animateFloatAsState(if (vm.settingsOpen) 0f else 1f, tween(if (still) 0 else 180), label = "tabIndicatorAlpha")
+            Row(Modifier.fillMaxWidth()) {
+                Tab.entries.forEach { t ->
+                    val sel = t == vm.tab && !vm.settingsOpen
+                    val tint by animateColorAsState(if (sel) look.accent else look.dim, tween(if (still) 0 else 200), label = "tabTint")
+                    Column(
+                        Modifier.weight(1f).clickable { vm.settingsOpen = false; vm.tab = t }.padding(vertical = 8.dp),
+                        horizontalAlignment = Alignment.CenterHorizontally,
+                    ) {
+                        Spacer(Modifier.height(8.dp))
+                        Icon(t.icon(), stringResource(t.label), tint = tint)
+                        Text(
+                            stringResource(t.label).uppercase(),
+                            style = if (sel) glowing(MaterialTheme.typography.labelSmall) else MaterialTheme.typography.labelSmall,
+                            color = tint,
+                            maxLines = 1,
+                        )
+                    }
                 }
             }
+            Box(Modifier.offset(x = x, y = 8.dp).width(28.dp).height(2.dp).alpha(shown).background(look.accent))
         }
     }
 }
@@ -322,6 +374,8 @@ private fun TagMode(vm: MainViewModel) {
             Dim(stringResource(R.string.tagmode_hold), Modifier.padding(horizontal = 12.dp))
             Spacer(Modifier.height(6.dp))
             Dim(stringResource(R.string.tagmode_keep_open), Modifier.padding(horizontal = 12.dp))
+            Spacer(Modifier.height(6.dp))
+            Dim(stringResource(R.string.tagmode_builtin), Modifier.padding(horizontal = 12.dp))
             Spacer(Modifier.height(6.dp))
             Dim(stringResource(R.string.tagmode_flipper), Modifier.padding(horizontal = 12.dp))
         }
@@ -447,4 +501,24 @@ private fun UpdateBanner(version: String, onDismiss: () -> Unit) {
         StatusLine(Status.OK, stringResource(R.string.upd_notif_title, version))
         ButtonRow { TermButton(stringResource(R.string.open_release), { context.openUrl(UpdateChecker.LATEST_RELEASE_URL) }, Modifier.weight(1f), primary = true) }
     }
+}
+
+/** Orders screens so transitions slide the way you're going: tabs left to right, then pages, then sub-pages. */
+private fun screenRank(page: Page?, tab: Tab): Int = when (page) {
+    null -> tab.ordinal
+    else -> 10 + generateSequence(page.parent) { it.parent }.count()
+}
+
+/** Terminal-style path change: backspace to what the old and new paths share, then type the rest. */
+@Composable
+private fun typed(target: String): String {
+    var shown by remember { mutableStateOf(target) }
+    val still = reduceMotion()
+    LaunchedEffect(target) {
+        if (still) { shown = target; return@LaunchedEffect }
+        val keep = shown.commonPrefixWith(target).length
+        while (shown.length > keep) { shown = shown.dropLast(1); delay(16) }
+        while (shown.length < target.length) { shown = target.take(shown.length + 1); delay(28) }
+    }
+    return shown
 }

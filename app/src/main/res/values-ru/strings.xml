@@ -63,7 +63,6 @@
     <string name="slot_panels">Панели</string>
     <string name="slot_panels_hint">Карточки и листы</string>
     <string name="slot_text_hint">Цвет основного текста</string>
-    <string name="bg_synth">Синт-сетка</string>
     <string name="bg_rain">Дождь кода</string>
     <string name="bg_scope">Осциллограф</string>
     <string name="bg_radar">Радар</string>
@@ -71,7 +70,6 @@
     <string name="bg_circuit">Схема</string>
     <string name="bg_warp">Варп</string>
     <string name="bg_spectrum">Спектр</string>
-    <string name="bg_static">Помехи</string>
     <string name="bg_random">Случайно</string>
     <string name="bgc_duo">Оба акцента</string>
     <string name="bgc_cycle">Смена оттенка</string>
@@ -436,4 +434,16 @@
     <string name="source">Исходный код</string>
     <string name="license">Лицензия</string>
     <string name="flipper_trademark">Flipper Zero — товарный знак Flipper Devices Inc. EMITT не связан с ними и не одобрен ими.</string>
+    <string name="bg_comets">Кометы</string>
+    <string name="bg_pulsar">Пульсар</string>
+    <string name="custom_status_on">Вкл · сохранённых наборов: %1$d</string>
+    <string name="custom_status_off">Выкл · сохранённых наборов: %1$d</string>
+    <string name="save_set">Сохранить как набор</string>
+    <string name="saved_sets">Сохранённые наборы</string>
+    <string name="no_sets">Сохранённых наборов пока нет. Включите свои цвета, настройте их и нажмите «Сохранить как набор».</string>
+    <string name="sets_hint">Нажмите на набор, чтобы применить его. Сохранение под тем же именем заменяет набор.</string>
+    <string name="set_default_name">Мои цвета %1$d</string>
+    <string name="set_saved">Сохранено: %1$s</string>
+    <string name="delete_set_confirm">Удалить набор цветов «%1$s»? Это нельзя отменить.</string>
+    <string name="tagmode_builtin">Другой телефон ничего не видит? Некоторые телефоны (часто с Android 15 и новее) отвечают пустой меткой, встроенной в NFC-чип. Откройте EMITT на читающем телефоне: он всегда может прочитать телефон с EMITT.</string>
 </resources>

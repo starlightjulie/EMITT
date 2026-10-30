@@ -63,7 +63,6 @@
     <string name="slot_panels">اللوحات</string>
     <string name="slot_panels_hint">البطاقات والأوراق</string>
     <string name="slot_text_hint">لون النص الرئيسي</string>
-    <string name="bg_synth">شبكة سينث</string>
     <string name="bg_rain">مطر الشيفرة</string>
     <string name="bg_scope">راسم الذبذبات</string>
     <string name="bg_radar">رادار</string>
@@ -71,7 +70,6 @@
     <string name="bg_circuit">دائرة كهربائية</string>
     <string name="bg_warp">اعوجاج</string>
     <string name="bg_spectrum">طيف</string>
-    <string name="bg_static">تشويش</string>
     <string name="bg_random">عشوائي</string>
     <string name="bgc_duo">كلا اللونين</string>
     <string name="bgc_cycle">دورة الألوان</string>
@@ -436,4 +434,16 @@
     <string name="source">الشيفرة المصدرية</string>
     <string name="license">الترخيص</string>
     <string name="flipper_trademark">Flipper Zero علامة تجارية لشركة Flipper Devices Inc. لا يرتبط EMITT بهم ولا يحظى بتأييدهم.</string>
+    <string name="bg_comets">مذنّبات</string>
+    <string name="bg_pulsar">نجم نابض</string>
+    <string name="custom_status_on">مفعّل · %1$d مجموعات محفوظة</string>
+    <string name="custom_status_off">متوقف · %1$d مجموعات محفوظة</string>
+    <string name="save_set">حفظ كمجموعة</string>
+    <string name="saved_sets">المجموعات المحفوظة</string>
+    <string name="no_sets">لا توجد مجموعات محفوظة بعد. فعّل ألوانك وعدّلها ثم انقر «حفظ كمجموعة».</string>
+    <string name="sets_hint">انقر مجموعة لاستخدامها. الحفظ بالاسم نفسه يستبدل تلك المجموعة.</string>
+    <string name="set_default_name">ألواني %1$d</string>
+    <string name="set_saved">حُفظت %1$s</string>
+    <string name="delete_set_confirm">حذف مجموعة الألوان «%1$s»؟ لا يمكن التراجع عن ذلك.</string>
+    <string name="tagmode_builtin">الهاتف الآخر لا يرى شيئًا؟ بعض الهواتف (غالبًا Android 15 وأحدث) تجيب ببطاقة فارغة مدمجة في شريحة NFC. افتح EMITT على الهاتف القارئ: يستطيع دائمًا قراءة هاتف يعمل عليه EMITT.</string>
 </resources>

@@ -61,7 +61,6 @@ slot_bg_hint|Her şeyin arkası
 slot_panels|Paneller
 slot_panels_hint|Kartlar ve sayfalar
 slot_text_hint|Ana metin rengi
-bg_synth|Synth ızgara
 bg_rain|Kod yağmuru
 bg_scope|Osiloskop
 bg_radar|Radar
@@ -69,7 +68,6 @@ bg_dots|Nokta matrisi
 bg_circuit|Devre
 bg_warp|Warp
 bg_spectrum|Spektrum
-bg_static|Parazit
 bg_random|Rastgele
 bgc_duo|İki vurgu
 bgc_cycle|Renk döngüsü
@@ -434,3 +432,15 @@ made_by_line|StarlightJulie tarafından yapıldı. GPLv3 altında ücretsiz ve a
 source|Kaynak
 license|Lisans
 flipper_trademark|Flipper Zero, Flipper Devices Inc. şirketinin ticari markasıdır. EMITT onlarla bağlantılı değildir ve onlar tarafından desteklenmez.
+bg_comets|Kuyruklu yıldızlar
+bg_pulsar|Pulsar
+custom_status_on|Açık · %1$d kayıtlı set
+custom_status_off|Kapalı · %1$d kayıtlı set
+save_set|Set olarak kaydet
+saved_sets|Kayıtlı setler
+no_sets|Henüz kayıtlı set yok. Kendi renklerini aç, ayarla, sonra Set olarak kaydet'e dokun.
+sets_hint|Kullanmak için bir sete dokun. Aynı adla kaydetmek o setin yerine geçer.
+set_default_name|Renklerim %1$d
+set_saved|%1$s kaydedildi
+delete_set_confirm|"%1$s" renk seti silinsin mi? Bu geri alınamaz.
+tagmode_builtin|Diğer telefon bir şey görmüyor mu? Bazı telefonlar (çoğunlukla Android 15 ve sonrası) NFC çiplerine gömülü boş bir etiketle yanıt verir. Okuyan telefonda EMITT'i aç: EMITT olan bir telefonu her zaman okuyabilir.

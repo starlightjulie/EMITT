@@ -5,5 +5,7 @@
     android:requireDeviceUnlock="false">
     <aid-group android:category="other" android:description="@string/emulation_description">
         <aid-filter android:name="D2760000850101" />
+        <!-- EMITT's own AID: reaches EMITT even on phones whose NFC chip keeps the NDEF AID for a built-in tag -->
+        <aid-filter android:name="F0454D49545401" />
     </aid-group>
 </host-apdu-service>

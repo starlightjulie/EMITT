@@ -63,7 +63,6 @@
     <string name="slot_panels">Felder</string>
     <string name="slot_panels_hint">Karten und Bereiche</string>
     <string name="slot_text_hint">Haupttextfarbe</string>
-    <string name="bg_synth">Synth-Gitter</string>
     <string name="bg_rain">Code-Regen</string>
     <string name="bg_scope">Oszilloskop</string>
     <string name="bg_radar">Radar</string>
@@ -71,7 +70,6 @@
     <string name="bg_circuit">Schaltkreis</string>
     <string name="bg_warp">Warp</string>
     <string name="bg_spectrum">Spektrum</string>
-    <string name="bg_static">Rauschen</string>
     <string name="bg_random">Zufällig</string>
     <string name="bgc_duo">Beide Akzente</string>
     <string name="bgc_cycle">Farbwechsel</string>
@@ -436,4 +434,16 @@
     <string name="source">Quellcode</string>
     <string name="license">Lizenz</string>
     <string name="flipper_trademark">Flipper Zero ist eine Marke von Flipper Devices Inc. EMITT ist nicht mit ihnen verbunden und wird nicht von ihnen unterstützt.</string>
+    <string name="bg_comets">Kometen</string>
+    <string name="bg_pulsar">Pulsar</string>
+    <string name="custom_status_on">An · %1$d gespeicherte Sets</string>
+    <string name="custom_status_off">Aus · %1$d gespeicherte Sets</string>
+    <string name="save_set">Als Set speichern</string>
+    <string name="saved_sets">Gespeicherte Sets</string>
+    <string name="no_sets">Noch keine gespeicherten Sets. Schalte eigene Farben ein, passe sie an und tippe auf Als Set speichern.</string>
+    <string name="sets_hint">Tippe auf ein Set, um es zu verwenden. Speichern unter demselben Namen ersetzt das Set.</string>
+    <string name="set_default_name">Meine Farben %1$d</string>
+    <string name="set_saved">%1$s gespeichert</string>
+    <string name="delete_set_confirm">Farbset „%1$s“ löschen? Das lässt sich nicht rückgängig machen.</string>
+    <string name="tagmode_builtin">Das andere Handy sieht nichts? Manche Handys (oft ab Android 15) antworten stattdessen mit einem leeren Tag, der in ihren NFC-Chip eingebaut ist. Öffne EMITT auf dem lesenden Handy: Es kann ein EMITT-Handy immer lesen.</string>
 </resources>

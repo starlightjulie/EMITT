@@ -63,7 +63,6 @@
     <string name="slot_panels">اللوحات</string>
     <string name="slot_panels_hint">الكروت والصفحات</string>
     <string name="slot_text_hint">لون الكلام الأساسي</string>
-    <string name="bg_synth">شبكة سينث</string>
     <string name="bg_rain">مطر كود</string>
     <string name="bg_scope">أوسيلوسكوب</string>
     <string name="bg_radar">رادار</string>
@@ -71,7 +70,6 @@
     <string name="bg_circuit">دايرة كهربا</string>
     <string name="bg_warp">وارب</string>
     <string name="bg_spectrum">طيف</string>
-    <string name="bg_static">تشويش</string>
     <string name="bg_random">عشوائي</string>
     <string name="bgc_duo">اللونين</string>
     <string name="bgc_cycle">ألوان بتلف</string>
@@ -436,4 +434,16 @@
     <string name="source">الكود المصدري</string>
     <string name="license">الترخيص</string>
     <string name="flipper_trademark">Flipper Zero علامة تجارية لشركة Flipper Devices Inc. ‏EMITT ملوش علاقة بيهم ومش متبني منهم.</string>
+    <string name="bg_comets">نيازك</string>
+    <string name="bg_pulsar">نجم نابض</string>
+    <string name="custom_status_on">شغال · %1$d مجموعات محفوظة</string>
+    <string name="custom_status_off">مقفول · %1$d مجموعات محفوظة</string>
+    <string name="save_set">احفظها كمجموعة</string>
+    <string name="saved_sets">المجموعات المحفوظة</string>
+    <string name="no_sets">مفيش مجموعات محفوظة لسه. شغّل ألوانك وظبطها وبعدين دوس «احفظها كمجموعة».</string>
+    <string name="sets_hint">دوس على مجموعة عشان تستخدمها. لو حفظت بنفس الاسم هتتغير المجموعة دي.</string>
+    <string name="set_default_name">ألواني %1$d</string>
+    <string name="set_saved">اتحفظت %1$s</string>
+    <string name="delete_set_confirm">تمسح مجموعة الألوان «%1$s»؟ مفيش رجوع.</string>
+    <string name="tagmode_builtin">الموبايل التاني مش شايف حاجة؟ شوية موبايلات (غالبًا Android 15 وأحدث) بترد بتاج فاضي جوه شريحة الـ NFC. افتح EMITT على الموبايل اللي بيقرا: هيقدر دايمًا يقرا موبايل عليه EMITT.</string>
 </resources>

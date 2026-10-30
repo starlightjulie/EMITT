@@ -63,7 +63,6 @@
     <string name="slot_panels">Pannelli</string>
     <string name="slot_panels_hint">Schede e fogli</string>
     <string name="slot_text_hint">Colore del testo principale</string>
-    <string name="bg_synth">Griglia synth</string>
     <string name="bg_rain">Pioggia di codice</string>
     <string name="bg_scope">Oscilloscopio</string>
     <string name="bg_radar">Radar</string>
@@ -71,7 +70,6 @@
     <string name="bg_circuit">Circuito</string>
     <string name="bg_warp">Curvatura</string>
     <string name="bg_spectrum">Spettro</string>
-    <string name="bg_static">Statico</string>
     <string name="bg_random">Casuale</string>
     <string name="bgc_duo">Entrambi gli accenti</string>
     <string name="bgc_cycle">Ciclo di tinta</string>
@@ -436,4 +434,16 @@
     <string name="source">Sorgente</string>
     <string name="license">Licenza</string>
     <string name="flipper_trademark">Flipper Zero è un marchio di Flipper Devices Inc. EMITT non è affiliato né approvato da loro.</string>
+    <string name="bg_comets">Comete</string>
+    <string name="bg_pulsar">Pulsar</string>
+    <string name="custom_status_on">Attivo · %1$d set salvati</string>
+    <string name="custom_status_off">Disattivo · %1$d set salvati</string>
+    <string name="save_set">Salva come set</string>
+    <string name="saved_sets">Set salvati</string>
+    <string name="no_sets">Nessun set salvato. Attiva i tuoi colori, regolali e tocca Salva come set.</string>
+    <string name="sets_hint">Tocca un set per usarlo. Salvare con lo stesso nome sostituisce quel set.</string>
+    <string name="set_default_name">I miei colori %1$d</string>
+    <string name="set_saved">%1$s salvato</string>
+    <string name="delete_set_confirm">Eliminare il set di colori \"%1$s\"? Non si può annullare.</string>
+    <string name="tagmode_builtin">L’altro telefono non vede nulla? Alcuni telefoni (spesso da Android 15 in poi) rispondono con un tag vuoto integrato nel chip NFC. Apri EMITT sul telefono che legge: può sempre leggere un telefono EMITT.</string>
 </resources>

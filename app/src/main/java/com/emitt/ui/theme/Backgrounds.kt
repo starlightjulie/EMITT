@@ -148,6 +148,7 @@ private class Scene(val style: BgStyle) {
     val sp = FloatArray(n) { 0.4f + rnd.nextFloat() * 0.8f }
     val ph = FloatArray(n) { rnd.nextFloat() }
     val path = Path()
+    val ridge = Path()
     val text = android.graphics.Paint(android.graphics.Paint.ANTI_ALIAS_FLAG).apply { typeface = Typeface.MONOSPACE }
     val glyphs = "0123456789ABCDEF<>/[]{}#*+=".toCharArray()
 
@@ -160,7 +161,7 @@ private class Scene(val style: BgStyle) {
         val w = size.width
         val h = size.height
         when (style) {
-            BgStyle.SYNTH_GRID -> synthGrid(w, h, t, c1, c2, bg, a, d)
+            BgStyle.COMETS -> comets(w, h, t, c1, c2, ink, a, d)
             BgStyle.SIGNAL -> signal(w, h, t, c1, c2, a, d)
             BgStyle.CODE_RAIN -> codeRain(w, h, t, c1, ink, a, d)
             BgStyle.SCOPE -> scope(w, h, t, c1, c2, a, d)
@@ -169,44 +170,51 @@ private class Scene(val style: BgStyle) {
             BgStyle.CIRCUIT -> circuit(w, h, t, c1, c2, a, d)
             BgStyle.WARP -> warp(w, h, t, c1, c2, a, d)
             BgStyle.SPECTRUM -> spectrum(w, h, t, c1, c2, a, d)
-            BgStyle.STATIC -> static(w, h, t, c1, ink, a, d)
+            BgStyle.PULSAR -> pulsar(w, h, t, c1, c2, bg, a, d)
             BgStyle.NONE, BgStyle.RANDOM -> Unit
         }
     }
 
-    private fun DrawScope.synthGrid(w: Float, h: Float, t: Float, c1: Color, c2: Color, bg: Color, a: Float, d: Float) {
-        val hz = h * 0.46f
-        // Stars above the horizon
-        val stars = (60 * d).toInt()
+    /** Same as TwinnDroid's meteors: a twinkling starfield with comets streaking across now and then. */
+    private fun DrawScope.comets(w: Float, h: Float, t: Float, c1: Color, c2: Color, ink: Color, a: Float, d: Float) {
+        val dp = 1.dp.toPx()
+        val stars = (140 * d).toInt().coerceAtMost(n)
         for (i in 0 until stars) {
-            val tw = (sin(t * 2f * sp[i] + ph[i] * 6.28f) + 1f) / 2f
-            drawCircle(c2.copy(alpha = a * (0.15f + 0.5f * tw)), 0.6.dp.toPx() + 0.9.dp.toPx() * sp[i], Offset(x[i] * w, y[i] * hz * 0.9f))
+            val r = (0.4f + ph[i] * 0.9f) * dp
+            val tw = 0.3f + 0.7f * (0.5f + 0.5f * sin(t * (0.5f + sp[i]) + ph[i] * 6.28f))
+            drawCircle(if (i % 3 == 0) c1 else ink, r, Offset(x[i] * w, y[i] * h), alpha = tw * 0.7f * a)
         }
-        // Striped sun sitting on the horizon
-        val r = min(w, h) * 0.22f
-        val c = Offset(w / 2, hz - r * 0.3f)
-        drawCircle(Brush.verticalGradient(listOf(c2, c1), startY = c.y - r, endY = c.y + r), r, c, alpha = a * 0.75f)
-        for (i in 0 until 7) {
-            val sy = c.y + r * (0.02f + i * 0.14f)
-            drawRect(bg, Offset(c.x - r, sy), Size(r * 2, 1.5.dp.toPx() + i * 1.1.dp.toPx()))
-        }
-        drawRect(bg, Offset(0f, hz), Size(w, h - hz))
-        drawRect(Brush.verticalGradient(listOf(c1.copy(alpha = a * 0.35f), Color.Transparent), startY = hz, endY = hz + h * 0.12f), Offset(0f, hz), Size(w, h * 0.12f))
-        drawLine(c1.copy(alpha = a), Offset(0f, hz), Offset(w, hz), 2.dp.toPx())
-        // Floor grid rushing towards the viewer
-        val cols = (9 * d).toInt() + 5
-        val stroke = 1.3.dp.toPx()
-        for (i in -cols..cols) {
-            val fx = i.toFloat() / cols
-            drawLine(c1.copy(alpha = a * 0.55f), Offset(w / 2 + fx * w * 0.12f, hz), Offset(w / 2 + fx * w * 1.9f, h), stroke)
-        }
-        val rows = (9 * d).toInt() + 4
-        val f = (t * 0.4f) % 1f
-        for (k in 0 until rows) {
-            val z = (k + f) / rows
-            val yy = hz + (h - hz) * z * z
-            drawLine(c1.copy(alpha = a * (0.15f + 0.65f * z)), Offset(0f, yy), Offset(w, yy), stroke)
-        }
+        val count = (4 * d).toInt().coerceIn(2, 8)
+        for (slot in 0 until count) comet(w, h, t, slot, period = 4.5f + slot * 1.3f, c2, ink, a, dp)
+    }
+
+    private fun DrawScope.comet(w: Float, h: Float, t: Float, slot: Int, period: Float, tail: Color, head: Color, a: Float, dp: Float) {
+        fun hash(cycle: Float, salt: Float): Float { val v = sin(slot * 12.9898f + cycle * 78.233f + salt * 37.719f) * 43758.547f; return v - floor(v) }
+        val shifted = t + slot * period * 0.37f
+        val cyc = floor(shifted / period)
+        val local = shifted - cyc * period
+        val dur = 1.1f
+        if (local > dur) return
+        val pr = local / dur
+        // Heads down and to the left or right, at a shallow angle
+        val left = hash(cyc, 7f) > 0.5f
+        val ang = ((if (left) 140f else 25f) + hash(cyc, 5f) * 15f) * (PI.toFloat() / 180f)
+        val dx = cos(ang)
+        val dy = sin(ang)
+        val sx = (if (left) 0.45f + hash(cyc, 3f) * 0.55f else hash(cyc, 3f) * 0.55f) * w
+        val sy = hash(cyc, 4f) * h * 0.4f
+        val travel = (260f + hash(cyc, 6f) * 160f) * dp
+        val hx = sx + dx * travel * pr
+        val hy = sy + dy * travel * pr
+        val len = 120f * dp * (1f - abs(pr - 0.5f))
+        val tx = hx - dx * len
+        val ty = hy - dy * len
+        val fade = sin(pr * PI.toFloat())
+        drawLine(
+            Brush.linearGradient(listOf(Color.Transparent, lerp(head, tail, 0.35f).copy(alpha = 0.9f * fade * a)), Offset(tx, ty), Offset(hx, hy)),
+            Offset(tx, ty), Offset(hx, hy), 1.6f * dp, androidx.compose.ui.graphics.StrokeCap.Round,
+        )
+        drawCircle(head, 1.6f * dp, Offset(hx, hy), alpha = fade * a)
     }
 
     private fun DrawScope.brackets(cx: Float, cy: Float, s: Float, color: Color, width: Float) {
@@ -420,15 +428,39 @@ private class Scene(val style: BgStyle) {
         }
     }
 
-    private fun DrawScope.static(w: Float, h: Float, t: Float, c1: Color, ink: Color, a: Float, d: Float) {
-        val frame = Random((t * 24f).toInt())
-        val dots = (700 * d).toInt()
-        val s = 2.5.dp.toPx()
-        for (i in 0 until dots) {
-            val col = if (frame.nextInt(9) == 0) c1 else ink
-            drawRect(col.copy(alpha = a * frame.nextFloat() * 0.45f), Offset(frame.nextFloat() * w, frame.nextFloat() * h), Size(s, s))
+    /**
+     * Stacked ridgelines that swell in the middle, like a pulsar's radio trace. The area under each
+     * ridge is filled with the background, so nearer ridges hide the ones behind them.
+     */
+    private fun DrawScope.pulsar(w: Float, h: Float, t: Float, c1: Color, c2: Color, bg: Color, a: Float, d: Float) {
+        val rows = (24 * d).toInt().coerceIn(10, 44)
+        val steps = 72
+        val left = w * 0.08f
+        val span = w * 0.84f
+        val top = h * 0.2f
+        val gap = h * 0.62f / rows
+        val amp = gap * 4.2f
+        val stroke = 1.4.dp.toPx()
+        for (r in 0 until rows) {
+            val base = top + r * gap
+            path.reset()
+            ridge.reset()
+            for (s in 0..steps) {
+                val u = s.toFloat() / steps
+                // Bell-shaped envelope, so the peaks bunch up in the centre
+                val env = kotlin.math.exp(-((u - 0.5f) * 4.2f).pow(2))
+                val wave = 0.55f * sin(u * 23f + t * (0.9f + sp[r] * 0.6f) + ph[r] * 6.28f) +
+                    0.3f * sin(u * 51f - t * 1.7f + r * 0.7f) +
+                    0.15f * sin(u * 97f + t * 2.9f + ph[r + 50] * 6.28f)
+                val yy = base - env * amp * (0.55f + 0.45f * wave).coerceAtLeast(0f)
+                if (s == 0) { path.moveTo(left, yy); ridge.moveTo(left, yy) } else { path.lineTo(left + u * span, yy); ridge.lineTo(left + u * span, yy) }
+            }
+            path.lineTo(left + span, base + gap)
+            path.lineTo(left, base + gap)
+            path.close()
+            drawPath(path, bg)
+            val f = r.toFloat() / (rows - 1)
+            drawPath(ridge, lerp(c2, c1, f).copy(alpha = a * (0.35f + 0.55f * f)), style = Stroke(stroke))
         }
-        val band = (t * 0.12f % 1f) * (h * 1.2f) - h * 0.1f
-        drawRect(Brush.verticalGradient(listOf(Color.Transparent, c1.copy(alpha = a * 0.12f), Color.Transparent), startY = band, endY = band + h * 0.1f), Offset(0f, band), Size(w, h * 0.1f))
     }
 }

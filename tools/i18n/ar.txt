@@ -61,7 +61,6 @@ slot_bg_hint|خلف كل شيء
 slot_panels|اللوحات
 slot_panels_hint|البطاقات والأوراق
 slot_text_hint|لون النص الرئيسي
-bg_synth|شبكة سينث
 bg_rain|مطر الشيفرة
 bg_scope|راسم الذبذبات
 bg_radar|رادار
@@ -69,7 +68,6 @@ bg_dots|مصفوفة نقاط
 bg_circuit|دائرة كهربائية
 bg_warp|اعوجاج
 bg_spectrum|طيف
-bg_static|تشويش
 bg_random|عشوائي
 bgc_duo|كلا اللونين
 bgc_cycle|دورة الألوان
@@ -434,3 +432,15 @@ made_by_line|من صنع StarlightJulie. مجاني ومفتوح المصدر ب
 source|الشيفرة المصدرية
 license|الترخيص
 flipper_trademark|Flipper Zero علامة تجارية لشركة Flipper Devices Inc. لا يرتبط EMITT بهم ولا يحظى بتأييدهم.
+bg_comets|مذنّبات
+bg_pulsar|نجم نابض
+custom_status_on|مفعّل · %1$d مجموعات محفوظة
+custom_status_off|متوقف · %1$d مجموعات محفوظة
+save_set|حفظ كمجموعة
+saved_sets|المجموعات المحفوظة
+no_sets|لا توجد مجموعات محفوظة بعد. فعّل ألوانك وعدّلها ثم انقر «حفظ كمجموعة».
+sets_hint|انقر مجموعة لاستخدامها. الحفظ بالاسم نفسه يستبدل تلك المجموعة.
+set_default_name|ألواني %1$d
+set_saved|حُفظت %1$s
+delete_set_confirm|حذف مجموعة الألوان «%1$s»؟ لا يمكن التراجع عن ذلك.
+tagmode_builtin|الهاتف الآخر لا يرى شيئًا؟ بعض الهواتف (غالبًا Android 15 وأحدث) تجيب ببطاقة فارغة مدمجة في شريحة NFC. افتح EMITT على الهاتف القارئ: يستطيع دائمًا قراءة هاتف يعمل عليه EMITT.

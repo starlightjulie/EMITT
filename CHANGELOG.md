@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.3.1
+
+### Fixed
+- **Be the tag on phones with a built-in NFC tag.** Some phones (like the Moto G 5G 2024 on Android 15) have an empty tag built into their NFC chip, and the chip sends readers there instead of to EMITT. Apps can't override that. EMITT now also answers on its own ID, and EMITT's reader tries it, so a phone with EMITT open always reads an EMITT phone. Tag mode explains this if the other phone sees nothing.
+
+### New
+- **Saved colour sets.** "Use my own colours" now has its own page (Appearance → Use my own colours). Edit your five colours, save them as a named set, tap a set to switch to it, and delete sets you don't want. Reset look keeps your sets.
+- **Comets** background: a twinkling starfield with comets streaking across. It replaces Synth Grid.
+- **Pulsar** background: stacked ridgelines that swell and drift like a pulsar's radio trace. It replaces Static.
+- **Smoother navigation.** The bottom bar's indicator slides to the tab you pick, the `EMITT://` path backspaces and types the new screen's name, and screens fade and slide in the direction you're going. All of it turns off with Android's "Remove animations" setting.
+
+If you were using Synth Grid or Static, EMITT switches you to Comets or Pulsar and keeps the rest of your look.
+
 ## 1.3.0
 
 ### New

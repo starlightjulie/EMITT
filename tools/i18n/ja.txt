@@ -61,7 +61,6 @@ slot_bg_hint|すべての奥
 slot_panels|パネル
 slot_panels_hint|カードやシート
 slot_text_hint|メインの文字色
-bg_synth|シンセグリッド
 bg_rain|コードの雨
 bg_scope|オシロスコープ
 bg_radar|レーダー
@@ -69,7 +68,6 @@ bg_dots|ドットマトリクス
 bg_circuit|回路
 bg_warp|ワープ
 bg_spectrum|スペクトラム
-bg_static|砂嵐
 bg_random|ランダム
 bgc_duo|両方のアクセント
 bgc_cycle|色相サイクル
@@ -434,3 +432,15 @@ made_by_line|StarlightJulie 作。GPLv3 の無料オープンソースです。
 source|ソースコード
 license|ライセンス
 flipper_trademark|Flipper Zero は Flipper Devices Inc. の商標です。EMITT は同社とは無関係で、承認も受けていません。
+bg_comets|彗星
+bg_pulsar|パルサー
+custom_status_on|オン · 保存済み %1$d セット
+custom_status_off|オフ · 保存済み %1$d セット
+save_set|セットとして保存
+saved_sets|保存したセット
+no_sets|保存したセットはまだありません。自分の色をオンにして調整し、「セットとして保存」をタップしてください。
+sets_hint|セットをタップすると使えます。同じ名前で保存するとそのセットを置き換えます。
+set_default_name|マイカラー %1$d
+set_saved|%1$s を保存しました
+delete_set_confirm|カラーセット「%1$s」を削除しますか？元に戻せません。
+tagmode_builtin|相手の端末に何も表示されない？一部の端末（主に Android 15 以降）は、NFC チップ内蔵の空のタグで応答します。読み取る側の端末で EMITT を開けば、EMITT の端末を必ず読み取れます。

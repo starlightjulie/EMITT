@@ -63,7 +63,6 @@
     <string name="slot_panels">पैनल</string>
     <string name="slot_panels_hint">कार्ड और शीट</string>
     <string name="slot_text_hint">मुख्य टेक्स्ट का रंग</string>
-    <string name="bg_synth">सिंथ ग्रिड</string>
     <string name="bg_rain">कोड बारिश</string>
     <string name="bg_scope">ऑसिलोस्कोप</string>
     <string name="bg_radar">रडार</string>
@@ -71,7 +70,6 @@
     <string name="bg_circuit">सर्किट</string>
     <string name="bg_warp">वार्प</string>
     <string name="bg_spectrum">स्पेक्ट्रम</string>
-    <string name="bg_static">स्टैटिक</string>
     <string name="bg_random">यादृच्छिक</string>
     <string name="bgc_duo">दोनों रंग</string>
     <string name="bgc_cycle">रंग चक्र</string>
@@ -436,4 +434,16 @@
     <string name="source">सोर्स कोड</string>
     <string name="license">लाइसेंस</string>
     <string name="flipper_trademark">Flipper Zero, Flipper Devices Inc. का ट्रेडमार्क है। EMITT उनसे संबद्ध या उनके द्वारा समर्थित नहीं है।</string>
+    <string name="bg_comets">धूमकेतु</string>
+    <string name="bg_pulsar">पल्सर</string>
+    <string name="custom_status_on">चालू · %1$d सेव सेट</string>
+    <string name="custom_status_off">बंद · %1$d सेव सेट</string>
+    <string name="save_set">सेट के रूप में सेव करें</string>
+    <string name="saved_sets">सेव किए सेट</string>
+    <string name="no_sets">अभी कोई सेट सेव नहीं है। अपने रंग चालू करें, बदलें, फिर «सेट के रूप में सेव करें» टैप करें।</string>
+    <string name="sets_hint">किसी सेट को इस्तेमाल करने के लिए टैप करें। उसी नाम से सेव करने पर वह सेट बदल जाता है।</string>
+    <string name="set_default_name">मेरे रंग %1$d</string>
+    <string name="set_saved">%1$s सेव हुआ</string>
+    <string name="delete_set_confirm">रंग सेट «%1$s» हटाएँ? इसे वापस नहीं किया जा सकता।</string>
+    <string name="tagmode_builtin">दूसरे फ़ोन पर कुछ नहीं दिखा? कुछ फ़ोन (अक्सर Android 15 और नए) अपनी NFC चिप में बने खाली टैग से जवाब देते हैं। पढ़ने वाले फ़ोन पर EMITT खोलें: वह EMITT वाले फ़ोन को हमेशा पढ़ सकता है।</string>
 </resources>

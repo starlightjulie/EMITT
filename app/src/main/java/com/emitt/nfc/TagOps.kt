@@ -131,6 +131,21 @@ object TagOps {
                 }
             }
         }
+        // Nothing useful? It may be an EMITT phone whose chip answered the NDEF AID with its own built-in tag.
+        if (message?.records?.any { it.tnf != NdefRecord.TNF_EMPTY } != true) {
+            IsoDep.get(tag)?.let { iso ->
+                runCatching {
+                    iso.connect()
+                    iso.use { Type4Tag.readNdef(Type4Tag.EMITT_AID) { apdu -> it.transceive(apdu) } }
+                }.getOrNull()?.let { raw -> runCatching { NdefMessage(raw) }.getOrNull() }?.let {
+                    message = it
+                    ndefType = "type4 (EMITT)"
+                    max = it.byteArrayLength
+                    writable = false
+                    canLock = false
+                }
+            }
+        }
 
         val dump = if (MifareUltralight.get(tag) != null || (nfcA != null && sak == 0 && tag.id.size == 7)) {
             runCatching { dumpUltralight(tag) }.getOrNull()

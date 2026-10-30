@@ -61,7 +61,6 @@ slot_bg_hint|सगळ्याच्या मागे
 slot_panels|पॅनेल
 slot_panels_hint|कार्ड आणि शीट
 slot_text_hint|मुख्य मजकुराचा रंग
-bg_synth|सिंथ ग्रिड
 bg_rain|कोड पाऊस
 bg_scope|ऑसिलोस्कोप
 bg_radar|रडार
@@ -69,7 +68,6 @@ bg_dots|डॉट मॅट्रिक्स
 bg_circuit|सर्किट
 bg_warp|वार्प
 bg_spectrum|स्पेक्ट्रम
-bg_static|स्टॅटिक
 bg_random|यादृच्छिक
 bgc_duo|दोन्ही रंग
 bgc_cycle|रंगचक्र
@@ -434,3 +432,15 @@ made_by_line|StarlightJulie ने बनवले. मोफत आणि ओ�
 source|सोर्स कोड
 license|परवाना
 flipper_trademark|Flipper Zero हा Flipper Devices Inc. चा ट्रेडमार्क आहे. EMITT त्यांच्याशी संलग्न नाही किंवा त्यांच्याकडून मान्यताप्राप्त नाही.
+bg_comets|धूमकेतू
+bg_pulsar|पल्सर
+custom_status_on|चालू · %1$d जतन केलेले संच
+custom_status_off|बंद · %1$d जतन केलेले संच
+save_set|संच म्हणून जतन करा
+saved_sets|जतन केलेले संच
+no_sets|अजून कोणताही संच जतन केलेला नाही. स्वतःचे रंग चालू करा, बदला, मग «संच म्हणून जतन करा» टॅप करा.
+sets_hint|वापरण्यासाठी एखाद्या संचावर टॅप करा. त्याच नावाने जतन केल्यास तो संच बदलतो.
+set_default_name|माझे रंग %1$d
+set_saved|%1$s जतन झाले
+delete_set_confirm|रंगसंच «%1$s» हटवायचा? हे परत करता येत नाही.
+tagmode_builtin|दुसऱ्या फोनवर काहीच दिसत नाही? काही फोन (बहुधा Android 15 आणि नवीन) त्यांच्या NFC चिपमधील रिकाम्या टॅगने उत्तर देतात. वाचणाऱ्या फोनवर EMITT उघडा: तो EMITT फोन नेहमी वाचू शकतो.

@@ -63,7 +63,6 @@
     <string name="slot_panels">Panneaux</string>
     <string name="slot_panels_hint">Cartes et feuilles</string>
     <string name="slot_text_hint">Couleur du texte principal</string>
-    <string name="bg_synth">Grille synth</string>
     <string name="bg_rain">Pluie de code</string>
     <string name="bg_scope">Oscilloscope</string>
     <string name="bg_radar">Radar</string>
@@ -71,7 +70,6 @@
     <string name="bg_circuit">Circuit</string>
     <string name="bg_warp">Distorsion</string>
     <string name="bg_spectrum">Spectre</string>
-    <string name="bg_static">Neige</string>
     <string name="bg_random">Aléatoire</string>
     <string name="bgc_duo">Les deux accents</string>
     <string name="bgc_cycle">Cycle de teinte</string>
@@ -436,4 +434,16 @@
     <string name="source">Code source</string>
     <string name="license">Licence</string>
     <string name="flipper_trademark">Flipper Zero est une marque de Flipper Devices Inc. EMITT n\'est ni affilié à eux ni approuvé par eux.</string>
+    <string name="bg_comets">Comètes</string>
+    <string name="bg_pulsar">Pulsar</string>
+    <string name="custom_status_on">Activé · %1$d jeux enregistrés</string>
+    <string name="custom_status_off">Désactivé · %1$d jeux enregistrés</string>
+    <string name="save_set">Enregistrer comme jeu</string>
+    <string name="saved_sets">Jeux enregistrés</string>
+    <string name="no_sets">Aucun jeu enregistré. Active tes propres couleurs, ajuste-les, puis touche Enregistrer comme jeu.</string>
+    <string name="sets_hint">Touche un jeu pour l’utiliser. Enregistrer sous le même nom remplace ce jeu.</string>
+    <string name="set_default_name">Mes couleurs %1$d</string>
+    <string name="set_saved">%1$s enregistré</string>
+    <string name="delete_set_confirm">Supprimer le jeu de couleurs « %1$s » ? C’est définitif.</string>
+    <string name="tagmode_builtin">L’autre téléphone ne voit rien ? Certains téléphones (souvent Android 15 et plus) répondent avec un tag vide intégré à leur puce NFC. Ouvre EMITT sur le téléphone qui lit : il peut toujours lire un téléphone EMITT.</string>
 </resources>

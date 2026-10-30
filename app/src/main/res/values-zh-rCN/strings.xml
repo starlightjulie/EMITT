@@ -63,7 +63,6 @@
     <string name="slot_panels">面板</string>
     <string name="slot_panels_hint">卡片和面板</string>
     <string name="slot_text_hint">主文本颜色</string>
-    <string name="bg_synth">合成网格</string>
     <string name="bg_rain">代码雨</string>
     <string name="bg_scope">示波器</string>
     <string name="bg_radar">雷达</string>
@@ -71,7 +70,6 @@
     <string name="bg_circuit">电路</string>
     <string name="bg_warp">跃迁</string>
     <string name="bg_spectrum">频谱</string>
-    <string name="bg_static">雪花</string>
     <string name="bg_random">随机</string>
     <string name="bgc_duo">双强调色</string>
     <string name="bgc_cycle">色相循环</string>
@@ -436,4 +434,16 @@
     <string name="source">源代码</string>
     <string name="license">许可证</string>
     <string name="flipper_trademark">Flipper Zero 是 Flipper Devices Inc. 的商标。EMITT 与其无关联，也未获其认可。</string>
+    <string name="bg_comets">彗星</string>
+    <string name="bg_pulsar">脉冲星</string>
+    <string name="custom_status_on">开 · 已保存 %1$d 套</string>
+    <string name="custom_status_off">关 · 已保存 %1$d 套</string>
+    <string name="save_set">保存为配色</string>
+    <string name="saved_sets">已保存的配色</string>
+    <string name="no_sets">还没有保存的配色。打开自定义颜色，调整后点按“保存为配色”。</string>
+    <string name="sets_hint">点按一套配色即可使用。用相同名称保存会替换那一套。</string>
+    <string name="set_default_name">我的配色 %1$d</string>
+    <string name="set_saved">已保存 %1$s</string>
+    <string name="delete_set_confirm">删除配色“%1$s”？此操作无法撤销。</string>
+    <string name="tagmode_builtin">另一部手机读不到内容？部分手机（多为 Android 15 及以上）会用 NFC 芯片内置的空标签来应答。在读取的手机上打开 EMITT：它总能读取运行 EMITT 的手机。</string>
 </resources>

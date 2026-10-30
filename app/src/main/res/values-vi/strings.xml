@@ -63,7 +63,6 @@
     <string name="slot_panels">Bảng</string>
     <string name="slot_panels_hint">Thẻ và trang</string>
     <string name="slot_text_hint">Màu chữ chính</string>
-    <string name="bg_synth">Lưới synth</string>
     <string name="bg_rain">Mưa mã</string>
     <string name="bg_scope">Máy hiện sóng</string>
     <string name="bg_radar">Radar</string>
@@ -71,7 +70,6 @@
     <string name="bg_circuit">Mạch điện</string>
     <string name="bg_warp">Bẻ cong</string>
     <string name="bg_spectrum">Phổ</string>
-    <string name="bg_static">Nhiễu</string>
     <string name="bg_random">Ngẫu nhiên</string>
     <string name="bgc_duo">Cả hai màu nhấn</string>
     <string name="bgc_cycle">Đổi sắc độ</string>
@@ -436,4 +434,16 @@
     <string name="source">Mã nguồn</string>
     <string name="license">Giấy phép</string>
     <string name="flipper_trademark">Flipper Zero là nhãn hiệu của Flipper Devices Inc. EMITT không liên kết và không được họ bảo trợ.</string>
+    <string name="bg_comets">Sao chổi</string>
+    <string name="bg_pulsar">Pulsar</string>
+    <string name="custom_status_on">Bật · %1$d bộ đã lưu</string>
+    <string name="custom_status_off">Tắt · %1$d bộ đã lưu</string>
+    <string name="save_set">Lưu thành bộ</string>
+    <string name="saved_sets">Bộ màu đã lưu</string>
+    <string name="no_sets">Chưa có bộ nào. Bật màu riêng, chỉnh lại rồi chạm Lưu thành bộ.</string>
+    <string name="sets_hint">Chạm vào một bộ để dùng. Lưu trùng tên sẽ thay thế bộ đó.</string>
+    <string name="set_default_name">Màu của tôi %1$d</string>
+    <string name="set_saved">Đã lưu %1$s</string>
+    <string name="delete_set_confirm">Xoá bộ màu \"%1$s\"? Không thể hoàn tác.</string>
+    <string name="tagmode_builtin">Điện thoại kia không thấy gì? Một số điện thoại (thường từ Android 15) trả lời bằng thẻ trống có sẵn trong chip NFC. Hãy mở EMITT trên điện thoại đọc: nó luôn đọc được điện thoại chạy EMITT.</string>
 </resources>

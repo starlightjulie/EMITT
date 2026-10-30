@@ -63,7 +63,6 @@
     <string name="slot_panels">Painéis</string>
     <string name="slot_panels_hint">Cartões e folhas</string>
     <string name="slot_text_hint">Cor do texto principal</string>
-    <string name="bg_synth">Grade synth</string>
     <string name="bg_rain">Chuva de código</string>
     <string name="bg_scope">Osciloscópio</string>
     <string name="bg_radar">Radar</string>
@@ -71,7 +70,6 @@
     <string name="bg_circuit">Circuito</string>
     <string name="bg_warp">Dobra</string>
     <string name="bg_spectrum">Espectro</string>
-    <string name="bg_static">Estática</string>
     <string name="bg_random">Aleatório</string>
     <string name="bgc_duo">Os dois destaques</string>
     <string name="bgc_cycle">Ciclo de cor</string>
@@ -436,4 +434,16 @@
     <string name="source">Código-fonte</string>
     <string name="license">Licença</string>
     <string name="flipper_trademark">Flipper Zero é uma marca da Flipper Devices Inc. O EMITT não é afiliado nem endossado por eles.</string>
+    <string name="bg_comets">Cometas</string>
+    <string name="bg_pulsar">Pulsar</string>
+    <string name="custom_status_on">Ativado · %1$d conjuntos salvos</string>
+    <string name="custom_status_off">Desativado · %1$d conjuntos salvos</string>
+    <string name="save_set">Salvar como conjunto</string>
+    <string name="saved_sets">Conjuntos salvos</string>
+    <string name="no_sets">Nenhum conjunto salvo ainda. Ative suas próprias cores, ajuste e toque em Salvar como conjunto.</string>
+    <string name="sets_hint">Toque em um conjunto para usá-lo. Salvar com o mesmo nome substitui esse conjunto.</string>
+    <string name="set_default_name">Minhas cores %1$d</string>
+    <string name="set_saved">%1$s salvo</string>
+    <string name="delete_set_confirm">Excluir o conjunto de cores \"%1$s\"? Não dá para desfazer.</string>
+    <string name="tagmode_builtin">O outro celular não vê nada? Alguns celulares (geralmente Android 15 ou mais novo) respondem com uma tag vazia embutida no chip NFC. Abra o EMITT no celular que vai ler: ele sempre consegue ler um celular com EMITT.</string>
 </resources>

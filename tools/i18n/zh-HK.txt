@@ -61,7 +61,6 @@ slot_bg_hint|喺所有嘢後面
 slot_panels|面板
 slot_panels_hint|卡同面板
 slot_text_hint|主要文字顏色
-bg_synth|合成網格
 bg_rain|代碼雨
 bg_scope|示波器
 bg_radar|雷達
@@ -69,7 +68,6 @@ bg_dots|點陣
 bg_circuit|電路
 bg_warp|躍遷
 bg_spectrum|頻譜
-bg_static|雪花
 bg_random|隨機
 bgc_duo|兩隻強調色
 bgc_cycle|色相循環
@@ -434,3 +432,15 @@ made_by_line|由 StarlightJulie 製作。以 GPLv3 免費開源。
 source|原始碼
 license|授權
 flipper_trademark|Flipper Zero 係 Flipper Devices Inc. 嘅商標。EMITT 同佢哋冇關係，亦冇得到佢哋認可。
+bg_comets|彗星
+bg_pulsar|脈衝星
+custom_status_on|開 · 已儲存 %1$d 套
+custom_status_off|關 · 已儲存 %1$d 套
+save_set|儲存為配色
+saved_sets|已儲存的配色
+no_sets|仲未有儲存嘅配色。開啟自訂顏色，調校好之後撳「儲存為配色」。
+sets_hint|撳一套配色就可以用。用同一個名儲存會取代嗰套。
+set_default_name|我的配色 %1$d
+set_saved|已儲存 %1$s
+delete_set_confirm|刪除配色「%1$s」？呢個動作冇得還原。
+tagmode_builtin|另一部手機讀唔到嘢？有啲手機（多數係 Android 15 或以上）會用 NFC 晶片內置嘅空白標籤回應。喺讀取嘅手機開 EMITT：佢一定讀到用緊 EMITT 嘅手機。

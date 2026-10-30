@@ -61,7 +61,6 @@ slot_bg_hint|Atrás de tudo
 slot_panels|Painéis
 slot_panels_hint|Cartões e folhas
 slot_text_hint|Cor do texto principal
-bg_synth|Grade synth
 bg_rain|Chuva de código
 bg_scope|Osciloscópio
 bg_radar|Radar
@@ -69,7 +68,6 @@ bg_dots|Matriz de pontos
 bg_circuit|Circuito
 bg_warp|Dobra
 bg_spectrum|Espectro
-bg_static|Estática
 bg_random|Aleatório
 bgc_duo|Os dois destaques
 bgc_cycle|Ciclo de cor
@@ -434,3 +432,15 @@ made_by_line|Feito por StarlightJulie. Gratuito e de código aberto sob GPLv3.
 source|Código-fonte
 license|Licença
 flipper_trademark|Flipper Zero é uma marca da Flipper Devices Inc. O EMITT não é afiliado nem endossado por eles.
+bg_comets|Cometas
+bg_pulsar|Pulsar
+custom_status_on|Ativado · %1$d conjuntos salvos
+custom_status_off|Desativado · %1$d conjuntos salvos
+save_set|Salvar como conjunto
+saved_sets|Conjuntos salvos
+no_sets|Nenhum conjunto salvo ainda. Ative suas próprias cores, ajuste e toque em Salvar como conjunto.
+sets_hint|Toque em um conjunto para usá-lo. Salvar com o mesmo nome substitui esse conjunto.
+set_default_name|Minhas cores %1$d
+set_saved|%1$s salvo
+delete_set_confirm|Excluir o conjunto de cores "%1$s"? Não dá para desfazer.
+tagmode_builtin|O outro celular não vê nada? Alguns celulares (geralmente Android 15 ou mais novo) respondem com uma tag vazia embutida no chip NFC. Abra o EMITT no celular que vai ler: ele sempre consegue ler um celular com EMITT.

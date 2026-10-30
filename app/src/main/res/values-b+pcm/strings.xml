@@ -63,7 +63,6 @@
     <string name="slot_panels">Panels</string>
     <string name="slot_panels_hint">Cards and sheets</string>
     <string name="slot_text_hint">Main text colour</string>
-    <string name="bg_synth">Synth grid</string>
     <string name="bg_rain">Code rain</string>
     <string name="bg_scope">Oscilloscope</string>
     <string name="bg_radar">Radar</string>
@@ -71,7 +70,6 @@
     <string name="bg_circuit">Circuit</string>
     <string name="bg_warp">Warp</string>
     <string name="bg_spectrum">Spectrum</string>
-    <string name="bg_static">Static</string>
     <string name="bg_random">Anyhow</string>
     <string name="bgc_duo">Both accents</string>
     <string name="bgc_cycle">Colour dey change</string>
@@ -436,4 +434,16 @@
     <string name="source">Source</string>
     <string name="license">License</string>
     <string name="flipper_trademark">Flipper Zero na trademark of Flipper Devices Inc. EMITT no join dem and dem no back am.</string>
+    <string name="bg_comets">Comets</string>
+    <string name="bg_pulsar">Pulsar</string>
+    <string name="custom_status_on">On · %1$d set wey you save</string>
+    <string name="custom_status_off">Off · %1$d set wey you save</string>
+    <string name="save_set">Save am as set</string>
+    <string name="saved_sets">Set wey you save</string>
+    <string name="no_sets">You never save any set. On your own colour, adjust dem, then tap Save am as set.</string>
+    <string name="sets_hint">Tap one set to use am. If you save with the same name, e go replace that set.</string>
+    <string name="set_default_name">My colour %1$d</string>
+    <string name="set_saved">Don save %1$s</string>
+    <string name="delete_set_confirm">Delete the colour set \"%1$s\"? You no fit undo am.</string>
+    <string name="tagmode_builtin">The other phone no see anything? Some phone (mostly Android 15 go up) dey answer with empty tag wey dey inside their NFC chip. Open EMITT for the phone wey dey read: e fit always read EMITT phone.</string>
 </resources>

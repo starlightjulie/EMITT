@@ -57,7 +57,11 @@ class ImportedFile(val name: String, val text: String, val file: FlipperNfc)
 enum class Output(@StringRes val label: Int) { QR(R.string.out_qr), NFC(R.string.out_nfc), FLIPPER(R.string.tab_flipper) }
 
 /** Full-screen pages opened from the top bar. */
-enum class Page { SETTINGS, APPEARANCE }
+enum class Page(val path: String, val parent: Page? = null) {
+    SETTINGS("settings"),
+    APPEARANCE("appearance"),
+    CUSTOM_COLOURS("colours", APPEARANCE),
+}
 
 /** What the next tag tapped against the phone should be used for. */
 sealed interface NfcOp {

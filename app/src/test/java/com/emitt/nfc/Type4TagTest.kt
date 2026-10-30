@@ -40,6 +40,16 @@ class Type4TagTest {
     }
 
     @Test
+    fun emittReaderReadsAnEmittPhoneByItsOwnAid() {
+        val ndef = ByteArray(400) { (it * 7).toByte() }
+        val tag = Type4Tag(ndef)
+        assertArrayEquals(ndef, Type4Tag.readNdef(Type4Tag.EMITT_AID, tag::process))
+        assertTrue(tag.fullyRead)
+        // Any other AID is refused, so non-EMITT tags just return null
+        assertArrayEquals(null, Type4Tag.readNdef(hex("A0000000031010"), Type4Tag(ndef)::process))
+    }
+
+    @Test
     fun flipperStyleSelectsWork() {
         // Momentum's Type 4 poller: select app with P2=0C, select files with P1=02, read CC length then CC
         val tag = Type4Tag(byteArrayOf(0xD1.toByte(), 0x01, 0x01, 0x55, 0x00))

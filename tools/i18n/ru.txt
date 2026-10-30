@@ -61,7 +61,6 @@ slot_bg_hint|Позади всего
 slot_panels|Панели
 slot_panels_hint|Карточки и листы
 slot_text_hint|Цвет основного текста
-bg_synth|Синт-сетка
 bg_rain|Дождь кода
 bg_scope|Осциллограф
 bg_radar|Радар
@@ -69,7 +68,6 @@ bg_dots|Точечная матрица
 bg_circuit|Схема
 bg_warp|Варп
 bg_spectrum|Спектр
-bg_static|Помехи
 bg_random|Случайно
 bgc_duo|Оба акцента
 bgc_cycle|Смена оттенка
@@ -434,3 +432,15 @@ made_by_line|Создано StarlightJulie. Бесплатно и с откры�
 source|Исходный код
 license|Лицензия
 flipper_trademark|Flipper Zero — товарный знак Flipper Devices Inc. EMITT не связан с ними и не одобрен ими.
+bg_comets|Кометы
+bg_pulsar|Пульсар
+custom_status_on|Вкл · сохранённых наборов: %1$d
+custom_status_off|Выкл · сохранённых наборов: %1$d
+save_set|Сохранить как набор
+saved_sets|Сохранённые наборы
+no_sets|Сохранённых наборов пока нет. Включите свои цвета, настройте их и нажмите «Сохранить как набор».
+sets_hint|Нажмите на набор, чтобы применить его. Сохранение под тем же именем заменяет набор.
+set_default_name|Мои цвета %1$d
+set_saved|Сохранено: %1$s
+delete_set_confirm|Удалить набор цветов «%1$s»? Это нельзя отменить.
+tagmode_builtin|Другой телефон ничего не видит? Некоторые телефоны (часто с Android 15 и новее) отвечают пустой меткой, встроенной в NFC-чип. Откройте EMITT на читающем телефоне: он всегда может прочитать телефон с EMITT.

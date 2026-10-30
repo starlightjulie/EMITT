@@ -61,7 +61,6 @@ slot_bg_hint|모든 것의 뒤
 slot_panels|패널
 slot_panels_hint|카드와 시트
 slot_text_hint|기본 글자 색
-bg_synth|신스 그리드
 bg_rain|코드 비
 bg_scope|오실로스코프
 bg_radar|레이더
@@ -69,7 +68,6 @@ bg_dots|도트 매트릭스
 bg_circuit|회로
 bg_warp|워프
 bg_spectrum|스펙트럼
-bg_static|노이즈
 bg_random|무작위
 bgc_duo|두 강조 색상
 bgc_cycle|색상 순환
@@ -434,3 +432,15 @@ made_by_line|StarlightJulie가 만들었습니다. GPLv3로 무료 오픈소스�
 source|소스 코드
 license|라이선스
 flipper_trademark|Flipper Zero는 Flipper Devices Inc.의 상표입니다. EMITT는 해당 회사와 관련이 없으며 보증을 받지 않았습니다.
+bg_comets|혜성
+bg_pulsar|펄서
+custom_status_on|켜짐 · 저장된 세트 %1$d개
+custom_status_off|꺼짐 · 저장된 세트 %1$d개
+save_set|세트로 저장
+saved_sets|저장된 세트
+no_sets|저장된 세트가 아직 없어요. 내 색상을 켜고 조정한 다음 세트로 저장을 누르세요.
+sets_hint|세트를 누르면 적용돼요. 같은 이름으로 저장하면 그 세트를 바꿉니다.
+set_default_name|내 색상 %1$d
+set_saved|%1$s 저장됨
+delete_set_confirm|색상 세트 "%1$s"을(를) 삭제할까요? 되돌릴 수 없어요.
+tagmode_builtin|상대 휴대폰에 아무것도 안 보이나요? 일부 휴대폰(주로 Android 15 이상)은 NFC 칩에 내장된 빈 태그로 응답해요. 읽는 쪽 휴대폰에서 EMITT를 열면 EMITT 휴대폰을 항상 읽을 수 있어요.

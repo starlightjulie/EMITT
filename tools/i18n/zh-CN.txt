@@ -61,7 +61,6 @@ slot_bg_hint|所有内容之后
 slot_panels|面板
 slot_panels_hint|卡片和面板
 slot_text_hint|主文本颜色
-bg_synth|合成网格
 bg_rain|代码雨
 bg_scope|示波器
 bg_radar|雷达
@@ -69,7 +68,6 @@ bg_dots|点阵
 bg_circuit|电路
 bg_warp|跃迁
 bg_spectrum|频谱
-bg_static|雪花
 bg_random|随机
 bgc_duo|双强调色
 bgc_cycle|色相循环
@@ -434,3 +432,15 @@ made_by_line|由 StarlightJulie 制作。基于 GPLv3 免费开源。
 source|源代码
 license|许可证
 flipper_trademark|Flipper Zero 是 Flipper Devices Inc. 的商标。EMITT 与其无关联，也未获其认可。
+bg_comets|彗星
+bg_pulsar|脉冲星
+custom_status_on|开 · 已保存 %1$d 套
+custom_status_off|关 · 已保存 %1$d 套
+save_set|保存为配色
+saved_sets|已保存的配色
+no_sets|还没有保存的配色。打开自定义颜色，调整后点按“保存为配色”。
+sets_hint|点按一套配色即可使用。用相同名称保存会替换那一套。
+set_default_name|我的配色 %1$d
+set_saved|已保存 %1$s
+delete_set_confirm|删除配色“%1$s”？此操作无法撤销。
+tagmode_builtin|另一部手机读不到内容？部分手机（多为 Android 15 及以上）会用 NFC 芯片内置的空标签来应答。在读取的手机上打开 EMITT：它总能读取运行 EMITT 的手机。

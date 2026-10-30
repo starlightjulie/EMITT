@@ -63,7 +63,6 @@
     <string name="slot_panels">Paneller</string>
     <string name="slot_panels_hint">Kartlar ve sayfalar</string>
     <string name="slot_text_hint">Ana metin rengi</string>
-    <string name="bg_synth">Synth ızgara</string>
     <string name="bg_rain">Kod yağmuru</string>
     <string name="bg_scope">Osiloskop</string>
     <string name="bg_radar">Radar</string>
@@ -71,7 +70,6 @@
     <string name="bg_circuit">Devre</string>
     <string name="bg_warp">Warp</string>
     <string name="bg_spectrum">Spektrum</string>
-    <string name="bg_static">Parazit</string>
     <string name="bg_random">Rastgele</string>
     <string name="bgc_duo">İki vurgu</string>
     <string name="bgc_cycle">Renk döngüsü</string>
@@ -436,4 +434,16 @@
     <string name="source">Kaynak</string>
     <string name="license">Lisans</string>
     <string name="flipper_trademark">Flipper Zero, Flipper Devices Inc. şirketinin ticari markasıdır. EMITT onlarla bağlantılı değildir ve onlar tarafından desteklenmez.</string>
+    <string name="bg_comets">Kuyruklu yıldızlar</string>
+    <string name="bg_pulsar">Pulsar</string>
+    <string name="custom_status_on">Açık · %1$d kayıtlı set</string>
+    <string name="custom_status_off">Kapalı · %1$d kayıtlı set</string>
+    <string name="save_set">Set olarak kaydet</string>
+    <string name="saved_sets">Kayıtlı setler</string>
+    <string name="no_sets">Henüz kayıtlı set yok. Kendi renklerini aç, ayarla, sonra Set olarak kaydet\'e dokun.</string>
+    <string name="sets_hint">Kullanmak için bir sete dokun. Aynı adla kaydetmek o setin yerine geçer.</string>
+    <string name="set_default_name">Renklerim %1$d</string>
+    <string name="set_saved">%1$s kaydedildi</string>
+    <string name="delete_set_confirm">\"%1$s\" renk seti silinsin mi? Bu geri alınamaz.</string>
+    <string name="tagmode_builtin">Diğer telefon bir şey görmüyor mu? Bazı telefonlar (çoğunlukla Android 15 ve sonrası) NFC çiplerine gömülü boş bir etiketle yanıt verir. Okuyan telefonda EMITT\'i aç: EMITT olan bir telefonu her zaman okuyabilir.</string>
 </resources>

@@ -63,7 +63,6 @@
     <string name="slot_panels">パネル</string>
     <string name="slot_panels_hint">カードやシート</string>
     <string name="slot_text_hint">メインの文字色</string>
-    <string name="bg_synth">シンセグリッド</string>
     <string name="bg_rain">コードの雨</string>
     <string name="bg_scope">オシロスコープ</string>
     <string name="bg_radar">レーダー</string>
@@ -71,7 +70,6 @@
     <string name="bg_circuit">回路</string>
     <string name="bg_warp">ワープ</string>
     <string name="bg_spectrum">スペクトラム</string>
-    <string name="bg_static">砂嵐</string>
     <string name="bg_random">ランダム</string>
     <string name="bgc_duo">両方のアクセント</string>
     <string name="bgc_cycle">色相サイクル</string>
@@ -436,4 +434,16 @@
     <string name="source">ソースコード</string>
     <string name="license">ライセンス</string>
     <string name="flipper_trademark">Flipper Zero は Flipper Devices Inc. の商標です。EMITT は同社とは無関係で、承認も受けていません。</string>
+    <string name="bg_comets">彗星</string>
+    <string name="bg_pulsar">パルサー</string>
+    <string name="custom_status_on">オン · 保存済み %1$d セット</string>
+    <string name="custom_status_off">オフ · 保存済み %1$d セット</string>
+    <string name="save_set">セットとして保存</string>
+    <string name="saved_sets">保存したセット</string>
+    <string name="no_sets">保存したセットはまだありません。自分の色をオンにして調整し、「セットとして保存」をタップしてください。</string>
+    <string name="sets_hint">セットをタップすると使えます。同じ名前で保存するとそのセットを置き換えます。</string>
+    <string name="set_default_name">マイカラー %1$d</string>
+    <string name="set_saved">%1$s を保存しました</string>
+    <string name="delete_set_confirm">カラーセット「%1$s」を削除しますか？元に戻せません。</string>
+    <string name="tagmode_builtin">相手の端末に何も表示されない？一部の端末（主に Android 15 以降）は、NFC チップ内蔵の空のタグで応答します。読み取る側の端末で EMITT を開けば、EMITT の端末を必ず読み取れます。</string>
 </resources>

@@ -39,6 +39,10 @@ enum class PaletteSlot(@StringRes val label: Int, @StringRes val hint: Int) {
 
 class Colourway(val id: String, val name: String, val palette: Palette)
 
+/** A custom palette the user saved under a name, so they can switch between their own sets. */
+@Serializable
+data class SavedColours(val name: String, val palette: Palette)
+
 object Colourways {
     val all = listOf(
         Colourway("terminal", "Mono", Palette(0xFFFFFFFF, 0xFF9E9E9E, 0xFF000000, 0xFF111111, 0xFFEDEDED)),
@@ -64,7 +68,7 @@ object Colourways {
 
 @Serializable
 enum class BgStyle(@StringRes val label: Int) {
-    SYNTH_GRID(R.string.bg_synth),
+    COMETS(R.string.bg_comets),
     SIGNAL(R.string.slot_signal),
     CODE_RAIN(R.string.bg_rain),
     SCOPE(R.string.bg_scope),
@@ -73,7 +77,7 @@ enum class BgStyle(@StringRes val label: Int) {
     CIRCUIT(R.string.bg_circuit),
     WARP(R.string.bg_warp),
     SPECTRUM(R.string.bg_spectrum),
-    STATIC(R.string.bg_static),
+    PULSAR(R.string.bg_pulsar),
     NONE(R.string.pat_off),
     RANDOM(R.string.bg_random),
 }
@@ -108,6 +112,8 @@ data class ThemeConfig(
     val colourway: String = "terminal",
     /** When set, replaces the colourway. */
     val custom: Palette? = null,
+    /** The user's saved custom sets. Kept by Reset look. */
+    val savedColours: List<SavedColours> = emptyList(),
     /** Off for new installs: calmer first impression. Every style is one tap away in Settings. */
     val background: BgStyle = BgStyle.NONE,
     val bgSpeed: Float = 1f,
@@ -134,14 +140,23 @@ data class ThemeConfig(
     val palette: Palette get() = custom ?: Colourways.byId(colourway).palette
 }
 
+private val themeJson = Json { ignoreUnknownKeys = true; encodeDefaults = true }
+
+/** Reads a saved look. 1.3.1 swapped two backgrounds, so old names are mapped and nobody's look resets on update. */
+internal fun decodeTheme(saved: String): ThemeConfig = themeJson.decodeFromString(
+    saved
+        .replace("\"background\":\"SYNTH_GRID\"", "\"background\":\"COMETS\"")
+        .replace("\"background\":\"STATIC\"", "\"background\":\"PULSAR\""),
+)
+
 class ThemeRepository private constructor(context: Context) {
     private val prefs = context.getSharedPreferences("theme", Context.MODE_PRIVATE)
-    private val json = Json { ignoreUnknownKeys = true; encodeDefaults = true }
+    private val json = themeJson
     private val _config = MutableStateFlow(load())
     val config: StateFlow<ThemeConfig> = _config.asStateFlow()
 
     private fun load(): ThemeConfig = runCatching {
-        prefs.getString("config", null)?.let { json.decodeFromString<ThemeConfig>(it) }
+        prefs.getString("config", null)?.let { decodeTheme(it) }
     }.getOrNull() ?: ThemeConfig()
 
     fun update(transform: (ThemeConfig) -> ThemeConfig) {

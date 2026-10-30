@@ -61,7 +61,6 @@ slot_bg_hint|সবকিছুর পেছনে
 slot_panels|প্যানেল
 slot_panels_hint|কার্ড ও শিট
 slot_text_hint|মূল টেক্সটের রং
-bg_synth|সিন্থ গ্রিড
 bg_rain|কোড বৃষ্টি
 bg_scope|অসিলোস্কোপ
 bg_radar|রাডার
@@ -69,7 +68,6 @@ bg_dots|ডট ম্যাট্রিক্স
 bg_circuit|সার্কিট
 bg_warp|ওয়ার্প
 bg_spectrum|স্পেকট্রাম
-bg_static|স্ট্যাটিক
 bg_random|এলোমেলো
 bgc_duo|দুই রং
 bgc_cycle|রঙের চক্র
@@ -434,3 +432,15 @@ made_by_line|StarlightJulie এর তৈরি। বিনামূল্য�
 source|সোর্স কোড
 license|লাইসেন্স
 flipper_trademark|Flipper Zero হলো Flipper Devices Inc. এর ট্রেডমার্ক। EMITT তাদের সাথে যুক্ত বা তাদের দ্বারা অনুমোদিত নয়।
+bg_comets|ধূমকেতু
+bg_pulsar|পালসার
+custom_status_on|চালু · %1$dটি সেট সংরক্ষিত
+custom_status_off|বন্ধ · %1$dটি সেট সংরক্ষিত
+save_set|সেট হিসেবে সংরক্ষণ
+saved_sets|সংরক্ষিত সেট
+no_sets|এখনো কোনো সেট সংরক্ষণ করা হয়নি। নিজের রং চালু করুন, ঠিক করুন, তারপর «সেট হিসেবে সংরক্ষণ» ট্যাপ করুন।
+sets_hint|ব্যবহার করতে একটি সেট ট্যাপ করুন। একই নামে সংরক্ষণ করলে সেই সেট বদলে যায়।
+set_default_name|আমার রং %1$d
+set_saved|%1$s সংরক্ষিত
+delete_set_confirm|রঙের সেট «%1$s» মুছবেন? এটি ফেরানো যাবে না।
+tagmode_builtin|অন্য ফোনে কিছু আসছে না? কিছু ফোন (প্রায়ই Android 15 বা নতুন) তাদের NFC চিপে থাকা খালি ট্যাগ দিয়ে উত্তর দেয়। যে ফোনে পড়বেন তাতে EMITT খুলুন: সেটি EMITT ফোন সবসময় পড়তে পারে।

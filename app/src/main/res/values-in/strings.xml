@@ -63,7 +63,6 @@
     <string name="slot_panels">Panel</string>
     <string name="slot_panels_hint">Kartu dan lembar</string>
     <string name="slot_text_hint">Warna teks utama</string>
-    <string name="bg_synth">Kisi synth</string>
     <string name="bg_rain">Hujan kode</string>
     <string name="bg_scope">Osiloskop</string>
     <string name="bg_radar">Radar</string>
@@ -71,7 +70,6 @@
     <string name="bg_circuit">Sirkuit</string>
     <string name="bg_warp">Warp</string>
     <string name="bg_spectrum">Spektrum</string>
-    <string name="bg_static">Statis</string>
     <string name="bg_random">Acak</string>
     <string name="bgc_duo">Kedua aksen</string>
     <string name="bgc_cycle">Siklus warna</string>
@@ -436,4 +434,16 @@
     <string name="source">Kode sumber</string>
     <string name="license">Lisensi</string>
     <string name="flipper_trademark">Flipper Zero adalah merek dagang Flipper Devices Inc. EMITT tidak berafiliasi dengan atau didukung oleh mereka.</string>
+    <string name="bg_comets">Komet</string>
+    <string name="bg_pulsar">Pulsar</string>
+    <string name="custom_status_on">Aktif · %1$d set tersimpan</string>
+    <string name="custom_status_off">Nonaktif · %1$d set tersimpan</string>
+    <string name="save_set">Simpan sebagai set</string>
+    <string name="saved_sets">Set tersimpan</string>
+    <string name="no_sets">Belum ada set tersimpan. Aktifkan warnamu sendiri, atur, lalu ketuk Simpan sebagai set.</string>
+    <string name="sets_hint">Ketuk set untuk memakainya. Menyimpan dengan nama yang sama akan menggantikan set itu.</string>
+    <string name="set_default_name">Warnaku %1$d</string>
+    <string name="set_saved">%1$s disimpan</string>
+    <string name="delete_set_confirm">Hapus set warna \"%1$s\"? Ini tidak bisa dibatalkan.</string>
+    <string name="tagmode_builtin">Ponsel lain tidak melihat apa pun? Beberapa ponsel (sering Android 15 ke atas) menjawab dengan tag kosong bawaan chip NFC-nya. Buka EMITT di ponsel yang membaca: EMITT selalu bisa membaca ponsel EMITT.</string>
 </resources>

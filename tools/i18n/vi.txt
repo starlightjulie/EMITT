@@ -61,7 +61,6 @@ slot_bg_hint|Phía sau mọi thứ
 slot_panels|Bảng
 slot_panels_hint|Thẻ và trang
 slot_text_hint|Màu chữ chính
-bg_synth|Lưới synth
 bg_rain|Mưa mã
 bg_scope|Máy hiện sóng
 bg_radar|Radar
@@ -69,7 +68,6 @@ bg_dots|Ma trận điểm
 bg_circuit|Mạch điện
 bg_warp|Bẻ cong
 bg_spectrum|Phổ
-bg_static|Nhiễu
 bg_random|Ngẫu nhiên
 bgc_duo|Cả hai màu nhấn
 bgc_cycle|Đổi sắc độ
@@ -434,3 +432,15 @@ made_by_line|Do StarlightJulie tạo. Miễn phí và mã nguồn mở theo GPLv
 source|Mã nguồn
 license|Giấy phép
 flipper_trademark|Flipper Zero là nhãn hiệu của Flipper Devices Inc. EMITT không liên kết và không được họ bảo trợ.
+bg_comets|Sao chổi
+bg_pulsar|Pulsar
+custom_status_on|Bật · %1$d bộ đã lưu
+custom_status_off|Tắt · %1$d bộ đã lưu
+save_set|Lưu thành bộ
+saved_sets|Bộ màu đã lưu
+no_sets|Chưa có bộ nào. Bật màu riêng, chỉnh lại rồi chạm Lưu thành bộ.
+sets_hint|Chạm vào một bộ để dùng. Lưu trùng tên sẽ thay thế bộ đó.
+set_default_name|Màu của tôi %1$d
+set_saved|Đã lưu %1$s
+delete_set_confirm|Xoá bộ màu "%1$s"? Không thể hoàn tác.
+tagmode_builtin|Điện thoại kia không thấy gì? Một số điện thoại (thường từ Android 15) trả lời bằng thẻ trống có sẵn trong chip NFC. Hãy mở EMITT trên điện thoại đọc: nó luôn đọc được điện thoại chạy EMITT.

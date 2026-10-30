@@ -61,7 +61,6 @@ slot_bg_hint|हर चीज़ के पीछे
 slot_panels|पैनल
 slot_panels_hint|कार्ड और शीट
 slot_text_hint|मुख्य टेक्स्ट का रंग
-bg_synth|सिंथ ग्रिड
 bg_rain|कोड बारिश
 bg_scope|ऑसिलोस्कोप
 bg_radar|रडार
@@ -69,7 +68,6 @@ bg_dots|डॉट मैट्रिक्स
 bg_circuit|सर्किट
 bg_warp|वार्प
 bg_spectrum|स्पेक्ट्रम
-bg_static|स्टैटिक
 bg_random|यादृच्छिक
 bgc_duo|दोनों रंग
 bgc_cycle|रंग चक्र
@@ -434,3 +432,15 @@ made_by_line|StarlightJulie द्वारा बनाया गया। म�
 source|सोर्स कोड
 license|लाइसेंस
 flipper_trademark|Flipper Zero, Flipper Devices Inc. का ट्रेडमार्क है। EMITT उनसे संबद्ध या उनके द्वारा समर्थित नहीं है।
+bg_comets|धूमकेतु
+bg_pulsar|पल्सर
+custom_status_on|चालू · %1$d सेव सेट
+custom_status_off|बंद · %1$d सेव सेट
+save_set|सेट के रूप में सेव करें
+saved_sets|सेव किए सेट
+no_sets|अभी कोई सेट सेव नहीं है। अपने रंग चालू करें, बदलें, फिर «सेट के रूप में सेव करें» टैप करें।
+sets_hint|किसी सेट को इस्तेमाल करने के लिए टैप करें। उसी नाम से सेव करने पर वह सेट बदल जाता है।
+set_default_name|मेरे रंग %1$d
+set_saved|%1$s सेव हुआ
+delete_set_confirm|रंग सेट «%1$s» हटाएँ? इसे वापस नहीं किया जा सकता।
+tagmode_builtin|दूसरे फ़ोन पर कुछ नहीं दिखा? कुछ फ़ोन (अक्सर Android 15 और नए) अपनी NFC चिप में बने खाली टैग से जवाब देते हैं। पढ़ने वाले फ़ोन पर EMITT खोलें: वह EMITT वाले फ़ोन को हमेशा पढ़ सकता है।

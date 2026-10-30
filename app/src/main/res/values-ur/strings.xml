@@ -63,7 +63,6 @@
     <string name="slot_panels">پینل</string>
     <string name="slot_panels_hint">کارڈ اور شیٹس</string>
     <string name="slot_text_hint">بنیادی متن کا رنگ</string>
-    <string name="bg_synth">سنتھ گرڈ</string>
     <string name="bg_rain">کوڈ کی بارش</string>
     <string name="bg_scope">آسیلوسکوپ</string>
     <string name="bg_radar">ریڈار</string>
@@ -71,7 +70,6 @@
     <string name="bg_circuit">سرکٹ</string>
     <string name="bg_warp">وارپ</string>
     <string name="bg_spectrum">اسپیکٹرم</string>
-    <string name="bg_static">اسٹیٹک</string>
     <string name="bg_random">بے ترتیب</string>
     <string name="bgc_duo">دونوں رنگ</string>
     <string name="bgc_cycle">رنگوں کا چکر</string>
@@ -436,4 +434,16 @@
     <string name="source">سورس کوڈ</string>
     <string name="license">لائسنس</string>
     <string name="flipper_trademark">Flipper Zero، Flipper Devices Inc. کا ٹریڈ مارک ہے۔ EMITT ان سے وابستہ یا ان کی طرف سے منظور شدہ نہیں ہے۔</string>
+    <string name="bg_comets">دُم دار ستارے</string>
+    <string name="bg_pulsar">پلسار</string>
+    <string name="custom_status_on">آن · %1$d محفوظ سیٹ</string>
+    <string name="custom_status_off">آف · %1$d محفوظ سیٹ</string>
+    <string name="save_set">سیٹ کے طور پر محفوظ کریں</string>
+    <string name="saved_sets">محفوظ سیٹ</string>
+    <string name="no_sets">ابھی کوئی سیٹ محفوظ نہیں۔ اپنے رنگ آن کریں، بدلیں، پھر «سیٹ کے طور پر محفوظ کریں» ٹیپ کریں۔</string>
+    <string name="sets_hint">استعمال کرنے کے لیے کسی سیٹ کو ٹیپ کریں۔ اسی نام سے محفوظ کرنے پر وہ سیٹ بدل جاتا ہے۔</string>
+    <string name="set_default_name">میرے رنگ %1$d</string>
+    <string name="set_saved">%1$s محفوظ ہوا</string>
+    <string name="delete_set_confirm">رنگوں کا سیٹ «%1$s» حذف کریں؟ یہ واپس نہیں ہو سکتا۔</string>
+    <string name="tagmode_builtin">دوسرے فون پر کچھ نظر نہیں آیا؟ کچھ فون (اکثر Android 15 اور نئے) اپنی NFC چپ میں بنے خالی ٹیگ سے جواب دیتے ہیں۔ پڑھنے والے فون پر EMITT کھولیں: وہ EMITT والا فون ہمیشہ پڑھ سکتا ہے۔</string>
 </resources>

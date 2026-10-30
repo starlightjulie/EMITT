@@ -63,7 +63,6 @@
     <string name="slot_panels">ప్యానెల్‌లు</string>
     <string name="slot_panels_hint">కార్డ్‌లు మరియు షీట్‌లు</string>
     <string name="slot_text_hint">ప్రధాన టెక్స్ట్ రంగు</string>
-    <string name="bg_synth">సింత్ గ్రిడ్</string>
     <string name="bg_rain">కోడ్ వర్షం</string>
     <string name="bg_scope">ఆసిలోస్కోప్</string>
     <string name="bg_radar">రాడార్</string>
@@ -71,7 +70,6 @@
     <string name="bg_circuit">సర్క్యూట్</string>
     <string name="bg_warp">వార్ప్</string>
     <string name="bg_spectrum">స్పెక్ట్రమ్</string>
-    <string name="bg_static">స్టాటిక్</string>
     <string name="bg_random">యాదృచ్ఛికం</string>
     <string name="bgc_duo">రెండు రంగులు</string>
     <string name="bgc_cycle">రంగుల చక్రం</string>
@@ -436,4 +434,16 @@
     <string name="source">సోర్స్ కోడ్</string>
     <string name="license">లైసెన్స్</string>
     <string name="flipper_trademark">Flipper Zero అనేది Flipper Devices Inc. యొక్క ట్రేడ్‌మార్క్. EMITT వారితో అనుబంధించబడలేదు లేదా వారిచే ఆమోదించబడలేదు.</string>
+    <string name="bg_comets">తోకచుక్కలు</string>
+    <string name="bg_pulsar">పల్సార్</string>
+    <string name="custom_status_on">ఆన్ · %1$d సేవ్ చేసిన సెట్‌లు</string>
+    <string name="custom_status_off">ఆఫ్ · %1$d సేవ్ చేసిన సెట్‌లు</string>
+    <string name="save_set">సెట్‌గా సేవ్ చేయండి</string>
+    <string name="saved_sets">సేవ్ చేసిన సెట్‌లు</string>
+    <string name="no_sets">ఇంకా సేవ్ చేసిన సెట్‌లు లేవు. మీ సొంత రంగులు ఆన్ చేసి, మార్చి, «సెట్‌గా సేవ్ చేయండి» ట్యాప్ చేయండి.</string>
+    <string name="sets_hint">ఉపయోగించడానికి ఒక సెట్‌ను ట్యాప్ చేయండి. అదే పేరుతో సేవ్ చేస్తే ఆ సెట్ మారుతుంది.</string>
+    <string name="set_default_name">నా రంగులు %1$d</string>
+    <string name="set_saved">%1$s సేవ్ అయింది</string>
+    <string name="delete_set_confirm">రంగుల సెట్ «%1$s» తొలగించాలా? దీన్ని వెనక్కి తీసుకోలేరు.</string>
+    <string name="tagmode_builtin">మరో ఫోన్‌కు ఏమీ కనిపించడం లేదా? కొన్ని ఫోన్‌లు (ఎక్కువగా Android 15 మరియు కొత్తవి) తమ NFC చిప్‌లోని ఖాళీ ట్యాగ్‌తో స్పందిస్తాయి. చదివే ఫోన్‌లో EMITT తెరవండి: అది EMITT ఫోన్‌ను ఎప్పుడూ చదవగలదు.</string>
 </resources>

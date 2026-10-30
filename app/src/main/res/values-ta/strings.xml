@@ -63,7 +63,6 @@
     <string name="slot_panels">பேனல்கள்</string>
     <string name="slot_panels_hint">அட்டைகள் மற்றும் தாள்கள்</string>
     <string name="slot_text_hint">முதன்மை உரை நிறம்</string>
-    <string name="bg_synth">சிந்த் கட்டம்</string>
     <string name="bg_rain">குறியீட்டு மழை</string>
     <string name="bg_scope">அலைக்காட்டி</string>
     <string name="bg_radar">ரேடார்</string>
@@ -71,7 +70,6 @@
     <string name="bg_circuit">மின்சுற்று</string>
     <string name="bg_warp">வார்ப்</string>
     <string name="bg_spectrum">நிறமாலை</string>
-    <string name="bg_static">இரைச்சல்</string>
     <string name="bg_random">சீரற்ற</string>
     <string name="bgc_duo">இரு நிறங்கள்</string>
     <string name="bgc_cycle">நிறச் சுழற்சி</string>
@@ -436,4 +434,16 @@
     <string name="source">மூலக் குறியீடு</string>
     <string name="license">உரிமம்</string>
     <string name="flipper_trademark">Flipper Zero என்பது Flipper Devices Inc. இன் வர்த்தகமுத்திரை. EMITT அவர்களுடன் இணைந்ததோ அவர்களால் அங்கீகரிக்கப்பட்டதோ அல்ல.</string>
+    <string name="bg_comets">வால்நட்சத்திரங்கள்</string>
+    <string name="bg_pulsar">பல்சார்</string>
+    <string name="custom_status_on">இயக்கத்தில் · %1$d சேமித்த தொகுப்புகள்</string>
+    <string name="custom_status_off">அணைப்பில் · %1$d சேமித்த தொகுப்புகள்</string>
+    <string name="save_set">தொகுப்பாகச் சேமி</string>
+    <string name="saved_sets">சேமித்த தொகுப்புகள்</string>
+    <string name="no_sets">இன்னும் சேமித்த தொகுப்புகள் இல்லை. சொந்த நிறங்களை இயக்கி, மாற்றி, «தொகுப்பாகச் சேமி» தட்டவும்.</string>
+    <string name="sets_hint">பயன்படுத்த ஒரு தொகுப்பைத் தட்டவும். அதே பெயரில் சேமித்தால் அந்தத் தொகுப்பு மாற்றப்படும்.</string>
+    <string name="set_default_name">என் நிறங்கள் %1$d</string>
+    <string name="set_saved">%1$s சேமிக்கப்பட்டது</string>
+    <string name="delete_set_confirm">நிறத் தொகுப்பு «%1$s» ஐ நீக்கவா? இதைத் திரும்பப் பெற முடியாது.</string>
+    <string name="tagmode_builtin">மற்றப் போனில் எதுவும் தெரியவில்லையா? சில போன்கள் (பெரும்பாலும் Android 15 மற்றும் புதியவை) தங்கள் NFC சிப்பில் உள்ள காலி டேகால் பதில் தருகின்றன. படிக்கும் போனில் EMITT-ஐத் திறக்கவும்: அது EMITT போனை எப்போதும் படிக்கும்.</string>
 </resources>

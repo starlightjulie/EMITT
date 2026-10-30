@@ -61,7 +61,6 @@ slot_bg_hint|ہر چیز کے پیچھے
 slot_panels|پینل
 slot_panels_hint|کارڈ اور شیٹس
 slot_text_hint|بنیادی متن کا رنگ
-bg_synth|سنتھ گرڈ
 bg_rain|کوڈ کی بارش
 bg_scope|آسیلوسکوپ
 bg_radar|ریڈار
@@ -69,7 +68,6 @@ bg_dots|ڈاٹ میٹرکس
 bg_circuit|سرکٹ
 bg_warp|وارپ
 bg_spectrum|اسپیکٹرم
-bg_static|اسٹیٹک
 bg_random|بے ترتیب
 bgc_duo|دونوں رنگ
 bgc_cycle|رنگوں کا چکر
@@ -434,3 +432,15 @@ made_by_line|StarlightJulie کی بنائی ہوئی۔ مفت اور اوپن س
 source|سورس کوڈ
 license|لائسنس
 flipper_trademark|Flipper Zero، Flipper Devices Inc. کا ٹریڈ مارک ہے۔ EMITT ان سے وابستہ یا ان کی طرف سے منظور شدہ نہیں ہے۔
+bg_comets|دُم دار ستارے
+bg_pulsar|پلسار
+custom_status_on|آن · %1$d محفوظ سیٹ
+custom_status_off|آف · %1$d محفوظ سیٹ
+save_set|سیٹ کے طور پر محفوظ کریں
+saved_sets|محفوظ سیٹ
+no_sets|ابھی کوئی سیٹ محفوظ نہیں۔ اپنے رنگ آن کریں، بدلیں، پھر «سیٹ کے طور پر محفوظ کریں» ٹیپ کریں۔
+sets_hint|استعمال کرنے کے لیے کسی سیٹ کو ٹیپ کریں۔ اسی نام سے محفوظ کرنے پر وہ سیٹ بدل جاتا ہے۔
+set_default_name|میرے رنگ %1$d
+set_saved|%1$s محفوظ ہوا
+delete_set_confirm|رنگوں کا سیٹ «%1$s» حذف کریں؟ یہ واپس نہیں ہو سکتا۔
+tagmode_builtin|دوسرے فون پر کچھ نظر نہیں آیا؟ کچھ فون (اکثر Android 15 اور نئے) اپنی NFC چپ میں بنے خالی ٹیگ سے جواب دیتے ہیں۔ پڑھنے والے فون پر EMITT کھولیں: وہ EMITT والا فون ہمیشہ پڑھ سکتا ہے۔

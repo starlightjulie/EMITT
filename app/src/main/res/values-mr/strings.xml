@@ -63,7 +63,6 @@
     <string name="slot_panels">पॅनेल</string>
     <string name="slot_panels_hint">कार्ड आणि शीट</string>
     <string name="slot_text_hint">मुख्य मजकुराचा रंग</string>
-    <string name="bg_synth">सिंथ ग्रिड</string>
     <string name="bg_rain">कोड पाऊस</string>
     <string name="bg_scope">ऑसिलोस्कोप</string>
     <string name="bg_radar">रडार</string>
@@ -71,7 +70,6 @@
     <string name="bg_circuit">सर्किट</string>
     <string name="bg_warp">वार्प</string>
     <string name="bg_spectrum">स्पेक्ट्रम</string>
-    <string name="bg_static">स्टॅटिक</string>
     <string name="bg_random">यादृच्छिक</string>
     <string name="bgc_duo">दोन्ही रंग</string>
     <string name="bgc_cycle">रंगचक्र</string>
@@ -436,4 +434,16 @@
     <string name="source">सोर्स कोड</string>
     <string name="license">परवाना</string>
     <string name="flipper_trademark">Flipper Zero हा Flipper Devices Inc. चा ट्रेडमार्क आहे. EMITT त्यांच्याशी संलग्न नाही किंवा त्यांच्याकडून मान्यताप्राप्त नाही.</string>
+    <string name="bg_comets">धूमकेतू</string>
+    <string name="bg_pulsar">पल्सर</string>
+    <string name="custom_status_on">चालू · %1$d जतन केलेले संच</string>
+    <string name="custom_status_off">बंद · %1$d जतन केलेले संच</string>
+    <string name="save_set">संच म्हणून जतन करा</string>
+    <string name="saved_sets">जतन केलेले संच</string>
+    <string name="no_sets">अजून कोणताही संच जतन केलेला नाही. स्वतःचे रंग चालू करा, बदला, मग «संच म्हणून जतन करा» टॅप करा.</string>
+    <string name="sets_hint">वापरण्यासाठी एखाद्या संचावर टॅप करा. त्याच नावाने जतन केल्यास तो संच बदलतो.</string>
+    <string name="set_default_name">माझे रंग %1$d</string>
+    <string name="set_saved">%1$s जतन झाले</string>
+    <string name="delete_set_confirm">रंगसंच «%1$s» हटवायचा? हे परत करता येत नाही.</string>
+    <string name="tagmode_builtin">दुसऱ्या फोनवर काहीच दिसत नाही? काही फोन (बहुधा Android 15 आणि नवीन) त्यांच्या NFC चिपमधील रिकाम्या टॅगने उत्तर देतात. वाचणाऱ्या फोनवर EMITT उघडा: तो EMITT फोन नेहमी वाचू शकतो.</string>
 </resources>

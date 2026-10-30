@@ -60,6 +60,7 @@ Camera scanner for QR, Data Matrix, Aztec, PDF417 and common barcodes, or scan f
 - **Copy** a tag's data onto another, **erase** a tag, or **lock** it permanently (with a confirmation)
 - **Import** a Flipper `.nfc` file and write its data to a real tag
 - **Be the tag**: the phone emulates an NFC Forum Type 4 tag, so other phones (Android or iPhone) and Flippers read it like a sticker. A full-screen tag mode keeps EMITT in front, which matters on phones with a built-in tag service (such as Samsung's "Embedded tag"). It gets a random UID each tap, so it can't replace UID-based badges or door fobs
+- **Phones with a tag built into their NFC chip** (common on Android 15 and newer, such as recent Motorolas) answer ordinary readers with that empty tag instead of EMITT, and apps can't change that. EMITT also answers on its own ID, so a phone with **EMITT open** can always read an EMITT phone
 - **Testing with a Flipper**: to test Write to tag, emulate a blank NTAG on the Flipper (NFC → Add Manually → NTAG215 → Emulate). To read your phone, use NFC → Extra Actions → Read Specific Card Type → Type 4 Tag; plain Read also probes for payment cards, which wakes your wallet app
 
 ### Flipper Zero
@@ -74,8 +75,8 @@ Save codes to a library with stars and search. Put any saved code on your **home
 ### Make it yours
 Everything lives under the palette icon at the top (**Appearance**):
 
-- **16 colourways**: Mono (the default), Synthwave, Amber CRT, Phosphor, Ice, Ultraviolet, Redline, Vapor, Paper, Solar, Midnight, Sakura, Forest, Ember, Coffee and Glacier, or your own five colours
-- **10 background animations**: synth grid, signal, code rain, oscilloscope, radar, dot matrix, circuit, warp, spectrum and static, each with speed, density, intensity and colour controls. Off by default
+- **16 colourways**: Mono (the default), Synthwave, Amber CRT, Phosphor, Ice, Ultraviolet, Redline, Vapor, Paper, Solar, Midnight, Sakura, Forest, Ember, Coffee and Glacier, or your own five colours, which you can save as named sets and switch between
+- **10 background animations**: comets, signal, code rain, oscilloscope, radar, dot matrix, circuit, warp, spectrum and pulsar, each with speed, density, intensity and colour controls. Off by default
 - CRT scanlines, vignette and flicker; glow; panel opacity and outlines; chamfered, sharp or soft corners; mono or mixed fonts; text size
 - **10 launcher icons** to match: Amber, Synthwave, Phosphor, Cyan, Mono, Sakura, Redline, Ultraviolet, Paper and Glacier
 

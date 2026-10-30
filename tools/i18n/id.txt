@@ -61,7 +61,6 @@ slot_bg_hint|Di belakang semuanya
 slot_panels|Panel
 slot_panels_hint|Kartu dan lembar
 slot_text_hint|Warna teks utama
-bg_synth|Kisi synth
 bg_rain|Hujan kode
 bg_scope|Osiloskop
 bg_radar|Radar
@@ -69,7 +68,6 @@ bg_dots|Matriks titik
 bg_circuit|Sirkuit
 bg_warp|Warp
 bg_spectrum|Spektrum
-bg_static|Statis
 bg_random|Acak
 bgc_duo|Kedua aksen
 bgc_cycle|Siklus warna
@@ -434,3 +432,15 @@ made_by_line|Dibuat oleh StarlightJulie. Gratis dan sumber terbuka di bawah GPLv
 source|Kode sumber
 license|Lisensi
 flipper_trademark|Flipper Zero adalah merek dagang Flipper Devices Inc. EMITT tidak berafiliasi dengan atau didukung oleh mereka.
+bg_comets|Komet
+bg_pulsar|Pulsar
+custom_status_on|Aktif · %1$d set tersimpan
+custom_status_off|Nonaktif · %1$d set tersimpan
+save_set|Simpan sebagai set
+saved_sets|Set tersimpan
+no_sets|Belum ada set tersimpan. Aktifkan warnamu sendiri, atur, lalu ketuk Simpan sebagai set.
+sets_hint|Ketuk set untuk memakainya. Menyimpan dengan nama yang sama akan menggantikan set itu.
+set_default_name|Warnaku %1$d
+set_saved|%1$s disimpan
+delete_set_confirm|Hapus set warna "%1$s"? Ini tidak bisa dibatalkan.
+tagmode_builtin|Ponsel lain tidak melihat apa pun? Beberapa ponsel (sering Android 15 ke atas) menjawab dengan tag kosong bawaan chip NFC-nya. Buka EMITT di ponsel yang membaca: EMITT selalu bisa membaca ponsel EMITT.

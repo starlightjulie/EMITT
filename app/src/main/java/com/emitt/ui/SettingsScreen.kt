@@ -1,5 +1,13 @@
 package com.emitt.ui
 
+import com.emitt.ui.theme.SavedColours
+import com.emitt.ui.theme.Palette
+import androidx.compose.material.icons.rounded.Close
+import androidx.compose.material.icons.rounded.Add
+import androidx.compose.material.icons.automirrored.rounded.KeyboardArrowRight
+import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.material3.TextButton
+import androidx.compose.material3.AlertDialog
 import android.Manifest
 import android.content.pm.PackageManager
 import android.os.Build
@@ -52,6 +60,7 @@ import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.content.ContextCompat
@@ -95,19 +104,25 @@ fun AppearanceScreen(vm: MainViewModel) {
         TermPanel(title = stringResource(R.string.colourway)) {
             FlowRow(horizontalArrangement = Arrangement.spacedBy(8.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
                 Colourways.all.forEach { cw ->
-                    ColourwayTile(cw, selected = cfg.custom == null && cfg.colourway == cw.id) { set { it.copy(colourway = cw.id, custom = null) } }
+                    ColourwayTile(cw.name, cw.palette, selected = cfg.custom == null && cfg.colourway == cw.id) { set { it.copy(colourway = cw.id, custom = null) } }
                 }
             }
             SectionLabel(stringResource(R.string.custom_colours))
-            SwitchRow(
-                stringResource(R.string.use_my_colours), cfg.custom != null,
-                { on -> set { it.copy(custom = if (on) it.palette else null) } },
-                stringResource(R.string.use_my_colours_hint),
-            )
-            cfg.custom?.let { p ->
-                PaletteSlot.entries.forEach { slot ->
-                    ColorRow(stringResource(slot.label), slot.get(p), { v -> set { it.copy(custom = slot.set(p, v)) } }, stringResource(slot.hint))
+            // Own colours and saved sets live on their own page
+            Row(
+                Modifier.fillMaxWidth().clickable { vm.page = Page.CUSTOM_COLOURS }.padding(vertical = 6.dp),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                Column(Modifier.weight(1f)) {
+                    Text(stringResource(R.string.use_my_colours), style = MaterialTheme.typography.bodyLarge)
+                    Dim(stringResource(if (cfg.custom != null) R.string.custom_status_on else R.string.custom_status_off, cfg.savedColours.size))
                 }
+                cfg.custom?.let { p ->
+                    Row(horizontalArrangement = Arrangement.spacedBy(3.dp), modifier = Modifier.padding(end = 8.dp)) {
+                        listOf(p.accent, p.accent2, p.bg, p.ink).forEach { Box(Modifier.size(14.dp).background(Color(it)).border(1.dp, look.dim.copy(alpha = 0.4f))) }
+                    }
+                }
+                Icon(Icons.AutoMirrored.Rounded.KeyboardArrowRight, null, tint = look.accent)
             }
         }
 
@@ -140,7 +155,7 @@ fun AppearanceScreen(vm: MainViewModel) {
             SectionLabel(stringResource(R.string.font))
             ChipGroup(FontStyle.entries, cfg.font, { stringResource(it.label) }, { f -> set { it.copy(font = f) } })
             SliderRow(stringResource(R.string.text_size), cfg.fontScale, 0.85f..1.3f, { v -> set { it.copy(fontScale = v) } }, ::pct, applyOnRelease = true)
-            ButtonRow { TermButton(stringResource(R.string.reset_look), { set { ThemeConfig(icon = it.icon) } }, Modifier.weight(1f)) }
+            ButtonRow { TermButton(stringResource(R.string.reset_look), { set { ThemeConfig(icon = it.icon, savedColours = it.savedColours) } }, Modifier.weight(1f)) }
         }
 
         TermPanel(title = stringResource(R.string.app_icon)) {
@@ -169,6 +184,84 @@ fun AppearanceScreen(vm: MainViewModel) {
                 }
             }
         }
+    }
+}
+
+/** Your own five colours, plus named sets you can save, switch between and delete. */
+@OptIn(ExperimentalLayoutApi::class)
+@Composable
+fun CustomColoursScreen(vm: MainViewModel) {
+    val cfg by vm.themes.config.collectAsState()
+    val look = LocalLook.current
+    fun set(t: (ThemeConfig) -> ThemeConfig) = vm.themes.update(t)
+    var saving by remember { mutableStateOf(false) }
+    var deleting by remember { mutableStateOf<SavedColours?>(null) }
+
+    Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
+        TermPanel(title = stringResource(R.string.custom_colours)) {
+            SwitchRow(
+                stringResource(R.string.use_my_colours), cfg.custom != null,
+                { on -> set { it.copy(custom = if (on) it.palette else null) } },
+                stringResource(R.string.use_my_colours_hint),
+            )
+            cfg.custom?.let { p ->
+                PaletteSlot.entries.forEach { slot ->
+                    ColorRow(stringResource(slot.label), slot.get(p), { v -> set { it.copy(custom = slot.set(p, v)) } }, stringResource(slot.hint))
+                }
+                ButtonRow { TermButton(stringResource(R.string.save_set), { saving = true }, Modifier.weight(1f), icon = Icons.Rounded.Add) }
+            }
+        }
+
+        TermPanel(title = stringResource(R.string.saved_sets)) {
+            if (cfg.savedColours.isEmpty()) {
+                Dim(stringResource(R.string.no_sets))
+            } else {
+                FlowRow(horizontalArrangement = Arrangement.spacedBy(8.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                    cfg.savedColours.forEach { s ->
+                        ColourwayTile(s.name, s.palette, selected = cfg.custom == s.palette, width = 150.dp, onDelete = { deleting = s }) {
+                            set { it.copy(custom = s.palette) }
+                        }
+                    }
+                }
+                Dim(stringResource(R.string.sets_hint), Modifier.padding(top = 8.dp))
+            }
+        }
+    }
+
+    if (saving) {
+        val suggested = stringResource(R.string.set_default_name, cfg.savedColours.size + 1)
+        var name by remember { mutableStateOf(suggested) }
+        AlertDialog(
+            onDismissRequest = { saving = false },
+            title = { Text(stringResource(R.string.save_set).uppercase(), style = MaterialTheme.typography.titleMedium) },
+            text = { TermField(name, { name = it.take(24) }, stringResource(R.string.name)) },
+            confirmButton = {
+                TextButton(onClick = {
+                    val n = name.trim().ifEmpty { suggested }
+                    cfg.custom?.let { p ->
+                        // Saving under an existing name replaces that set
+                        set { c -> c.copy(savedColours = c.savedColours.filterNot { it.name.equals(n, ignoreCase = true) } + SavedColours(n, p)) }
+                        vm.toast(R.string.set_saved, n)
+                    }
+                    saving = false
+                }) { Text(stringResource(R.string.save).uppercase(), color = look.accent) }
+            },
+            dismissButton = { TextButton(onClick = { saving = false }) { Text(stringResource(R.string.cancel).uppercase()) } },
+        )
+    }
+    deleting?.let { s ->
+        AlertDialog(
+            onDismissRequest = { deleting = null },
+            title = { Text(stringResource(R.string.delete_q).uppercase(), style = MaterialTheme.typography.titleMedium) },
+            text = { Text(stringResource(R.string.delete_set_confirm, s.name)) },
+            confirmButton = {
+                TextButton(onClick = {
+                    set { c -> c.copy(savedColours = c.savedColours - s) }
+                    deleting = null
+                }) { Text(stringResource(R.string.delete).uppercase(), color = look.fail) }
+            },
+            dismissButton = { TextButton(onClick = { deleting = null }) { Text(stringResource(R.string.cancel).uppercase()) } },
+        )
     }
 }
 
@@ -216,22 +309,32 @@ private fun LanguageRow(name: String, tag: String?, selected: Boolean, onClick: 
 }
 
 @Composable
-private fun ColourwayTile(cw: Colourway, selected: Boolean, onClick: () -> Unit) {
+private fun ColourwayTile(name: String, p: Palette, selected: Boolean, width: Dp = 96.dp, onDelete: (() -> Unit)? = null, onClick: () -> Unit) {
     val look = LocalLook.current
-    val p = cw.palette
-    Column(
+    Box(
         Modifier
-            .width(96.dp)
+            .width(width)
             .background(Color(p.bg), look.controlShape)
             .border(if (selected) 2.dp else 1.dp, if (selected) look.accent else look.dim.copy(alpha = 0.4f), look.controlShape)
-            .clickable(onClick = onClick)
-            .padding(8.dp),
+            .clickable(onClick = onClick),
     ) {
-        Row(horizontalArrangement = Arrangement.spacedBy(3.dp)) {
-            listOf(p.accent, p.accent2, p.surface, p.ink).forEach { Box(Modifier.size(16.dp).background(Color(it))) }
+        Column(Modifier.padding(8.dp)) {
+            Row(horizontalArrangement = Arrangement.spacedBy(3.dp)) {
+                listOf(p.accent, p.accent2, p.surface, p.ink).forEach { Box(Modifier.size(16.dp).background(Color(it))) }
+            }
+            Spacer(Modifier.height(6.dp))
+            Text(
+                name.uppercase(), style = MaterialTheme.typography.labelSmall, color = Color(p.ink), maxLines = 1,
+                overflow = TextOverflow.Ellipsis, modifier = Modifier.padding(end = if (onDelete != null) 18.dp else 0.dp),
+            )
         }
-        Spacer(Modifier.height(6.dp))
-        Text(cw.name.uppercase(), style = MaterialTheme.typography.labelSmall, color = Color(p.ink), maxLines = 1)
+        if (onDelete != null) {
+            Icon(
+                Icons.Rounded.Close, stringResource(R.string.delete),
+                Modifier.align(Alignment.BottomEnd).clickable(onClick = onDelete).padding(4.dp).size(16.dp),
+                tint = Color(p.ink),
+            )
+        }
     }
 }
 

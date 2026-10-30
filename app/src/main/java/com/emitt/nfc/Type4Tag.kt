@@ -52,7 +52,7 @@ class Type4Tag(ndef: ByteArray) {
         if (apdu.size < 5 + lc) return SW_WRONG_LENGTH
         val data = apdu.copyOfRange(5, 5 + lc)
         return when (p1) {
-            0x04 -> if (data.contentEquals(NDEF_AID)) { appSelected = true; file = null; SW_OK } else SW_NOT_FOUND
+            0x04 -> if (data.contentEquals(NDEF_AID) || data.contentEquals(EMITT_AID)) { appSelected = true; file = null; SW_OK } else SW_NOT_FOUND
             // P1 00 = select by file id (what Android sends); 02 = select EF under the current DF
             // (what the Flipper and other ISO 7816 readers send). Both mean the same thing here.
             0x00, 0x02 -> when {
@@ -77,6 +77,13 @@ class Type4Tag(ndef: ByteArray) {
     companion object {
         const val MAX_LE = 0xF6
         val NDEF_AID = byteArrayOf(0xD2.toByte(), 0x76, 0x00, 0x00, 0x85.toByte(), 0x01, 0x01)
+
+        /**
+         * EMITT's own (proprietary, F-prefixed) AID for the same tag. Some phones route [NDEF_AID] to a
+         * tag built into their NFC chip and apps can't take it back (Android 15 "T4T NFCEE"), but this
+         * one still reaches EMITT, so an EMITT reader can always read an EMITT phone.
+         */
+        val EMITT_AID = byteArrayOf(0xF0.toByte(), 0x45, 0x4D, 0x49, 0x54, 0x54, 0x01) // F0 "EMITT" 01
         private val CC_ID = byteArrayOf(0xE1.toByte(), 0x03)
         private val NDEF_ID = byteArrayOf(0xE1.toByte(), 0x04)
 
@@ -88,5 +95,32 @@ class Type4Tag(ndef: ByteArray) {
         val SW_NOT_ALLOWED = byteArrayOf(0x69, 0x86.toByte())
         val SW_INS_NOT_SUPPORTED = byteArrayOf(0x6D, 0x00)
         val SW_CLA_NOT_SUPPORTED = byteArrayOf(0x6E, 0x00)
+
+        /**
+         * The reader side: selects [aid], then reads the NDEF file named in the capability container.
+         * Returns the raw NDEF message, or null if the tag doesn't answer to [aid].
+         */
+        fun readNdef(aid: ByteArray, transceive: (ByteArray) -> ByteArray): ByteArray? {
+            fun ok(r: ByteArray) = r.size >= 2 && r[r.size - 2] == 0x90.toByte() && r[r.size - 1] == 0x00.toByte()
+            fun body(r: ByteArray) = r.copyOfRange(0, r.size - 2)
+            fun u16(b: ByteArray, i: Int) = ((b[i].toInt() and 0xFF) shl 8) or (b[i + 1].toInt() and 0xFF)
+            fun selectFile(id: ByteArray) = ok(transceive(byteArrayOf(0x00, 0xA4.toByte(), 0x00, 0x0C, 0x02) + id))
+            fun readBinary(offset: Int, len: Int): ByteArray? =
+                transceive(byteArrayOf(0x00, 0xB0.toByte(), (offset shr 8).toByte(), offset.toByte(), len.toByte()))
+                    .takeIf { ok(it) }?.let { body(it) }
+
+            if (!ok(transceive(byteArrayOf(0x00, 0xA4.toByte(), 0x04, 0x00, aid.size.toByte()) + aid + 0x00))) return null
+            if (!selectFile(CC_ID)) return null
+            val cc = readBinary(0, 15)?.takeIf { it.size >= 15 && it[7] == 0x04.toByte() } ?: return null
+            val chunk = minOf(u16(cc, 3), MAX_LE).coerceAtLeast(1)
+            if (!selectFile(cc.copyOfRange(9, 11))) return null
+            val nlen = readBinary(0, 2)?.takeIf { it.size == 2 }?.let { u16(it, 0) } ?: return null
+            val out = java.io.ByteArrayOutputStream(nlen)
+            while (out.size() < nlen) {
+                val part = readBinary(2 + out.size(), minOf(chunk, nlen - out.size()))?.takeIf { it.isNotEmpty() } ?: return null
+                out.write(part)
+            }
+            return out.toByteArray()
+        }
     }
 }

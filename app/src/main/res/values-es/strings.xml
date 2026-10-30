@@ -63,7 +63,6 @@
     <string name="slot_panels">Paneles</string>
     <string name="slot_panels_hint">Tarjetas y hojas</string>
     <string name="slot_text_hint">Color del texto principal</string>
-    <string name="bg_synth">Rejilla synth</string>
     <string name="bg_rain">Lluvia de código</string>
     <string name="bg_scope">Osciloscopio</string>
     <string name="bg_radar">Radar</string>
@@ -71,7 +70,6 @@
     <string name="bg_circuit">Circuito</string>
     <string name="bg_warp">Salto</string>
     <string name="bg_spectrum">Espectro</string>
-    <string name="bg_static">Estática</string>
     <string name="bg_random">Aleatorio</string>
     <string name="bgc_duo">Ambos acentos</string>
     <string name="bgc_cycle">Ciclo de tono</string>
@@ -436,4 +434,16 @@
     <string name="source">Código</string>
     <string name="license">Licencia</string>
     <string name="flipper_trademark">Flipper Zero es una marca de Flipper Devices Inc. EMITT no está afiliado ni respaldado por ellos.</string>
+    <string name="bg_comets">Cometas</string>
+    <string name="bg_pulsar">Púlsar</string>
+    <string name="custom_status_on">Activado · %1$d conjuntos guardados</string>
+    <string name="custom_status_off">Desactivado · %1$d conjuntos guardados</string>
+    <string name="save_set">Guardar como conjunto</string>
+    <string name="saved_sets">Conjuntos guardados</string>
+    <string name="no_sets">Aún no hay conjuntos guardados. Activa tus propios colores, ajústalos y toca Guardar como conjunto.</string>
+    <string name="sets_hint">Toca un conjunto para usarlo. Guardar con el mismo nombre reemplaza ese conjunto.</string>
+    <string name="set_default_name">Mis colores %1$d</string>
+    <string name="set_saved">Guardado: %1$s</string>
+    <string name="delete_set_confirm">¿Eliminar el conjunto de colores «%1$s»? No se puede deshacer.</string>
+    <string name="tagmode_builtin">¿El otro teléfono no ve nada? Algunos teléfonos (a menudo con Android 15 o posterior) responden con una etiqueta vacía integrada en su chip NFC. Abre EMITT en el teléfono que lee: siempre puede leer un teléfono con EMITT.</string>
 </resources>

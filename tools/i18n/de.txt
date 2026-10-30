@@ -61,7 +61,6 @@ slot_bg_hint|Hinter allem
 slot_panels|Felder
 slot_panels_hint|Karten und Bereiche
 slot_text_hint|Haupttextfarbe
-bg_synth|Synth-Gitter
 bg_rain|Code-Regen
 bg_scope|Oszilloskop
 bg_radar|Radar
@@ -69,7 +68,6 @@ bg_dots|Punktmatrix
 bg_circuit|Schaltkreis
 bg_warp|Warp
 bg_spectrum|Spektrum
-bg_static|Rauschen
 bg_random|Zufällig
 bgc_duo|Beide Akzente
 bgc_cycle|Farbwechsel
@@ -434,3 +432,15 @@ made_by_line|Gemacht von StarlightJulie. Kostenlos und Open Source unter GPLv3.
 source|Quellcode
 license|Lizenz
 flipper_trademark|Flipper Zero ist eine Marke von Flipper Devices Inc. EMITT ist nicht mit ihnen verbunden und wird nicht von ihnen unterstützt.
+bg_comets|Kometen
+bg_pulsar|Pulsar
+custom_status_on|An · %1$d gespeicherte Sets
+custom_status_off|Aus · %1$d gespeicherte Sets
+save_set|Als Set speichern
+saved_sets|Gespeicherte Sets
+no_sets|Noch keine gespeicherten Sets. Schalte eigene Farben ein, passe sie an und tippe auf Als Set speichern.
+sets_hint|Tippe auf ein Set, um es zu verwenden. Speichern unter demselben Namen ersetzt das Set.
+set_default_name|Meine Farben %1$d
+set_saved|%1$s gespeichert
+delete_set_confirm|Farbset „%1$s“ löschen? Das lässt sich nicht rückgängig machen.
+tagmode_builtin|Das andere Handy sieht nichts? Manche Handys (oft ab Android 15) antworten stattdessen mit einem leeren Tag, der in ihren NFC-Chip eingebaut ist. Öffne EMITT auf dem lesenden Handy: Es kann ein EMITT-Handy immer lesen.

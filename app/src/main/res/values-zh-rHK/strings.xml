@@ -63,7 +63,6 @@
     <string name="slot_panels">面板</string>
     <string name="slot_panels_hint">卡同面板</string>
     <string name="slot_text_hint">主要文字顏色</string>
-    <string name="bg_synth">合成網格</string>
     <string name="bg_rain">代碼雨</string>
     <string name="bg_scope">示波器</string>
     <string name="bg_radar">雷達</string>
@@ -71,7 +70,6 @@
     <string name="bg_circuit">電路</string>
     <string name="bg_warp">躍遷</string>
     <string name="bg_spectrum">頻譜</string>
-    <string name="bg_static">雪花</string>
     <string name="bg_random">隨機</string>
     <string name="bgc_duo">兩隻強調色</string>
     <string name="bgc_cycle">色相循環</string>
@@ -436,4 +434,16 @@
     <string name="source">原始碼</string>
     <string name="license">授權</string>
     <string name="flipper_trademark">Flipper Zero 係 Flipper Devices Inc. 嘅商標。EMITT 同佢哋冇關係，亦冇得到佢哋認可。</string>
+    <string name="bg_comets">彗星</string>
+    <string name="bg_pulsar">脈衝星</string>
+    <string name="custom_status_on">開 · 已儲存 %1$d 套</string>
+    <string name="custom_status_off">關 · 已儲存 %1$d 套</string>
+    <string name="save_set">儲存為配色</string>
+    <string name="saved_sets">已儲存的配色</string>
+    <string name="no_sets">仲未有儲存嘅配色。開啟自訂顏色，調校好之後撳「儲存為配色」。</string>
+    <string name="sets_hint">撳一套配色就可以用。用同一個名儲存會取代嗰套。</string>
+    <string name="set_default_name">我的配色 %1$d</string>
+    <string name="set_saved">已儲存 %1$s</string>
+    <string name="delete_set_confirm">刪除配色「%1$s」？呢個動作冇得還原。</string>
+    <string name="tagmode_builtin">另一部手機讀唔到嘢？有啲手機（多數係 Android 15 或以上）會用 NFC 晶片內置嘅空白標籤回應。喺讀取嘅手機開 EMITT：佢一定讀到用緊 EMITT 嘅手機。</string>
 </resources>

@@ -69,7 +69,7 @@
     <string name="slot_panels">Panels</string>
     <string name="slot_panels_hint">Cards and sheets</string>
     <string name="slot_text_hint">Main text colour</string>
-    <string name="bg_synth">Synth grid</string>
+    <string name="bg_comets">Comets</string>
     <string name="bg_rain">Code rain</string>
     <string name="bg_scope">Oscilloscope</string>
     <string name="bg_radar">Radar</string>
@@ -77,7 +77,7 @@
     <string name="bg_circuit">Circuit</string>
     <string name="bg_warp">Warp</string>
     <string name="bg_spectrum">Spectrum</string>
-    <string name="bg_static">Static</string>
+    <string name="bg_pulsar">Pulsar</string>
     <string name="bg_random">Random</string>
     <string name="bgc_duo">Both accents</string>
     <string name="bgc_cycle">Hue cycle</string>
@@ -386,6 +386,7 @@
     <string name="reads">Reads: %1$d</string>
     <string name="tagmode_hold">Hold the other phone\'s back to the middle of this phone\'s back.</string>
     <string name="tagmode_keep_open">Keep this screen open. If EMITT goes to the background, your phone\'s own tag or wallet can answer instead.</string>
+    <string name="tagmode_builtin">Other phone sees nothing? Some phones (often Android 15 and newer) answer with an empty tag built into their NFC chip instead. Open EMITT on the reading phone: it can always read an EMITT phone.</string>
     <string name="tagmode_flipper">Flipper: NFC → Extra Actions → Read Specific Card Type → Type 4 Tag.</string>
     <string name="minimise">Minimise</string>
     <string name="awaiting_tag">Awaiting tag</string>
@@ -397,6 +398,15 @@
     <string name="custom_colours">Custom colours</string>
     <string name="use_my_colours">Use my own colours</string>
     <string name="use_my_colours_hint">Starts from the current colourway</string>
+    <string name="custom_status_on">On · %1$d saved sets</string>
+    <string name="custom_status_off">Off · %1$d saved sets</string>
+    <string name="save_set">Save as set</string>
+    <string name="saved_sets">Saved sets</string>
+    <string name="no_sets">No saved sets yet. Turn on your own colours, adjust them, then tap Save as set.</string>
+    <string name="sets_hint">Tap a set to use it. Saving with the same name replaces that set.</string>
+    <string name="set_default_name">My colours %1$d</string>
+    <string name="set_saved">Saved %1$s</string>
+    <string name="delete_set_confirm">Delete the colour set \"%1$s\"? This can\'t be undone.</string>
     <string name="motion">Motion</string>
     <string name="speed">Speed</string>
     <string name="density">Density</string>

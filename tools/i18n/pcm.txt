@@ -61,7 +61,6 @@ slot_bg_hint|Behind everything
 slot_panels|Panels
 slot_panels_hint|Cards and sheets
 slot_text_hint|Main text colour
-bg_synth|Synth grid
 bg_rain|Code rain
 bg_scope|Oscilloscope
 bg_radar|Radar
@@ -69,7 +68,6 @@ bg_dots|Dot matrix
 bg_circuit|Circuit
 bg_warp|Warp
 bg_spectrum|Spectrum
-bg_static|Static
 bg_random|Anyhow
 bgc_duo|Both accents
 bgc_cycle|Colour dey change
@@ -434,3 +432,15 @@ made_by_line|Na StarlightJulie make am. E free and open source under GPLv3.
 source|Source
 license|License
 flipper_trademark|Flipper Zero na trademark of Flipper Devices Inc. EMITT no join dem and dem no back am.
+bg_comets|Comets
+bg_pulsar|Pulsar
+custom_status_on|On · %1$d set wey you save
+custom_status_off|Off · %1$d set wey you save
+save_set|Save am as set
+saved_sets|Set wey you save
+no_sets|You never save any set. On your own colour, adjust dem, then tap Save am as set.
+sets_hint|Tap one set to use am. If you save with the same name, e go replace that set.
+set_default_name|My colour %1$d
+set_saved|Don save %1$s
+delete_set_confirm|Delete the colour set "%1$s"? You no fit undo am.
+tagmode_builtin|The other phone no see anything? Some phone (mostly Android 15 go up) dey answer with empty tag wey dey inside their NFC chip. Open EMITT for the phone wey dey read: e fit always read EMITT phone.
