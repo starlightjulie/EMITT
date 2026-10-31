@@ -434,13 +434,32 @@ license|لائسنس
 flipper_trademark|Flipper Zero، Flipper Devices Inc. کا ٹریڈ مارک ہے۔ EMITT ان سے وابستہ یا ان کی طرف سے منظور شدہ نہیں ہے۔
 bg_comets|دُم دار ستارے
 bg_pulsar|پلسار
-custom_status_on|آن · %1$d محفوظ سیٹ
-custom_status_off|آف · %1$d محفوظ سیٹ
-save_set|سیٹ کے طور پر محفوظ کریں
-saved_sets|محفوظ سیٹ
-no_sets|ابھی کوئی سیٹ محفوظ نہیں۔ اپنے رنگ آن کریں، بدلیں، پھر «سیٹ کے طور پر محفوظ کریں» ٹیپ کریں۔
-sets_hint|استعمال کرنے کے لیے کسی سیٹ کو ٹیپ کریں۔ اسی نام سے محفوظ کرنے پر وہ سیٹ بدل جاتا ہے۔
-set_default_name|میرے رنگ %1$d
 set_saved|%1$s محفوظ ہوا
-delete_set_confirm|رنگوں کا سیٹ «%1$s» حذف کریں؟ یہ واپس نہیں ہو سکتا۔
 tagmode_builtin|دوسرے فون پر کچھ نظر نہیں آیا؟ کچھ فون (اکثر Android 15 اور نئے) اپنی NFC چپ میں بنے خالی ٹیگ سے جواب دیتے ہیں۔ پڑھنے والے فون پر EMITT کھولیں: وہ EMITT والا فون ہمیشہ پڑھ سکتا ہے۔
+custom_status_on|اپنے رنگ آن · %1$d محفوظ تھیمز
+custom_status_off|اپنے رنگ آف · %1$d محفوظ تھیمز
+save_set|تھیم کے طور پر محفوظ کریں
+saved_sets|محفوظ تھیمز
+no_sets|ابھی کوئی تھیم محفوظ نہیں۔ رنگ، پس منظر، انٹرفیس اور کنٹرول اپنی مرضی سے سیٹ کریں، پھر «تھیم کے طور پر محفوظ کریں» ٹیپ کریں۔
+sets_hint|کسی تھیم کو ٹیپ کریں: رنگ، پس منظر، انٹرفیس اور کنٹرول ایک ساتھ لگ جاتے ہیں۔ اسی نام سے محفوظ کرنے پر وہ بدل جاتی ہے۔
+set_default_name|میری تھیم %1$d
+delete_set_confirm|تھیم «%1$s» حذف کریں؟ یہ واپس نہیں ہو سکتا۔
+my_themes|میری تھیمز
+controls|کنٹرول
+controls_hint|سوئچ، سلائیڈر اور پیش رفت کی پٹیاں کیسی دکھیں۔
+ctrl_classic|کلاسک
+ctrl_blade|بلیڈ
+ctrl_segment|سیگمنٹ
+ctrl_bracket|بریکٹ
+ctrl_sample|نمونہ سوئچ
+remind_later|بعد میں یاد دلائیں
+update_now|ابھی اپڈیٹ کریں
+whats_new|نیا کیا ہے
+whats_new_title|%1$s میں نیا کیا ہے
+all_releases|تمام ریلیزز
+close|بند کریں
+notes_new|نیا
+notes_fixed|درست کیا گیا
+notes_improved|بہتر
+you_have|آپ کے پاس %1$s ہے
+no_notes|اس ورژن کے لیے کوئی نوٹ نہیں۔

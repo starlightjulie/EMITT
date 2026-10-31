@@ -434,13 +434,32 @@ license|Lizenz
 flipper_trademark|Flipper Zero ist eine Marke von Flipper Devices Inc. EMITT ist nicht mit ihnen verbunden und wird nicht von ihnen unterstützt.
 bg_comets|Kometen
 bg_pulsar|Pulsar
-custom_status_on|An · %1$d gespeicherte Sets
-custom_status_off|Aus · %1$d gespeicherte Sets
-save_set|Als Set speichern
-saved_sets|Gespeicherte Sets
-no_sets|Noch keine gespeicherten Sets. Schalte eigene Farben ein, passe sie an und tippe auf Als Set speichern.
-sets_hint|Tippe auf ein Set, um es zu verwenden. Speichern unter demselben Namen ersetzt das Set.
-set_default_name|Meine Farben %1$d
 set_saved|%1$s gespeichert
-delete_set_confirm|Farbset „%1$s“ löschen? Das lässt sich nicht rückgängig machen.
 tagmode_builtin|Das andere Handy sieht nichts? Manche Handys (oft ab Android 15) antworten stattdessen mit einem leeren Tag, der in ihren NFC-Chip eingebaut ist. Öffne EMITT auf dem lesenden Handy: Es kann ein EMITT-Handy immer lesen.
+custom_status_on|Eigene Farben an · %1$d gespeicherte Themes
+custom_status_off|Eigene Farben aus · %1$d gespeicherte Themes
+save_set|Als Theme speichern
+saved_sets|Gespeicherte Themes
+no_sets|Noch keine Themes gespeichert. Stelle Farben, Hintergrund, Oberfläche und Bedienelemente ein und tippe auf Als Theme speichern.
+sets_hint|Tippe auf ein Theme, um es zu verwenden: Farben, Hintergrund, Oberfläche und Bedienelemente zusammen. Speichern unter demselben Namen ersetzt es.
+set_default_name|Mein Theme %1$d
+delete_set_confirm|Theme „%1$s“ löschen? Das lässt sich nicht rückgängig machen.
+my_themes|Meine Themes
+controls|Bedienelemente
+controls_hint|Wie Schalter, Regler und Fortschrittsbalken aussehen.
+ctrl_classic|Klassisch
+ctrl_blade|Klinge
+ctrl_segment|Segment
+ctrl_bracket|Klammer
+ctrl_sample|Beispielschalter
+remind_later|Später erinnern
+update_now|Jetzt aktualisieren
+whats_new|Was ist neu
+whats_new_title|Neu in %1$s
+all_releases|Alle Versionen
+close|Schließen
+notes_new|Neu
+notes_fixed|Behoben
+notes_improved|Verbessert
+you_have|Du hast %1$s
+no_notes|Keine Hinweise zu dieser Version.

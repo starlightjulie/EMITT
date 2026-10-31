@@ -23,6 +23,15 @@ class Settings(context: Context) {
         get() = prefs.getString("notified_version", "").orEmpty()
         set(v) = prefs.edit { putString("notified_version", v) }
 
+    /** "Remind me later": the update pop-up for this version stays away until [snoozedUntil]. */
+    var snoozedVersion: String
+        get() = prefs.getString("snoozed_version", "").orEmpty()
+        set(v) = prefs.edit { putString("snoozed_version", v) }
+
+    var snoozedUntil: Long
+        get() = prefs.getLong("snoozed_until", 0L)
+        set(v) = prefs.edit { putLong("snoozed_until", v) }
+
     var askedNotifications: Boolean
         get() = prefs.getBoolean("asked_notifications", false)
         set(v) = prefs.edit { putBoolean("asked_notifications", v) }

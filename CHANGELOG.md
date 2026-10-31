@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.3.2
+
+### New
+- **Control styles.** New installs start with Blade; updates keep Classic. Pick how switches, sliders and progress bars look in Appearance → Controls: Classic, Blade (a sharp hexagon with a hatched half that slides across), Segment (LED segments that light up in turn) or Bracket (terminal brackets with a block cursor). Switches animate as they flip.
+- **Full themes.** My themes now saves the whole look, not just colours: background, interface and controls too. Each part folds open on its own, so the page stays tidy.
+- **Update pop-up.** When a new version is out, EMITT shows what's new with Update now and Remind me later. It appears when you open the app and when you tap Check now.
+- **See what's new.** Next to the version number in Settings → About.
+
+### Improved
+- **Themes saved in 1.3.1 still work.** They keep their colours, and you can save over them to include the rest of the look.
+
 ## 1.3.1
 
 ### Fixed

@@ -7,7 +7,16 @@ plugins {
     id("org.jetbrains.kotlin.plugin.serialization")
 }
 
+// "See what's new" reads this copy of the CHANGELOG from the app's assets
+val changelogAssets = layout.buildDirectory.dir("generated/changelogAssets")
+val copyChangelog = tasks.register<Copy>("copyChangelog") {
+    from(rootProject.file("CHANGELOG.md"))
+    into(changelogAssets)
+}
+tasks.named("preBuild") { dependsOn(copyChangelog) }
+
 android {
+    sourceSets["main"].assets.srcDir(changelogAssets)
     namespace = "com.emitt"
     compileSdk = 36
     buildToolsVersion = "36.0.0"
@@ -16,8 +25,8 @@ android {
         applicationId = "com.emitt"
         minSdk = 26
         targetSdk = 36
-        versionCode = 5
-        versionName = "1.3.1"
+        versionCode = 6
+        versionName = "1.3.2"
     }
 
     // Release key: keystore.properties next to the project, in ~/.emitt-signing/, or EMITT_KEYSTORE_* env vars.

@@ -60,7 +60,7 @@ enum class Output(@StringRes val label: Int) { QR(R.string.out_qr), NFC(R.string
 enum class Page(val path: String, val parent: Page? = null) {
     SETTINGS("settings"),
     APPEARANCE("appearance"),
-    CUSTOM_COLOURS("colours", APPEARANCE),
+    CUSTOM_COLOURS("themes", APPEARANCE),
 }
 
 /** What the next tag tapped against the phone should be used for. */
@@ -117,6 +117,8 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
     // ---- Updates ----
     var update by mutableStateOf<AppUpdate?>(null)
     var updateStatus by mutableStateOf<UiText?>(null)
+    /** The update pop-up, shown after a check finds a newer release. */
+    var updateDialog by mutableStateOf<AppUpdate?>(null)
 
     private val _messages = Channel<UiText>(Channel.BUFFERED)
     val messages = _messages.receiveAsFlow()
@@ -261,6 +263,15 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
 
     // ---- Updates ----
 
+    /** Hide the update pop-up for this version for a day. Check now still shows it. */
+    fun remindLater() {
+        updateDialog?.let {
+            settings.snoozedVersion = it.version
+            settings.snoozedUntil = System.currentTimeMillis() + 24L * 60 * 60 * 1000
+        }
+        updateDialog = null
+    }
+
     fun checkForUpdate(manual: Boolean) {
         viewModelScope.launch {
             if (manual) updateStatus = UiText(R.string.upd_checking)
@@ -268,7 +279,9 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
                 is UpdateResult.Available -> {
                     update = r.update
                     updateStatus = UiText(R.string.upd_available, r.update.version)
-                    UpdateWorker.notifyOnce(getApplication(), r.update)
+                    val snoozed = settings.snoozedVersion == r.update.version && System.currentTimeMillis() < settings.snoozedUntil
+                    if (manual || !snoozed) updateDialog = r.update
+                    if (!manual) UpdateWorker.notifyOnce(getApplication(), r.update)
                 }
                 UpdateResult.UpToDate -> updateStatus = UiText(R.string.upd_latest)
                 is UpdateResult.Failed -> updateStatus = r.reason

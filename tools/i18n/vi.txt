@@ -434,13 +434,32 @@ license|Giấy phép
 flipper_trademark|Flipper Zero là nhãn hiệu của Flipper Devices Inc. EMITT không liên kết và không được họ bảo trợ.
 bg_comets|Sao chổi
 bg_pulsar|Pulsar
-custom_status_on|Bật · %1$d bộ đã lưu
-custom_status_off|Tắt · %1$d bộ đã lưu
-save_set|Lưu thành bộ
-saved_sets|Bộ màu đã lưu
-no_sets|Chưa có bộ nào. Bật màu riêng, chỉnh lại rồi chạm Lưu thành bộ.
-sets_hint|Chạm vào một bộ để dùng. Lưu trùng tên sẽ thay thế bộ đó.
-set_default_name|Màu của tôi %1$d
 set_saved|Đã lưu %1$s
-delete_set_confirm|Xoá bộ màu "%1$s"? Không thể hoàn tác.
 tagmode_builtin|Điện thoại kia không thấy gì? Một số điện thoại (thường từ Android 15) trả lời bằng thẻ trống có sẵn trong chip NFC. Hãy mở EMITT trên điện thoại đọc: nó luôn đọc được điện thoại chạy EMITT.
+custom_status_on|Màu riêng bật · %1$d giao diện đã lưu
+custom_status_off|Màu riêng tắt · %1$d giao diện đã lưu
+save_set|Lưu thành giao diện
+saved_sets|Giao diện đã lưu
+no_sets|Chưa có giao diện nào. Chỉnh màu, nền, giao diện và điều khiển theo ý bạn rồi chạm Lưu thành giao diện.
+sets_hint|Chạm vào một giao diện để dùng: màu, nền, giao diện và điều khiển cùng lúc. Lưu trùng tên sẽ thay thế nó.
+set_default_name|Giao diện của tôi %1$d
+delete_set_confirm|Xoá giao diện "%1$s"? Không thể hoàn tác.
+my_themes|Giao diện của tôi
+controls|Điều khiển
+controls_hint|Hình dạng công tắc, thanh trượt và thanh tiến trình.
+ctrl_classic|Cổ điển
+ctrl_blade|Lưỡi kiếm
+ctrl_segment|Phân đoạn
+ctrl_bracket|Ngoặc
+ctrl_sample|Công tắc mẫu
+remind_later|Nhắc tôi sau
+update_now|Cập nhật ngay
+whats_new|Có gì mới
+whats_new_title|Có gì mới trong %1$s
+all_releases|Tất cả phiên bản
+close|Đóng
+notes_new|Mới
+notes_fixed|Đã sửa
+notes_improved|Cải thiện
+you_have|Bạn đang dùng %1$s
+no_notes|Không có ghi chú cho phiên bản này.

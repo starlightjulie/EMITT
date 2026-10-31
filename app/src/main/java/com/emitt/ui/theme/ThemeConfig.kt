@@ -39,9 +39,12 @@ enum class PaletteSlot(@StringRes val label: Int, @StringRes val hint: Int) {
 
 class Colourway(val id: String, val name: String, val palette: Palette)
 
-/** A custom palette the user saved under a name, so they can switch between their own sets. */
+/**
+ * A theme the user saved under a name: its colours, plus (since 1.3.2) the whole look: background,
+ * interface and controls. Themes saved earlier have no [theme] and only carry colours.
+ */
 @Serializable
-data class SavedColours(val name: String, val palette: Palette)
+data class SavedColours(val name: String, val palette: Palette, val theme: ThemeConfig? = null)
 
 object Colourways {
     val all = listOf(
@@ -87,6 +90,15 @@ enum class BgColour(@StringRes val label: Int) { DUO(R.string.bgc_duo), ACCENT(R
 
 @Serializable
 enum class Corners(@StringRes val label: Int) { CUT(R.string.corner_cut), SHARP(R.string.corner_sharp), SOFT(R.string.corner_soft) }
+
+/** How switches, sliders and progress bars are drawn. */
+@Serializable
+enum class ControlStyle(@StringRes val label: Int) {
+    CLASSIC(R.string.ctrl_classic),
+    BLADE(R.string.ctrl_blade),
+    SEGMENT(R.string.ctrl_segment),
+    BRACKET(R.string.ctrl_bracket),
+}
 
 @Serializable
 enum class FontStyle(@StringRes val label: Int) { MIXED(R.string.font_mixed), MONO(R.string.font_mono) }
@@ -135,6 +147,8 @@ data class ThemeConfig(
     val fontScale: Float = 1f,
     /** Blinking block cursor in screen titles. */
     val cursor: Boolean = true,
+    /** Blade for new installs; looks saved before 1.3.2 keep Classic (see [decodeTheme]). */
+    val controls: ControlStyle = ControlStyle.BLADE,
     val icon: LauncherIcon = LauncherIcon.AMBER,
 ) {
     val palette: Palette get() = custom ?: Colourways.byId(colourway).palette
@@ -143,11 +157,15 @@ data class ThemeConfig(
 private val themeJson = Json { ignoreUnknownKeys = true; encodeDefaults = true }
 
 /** Reads a saved look. 1.3.1 swapped two backgrounds, so old names are mapped and nobody's look resets on update. */
-internal fun decodeTheme(saved: String): ThemeConfig = themeJson.decodeFromString(
-    saved
-        .replace("\"background\":\"SYNTH_GRID\"", "\"background\":\"COMETS\"")
-        .replace("\"background\":\"STATIC\"", "\"background\":\"PULSAR\""),
-)
+internal fun decodeTheme(saved: String): ThemeConfig {
+    val theme = themeJson.decodeFromString<ThemeConfig>(
+        saved
+            .replace("\"background\":\"SYNTH_GRID\"", "\"background\":\"COMETS\"")
+            .replace("\"background\":\"STATIC\"", "\"background\":\"PULSAR\""),
+    )
+    // Looks saved before control styles existed had Material switches: keep them that way
+    return if ("\"controls\"" in saved) theme else theme.copy(controls = ControlStyle.CLASSIC)
+}
 
 class ThemeRepository private constructor(context: Context) {
     private val prefs = context.getSharedPreferences("theme", Context.MODE_PRIVATE)

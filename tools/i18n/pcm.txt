@@ -434,13 +434,32 @@ license|License
 flipper_trademark|Flipper Zero na trademark of Flipper Devices Inc. EMITT no join dem and dem no back am.
 bg_comets|Comets
 bg_pulsar|Pulsar
-custom_status_on|On · %1$d set wey you save
-custom_status_off|Off · %1$d set wey you save
-save_set|Save am as set
-saved_sets|Set wey you save
-no_sets|You never save any set. On your own colour, adjust dem, then tap Save am as set.
-sets_hint|Tap one set to use am. If you save with the same name, e go replace that set.
-set_default_name|My colour %1$d
 set_saved|Don save %1$s
-delete_set_confirm|Delete the colour set "%1$s"? You no fit undo am.
 tagmode_builtin|The other phone no see anything? Some phone (mostly Android 15 go up) dey answer with empty tag wey dey inside their NFC chip. Open EMITT for the phone wey dey read: e fit always read EMITT phone.
+custom_status_on|Your own colour dey on · %1$d theme wey you save
+custom_status_off|Your own colour dey off · %1$d theme wey you save
+save_set|Save am as theme
+saved_sets|Theme wey you save
+no_sets|You never save any theme. Arrange colour, background, interface and controls how you like am, then tap Save am as theme.
+sets_hint|Tap one theme to use am: colour, background, interface and controls together. If you save with the same name, e go replace am.
+set_default_name|My theme %1$d
+delete_set_confirm|Delete the theme "%1$s"? You no fit undo am.
+my_themes|My themes
+controls|Controls
+controls_hint|How switch, slider and progress bar go take look.
+ctrl_classic|Classic
+ctrl_blade|Blade
+ctrl_segment|Segment
+ctrl_bracket|Bracket
+ctrl_sample|Sample switch
+remind_later|Remind me later
+update_now|Update now
+whats_new|Wetin dey new
+whats_new_title|Wetin dey new for %1$s
+all_releases|All releases
+close|Close
+notes_new|New
+notes_fixed|Don fix
+notes_improved|Better pass before
+you_have|You get %1$s
+no_notes|No note for this version.

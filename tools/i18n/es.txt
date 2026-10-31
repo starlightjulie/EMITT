@@ -434,13 +434,32 @@ license|Licencia
 flipper_trademark|Flipper Zero es una marca de Flipper Devices Inc. EMITT no está afiliado ni respaldado por ellos.
 bg_comets|Cometas
 bg_pulsar|Púlsar
-custom_status_on|Activado · %1$d conjuntos guardados
-custom_status_off|Desactivado · %1$d conjuntos guardados
-save_set|Guardar como conjunto
-saved_sets|Conjuntos guardados
-no_sets|Aún no hay conjuntos guardados. Activa tus propios colores, ajústalos y toca Guardar como conjunto.
-sets_hint|Toca un conjunto para usarlo. Guardar con el mismo nombre reemplaza ese conjunto.
-set_default_name|Mis colores %1$d
 set_saved|Guardado: %1$s
-delete_set_confirm|¿Eliminar el conjunto de colores «%1$s»? No se puede deshacer.
 tagmode_builtin|¿El otro teléfono no ve nada? Algunos teléfonos (a menudo con Android 15 o posterior) responden con una etiqueta vacía integrada en su chip NFC. Abre EMITT en el teléfono que lee: siempre puede leer un teléfono con EMITT.
+custom_status_on|Colores propios activados · %1$d temas guardados
+custom_status_off|Colores propios desactivados · %1$d temas guardados
+save_set|Guardar como tema
+saved_sets|Temas guardados
+no_sets|Aún no hay temas guardados. Ajusta colores, fondo, interfaz y controles a tu gusto y toca Guardar como tema.
+sets_hint|Toca un tema para usarlo: colores, fondo, interfaz y controles juntos. Guardar con el mismo nombre lo reemplaza.
+set_default_name|Mi tema %1$d
+delete_set_confirm|¿Eliminar el tema «%1$s»? No se puede deshacer.
+my_themes|Mis temas
+controls|Controles
+controls_hint|Cómo se ven los interruptores, deslizadores y barras de progreso.
+ctrl_classic|Clásico
+ctrl_blade|Filo
+ctrl_segment|Segmentos
+ctrl_bracket|Corchetes
+ctrl_sample|Interruptor de ejemplo
+remind_later|Recordar más tarde
+update_now|Actualizar ahora
+whats_new|Novedades
+whats_new_title|Novedades de %1$s
+all_releases|Todas las versiones
+close|Cerrar
+notes_new|Nuevo
+notes_fixed|Corregido
+notes_improved|Mejorado
+you_have|Tienes la %1$s
+no_notes|No hay notas para esta versión.

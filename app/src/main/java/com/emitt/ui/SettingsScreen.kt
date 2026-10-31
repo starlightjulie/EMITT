@@ -74,11 +74,13 @@ import com.emitt.UpdateWorker
 import com.emitt.data.Languages
 import com.emitt.data.OfficialBuild
 import com.emitt.data.UpdateChecker
+import com.emitt.data.ReleaseNotes
 import com.emitt.ui.theme.BgColour
 import com.emitt.ui.theme.BgStyle
 import com.emitt.ui.theme.Colourway
 import com.emitt.ui.theme.Colourways
 import com.emitt.ui.theme.Corners
+import com.emitt.ui.theme.ControlStyle
 import com.emitt.ui.theme.FontStyle
 import com.emitt.ui.theme.LauncherIcon
 import com.emitt.ui.theme.LocalLook
@@ -114,7 +116,7 @@ fun AppearanceScreen(vm: MainViewModel) {
                 verticalAlignment = Alignment.CenterVertically,
             ) {
                 Column(Modifier.weight(1f)) {
-                    Text(stringResource(R.string.use_my_colours), style = MaterialTheme.typography.bodyLarge)
+                    Text(stringResource(R.string.my_themes), style = MaterialTheme.typography.bodyLarge)
                     Dim(stringResource(if (cfg.custom != null) R.string.custom_status_on else R.string.custom_status_off, cfg.savedColours.size))
                 }
                 cfg.custom?.let { p ->
@@ -126,35 +128,10 @@ fun AppearanceScreen(vm: MainViewModel) {
             }
         }
 
-        TermPanel(title = stringResource(R.string.slot_bg)) {
-            ChipGroup(BgStyle.entries, cfg.background, { stringResource(it.label) }, { s -> set { it.copy(background = s) } })
-            if (cfg.background != BgStyle.NONE) {
-                SectionLabel(stringResource(R.string.motion))
-                SliderRow(stringResource(R.string.speed), cfg.bgSpeed, 0.1f..3f, { v -> set { it.copy(bgSpeed = v) } }, { "%.1f×".format(it) })
-                SliderRow(stringResource(R.string.density), cfg.bgDensity, 0.25f..2f, { v -> set { it.copy(bgDensity = v) } }, { "%.2f×".format(it) })
-                SliderRow(stringResource(R.string.intensity), cfg.bgIntensity, 0.05f..1f, { v -> set { it.copy(bgIntensity = v) } }, ::pct)
-                SectionLabel(stringResource(R.string.colour))
-                ChipGroup(BgColour.entries, cfg.bgColour, { stringResource(it.label) }, { c -> set { it.copy(bgColour = c) } })
-            }
-            SectionLabel("CRT")
-            SwitchRow(stringResource(R.string.scanlines), cfg.scanlines, { v -> set { it.copy(scanlines = v) } })
-            if (cfg.scanlines) {
-                SliderRow(stringResource(R.string.scanline_strength), cfg.scanlineStrength, 0.05f..1f, { v -> set { it.copy(scanlineStrength = v) } }, ::pct)
-            }
-            SwitchRow(stringResource(R.string.vignette), cfg.vignette, { v -> set { it.copy(vignette = v) } }, stringResource(R.string.vignette_hint))
-            SwitchRow(stringResource(R.string.flicker), cfg.flicker, { v -> set { it.copy(flicker = v) } }, stringResource(R.string.flicker_hint))
-        }
-
+        TermPanel(title = stringResource(R.string.slot_bg)) { BackgroundSettings(cfg, ::set) }
+        TermPanel(title = stringResource(R.string.controls)) { ControlSettings(cfg, ::set) }
         TermPanel(title = stringResource(R.string.interface_)) {
-            SliderRow(stringResource(R.string.panel_opacity), cfg.panelOpacity, 0.2f..1f, { v -> set { it.copy(panelOpacity = v) } }, ::pct)
-            SwitchRow(stringResource(R.string.panel_outlines), cfg.outlines, { v -> set { it.copy(outlines = v) } })
-            SwitchRow(stringResource(R.string.glow), cfg.glow, { v -> set { it.copy(glow = v) } }, stringResource(R.string.glow_hint))
-            SwitchRow(stringResource(R.string.blinking_cursor), cfg.cursor, { v -> set { it.copy(cursor = v) } })
-            SectionLabel(stringResource(R.string.corners))
-            ChipGroup(Corners.entries, cfg.corners, { stringResource(it.label) }, { c -> set { it.copy(corners = c) } })
-            SectionLabel(stringResource(R.string.font))
-            ChipGroup(FontStyle.entries, cfg.font, { stringResource(it.label) }, { f -> set { it.copy(font = f) } })
-            SliderRow(stringResource(R.string.text_size), cfg.fontScale, 0.85f..1.3f, { v -> set { it.copy(fontScale = v) } }, ::pct, applyOnRelease = true)
+            InterfaceSettings(cfg, ::set)
             ButtonRow { TermButton(stringResource(R.string.reset_look), { set { ThemeConfig(icon = it.icon, savedColours = it.savedColours) } }, Modifier.weight(1f)) }
         }
 
@@ -187,7 +164,58 @@ fun AppearanceScreen(vm: MainViewModel) {
     }
 }
 
-/** Your own five colours, plus named sets you can save, switch between and delete. */
+@Composable
+private fun BackgroundSettings(cfg: ThemeConfig, set: ((ThemeConfig) -> ThemeConfig) -> Unit) {
+    ChipGroup(BgStyle.entries, cfg.background, { stringResource(it.label) }, { s -> set { it.copy(background = s) } })
+    if (cfg.background != BgStyle.NONE) {
+        SectionLabel(stringResource(R.string.motion))
+        SliderRow(stringResource(R.string.speed), cfg.bgSpeed, 0.1f..3f, { v -> set { it.copy(bgSpeed = v) } }, { "%.1f×".format(it) })
+        SliderRow(stringResource(R.string.density), cfg.bgDensity, 0.25f..2f, { v -> set { it.copy(bgDensity = v) } }, { "%.2f×".format(it) })
+        SliderRow(stringResource(R.string.intensity), cfg.bgIntensity, 0.05f..1f, { v -> set { it.copy(bgIntensity = v) } }, ::pct)
+        SectionLabel(stringResource(R.string.colour))
+        ChipGroup(BgColour.entries, cfg.bgColour, { stringResource(it.label) }, { c -> set { it.copy(bgColour = c) } })
+    }
+    SectionLabel("CRT")
+    SwitchRow(stringResource(R.string.scanlines), cfg.scanlines, { v -> set { it.copy(scanlines = v) } })
+    if (cfg.scanlines) {
+        SliderRow(stringResource(R.string.scanline_strength), cfg.scanlineStrength, 0.05f..1f, { v -> set { it.copy(scanlineStrength = v) } }, ::pct)
+    }
+    SwitchRow(stringResource(R.string.vignette), cfg.vignette, { v -> set { it.copy(vignette = v) } }, stringResource(R.string.vignette_hint))
+    SwitchRow(stringResource(R.string.flicker), cfg.flicker, { v -> set { it.copy(flicker = v) } }, stringResource(R.string.flicker_hint))
+}
+
+@Composable
+private fun InterfaceSettings(cfg: ThemeConfig, set: ((ThemeConfig) -> ThemeConfig) -> Unit) {
+    SliderRow(stringResource(R.string.panel_opacity), cfg.panelOpacity, 0.2f..1f, { v -> set { it.copy(panelOpacity = v) } }, ::pct)
+    SwitchRow(stringResource(R.string.panel_outlines), cfg.outlines, { v -> set { it.copy(outlines = v) } })
+    SwitchRow(stringResource(R.string.glow), cfg.glow, { v -> set { it.copy(glow = v) } }, stringResource(R.string.glow_hint))
+    SwitchRow(stringResource(R.string.blinking_cursor), cfg.cursor, { v -> set { it.copy(cursor = v) } })
+    SectionLabel(stringResource(R.string.corners))
+    ChipGroup(Corners.entries, cfg.corners, { stringResource(it.label) }, { c -> set { it.copy(corners = c) } })
+    SectionLabel(stringResource(R.string.font))
+    ChipGroup(FontStyle.entries, cfg.font, { stringResource(it.label) }, { f -> set { it.copy(font = f) } })
+    SliderRow(stringResource(R.string.text_size), cfg.fontScale, 0.85f..1.3f, { v -> set { it.copy(fontScale = v) } }, ::pct, applyOnRelease = true)
+}
+
+/** Switch and slider style, with a live sample of each so the choice is easy to judge. */
+@Composable
+private fun ControlSettings(cfg: ThemeConfig, set: ((ThemeConfig) -> ThemeConfig) -> Unit) {
+    Dim(stringResource(R.string.controls_hint))
+    Spacer(Modifier.height(8.dp))
+    ChipGroup(ControlStyle.entries, cfg.controls, { stringResource(it.label) }, { c -> set { it.copy(controls = c) } })
+    var sampleOn by remember { mutableStateOf(true) }
+    var sampleLevel by remember { mutableStateOf(0.6f) }
+    SwitchRow(stringResource(R.string.ctrl_sample), sampleOn, { sampleOn = it })
+    SliderRow(stringResource(R.string.intensity), sampleLevel, 0f..1f, { sampleLevel = it }, ::pct)
+}
+
+/** The look without the parts a theme doesn't carry (saved themes, launcher icon). */
+private fun ThemeConfig.lookOnly() = copy(savedColours = emptyList(), icon = LauncherIcon.AMBER)
+
+/**
+ * Build your own theme: colours, background, interface and controls, each in a fold-out section,
+ * then save it by name and switch between saved themes.
+ */
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun CustomColoursScreen(vm: MainViewModel) {
@@ -198,18 +226,23 @@ fun CustomColoursScreen(vm: MainViewModel) {
     var deleting by remember { mutableStateOf<SavedColours?>(null) }
 
     Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
-        TermPanel(title = stringResource(R.string.custom_colours)) {
-            SwitchRow(
-                stringResource(R.string.use_my_colours), cfg.custom != null,
-                { on -> set { it.copy(custom = if (on) it.palette else null) } },
-                stringResource(R.string.use_my_colours_hint),
-            )
-            cfg.custom?.let { p ->
-                PaletteSlot.entries.forEach { slot ->
-                    ColorRow(stringResource(slot.label), slot.get(p), { v -> set { it.copy(custom = slot.set(p, v)) } }, stringResource(slot.hint))
+        TermPanel(title = stringResource(R.string.my_themes)) {
+            Fold(stringResource(R.string.colours), initiallyOpen = true) {
+                SwitchRow(
+                    stringResource(R.string.use_my_colours), cfg.custom != null,
+                    { on -> set { it.copy(custom = if (on) it.palette else null) } },
+                    stringResource(R.string.use_my_colours_hint),
+                )
+                cfg.custom?.let { p ->
+                    PaletteSlot.entries.forEach { slot ->
+                        ColorRow(stringResource(slot.label), slot.get(p), { v -> set { it.copy(custom = slot.set(p, v)) } }, stringResource(slot.hint))
+                    }
                 }
-                ButtonRow { TermButton(stringResource(R.string.save_set), { saving = true }, Modifier.weight(1f), icon = Icons.Rounded.Add) }
             }
+            Fold(stringResource(R.string.slot_bg)) { BackgroundSettings(cfg, ::set) }
+            Fold(stringResource(R.string.interface_)) { InterfaceSettings(cfg, ::set) }
+            Fold(stringResource(R.string.controls)) { ControlSettings(cfg, ::set) }
+            ButtonRow { TermButton(stringResource(R.string.save_set), { saving = true }, Modifier.weight(1f), icon = Icons.Rounded.Add, primary = true) }
         }
 
         TermPanel(title = stringResource(R.string.saved_sets)) {
@@ -218,8 +251,10 @@ fun CustomColoursScreen(vm: MainViewModel) {
             } else {
                 FlowRow(horizontalArrangement = Arrangement.spacedBy(8.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
                     cfg.savedColours.forEach { s ->
-                        ColourwayTile(s.name, s.palette, selected = cfg.custom == s.palette, width = 150.dp, onDelete = { deleting = s }) {
-                            set { it.copy(custom = s.palette) }
+                        val selected = cfg.custom == s.palette && (s.theme == null || s.theme == cfg.lookOnly())
+                        ColourwayTile(s.name, s.palette, selected = selected, width = 150.dp, onDelete = { deleting = s }) {
+                            // Themes saved before 1.3.2 only carry colours
+                            set { c -> (s.theme ?: c).copy(custom = s.palette, savedColours = c.savedColours, icon = c.icon) }
                         }
                     }
                 }
@@ -238,11 +273,12 @@ fun CustomColoursScreen(vm: MainViewModel) {
             confirmButton = {
                 TextButton(onClick = {
                     val n = name.trim().ifEmpty { suggested }
-                    cfg.custom?.let { p ->
-                        // Saving under an existing name replaces that set
-                        set { c -> c.copy(savedColours = c.savedColours.filterNot { it.name.equals(n, ignoreCase = true) } + SavedColours(n, p)) }
-                        vm.toast(R.string.set_saved, n)
+                    set { c ->
+                        // A theme keeps its colours as "own colours", so it looks the same whichever colourway is picked later
+                        val theme = c.copy(custom = c.palette).lookOnly()
+                        c.copy(custom = c.palette, savedColours = c.savedColours.filterNot { it.name.equals(n, ignoreCase = true) } + SavedColours(n, c.palette, theme))
                     }
+                    vm.toast(R.string.set_saved, n)
                     saving = false
                 }) { Text(stringResource(R.string.save).uppercase(), color = look.accent) }
             },
@@ -437,7 +473,26 @@ private fun AboutPanel() {
         Text("EMITT", style = glowing(MaterialTheme.typography.headlineSmall), color = look.accent)
         Dim(stringResource(R.string.tagline))
         Spacer(Modifier.height(8.dp))
-        KvRow(stringResource(R.string.version), BuildConfig.VERSION_NAME + if (BuildConfig.DEBUG) " (debug)" else "")
+        var whatsNew by remember { mutableStateOf(false) }
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            Box(Modifier.weight(1f)) { KvRow(stringResource(R.string.version), BuildConfig.VERSION_NAME + if (BuildConfig.DEBUG) " (debug)" else "") }
+            Text(
+                stringResource(R.string.whats_new), style = MaterialTheme.typography.labelMedium, color = look.accent,
+                modifier = Modifier.clickable { whatsNew = true }.padding(horizontal = 4.dp, vertical = 6.dp),
+            )
+        }
+        if (whatsNew) {
+            val sections = remember { ReleaseNotes.bundled(context, BuildConfig.VERSION_NAME) }
+            NotesDialog(
+                title = stringResource(R.string.whats_new_title, BuildConfig.VERSION_NAME),
+                subtitle = null,
+                sections = sections,
+                confirm = stringResource(R.string.close),
+                onConfirm = { whatsNew = false },
+                dismiss = stringResource(R.string.all_releases),
+                onDismiss = { whatsNew = false; context.openUrl(UpdateChecker.REPO_URL + "/releases") },
+            )
+        }
         Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.padding(vertical = 4.dp)) {
             Icon(if (official) Icons.Rounded.Verified else Icons.Rounded.Warning, null, Modifier.size(18.dp), tint = if (official) look.ok else look.warn)
             Spacer(Modifier.width(8.dp))

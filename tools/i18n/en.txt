@@ -389,15 +389,34 @@ colourway|Colourway
 custom_colours|Custom colours
 use_my_colours|Use my own colours
 use_my_colours_hint|Starts from the current colourway
-custom_status_on|On · %1$d saved sets
-custom_status_off|Off · %1$d saved sets
-save_set|Save as set
-saved_sets|Saved sets
-no_sets|No saved sets yet. Turn on your own colours, adjust them, then tap Save as set.
-sets_hint|Tap a set to use it. Saving with the same name replaces that set.
-set_default_name|My colours %1$d
+custom_status_on|Own colours on · %1$d saved themes
+custom_status_off|Own colours off · %1$d saved themes
+save_set|Save as theme
+saved_sets|Saved themes
+no_sets|No saved themes yet. Set up colours, background, interface and controls the way you like, then tap Save as theme.
+sets_hint|Tap a theme to use it: colours, background, interface and controls together. Saving with the same name replaces it.
+set_default_name|My theme %1$d
 set_saved|Saved %1$s
-delete_set_confirm|Delete the colour set "%1$s"? This can't be undone.
+delete_set_confirm|Delete the theme "%1$s"? This can't be undone.
+my_themes|My themes
+controls|Controls
+controls_hint|How switches, sliders and progress bars look.
+ctrl_classic|Classic
+ctrl_blade|Blade
+ctrl_segment|Segment
+ctrl_bracket|Bracket
+ctrl_sample|Sample switch
+remind_later|Remind me later
+update_now|Update now
+whats_new|See what's new
+whats_new_title|What's new in %1$s
+all_releases|All releases
+close|Close
+notes_new|New
+notes_fixed|Fixed
+notes_improved|Improved
+you_have|You have %1$s
+no_notes|No notes for this version.
 motion|Motion
 speed|Speed
 density|Density

@@ -389,7 +389,7 @@ private fun FlipperOutput(vm: MainViewModel) {
                         color = look.dim,
                     )
                 }
-                vm.flipperProgress?.let { LinearProgressIndicator(progress = { it }, Modifier.fillMaxWidth().padding(vertical = 6.dp), color = look.accent) }
+                vm.flipperProgress?.let { StyledProgress(it, Modifier.padding(vertical = 6.dp)) }
                 ButtonRow {
                     TermButton(stringResource(if (connected) R.string.send_to_flipper else R.string.connect_flipper), {
                         if (connected) vm.sendToFlipper(name, text) else vm.tab = Tab.FLIPPER

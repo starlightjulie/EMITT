@@ -434,13 +434,32 @@ license|الترخيص
 flipper_trademark|Flipper Zero علامة تجارية لشركة Flipper Devices Inc. لا يرتبط EMITT بهم ولا يحظى بتأييدهم.
 bg_comets|مذنّبات
 bg_pulsar|نجم نابض
-custom_status_on|مفعّل · %1$d مجموعات محفوظة
-custom_status_off|متوقف · %1$d مجموعات محفوظة
-save_set|حفظ كمجموعة
-saved_sets|المجموعات المحفوظة
-no_sets|لا توجد مجموعات محفوظة بعد. فعّل ألوانك وعدّلها ثم انقر «حفظ كمجموعة».
-sets_hint|انقر مجموعة لاستخدامها. الحفظ بالاسم نفسه يستبدل تلك المجموعة.
-set_default_name|ألواني %1$d
 set_saved|حُفظت %1$s
-delete_set_confirm|حذف مجموعة الألوان «%1$s»؟ لا يمكن التراجع عن ذلك.
 tagmode_builtin|الهاتف الآخر لا يرى شيئًا؟ بعض الهواتف (غالبًا Android 15 وأحدث) تجيب ببطاقة فارغة مدمجة في شريحة NFC. افتح EMITT على الهاتف القارئ: يستطيع دائمًا قراءة هاتف يعمل عليه EMITT.
+custom_status_on|ألوانك مفعّلة · %1$d سمات محفوظة
+custom_status_off|ألوانك متوقفة · %1$d سمات محفوظة
+save_set|حفظ كسمة
+saved_sets|السمات المحفوظة
+no_sets|لا توجد سمات محفوظة بعد. اضبط الألوان والخلفية والواجهة وعناصر التحكم كما تحب ثم انقر «حفظ كسمة».
+sets_hint|انقر سمة لاستخدامها: الألوان والخلفية والواجهة وعناصر التحكم معًا. الحفظ بالاسم نفسه يستبدلها.
+set_default_name|سمتي %1$d
+delete_set_confirm|حذف السمة «%1$s»؟ لا يمكن التراجع عن ذلك.
+my_themes|سماتي
+controls|عناصر التحكم
+controls_hint|شكل المفاتيح وأشرطة التمرير وأشرطة التقدم.
+ctrl_classic|كلاسيكي
+ctrl_blade|نصل
+ctrl_segment|مقاطع
+ctrl_bracket|أقواس
+ctrl_sample|مفتاح تجريبي
+remind_later|ذكّرني لاحقًا
+update_now|حدّث الآن
+whats_new|ما الجديد
+whats_new_title|الجديد في %1$s
+all_releases|كل الإصدارات
+close|إغلاق
+notes_new|جديد
+notes_fixed|إصلاحات
+notes_improved|تحسينات
+you_have|لديك %1$s
+no_notes|لا توجد ملاحظات لهذا الإصدار.

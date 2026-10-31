@@ -19,4 +19,11 @@ class ThemeMigrationTest {
         assertEquals(LauncherIcon.SAKURA, old.icon)
         assertEquals(emptyList<SavedColours>(), old.savedColours)
     }
+
+    @Test
+    fun oldLooksKeepClassicControlsWhileNewInstallsGetBlade() {
+        assertEquals(ControlStyle.CLASSIC, decodeTheme("""{"colourway":"sakura"}""").controls)
+        assertEquals(ControlStyle.SEGMENT, decodeTheme("""{"colourway":"sakura","controls":"SEGMENT"}""").controls)
+        assertEquals(ControlStyle.BLADE, ThemeConfig().controls)
+    }
 }

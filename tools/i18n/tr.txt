@@ -434,13 +434,32 @@ license|Lisans
 flipper_trademark|Flipper Zero, Flipper Devices Inc. şirketinin ticari markasıdır. EMITT onlarla bağlantılı değildir ve onlar tarafından desteklenmez.
 bg_comets|Kuyruklu yıldızlar
 bg_pulsar|Pulsar
-custom_status_on|Açık · %1$d kayıtlı set
-custom_status_off|Kapalı · %1$d kayıtlı set
-save_set|Set olarak kaydet
-saved_sets|Kayıtlı setler
-no_sets|Henüz kayıtlı set yok. Kendi renklerini aç, ayarla, sonra Set olarak kaydet'e dokun.
-sets_hint|Kullanmak için bir sete dokun. Aynı adla kaydetmek o setin yerine geçer.
-set_default_name|Renklerim %1$d
 set_saved|%1$s kaydedildi
-delete_set_confirm|"%1$s" renk seti silinsin mi? Bu geri alınamaz.
 tagmode_builtin|Diğer telefon bir şey görmüyor mu? Bazı telefonlar (çoğunlukla Android 15 ve sonrası) NFC çiplerine gömülü boş bir etiketle yanıt verir. Okuyan telefonda EMITT'i aç: EMITT olan bir telefonu her zaman okuyabilir.
+custom_status_on|Kendi renklerin açık · %1$d kayıtlı tema
+custom_status_off|Kendi renklerin kapalı · %1$d kayıtlı tema
+save_set|Tema olarak kaydet
+saved_sets|Kayıtlı temalar
+no_sets|Henüz kayıtlı tema yok. Renkleri, arka planı, arayüzü ve kontrolleri istediğin gibi ayarla, sonra Tema olarak kaydet'e dokun.
+sets_hint|Kullanmak için bir temaya dokun: renkler, arka plan, arayüz ve kontroller birlikte. Aynı adla kaydetmek temanın yerine geçer.
+set_default_name|Temam %1$d
+delete_set_confirm|"%1$s" teması silinsin mi? Bu geri alınamaz.
+my_themes|Temalarım
+controls|Kontroller
+controls_hint|Anahtarların, kaydırıcıların ve ilerleme çubuklarının görünümü.
+ctrl_classic|Klasik
+ctrl_blade|Bıçak
+ctrl_segment|Segment
+ctrl_bracket|Köşeli parantez
+ctrl_sample|Örnek anahtar
+remind_later|Sonra hatırlat
+update_now|Şimdi güncelle
+whats_new|Yenilikler
+whats_new_title|%1$s sürümündeki yenilikler
+all_releases|Tüm sürümler
+close|Kapat
+notes_new|Yeni
+notes_fixed|Düzeltildi
+notes_improved|İyileştirildi
+you_have|Sendeki sürüm: %1$s
+no_notes|Bu sürüm için not yok.

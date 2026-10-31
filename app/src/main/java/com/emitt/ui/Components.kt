@@ -1,5 +1,23 @@
 package com.emitt.ui
 
+import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.TextButton
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.ui.res.stringResource
+import com.emitt.R
+import com.emitt.data.NoteKind
+import com.emitt.data.NoteSection
+import androidx.compose.foundation.layout.height
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.expandVertically
+import androidx.compose.animation.shrinkVertically
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.ui.draw.rotate
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.rounded.ExpandMore
 import androidx.compose.animation.core.RepeatMode
 import androidx.compose.animation.core.infiniteRepeatable
 import androidx.compose.animation.core.rememberInfiniteTransition
@@ -101,6 +119,35 @@ fun TermPanel(
             }
         }
         content()
+    }
+}
+
+/**
+ * A section inside a panel that folds open and shut, so long settings pages stay tidy.
+ * The chevron turns and the content slides open.
+ */
+@Composable
+fun Fold(title: String, initiallyOpen: Boolean = false, content: @Composable ColumnScope.() -> Unit) {
+    val look = LocalLook.current
+    var open by rememberSaveable(title) { mutableStateOf(initiallyOpen) }
+    val turn by animateFloatAsState(if (open) 180f else 0f, label = "foldChevron")
+    Column(Modifier.fillMaxWidth()) {
+        Row(
+            Modifier.fillMaxWidth().clickable { open = !open }.padding(vertical = 12.dp),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            Text(
+                title.uppercase(),
+                style = MaterialTheme.typography.labelLarge,
+                color = if (open) look.accent else look.ink,
+                modifier = Modifier.weight(1f),
+            )
+            Icon(Icons.Rounded.ExpandMore, null, Modifier.rotate(turn), tint = look.accent)
+        }
+        AnimatedVisibility(open, enter = expandVertically() + fadeIn(), exit = shrinkVertically() + fadeOut()) {
+            Column(Modifier.padding(bottom = 10.dp), content = content)
+        }
+        Box(Modifier.fillMaxWidth().height(1.dp).background(look.dim.copy(alpha = 0.25f)))
     }
 }
 
@@ -238,17 +285,7 @@ fun SwitchRow(title: String, checked: Boolean, onChange: (Boolean) -> Unit, subt
             if (subtitle != null) Text(subtitle, style = MaterialTheme.typography.bodySmall, color = look.dim)
         }
         Spacer(Modifier.width(12.dp))
-        Switch(
-            checked = checked,
-            onCheckedChange = onChange,
-            colors = SwitchDefaults.colors(
-                checkedThumbColor = look.bg,
-                checkedTrackColor = look.accent,
-                uncheckedThumbColor = look.dim,
-                uncheckedTrackColor = Color.Transparent,
-                uncheckedBorderColor = look.dim,
-            ),
-        )
+        StyledSwitch(checked, onChange)
     }
 }
 
@@ -275,19 +312,12 @@ fun SliderRow(
             Text(label, style = MaterialTheme.typography.bodyMedium, modifier = Modifier.weight(1f))
             Text(format(shown), style = MaterialTheme.typography.labelMedium, color = look.accent)
         }
-        Slider(
+        StyledSlider(
             value = shown,
-            onValueChange = { if (applyOnRelease) dragging = it else onChange(it) },
-            onValueChangeFinished = { dragging?.let(onChange); dragging = null },
-            valueRange = range,
+            onChange = { if (applyOnRelease) dragging = it else onChange(it) },
+            onFinished = { dragging?.let(onChange); dragging = null },
+            range = range,
             steps = steps,
-            colors = SliderDefaults.colors(
-                thumbColor = look.accent,
-                activeTrackColor = look.accent,
-                inactiveTrackColor = look.dim.copy(alpha = 0.3f),
-                activeTickColor = look.bg,
-                inactiveTickColor = look.dim,
-            ),
         )
     }
 }
@@ -345,3 +375,50 @@ fun Dim(text: String, modifier: Modifier = Modifier) {
 
 @Composable
 fun Tinted(color: Color, content: @Composable () -> Unit) = CompositionLocalProvider(LocalContentColor provides color, content = content)
+
+/**
+ * Release notes in a pop-up: short New / Fixed / Improved lists. Used for the update prompt and
+ * for "See what's new".
+ */
+@Composable
+fun NotesDialog(
+    title: String,
+    subtitle: String?,
+    sections: List<NoteSection>,
+    confirm: String,
+    onConfirm: () -> Unit,
+    dismiss: String?,
+    onDismiss: () -> Unit,
+) {
+    val look = LocalLook.current
+    AlertDialog(
+        onDismissRequest = onDismiss,
+        title = {
+            Column {
+                Text(title.uppercase(), style = glowing(MaterialTheme.typography.titleMedium), color = look.accent)
+                if (subtitle != null) Text(subtitle, style = MaterialTheme.typography.bodySmall, color = look.dim)
+            }
+        },
+        text = {
+            Column(Modifier.heightIn(max = 380.dp).verticalScroll(rememberScrollState())) {
+                if (sections.isEmpty()) Dim(stringResource(R.string.no_notes))
+                sections.forEach { sec ->
+                    val (label, colour) = when (sec.kind) {
+                        NoteKind.NEW -> stringResource(R.string.notes_new) to look.accent
+                        NoteKind.FIXED -> stringResource(R.string.notes_fixed) to look.ok
+                        NoteKind.IMPROVED -> stringResource(R.string.notes_improved) to look.signal
+                    }
+                    Text("// " + label.uppercase(), style = MaterialTheme.typography.labelMedium, color = colour, modifier = Modifier.padding(top = 10.dp, bottom = 4.dp))
+                    sec.items.forEach { item ->
+                        Row(Modifier.padding(vertical = 2.dp)) {
+                            Text("›", color = colour, style = MaterialTheme.typography.bodyMedium, modifier = Modifier.width(16.dp))
+                            Text(item, style = MaterialTheme.typography.bodyMedium, color = look.ink)
+                        }
+                    }
+                }
+            }
+        },
+        confirmButton = { TextButton(onClick = onConfirm) { Text(confirm.uppercase(), color = look.accent) } },
+        dismissButton = dismiss?.let { { TextButton(onClick = onDismiss) { Text(it.uppercase(), color = look.dim) } } },
+    )
+}

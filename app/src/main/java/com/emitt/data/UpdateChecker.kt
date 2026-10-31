@@ -12,7 +12,7 @@ import java.net.HttpURLConnection
 import java.net.URL
 
 /** A newer EMITT release found on GitHub. */
-data class AppUpdate(val version: String, val title: String, val notes: String)
+data class AppUpdate(val version: String, val title: String, val notes: String, val sections: List<NoteSection> = emptyList())
 
 sealed interface UpdateResult {
     data class Available(val update: AppUpdate) : UpdateResult
@@ -56,6 +56,7 @@ object UpdateChecker {
                         version = tag,
                         title = json["name"]?.jsonPrimitive?.contentOrNull ?: "EMITT $tag",
                         notes = plainText(json["body"]?.jsonPrimitive?.contentOrNull.orEmpty()),
+                        sections = ReleaseNotes.parse(json["body"]?.jsonPrimitive?.contentOrNull.orEmpty()),
                     ),
                 )
             } finally {

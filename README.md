@@ -75,9 +75,11 @@ Save codes to a library with stars and search. Put any saved code on your **home
 ### Make it yours
 Everything lives under the palette icon at the top (**Appearance**):
 
-- **16 colourways**: Mono (the default), Synthwave, Amber CRT, Phosphor, Ice, Ultraviolet, Redline, Vapor, Paper, Solar, Midnight, Sakura, Forest, Ember, Coffee and Glacier, or your own five colours, which you can save as named sets and switch between
+- **16 colourways**: Mono (the default), Synthwave, Amber CRT, Phosphor, Ice, Ultraviolet, Redline, Vapor, Paper, Solar, Midnight, Sakura, Forest, Ember, Coffee and Glacier, or your own five colours
 - **10 background animations**: comets, signal, code rain, oscilloscope, radar, dot matrix, circuit, warp, spectrum and pulsar, each with speed, density, intensity and colour controls. Off by default
 - CRT scanlines, vignette and flicker; glow; panel opacity and outlines; chamfered, sharp or soft corners; mono or mixed fonts; text size
+- **4 control styles** for switches, sliders and progress bars: Blade (the default, a sharp hexagon with a hatched half), Segment (LED segments), Bracket (terminal brackets) or Classic
+- **My themes**: save the whole look (colours, background, interface and controls) under a name and switch between your themes in one tap
 - **10 launcher icons** to match: Amber, Synthwave, Phosphor, Cyan, Mono, Sakura, Redline, Ultraviolet, Paper and Glacier
 
 ### Languages
@@ -89,7 +91,7 @@ Spotted a clumsy translation? Please open an issue with the language, the screen
 Pick a pattern (tick, double tap, heartbeat, rising, purr and more, or off) separately for tag writes and reads, for being read as a tag, and for failures, with a strength slider.
 
 ### Updates
-EMITT checks GitHub for new releases in the background (every 6 hours to 3 days, your choice) and sends a notification that opens the release page. It only asks GitHub's public API for the latest version and sends nothing about you. You can turn this off.
+EMITT checks GitHub for new releases when you open it and in the background (every 6 hours to 3 days, your choice). A new version shows a short list of what's new, with Update now and Remind me later. **See what's new** in Settings → About shows the notes for the version you have. It only asks GitHub's public API for the latest version and sends nothing about you. You can turn this off.
 
 ## Privacy
 

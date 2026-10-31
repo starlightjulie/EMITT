@@ -434,13 +434,32 @@ license|Lisensi
 flipper_trademark|Flipper Zero adalah merek dagang Flipper Devices Inc. EMITT tidak berafiliasi dengan atau didukung oleh mereka.
 bg_comets|Komet
 bg_pulsar|Pulsar
-custom_status_on|Aktif · %1$d set tersimpan
-custom_status_off|Nonaktif · %1$d set tersimpan
-save_set|Simpan sebagai set
-saved_sets|Set tersimpan
-no_sets|Belum ada set tersimpan. Aktifkan warnamu sendiri, atur, lalu ketuk Simpan sebagai set.
-sets_hint|Ketuk set untuk memakainya. Menyimpan dengan nama yang sama akan menggantikan set itu.
-set_default_name|Warnaku %1$d
 set_saved|%1$s disimpan
-delete_set_confirm|Hapus set warna "%1$s"? Ini tidak bisa dibatalkan.
 tagmode_builtin|Ponsel lain tidak melihat apa pun? Beberapa ponsel (sering Android 15 ke atas) menjawab dengan tag kosong bawaan chip NFC-nya. Buka EMITT di ponsel yang membaca: EMITT selalu bisa membaca ponsel EMITT.
+custom_status_on|Warna sendiri aktif · %1$d tema tersimpan
+custom_status_off|Warna sendiri nonaktif · %1$d tema tersimpan
+save_set|Simpan sebagai tema
+saved_sets|Tema tersimpan
+no_sets|Belum ada tema tersimpan. Atur warna, latar, antarmuka, dan kontrol sesukamu, lalu ketuk Simpan sebagai tema.
+sets_hint|Ketuk tema untuk memakainya: warna, latar, antarmuka, dan kontrol sekaligus. Menyimpan dengan nama yang sama akan menggantinya.
+set_default_name|Temaku %1$d
+delete_set_confirm|Hapus tema "%1$s"? Ini tidak bisa dibatalkan.
+my_themes|Temaku
+controls|Kontrol
+controls_hint|Tampilan sakelar, penggeser, dan bilah progres.
+ctrl_classic|Klasik
+ctrl_blade|Bilah
+ctrl_segment|Segmen
+ctrl_bracket|Kurung
+ctrl_sample|Sakelar contoh
+remind_later|Ingatkan nanti
+update_now|Perbarui sekarang
+whats_new|Yang baru
+whats_new_title|Yang baru di %1$s
+all_releases|Semua rilis
+close|Tutup
+notes_new|Baru
+notes_fixed|Diperbaiki
+notes_improved|Ditingkatkan
+you_have|Versimu %1$s
+no_notes|Tidak ada catatan untuk versi ini.

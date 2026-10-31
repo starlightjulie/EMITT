@@ -434,13 +434,32 @@ license|लाइसेंस
 flipper_trademark|Flipper Zero, Flipper Devices Inc. का ट्रेडमार्क है। EMITT उनसे संबद्ध या उनके द्वारा समर्थित नहीं है।
 bg_comets|धूमकेतु
 bg_pulsar|पल्सर
-custom_status_on|चालू · %1$d सेव सेट
-custom_status_off|बंद · %1$d सेव सेट
-save_set|सेट के रूप में सेव करें
-saved_sets|सेव किए सेट
-no_sets|अभी कोई सेट सेव नहीं है। अपने रंग चालू करें, बदलें, फिर «सेट के रूप में सेव करें» टैप करें।
-sets_hint|किसी सेट को इस्तेमाल करने के लिए टैप करें। उसी नाम से सेव करने पर वह सेट बदल जाता है।
-set_default_name|मेरे रंग %1$d
 set_saved|%1$s सेव हुआ
-delete_set_confirm|रंग सेट «%1$s» हटाएँ? इसे वापस नहीं किया जा सकता।
 tagmode_builtin|दूसरे फ़ोन पर कुछ नहीं दिखा? कुछ फ़ोन (अक्सर Android 15 और नए) अपनी NFC चिप में बने खाली टैग से जवाब देते हैं। पढ़ने वाले फ़ोन पर EMITT खोलें: वह EMITT वाले फ़ोन को हमेशा पढ़ सकता है।
+custom_status_on|अपने रंग चालू · %1$d सेव थीम
+custom_status_off|अपने रंग बंद · %1$d सेव थीम
+save_set|थीम के रूप में सेव करें
+saved_sets|सेव की गई थीम
+no_sets|अभी कोई थीम सेव नहीं है। रंग, पृष्ठभूमि, इंटरफ़ेस और कंट्रोल अपने हिसाब से सेट करें, फिर «थीम के रूप में सेव करें» टैप करें।
+sets_hint|किसी थीम को टैप करें: रंग, पृष्ठभूमि, इंटरफ़ेस और कंट्रोल एक साथ लग जाते हैं। उसी नाम से सेव करने पर वह बदल जाती है।
+set_default_name|मेरी थीम %1$d
+delete_set_confirm|थीम «%1$s» हटाएँ? इसे वापस नहीं किया जा सकता।
+my_themes|मेरी थीम
+controls|कंट्रोल
+controls_hint|स्विच, स्लाइडर और प्रगति पट्टियाँ कैसी दिखें।
+ctrl_classic|क्लासिक
+ctrl_blade|ब्लेड
+ctrl_segment|सेगमेंट
+ctrl_bracket|ब्रैकेट
+ctrl_sample|नमूना स्विच
+remind_later|बाद में याद दिलाएँ
+update_now|अभी अपडेट करें
+whats_new|नया क्या है
+whats_new_title|%1$s में नया क्या है
+all_releases|सभी रिलीज़
+close|बंद करें
+notes_new|नया
+notes_fixed|ठीक किया
+notes_improved|बेहतर
+you_have|आपके पास %1$s है
+no_notes|इस संस्करण के लिए कोई नोट नहीं।

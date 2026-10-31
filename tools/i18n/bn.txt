@@ -434,13 +434,32 @@ license|লাইসেন্স
 flipper_trademark|Flipper Zero হলো Flipper Devices Inc. এর ট্রেডমার্ক। EMITT তাদের সাথে যুক্ত বা তাদের দ্বারা অনুমোদিত নয়।
 bg_comets|ধূমকেতু
 bg_pulsar|পালসার
-custom_status_on|চালু · %1$dটি সেট সংরক্ষিত
-custom_status_off|বন্ধ · %1$dটি সেট সংরক্ষিত
-save_set|সেট হিসেবে সংরক্ষণ
-saved_sets|সংরক্ষিত সেট
-no_sets|এখনো কোনো সেট সংরক্ষণ করা হয়নি। নিজের রং চালু করুন, ঠিক করুন, তারপর «সেট হিসেবে সংরক্ষণ» ট্যাপ করুন।
-sets_hint|ব্যবহার করতে একটি সেট ট্যাপ করুন। একই নামে সংরক্ষণ করলে সেই সেট বদলে যায়।
-set_default_name|আমার রং %1$d
 set_saved|%1$s সংরক্ষিত
-delete_set_confirm|রঙের সেট «%1$s» মুছবেন? এটি ফেরানো যাবে না।
 tagmode_builtin|অন্য ফোনে কিছু আসছে না? কিছু ফোন (প্রায়ই Android 15 বা নতুন) তাদের NFC চিপে থাকা খালি ট্যাগ দিয়ে উত্তর দেয়। যে ফোনে পড়বেন তাতে EMITT খুলুন: সেটি EMITT ফোন সবসময় পড়তে পারে।
+custom_status_on|নিজের রং চালু · %1$dটি থিম সংরক্ষিত
+custom_status_off|নিজের রং বন্ধ · %1$dটি থিম সংরক্ষিত
+save_set|থিম হিসেবে সংরক্ষণ
+saved_sets|সংরক্ষিত থিম
+no_sets|এখনো কোনো থিম সংরক্ষণ করা হয়নি। রং, পটভূমি, ইন্টারফেস ও কন্ট্রোল নিজের মতো সাজিয়ে «থিম হিসেবে সংরক্ষণ» ট্যাপ করুন।
+sets_hint|একটি থিম ট্যাপ করুন: রং, পটভূমি, ইন্টারফেস ও কন্ট্রোল একসাথে বসে যায়। একই নামে সংরক্ষণ করলে সেটি বদলে যায়।
+set_default_name|আমার থিম %1$d
+delete_set_confirm|থিম «%1$s» মুছবেন? এটি ফেরানো যাবে না।
+my_themes|আমার থিম
+controls|কন্ট্রোল
+controls_hint|সুইচ, স্লাইডার ও অগ্রগতি বার কেমন দেখাবে।
+ctrl_classic|ক্লাসিক
+ctrl_blade|ব্লেড
+ctrl_segment|সেগমেন্ট
+ctrl_bracket|ব্র্যাকেট
+ctrl_sample|নমুনা সুইচ
+remind_later|পরে মনে করিয়ে দিন
+update_now|এখন আপডেট
+whats_new|নতুন কী
+whats_new_title|%1$s-এ নতুন কী
+all_releases|সব রিলিজ
+close|বন্ধ
+notes_new|নতুন
+notes_fixed|ঠিক করা হয়েছে
+notes_improved|উন্নত
+you_have|আপনার আছে %1$s
+no_notes|এই সংস্করণের কোনো নোট নেই।

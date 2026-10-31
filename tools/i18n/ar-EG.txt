@@ -434,13 +434,32 @@ license|الترخيص
 flipper_trademark|Flipper Zero علامة تجارية لشركة Flipper Devices Inc. ‏EMITT ملوش علاقة بيهم ومش متبني منهم.
 bg_comets|نيازك
 bg_pulsar|نجم نابض
-custom_status_on|شغال · %1$d مجموعات محفوظة
-custom_status_off|مقفول · %1$d مجموعات محفوظة
-save_set|احفظها كمجموعة
-saved_sets|المجموعات المحفوظة
-no_sets|مفيش مجموعات محفوظة لسه. شغّل ألوانك وظبطها وبعدين دوس «احفظها كمجموعة».
-sets_hint|دوس على مجموعة عشان تستخدمها. لو حفظت بنفس الاسم هتتغير المجموعة دي.
-set_default_name|ألواني %1$d
 set_saved|اتحفظت %1$s
-delete_set_confirm|تمسح مجموعة الألوان «%1$s»؟ مفيش رجوع.
 tagmode_builtin|الموبايل التاني مش شايف حاجة؟ شوية موبايلات (غالبًا Android 15 وأحدث) بترد بتاج فاضي جوه شريحة الـ NFC. افتح EMITT على الموبايل اللي بيقرا: هيقدر دايمًا يقرا موبايل عليه EMITT.
+custom_status_on|ألوانك شغالة · %1$d ثيمات محفوظة
+custom_status_off|ألوانك مقفولة · %1$d ثيمات محفوظة
+save_set|احفظه كثيم
+saved_sets|الثيمات المحفوظة
+no_sets|مفيش ثيمات محفوظة لسه. ظبط الألوان والخلفية والواجهة والكنترولز على مزاجك وبعدين دوس «احفظه كثيم».
+sets_hint|دوس على ثيم عشان تستخدمه: الألوان والخلفية والواجهة والكنترولز مع بعض. لو حفظت بنفس الاسم هيتغير.
+set_default_name|الثيم بتاعي %1$d
+delete_set_confirm|تمسح الثيم «%1$s»؟ مفيش رجوع.
+my_themes|الثيمات بتاعتي
+controls|الكنترولز
+controls_hint|شكل المفاتيح والسلايدرز وشرايط التحميل.
+ctrl_classic|كلاسيك
+ctrl_blade|نصل
+ctrl_segment|سيجمنت
+ctrl_bracket|أقواس
+ctrl_sample|مفتاح تجربة
+remind_later|فكّرني بعدين
+update_now|حدّث دلوقتي
+whats_new|إيه الجديد
+whats_new_title|الجديد في %1$s
+all_releases|كل الإصدارات
+close|اقفل
+notes_new|جديد
+notes_fixed|اتصلّح
+notes_improved|اتحسّن
+you_have|عندك %1$s
+no_notes|مفيش ملاحظات للإصدار ده.

@@ -1,5 +1,6 @@
 package com.emitt.ui
 
+import com.emitt.BuildConfig
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.EnterTransition
 import androidx.compose.animation.ExitTransition
@@ -147,7 +148,6 @@ fun EmittRoot(vm: MainViewModel) {
                 Modifier.weight(1f).fillMaxWidth().imePadding().verticalScroll(scroll).padding(horizontal = 14.dp, vertical = 8.dp),
                 verticalArrangement = Arrangement.spacedBy(12.dp),
             ) {
-                vm.update?.let { UpdateBanner(it.version) { vm.update = null } }
                 val still = reduceMotion()
                 AnimatedContent(
                     targetState = vm.page to vm.tab,
@@ -189,6 +189,17 @@ fun EmittRoot(vm: MainViewModel) {
         SnackbarHost(snack, Modifier.align(Alignment.BottomCenter).padding(bottom = 120.dp))
         CrtOverlay()
         if (vm.tagModeOpen) TagMode(vm)
+        vm.updateDialog?.let { u ->
+            NotesDialog(
+                title = stringResource(R.string.upd_notif_title, u.version),
+                subtitle = stringResource(R.string.you_have, BuildConfig.VERSION_NAME),
+                sections = u.sections,
+                confirm = stringResource(R.string.update_now),
+                onConfirm = { vm.updateDialog = null; context.openUrl(UpdateChecker.LATEST_RELEASE_URL) },
+                dismiss = stringResource(R.string.remind_later),
+                onDismiss = { vm.remindLater() },
+            )
+        }
         vm.fullscreen?.let { (text, style) ->
             FullscreenCode(text, style, null, vm.settings.boostBrightness) { vm.fullscreen = null }
         }
@@ -488,18 +499,6 @@ private fun FloatingQr(vm: MainViewModel, modifier: Modifier) {
                 modifier = Modifier.padding(top = 4.dp),
             )
         }
-    }
-}
-
-@Composable
-private fun UpdateBanner(version: String, onDismiss: () -> Unit) {
-    val look = LocalLook.current
-    val context = LocalContext.current
-    TermPanel(title = stringResource(R.string.update_available), trailing = {
-        Text("✕", color = look.dim, modifier = Modifier.clickable(onClick = onDismiss).padding(4.dp))
-    }) {
-        StatusLine(Status.OK, stringResource(R.string.upd_notif_title, version))
-        ButtonRow { TermButton(stringResource(R.string.open_release), { context.openUrl(UpdateChecker.LATEST_RELEASE_URL) }, Modifier.weight(1f), primary = true) }
     }
 }
 

@@ -434,13 +434,32 @@ license|ライセンス
 flipper_trademark|Flipper Zero は Flipper Devices Inc. の商標です。EMITT は同社とは無関係で、承認も受けていません。
 bg_comets|彗星
 bg_pulsar|パルサー
-custom_status_on|オン · 保存済み %1$d セット
-custom_status_off|オフ · 保存済み %1$d セット
-save_set|セットとして保存
-saved_sets|保存したセット
-no_sets|保存したセットはまだありません。自分の色をオンにして調整し、「セットとして保存」をタップしてください。
-sets_hint|セットをタップすると使えます。同じ名前で保存するとそのセットを置き換えます。
-set_default_name|マイカラー %1$d
 set_saved|%1$s を保存しました
-delete_set_confirm|カラーセット「%1$s」を削除しますか？元に戻せません。
 tagmode_builtin|相手の端末に何も表示されない？一部の端末（主に Android 15 以降）は、NFC チップ内蔵の空のタグで応答します。読み取る側の端末で EMITT を開けば、EMITT の端末を必ず読み取れます。
+custom_status_on|自分の色 オン · 保存済みテーマ %1$d 件
+custom_status_off|自分の色 オフ · 保存済みテーマ %1$d 件
+save_set|テーマとして保存
+saved_sets|保存したテーマ
+no_sets|保存したテーマはまだありません。色・背景・インターフェース・コントロールを好みに設定し、「テーマとして保存」をタップしてください。
+sets_hint|テーマをタップすると、色・背景・インターフェース・コントロールをまとめて適用します。同じ名前で保存すると置き換えます。
+set_default_name|マイテーマ %1$d
+delete_set_confirm|テーマ「%1$s」を削除しますか？元に戻せません。
+my_themes|マイテーマ
+controls|コントロール
+controls_hint|スイッチ、スライダー、進行バーの見た目です。
+ctrl_classic|クラシック
+ctrl_blade|ブレード
+ctrl_segment|セグメント
+ctrl_bracket|ブラケット
+ctrl_sample|サンプルスイッチ
+remind_later|後で通知
+update_now|今すぐ更新
+whats_new|新機能を見る
+whats_new_title|%1$s の新機能
+all_releases|すべてのリリース
+close|閉じる
+notes_new|新機能
+notes_fixed|修正
+notes_improved|改善
+you_have|現在のバージョン %1$s
+no_notes|このバージョンのノートはありません。

@@ -165,7 +165,7 @@ private fun ReadyPanels(vm: MainViewModel, s: FlipperState.Ready) {
     TermPanel(title = FlipperNfcFile.NFC_DIR, trailing = {
         Icon(Icons.Rounded.Refresh, stringResource(R.string.refresh), Modifier.clickable(enabled = !busy) { refresh() }, tint = look.accent)
     }) {
-        vm.flipperProgress?.let { LinearProgressIndicator(progress = { it }, Modifier.fillMaxWidth().padding(bottom = 8.dp), color = look.accent) }
+        vm.flipperProgress?.let { StyledProgress(it, Modifier.padding(bottom = 8.dp)) }
         val list = files
         when {
             list == null || busy -> Dim(stringResource(R.string.reading))

@@ -434,13 +434,32 @@ license|授權
 flipper_trademark|Flipper Zero 係 Flipper Devices Inc. 嘅商標。EMITT 同佢哋冇關係，亦冇得到佢哋認可。
 bg_comets|彗星
 bg_pulsar|脈衝星
-custom_status_on|開 · 已儲存 %1$d 套
-custom_status_off|關 · 已儲存 %1$d 套
-save_set|儲存為配色
-saved_sets|已儲存的配色
-no_sets|仲未有儲存嘅配色。開啟自訂顏色，調校好之後撳「儲存為配色」。
-sets_hint|撳一套配色就可以用。用同一個名儲存會取代嗰套。
-set_default_name|我的配色 %1$d
 set_saved|已儲存 %1$s
-delete_set_confirm|刪除配色「%1$s」？呢個動作冇得還原。
 tagmode_builtin|另一部手機讀唔到嘢？有啲手機（多數係 Android 15 或以上）會用 NFC 晶片內置嘅空白標籤回應。喺讀取嘅手機開 EMITT：佢一定讀到用緊 EMITT 嘅手機。
+custom_status_on|自訂顏色開 · 已儲存 %1$d 個主題
+custom_status_off|自訂顏色關 · 已儲存 %1$d 個主題
+save_set|儲存為主題
+saved_sets|已儲存嘅主題
+no_sets|仲未有儲存嘅主題。按你鍾意設定顏色、背景、介面同控制項，然後撳「儲存為主題」。
+sets_hint|撳一個主題就可以用：顏色、背景、介面同控制項一齊套用。用同一個名儲存會取代佢。
+set_default_name|我的主題 %1$d
+delete_set_confirm|刪除主題「%1$s」？呢個動作冇得還原。
+my_themes|我的主題
+controls|控制項
+controls_hint|開關、滑桿同進度列嘅樣式。
+ctrl_classic|經典
+ctrl_blade|刀鋒
+ctrl_segment|分段
+ctrl_bracket|括號
+ctrl_sample|示範開關
+remind_later|遲啲提我
+update_now|即刻更新
+whats_new|睇吓有咩新
+whats_new_title|%1$s 有咩新
+all_releases|所有版本
+close|關閉
+notes_new|新增
+notes_fixed|修正
+notes_improved|改善
+you_have|你而家用緊 %1$s
+no_notes|呢個版本冇更新說明。
